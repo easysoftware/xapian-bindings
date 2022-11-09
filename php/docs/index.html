@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.16: http://docutils.sourceforge.net/" />
+<title>PHP bindings for Xapian</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="php-bindings-for-xapian">
+<h1 class="title">PHP bindings for Xapian</h1>
+
+<p>The PHP5 bindings for Xapian are packaged in the <tt class="docutils literal">xapian</tt>
+extension.  The PHP API provided by this extension largely follows Xapian's C++
+API.  This document lists the differences and additions.</p>
+<p>As of Xapian version 1.3.2, these bindings require at least PHP 5.5.
+(Older versions of PHP are now out of security support, but if you really need
+support for them then Xapian 1.2 supports PHP 5.0 and later).  PHP 7 is supported
+by a separate set of bindings (this approach was taken due to extensive changes
+to PHP's C extension API between PHP 5 and PHP 7).</p>
+<p>PHP strings, arrays, etc., are converted automatically to and from the
+corresponding C++ types in the bindings, so generally you can pass arguments as
+you would expect.  One thing to be aware of though is that SWIG implements
+dispatch functions for overloaded methods based on the types of the parameters,
+so you can't always pass in a string containing a number (e.g.
+<tt class="docutils literal">&quot;42&quot;</tt>) where a number is expected as you usually can in PHP.
+You need to
+explicitly convert to the type required - e.g. use <tt class="docutils literal">(int)</tt> to
+convert to an integer, <tt class="docutils literal">(string)</tt> to string, <tt class="docutils literal">(double)</tt>
+to a floating point number.</p>
+<p>With version 1.2.6 and later, you can subclass Xapian classes in PHP and
+virtual methods defined in PHP are called from C++ in the way you'd expect.</p>
+<p>PHP has a lot of reserved words of various sorts, which sadly clash with common
+method names.  Because of this <tt class="docutils literal">empty()</tt> methods of various
+container-like classes are wrapped as <tt class="docutils literal">is_empty()</tt> for PHP
+and the <tt class="docutils literal">clone()</tt> method of the <tt class="docutils literal">XapianWeight</tt>
+class and subclasses is wrapped as <tt class="docutils literal">clone_object()</tt>.</p>
+<p>The <tt class="docutils literal">examples</tt> subdirectory contains examples showing how to use the
+PHP bindings based on the simple examples from <tt class="docutils literal"><span class="pre">xapian-examples</span></tt>:
+<a class="reference external" href="examples/simpleindex.php5">simpleindex.php5</a>,
+<a class="reference external" href="examples/simplesearch.php5">simplesearch.php5</a>,
+<a class="reference external" href="examples/simpleexpand.php5">simpleexpand.php5</a>,
+<a class="reference external" href="examples/simplematchdecider.php5">simplematchdecider.php5</a>.</p>
+<p>Note that these examples are written to work with the command line (CLI)
+version of the PHP interpreter, not through a webserver.  Xapian's PHP
+bindings may of course also be used under CGI, Apache's modphp, ISAPI,
+etc.</p>
+<div class="section" id="installation">
+<h1>Installation</h1>
+<p>Assuming you have a suitable version of PHP installed, running
+configure will automatically enable the PHP bindings, and
+<tt class="docutils literal">make install</tt> will install the extension shared library in
+the location reported by <tt class="docutils literal"><span class="pre">php-config</span> <span class="pre">--extension-dir</span></tt>.</p>
+<p>Check that php.ini has a line like <tt class="docutils literal">extension_dir = &quot;&lt;location reported by <span class="pre">php-config</span> <span class="pre">--extension-dir&gt;&quot;</span></tt>.</p>
+<p>Then add this line to php.ini: <tt class="docutils literal">extension = xapian.so</tt> (or
+whatever the library is called - not all UNIX systems use <tt class="docutils literal">.so</tt>
+as the extension, and MS Windows uses <tt class="docutils literal">.dll</tt>).</p>
+<p>If you're using PHP as a webserver module (e.g. mod_php with Apache), you
+may need to restart the webserver for this change to take effect.</p>
+<p>You also need to add <tt class="docutils literal"><span class="pre">include&amp;nbsp;&quot;xapian.php&quot;</span></tt>
+to your PHP scripts which use Xapian in order to get the PHP class wrappers.</p>
+<div class="section" id="exceptions">
+<h2>Exceptions</h2>
+<p>Exceptions thrown by Xapian are translated into PHP Exception objects
+which are thrown into the PHP script.</p>
+</div>
+<div class="section" id="object-orientation">
+<h2>Object orientation</h2>
+<p>These PHP bindings use a PHP object oriented style.</p>
+<p>To construct an object, use
+<tt class="docutils literal">$object = new <span class="pre">XapianClassName(...);</span></tt>.  Objects are destroyed
+when they go out of scope - to explicitly destroy an object you can use
+<tt class="docutils literal"><span class="pre">unset($object);</span></tt> or <tt class="docutils literal">$object = Null;</tt></p>
+<p>You invoke a method on an object using <tt class="docutils literal"><span class="pre">$object-&gt;method_name()</span></tt>.</p>
+</div>
+<div class="section" id="unicode-support">
+<h2>Unicode Support</h2>
+<p>The Xapian::Stem, Xapian::QueryParser, and
+Xapian::TermGenerator classes all assume text is in UTF-8.  If you want
+to index strings in a different encoding, use the PHP <a class="reference external" href="http://php.net/iconv">iconv function</a> to convert them to UTF-8 before passing them to Xapian, and when reading values back from Xapian.</p>
+</div>
+<div class="section" id="iterators">
+<h2>Iterators</h2>
+<p>Since Xapian 1.3.2, Xapian's iterators (except <tt class="docutils literal">XapianLatLongCoordsIterator</tt>)
+are wrapped as PHP iterators, so can be used in <tt class="docutils literal">foreach</tt>.</p>
+<p>There's one important thing to beware of currently - the <tt class="docutils literal">rewind()</tt> method
+on <tt class="docutils literal">XapianPositionIterator</tt>, <tt class="docutils literal">XapianPostingIterator</tt>,
+<tt class="docutils literal">XapianTermIterator</tt> and <tt class="docutils literal">XapianValueIterator</tt> currently does nothing.  We
+can't make it simply throw an exception, as <tt class="docutils literal">foreach</tt> calls <tt class="docutils literal">rewind()</tt>
+before iteration starts - each iterator needs to track if <tt class="docutils literal">next()</tt> has been
+called yet, and we've not yet implemented machinery for that.  This doesn't
+affect the standard pattern of iterating once with <tt class="docutils literal">foreach</tt>, but if you want
+to iterate a second time, you can't reuse the iterator (but it will currently
+fail quietly).</p>
+<p>You can safely call <tt class="docutils literal">rewind()</tt> on <tt class="docutils literal">XapianESetIterator</tt> and
+<tt class="docutils literal">XapianMSetIterator</tt>.</p>
+<p>The <tt class="docutils literal">current()</tt> method returns the result of dereferencing the iterator
+in C++ (e.g. for a <tt class="docutils literal">TermIterator</tt>, it returns the term as a string - see
+the section below for more details) and the <tt class="docutils literal">key()</tt> method returns the
+iterator object, which you can call other methods on, for example:</p>
+<pre class="literal-block">
+foreach ($db-&gt;allterms_begin() as $k =&gt; $term) {
+    print &quot;{$k-&gt;get_termfreq()}\t$term\n&quot;;
+}
+</pre>
+<p>As well as the standard PHP iterator methods, MSetIterator and ESetIterator
+also support <tt class="docutils literal">prev()</tt> to go back one place.</p>
+</div>
+<div class="section" id="iterator-dereferencing">
+<h2>Iterator dereferencing</h2>
+<p>C++ iterators are often dereferenced to get information, eg
+<tt class="docutils literal">(*it)</tt>. With PHP these are all mapped to named methods, as
+follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Iterator</th>
+<th class="head">Dereferencing method</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>PositionIterator</td>
+<td><tt class="docutils literal">get_termpos()</tt></td>
+</tr>
+<tr><td>PostingIterator</td>
+<td><tt class="docutils literal">get_docid()</tt></td>
+</tr>
+<tr><td>TermIterator</td>
+<td><tt class="docutils literal">get_term()</tt></td>
+</tr>
+<tr><td>ValueIterator</td>
+<td><tt class="docutils literal">get_value()</tt></td>
+</tr>
+<tr><td>MSetIterator</td>
+<td><tt class="docutils literal">get_docid()</tt></td>
+</tr>
+<tr><td>ESetIterator</td>
+<td><tt class="docutils literal">get_term()</tt></td>
+</tr>
+</tbody>
+</table>
+<p>Other methods, such as <tt class="docutils literal"><span class="pre">MSetIterator::get_document()</span></tt>, are
+available unchanged.</p>
+</div>
+<div class="section" id="mset">
+<h2>MSet</h2>
+<p>MSet objects have some additional methods to simplify access (these
+work using the C++ array dereferencing):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Method name</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">get_hit(index)</tt></td>
+<td>returns MSetIterator at index</td>
+</tr>
+<tr><td><tt class="docutils literal">get_document_percentage(index)</tt></td>
+<td><tt class="docutils literal">convert_to_percent(get_hit(index))</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">get_document(index)</tt></td>
+<td><tt class="docutils literal"><span class="pre">get_hit(index)-&gt;get_document()</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal">get_docid(index)</tt></td>
+<td><tt class="docutils literal"><span class="pre">get_hit(index)-&gt;get_docid()</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="database-factory-functions">
+<h2>Database Factory Functions</h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Xapian::Auto::open_stub(file)</span></tt> is wrapped as <tt class="docutils literal"><span class="pre">Xapian::auto_open_stub(file)</span></tt> (now deprecated)</li>
+<li><tt class="docutils literal"><span class="pre">Xapian::Chert::open()</span></tt> is wrapped as <tt class="docutils literal"><span class="pre">Xapian::chert_open()</span></tt> (now deprecated)</li>
+<li><tt class="docutils literal"><span class="pre">Xapian::InMemory::open()</span></tt> is wrapped as <tt class="docutils literal"><span class="pre">Xapian::inmemory_open()</span></tt> (now deprecated)</li>
+<li><tt class="docutils literal"><span class="pre">Xapian::Remote::open(...)</span></tt> is wrapped as <tt class="docutils literal"><span class="pre">Xapian::remote_open(...)</span></tt> (both the TCP and &quot;program&quot; versions are wrapped - the SWIG wrapper checks the parameter list to decide which to call).</li>
+<li><tt class="docutils literal"><span class="pre">Xapian::Remote::open_writable(...)</span></tt> is wrapped as <tt class="docutils literal"><span class="pre">Xapian::remote_open_writable(...)</span></tt> (both the TCP and &quot;program&quot; versions are wrapped - the SWIG wrapper checks the parameter list to decide which to call).</li>
+</ul>
+</div>
+<div class="section" id="constants">
+<h2>Constants</h2>
+<p>Constants are wrapped as <tt class="docutils literal">const</tt> members of the appropriate class.
+So <tt class="docutils literal"><span class="pre">Xapian::DB_CREATE_OR_OPEN</span></tt> is available as
+<tt class="docutils literal"><span class="pre">Xapian::DB_CREATE_OR_OPEN</span></tt>, <tt class="docutils literal"><span class="pre">Xapian::Query::OP_OR</span></tt> is
+available as <tt class="docutils literal"><span class="pre">XapianQuery::OP_OR</span></tt>, and so on.</p>
+</div>
+<div class="section" id="functions">
+<h2>Functions</h2>
+<p>Non-class functions are wrapped in the natural way, so the C++
+function <tt class="docutils literal"><span class="pre">Xapian::version_string</span></tt> is wrapped under the same
+name in PHP.</p>
+</div>
+<div class="section" id="query">
+<h2>Query</h2>
+<p>In C++ there's a Xapian::Query constructor which takes a query operator and
+start/end iterators specifying a number of terms or queries, plus an optional
+parameter.  In PHP, this is wrapped to accept an array listing the terms
+and/or queries (you can specify a mixture of terms and queries if you wish)
+For example:</p>
+<pre class="literal-block">
+$subq = new XapianQuery(XapianQuery::OP_AND, &quot;hello&quot;, &quot;world&quot;);
+$q = new XapianQuery(XapianQuery::OP_AND, array($subq, &quot;foo&quot;, new XapianQuery(&quot;bar&quot;, 2)));
+</pre>
+<div class="section" id="matchall-and-matchnothing">
+<h3>MatchAll and MatchNothing</h3>
+<p>In Xapian 1.3.0 and later, these are wrapped as static methods
+<tt class="docutils literal"><span class="pre">XapianQuery::MatchAll()</span></tt> and <tt class="docutils literal"><span class="pre">XapianQuery::MatchNothing()</span></tt>.</p>
+<p>If you want to be compatible with earlier versions, you can continue to use
+<tt class="docutils literal">new <span class="pre">XapianQuery('')</span></tt> for MatchAll and
+<tt class="docutils literal">new XapianQuery()</tt> for MatchNothing.</p>
+</div>
+</div>
+<div class="section" id="enquire">
+<h2>Enquire</h2>
+<p>There is an additional method <tt class="docutils literal">get_matching_terms()</tt> which takes
+an MSetIterator and returns a list of terms in the current query which
+match the document given by that iterator.  You may find this
+more convenient than using the TermIterator directly.</p>
+</div>
+</div>
+</div>
+</body>
+</html>
