@@ -609,6 +609,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_get_revision);
 ZEND_NAMED_FUNCTION(_wrap_Database_check);
 ZEND_NAMED_FUNCTION(_wrap_Database_compact);
 ZEND_NAMED_FUNCTION(_wrap_new_WritableDatabase);
+ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_add_database);
 ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_commit);
 ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_flush);
 ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_begin_transaction);

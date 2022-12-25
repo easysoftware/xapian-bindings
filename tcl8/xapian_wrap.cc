@@ -1745,7 +1745,7 @@ static swig_module_info swig_module = {swig_types, 84, 0, 0, 0, 0};
 #define SWIG_prefix  "xapian::"
 #define SWIG_namespace "xapian"
 
-#define SWIG_version "1.4.18"
+#define SWIG_version "1.4.21"
 
 #define SWIGVERSION 0x030013 
 #define SWIG_VERSION SWIGVERSION
@@ -37376,6 +37376,45 @@ _wrap_new_WritableDatabase(ClientData clientData SWIGUNUSED, Tcl_Interp *interp,
 
 
 SWIGINTERN int
+_wrap_WritableDatabase_add_database(ClientData clientData SWIGUNUSED, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
+  Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
+  Xapian::WritableDatabase *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  
+  if (SWIG_GetArgs(interp, objc, objv,"oo:xapian::WritableDatabase_add_database self other ",(void *)0,(void *)0) == TCL_ERROR) SWIG_fail;
+  res1 = SWIG_ConvertPtr(objv[1], &argp1,SWIGTYPE_p_Xapian__WritableDatabase, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WritableDatabase_add_database" "', argument " "1"" of type '" "Xapian::WritableDatabase *""'"); 
+  }
+  arg1 = reinterpret_cast< Xapian::WritableDatabase * >(argp1);
+  res2 = SWIG_ConvertPtr(objv[2], &argp2, SWIGTYPE_p_Xapian__WritableDatabase,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WritableDatabase_add_database" "', argument " "2"" of type '" "Xapian::WritableDatabase const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "WritableDatabase_add_database" "', argument " "2"" of type '" "Xapian::WritableDatabase const &""'"); 
+  }
+  arg2 = reinterpret_cast< Xapian::WritableDatabase * >(argp2);
+  {
+    try {
+      (arg1)->add_database((Xapian::WritableDatabase const &)*arg2);
+    } catch (const Xapian::Error &e) {
+      return XapianTclHandleError(interp, e);
+    } catch (...) {
+      return XapianTclHandleError(interp);
+    }
+  }
+  
+  return TCL_OK;
+fail:
+  return TCL_ERROR;
+}
+
+
+SWIGINTERN int
 _wrap_WritableDatabase_commit(ClientData clientData SWIGUNUSED, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
   Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
   void *argp1 = 0 ;
@@ -38430,6 +38469,7 @@ Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) obj;
 delete arg1;
 }
 static swig_method swig_Xapian_WritableDatabase_methods[] = {
+    {"add_database", _wrap_WritableDatabase_add_database}, 
     {"commit", _wrap_WritableDatabase_commit}, 
     {"flush", _wrap_WritableDatabase_flush}, 
     {"begin_transaction", _wrap_WritableDatabase_begin_transaction}, 
@@ -40239,6 +40279,7 @@ static swig_command_info swig_commands[] = {
     { SWIG_prefix "Database", (swig_wrapper_func) SWIG_ObjectConstructor, (ClientData)&_wrap_class_Xapian_Database},
     { SWIG_prefix "delete_WritableDatabase", (swig_wrapper_func) _wrap_delete_WritableDatabase, NULL},
     { SWIG_prefix "new_WritableDatabase", (swig_wrapper_func) _wrap_new_WritableDatabase, NULL},
+    { SWIG_prefix "WritableDatabase_add_database", (swig_wrapper_func) _wrap_WritableDatabase_add_database, NULL},
     { SWIG_prefix "WritableDatabase_commit", (swig_wrapper_func) _wrap_WritableDatabase_commit, NULL},
     { SWIG_prefix "WritableDatabase_flush", (swig_wrapper_func) _wrap_WritableDatabase_flush, NULL},
     { SWIG_prefix "WritableDatabase_begin_transaction", (swig_wrapper_func) _wrap_WritableDatabase_begin_transaction, NULL},
@@ -41171,6 +41212,7 @@ SWIGEXPORT int SWIG_init(Tcl_Interp *interp) {
   SWIG_Tcl_SetConstantObj(interp, "xapian::QueryParser_FLAG_AUTO_MULTIWORD_SYNONYMS", SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_AUTO_MULTIWORD_SYNONYMS)));
   SWIG_Tcl_SetConstantObj(interp, "xapian::QueryParser_FLAG_CJK_NGRAM", SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_CJK_NGRAM)));
   SWIG_Tcl_SetConstantObj(interp, "xapian::QueryParser_FLAG_ACCUMULATE", SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_ACCUMULATE)));
+  SWIG_Tcl_SetConstantObj(interp, "xapian::QueryParser_FLAG_NO_POSITIONS", SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_NO_POSITIONS)));
   SWIG_Tcl_SetConstantObj(interp, "xapian::QueryParser_FLAG_DEFAULT", SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_DEFAULT)));
   SWIG_Tcl_SetConstantObj(interp, "xapian::QueryParser_STEM_NONE", SWIG_From_int(static_cast< int >(Xapian::QueryParser::STEM_NONE)));
   SWIG_Tcl_SetConstantObj(interp, "xapian::QueryParser_STEM_SOME", SWIG_From_int(static_cast< int >(Xapian::QueryParser::STEM_SOME)));

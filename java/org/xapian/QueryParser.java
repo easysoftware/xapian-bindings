@@ -177,6 +177,7 @@ public class QueryParser {
     public final static QueryParser.feature_flag FLAG_AUTO_MULTIWORD_SYNONYMS = new QueryParser.feature_flag("FLAG_AUTO_MULTIWORD_SYNONYMS", XapianJNI.QueryParser_FLAG_AUTO_MULTIWORD_SYNONYMS_get());
     public final static QueryParser.feature_flag FLAG_CJK_NGRAM = new QueryParser.feature_flag("FLAG_CJK_NGRAM", XapianJNI.QueryParser_FLAG_CJK_NGRAM_get());
     public final static QueryParser.feature_flag FLAG_ACCUMULATE = new QueryParser.feature_flag("FLAG_ACCUMULATE", XapianJNI.QueryParser_FLAG_ACCUMULATE_get());
+    public final static QueryParser.feature_flag FLAG_NO_POSITIONS = new QueryParser.feature_flag("FLAG_NO_POSITIONS", XapianJNI.QueryParser_FLAG_NO_POSITIONS_get());
     public final static QueryParser.feature_flag FLAG_DEFAULT = new QueryParser.feature_flag("FLAG_DEFAULT", XapianJNI.QueryParser_FLAG_DEFAULT_get());
 
     public final int swigValue() {
@@ -213,7 +214,7 @@ public class QueryParser {
       swigNext = this.swigValue+1;
     }
 
-    private static feature_flag[] swigValues = { FLAG_BOOLEAN, FLAG_PHRASE, FLAG_LOVEHATE, FLAG_BOOLEAN_ANY_CASE, FLAG_WILDCARD, FLAG_PURE_NOT, FLAG_PARTIAL, FLAG_SPELLING_CORRECTION, FLAG_SYNONYM, FLAG_AUTO_SYNONYMS, FLAG_AUTO_MULTIWORD_SYNONYMS, FLAG_CJK_NGRAM, FLAG_ACCUMULATE, FLAG_DEFAULT };
+    private static feature_flag[] swigValues = { FLAG_BOOLEAN, FLAG_PHRASE, FLAG_LOVEHATE, FLAG_BOOLEAN_ANY_CASE, FLAG_WILDCARD, FLAG_PURE_NOT, FLAG_PARTIAL, FLAG_SPELLING_CORRECTION, FLAG_SYNONYM, FLAG_AUTO_SYNONYMS, FLAG_AUTO_MULTIWORD_SYNONYMS, FLAG_CJK_NGRAM, FLAG_ACCUMULATE, FLAG_NO_POSITIONS, FLAG_DEFAULT };
     private static int swigNext = 0;
     private final int swigValue;
     private final String swigName;

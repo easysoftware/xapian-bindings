@@ -20359,6 +20359,30 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Xapian_new_WritableDatabase__SWIG_3(char * 
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_Xapian_WritableDatabase_AddDatabase(void * jarg1, void * jarg2) {
+  Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
+  Xapian::WritableDatabase *arg2 = 0 ;
+  
+  arg1 = (Xapian::WritableDatabase *)jarg1; 
+  arg2 = (Xapian::WritableDatabase *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Xapian::WritableDatabase const & type is null", 0);
+    return ;
+  } 
+  {
+    try {
+      (arg1)->add_database((Xapian::WritableDatabase const &)*arg2);
+    } catch (...) {
+      string msg;
+      int code = XapianExceptionHandler(msg);
+      {
+        SWIG_CSharpException(code, msg.c_str()); return ; 
+      };
+    }
+  }
+}
+
+
 SWIGEXPORT void SWIGSTDCALL CSharp_Xapian_WritableDatabase_Commit(void * jarg1) {
   Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
   

@@ -2538,6 +2538,8 @@ class XapianQueryParser {
 
 	const FLAG_ACCUMULATE = 65536;
 
+	const FLAG_NO_POSITIONS = QueryParser_FLAG_NO_POSITIONS;
+
 	const FLAG_DEFAULT = QueryParser_FLAG_DEFAULT;
 
 	const STEM_NONE = 0;
@@ -4922,6 +4924,10 @@ class XapianWritableDatabase extends XapianDatabase {
 		case 0: $this->_cPtr=new_WritableDatabase(); break;
 		default: $this->_cPtr=new_WritableDatabase($path,$flags,$block_size);
 		}
+	}
+
+	function add_database($other) {
+		WritableDatabase_add_database($this->_cPtr,$other);
 	}
 
 	function commit() {

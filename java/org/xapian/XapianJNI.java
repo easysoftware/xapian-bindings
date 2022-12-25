@@ -472,6 +472,7 @@ public class XapianJNI {
   public final static native int QueryParser_FLAG_AUTO_MULTIWORD_SYNONYMS_get();
   public final static native int QueryParser_FLAG_CJK_NGRAM_get();
   public final static native int QueryParser_FLAG_ACCUMULATE_get();
+  public final static native int QueryParser_FLAG_NO_POSITIONS_get();
   public final static native int QueryParser_FLAG_DEFAULT_get();
   public final static native long new_QueryParser();
   public final static native void delete_QueryParser(long jarg1);
@@ -930,6 +931,7 @@ public class XapianJNI {
   public final static native long new_WritableDatabase__SWIG_1(String jarg1, int jarg2, int jarg3);
   public final static native long new_WritableDatabase__SWIG_2(String jarg1, int jarg2);
   public final static native long new_WritableDatabase__SWIG_3(String jarg1);
+  public final static native void WritableDatabase_addDatabase(long jarg1, WritableDatabase jarg1_, long jarg2, WritableDatabase jarg2_);
   public final static native void WritableDatabase_commit(long jarg1, WritableDatabase jarg1_);
   public final static native void WritableDatabase_flush(long jarg1, WritableDatabase jarg1_);
   public final static native void WritableDatabase_beginTransaction__SWIG_0(long jarg1, WritableDatabase jarg1_, boolean jarg2);

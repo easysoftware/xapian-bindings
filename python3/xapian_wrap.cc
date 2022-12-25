@@ -25,9 +25,12 @@
 # pragma clang diagnostic pop
 #endif
 
-/* Override SWIG's standard GIL locking machinery - we want to avoid the
- * overhead of thread locking when the user's code isn't using threads,
- * and to handle the GIL in a way which also works in sub-interpreters.
+/* Override SWIG's standard GIL locking machinery - we want to handle the GIL
+ * in a way which also works in sub-interpreters.
+ *
+ * For Python < 3.7 we can also avoid the overhead of thread locking when the
+ * user's code isn't using threads (since 3.7, Python always initialises
+ * threads.)
  */
 #define SWIG_PYTHON_NO_USE_GIL
 
@@ -84,13 +87,17 @@ class XapianSWIG_Python_Thread_Block {
     bool status;
   public:
     XapianSWIG_Python_Thread_Block() : status(false) {
-	if (PyEval_ThreadsInitialized()) {
-	    swig_pythreadstate_ensure_init();
-	    PyThreadState * ts = swig_pythreadstate_reset();
-	    if (ts) {
-		status = true;
-		PyEval_RestoreThread(ts);
-	    }
+#if PY_VERSION_HEX < 0x03070000
+	// Since 3.7, Python initialises the GIL in PyInitialize() so
+	// PyEval_ThreadsInitialized() is no longer useful and was
+	// deprecated in 3.9.
+	if (!PyEval_ThreadsInitialized()) return;
+#endif
+	swig_pythreadstate_ensure_init();
+	PyThreadState* ts = swig_pythreadstate_reset();
+	if (ts) {
+	    status = true;
+	    PyEval_RestoreThread(ts);
 	}
     }
     void end() {
@@ -106,12 +113,19 @@ class XapianSWIG_Python_Thread_Block {
 class XapianSWIG_Python_Thread_Allow {
     bool status;
   public:
-    XapianSWIG_Python_Thread_Allow() : status(PyEval_ThreadsInitialized()) {
-	if (status) {
-	    swig_pythreadstate_ensure_init();
-	    if (swig_pythreadstate_set(PyEval_SaveThread()))
-		Py_FatalError("swig_pythreadstate set in XapianSWIG_Python_Thread_Allow ctor");
+    XapianSWIG_Python_Thread_Allow() : status(true) {
+#if PY_VERSION_HEX < 0x03070000
+	// Since 3.7, Python initialises the GIL in PyInitialize() so
+	// PyEval_ThreadsInitialized() is no longer useful and was
+	// deprecated in 3.9.
+	if (!PyEval_ThreadsInitialized()) {
+	    status = false;
+	    return;
 	}
+#endif
+	swig_pythreadstate_ensure_init();
+	if (swig_pythreadstate_set(PyEval_SaveThread()))
+	    Py_FatalError("swig_pythreadstate set in XapianSWIG_Python_Thread_Allow ctor");
     }
     void end() {
 	if (status) {
@@ -3804,7 +3818,7 @@ namespace swig {
 
 /* python.i: SWIG interface file for the Python bindings
  *
- * Copyright (C) 2011,2012,2013,2014,2015,2016,2018,2019 Olly Betts
+ * Copyright (C) 2011,2012,2013,2014,2015,2016,2018,2019,2021 Olly Betts
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -8580,9 +8594,16 @@ SWIGINTERN PyObject *_wrap_delete_Error(PyObject *SWIGUNUSEDPARM(self), PyObject
   }
   arg1 = reinterpret_cast< Xapian::Error * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -8613,9 +8634,16 @@ SWIGINTERN PyObject *_wrap_delete_LogicError(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   arg1 = reinterpret_cast< Xapian::LogicError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -8646,9 +8674,16 @@ SWIGINTERN PyObject *_wrap_delete_RuntimeError(PyObject *SWIGUNUSEDPARM(self), P
   }
   arg1 = reinterpret_cast< Xapian::RuntimeError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -8975,9 +9010,16 @@ SWIGINTERN PyObject *_wrap_delete_AssertionError(PyObject *SWIGUNUSEDPARM(self),
   }
   arg1 = reinterpret_cast< Xapian::AssertionError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -9308,9 +9350,16 @@ SWIGINTERN PyObject *_wrap_delete_InvalidArgumentError(PyObject *SWIGUNUSEDPARM(
   }
   arg1 = reinterpret_cast< Xapian::InvalidArgumentError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -9641,9 +9690,16 @@ SWIGINTERN PyObject *_wrap_delete_InvalidOperationError(PyObject *SWIGUNUSEDPARM
   }
   arg1 = reinterpret_cast< Xapian::InvalidOperationError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -9974,9 +10030,16 @@ SWIGINTERN PyObject *_wrap_delete_UnimplementedError(PyObject *SWIGUNUSEDPARM(se
   }
   arg1 = reinterpret_cast< Xapian::UnimplementedError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -10307,9 +10370,16 @@ SWIGINTERN PyObject *_wrap_delete_DatabaseError(PyObject *SWIGUNUSEDPARM(self), 
   }
   arg1 = reinterpret_cast< Xapian::DatabaseError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -10640,9 +10710,16 @@ SWIGINTERN PyObject *_wrap_delete_DatabaseCorruptError(PyObject *SWIGUNUSEDPARM(
   }
   arg1 = reinterpret_cast< Xapian::DatabaseCorruptError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -10973,9 +11050,16 @@ SWIGINTERN PyObject *_wrap_delete_DatabaseCreateError(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = reinterpret_cast< Xapian::DatabaseCreateError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11306,9 +11390,16 @@ SWIGINTERN PyObject *_wrap_delete_DatabaseLockError(PyObject *SWIGUNUSEDPARM(sel
   }
   arg1 = reinterpret_cast< Xapian::DatabaseLockError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11639,9 +11730,16 @@ SWIGINTERN PyObject *_wrap_delete_DatabaseModifiedError(PyObject *SWIGUNUSEDPARM
   }
   arg1 = reinterpret_cast< Xapian::DatabaseModifiedError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11972,9 +12070,16 @@ SWIGINTERN PyObject *_wrap_delete_DatabaseOpeningError(PyObject *SWIGUNUSEDPARM(
   }
   arg1 = reinterpret_cast< Xapian::DatabaseOpeningError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -12305,9 +12410,16 @@ SWIGINTERN PyObject *_wrap_delete_DatabaseVersionError(PyObject *SWIGUNUSEDPARM(
   }
   arg1 = reinterpret_cast< Xapian::DatabaseVersionError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -12638,9 +12750,16 @@ SWIGINTERN PyObject *_wrap_delete_DocNotFoundError(PyObject *SWIGUNUSEDPARM(self
   }
   arg1 = reinterpret_cast< Xapian::DocNotFoundError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -12971,9 +13090,16 @@ SWIGINTERN PyObject *_wrap_delete_FeatureUnavailableError(PyObject *SWIGUNUSEDPA
   }
   arg1 = reinterpret_cast< Xapian::FeatureUnavailableError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -13304,9 +13430,16 @@ SWIGINTERN PyObject *_wrap_delete_InternalError(PyObject *SWIGUNUSEDPARM(self), 
   }
   arg1 = reinterpret_cast< Xapian::InternalError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -13637,9 +13770,16 @@ SWIGINTERN PyObject *_wrap_delete_NetworkError(PyObject *SWIGUNUSEDPARM(self), P
   }
   arg1 = reinterpret_cast< Xapian::NetworkError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -13970,9 +14110,16 @@ SWIGINTERN PyObject *_wrap_delete_NetworkTimeoutError(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = reinterpret_cast< Xapian::NetworkTimeoutError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -14303,9 +14450,16 @@ SWIGINTERN PyObject *_wrap_delete_QueryParserError(PyObject *SWIGUNUSEDPARM(self
   }
   arg1 = reinterpret_cast< Xapian::QueryParserError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -14636,9 +14790,16 @@ SWIGINTERN PyObject *_wrap_delete_SerialisationError(PyObject *SWIGUNUSEDPARM(se
   }
   arg1 = reinterpret_cast< Xapian::SerialisationError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -14969,9 +15130,16 @@ SWIGINTERN PyObject *_wrap_delete_RangeError(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   arg1 = reinterpret_cast< Xapian::RangeError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -15302,9 +15470,16 @@ SWIGINTERN PyObject *_wrap_delete_WildcardError(PyObject *SWIGUNUSEDPARM(self), 
   }
   arg1 = reinterpret_cast< Xapian::WildcardError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -15635,9 +15810,16 @@ SWIGINTERN PyObject *_wrap_delete_DatabaseNotFoundError(PyObject *SWIGUNUSEDPARM
   }
   arg1 = reinterpret_cast< Xapian::DatabaseNotFoundError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -15968,9 +16150,16 @@ SWIGINTERN PyObject *_wrap_delete_DatabaseClosedError(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = reinterpret_cast< Xapian::DatabaseClosedError * >(argp1);
   {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    delete arg1;
-    SWIG_PYTHON_THREAD_END_ALLOW;
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        delete arg1;
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
   }
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -47989,6 +48178,49 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_WritableDatabase_add_database(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
+  Xapian::WritableDatabase *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"WritableDatabase_add_database",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Xapian__WritableDatabase, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WritableDatabase_add_database" "', argument " "1"" of type '" "Xapian::WritableDatabase *""'"); 
+  }
+  arg1 = reinterpret_cast< Xapian::WritableDatabase * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_Xapian__WritableDatabase,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WritableDatabase_add_database" "', argument " "2"" of type '" "Xapian::WritableDatabase const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "WritableDatabase_add_database" "', argument " "2"" of type '" "Xapian::WritableDatabase const &""'"); 
+  }
+  arg2 = reinterpret_cast< Xapian::WritableDatabase * >(argp2);
+  {
+    try {
+      {
+        SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+        (arg1)->add_database((Xapian::WritableDatabase const &)*arg2);
+        SWIG_PYTHON_THREAD_END_ALLOW;
+      }
+    } catch (...) {
+      Xapian::SetPythonException();
+      SWIG_fail;
+    }
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_WritableDatabase_commit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
@@ -49907,38 +50139,37 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"The type of this error (e.g. \"DocNotFoundError\".)\n"
 		"\n"
-		"const char* Xapian::Error::get_type() const \n"
+		"const char * Xapian::Error::get_type() const Xapian::Error::get_type\n"
 		""},
 	 { (char *)"Error_get_msg", (PyCFunction)_wrap_Error_get_msg, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Message giving details of the error, intended for human consumption.\n"
 		"\n"
-		"const std::string& Xapian::Error::get_msg() const \n"
+		"const std::string & Xapian::Error::get_msg() const\n"
+		"Xapian::Error::get_msg\n"
 		""},
 	 { (char *)"Error_get_context", (PyCFunction)_wrap_Error_get_context, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Optional context information.\n"
 		"\n"
-		"const std::string& Xapian::Error::get_context() const\n"
-		"\n"
-		"This context is intended for use by Xapian::ErrorHandler (for example\n"
-		"so it can know which remote server is unreliable and report the\n"
-		"problem and remove that server from those being searched). But it's\n"
-		"typically a plain-text string, and so also fit for human consumption.\n"
-		"\n"
+		"const std::string & Xapian::Error::get_context() const\n"
+		"Xapian::Error::get_context This context is intended for use by\n"
+		"Xapian::ErrorHandler (for example so it can know which remote server\n"
+		"is unreliable and report the problem and remove that server from those\n"
+		"being searched). But it's typically a plain-text string, and so also\n"
+		"fit for human consumption. \n"
 		""},
 	 { (char *)"Error_get_error_string", (PyCFunction)_wrap_Error_get_error_string, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Returns any system error string associated with this exception.\n"
 		"\n"
-		"const char* Xapian::Error::get_error_string() const\n"
-		"\n"
-		"The system error string may come from errno, h_errno (on UNIX), or\n"
-		"GetLastError() (on MS Windows). If there is no associated system error\n"
-		"string, NULL is returned. \n"
+		"const char * Xapian::Error::get_error_string() const\n"
+		"Xapian::Error::get_error_string The system error string may come from\n"
+		"errno, h_errno (on UNIX), or GetLastError() (on MS Windows). If there\n"
+		"is no associated system error string, NULL is returned. \n"
 		""},
 	 { (char *)"Error___str__", (PyCFunction)_wrap_Error___str__, METH_O, NULL},
 	 { (char *)"delete_Error", (PyCFunction)_wrap_delete_Error, METH_O, NULL},
@@ -49953,7 +50184,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::AssertionError::AssertionError(const std::string &msg_, int\n"
-		"errno_)\n"
+		"errno_) Xapian::AssertionError::AssertionError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -49972,7 +50203,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::InvalidArgumentError::InvalidArgumentError(const std::string\n"
-		"&msg_, int errno_)\n"
+		"&msg_, int errno_) Xapian::InvalidArgumentError::InvalidArgumentError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -49992,6 +50223,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::InvalidOperationError::InvalidOperationError(const std::string\n"
 		"&msg_, int errno_)\n"
+		"Xapian::InvalidOperationError::InvalidOperationError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50010,7 +50242,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::UnimplementedError::UnimplementedError(const std::string\n"
-		"&msg_, int errno_)\n"
+		"&msg_, int errno_) Xapian::UnimplementedError::UnimplementedError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50029,7 +50261,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::DatabaseError::DatabaseError(const std::string &msg_, int\n"
-		"errno_)\n"
+		"errno_) Xapian::DatabaseError::DatabaseError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50048,7 +50280,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::DatabaseCorruptError::DatabaseCorruptError(const std::string\n"
-		"&msg_, int errno_)\n"
+		"&msg_, int errno_) Xapian::DatabaseCorruptError::DatabaseCorruptError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50067,7 +50299,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::DatabaseCreateError::DatabaseCreateError(const std::string\n"
-		"&msg_, int errno_)\n"
+		"&msg_, int errno_) Xapian::DatabaseCreateError::DatabaseCreateError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50086,7 +50318,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::DatabaseLockError::DatabaseLockError(const std::string &msg_,\n"
-		"int errno_)\n"
+		"int errno_) Xapian::DatabaseLockError::DatabaseLockError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50106,6 +50338,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::DatabaseModifiedError::DatabaseModifiedError(const std::string\n"
 		"&msg_, int errno_)\n"
+		"Xapian::DatabaseModifiedError::DatabaseModifiedError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50124,7 +50357,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::DatabaseOpeningError::DatabaseOpeningError(const std::string\n"
-		"&msg_, int errno_)\n"
+		"&msg_, int errno_) Xapian::DatabaseOpeningError::DatabaseOpeningError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50143,7 +50376,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::DatabaseVersionError::DatabaseVersionError(const std::string\n"
-		"&msg_, int errno_)\n"
+		"&msg_, int errno_) Xapian::DatabaseVersionError::DatabaseVersionError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50162,7 +50395,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::DocNotFoundError::DocNotFoundError(const std::string &msg_,\n"
-		"int errno_)\n"
+		"int errno_) Xapian::DocNotFoundError::DocNotFoundError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50182,6 +50415,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::FeatureUnavailableError::FeatureUnavailableError(const\n"
 		"std::string &msg_, int errno_)\n"
+		"Xapian::FeatureUnavailableError::FeatureUnavailableError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50200,7 +50434,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::InternalError::InternalError(const std::string &msg_, int\n"
-		"errno_)\n"
+		"errno_) Xapian::InternalError::InternalError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50219,7 +50453,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::NetworkError::NetworkError(const std::string &msg_, int\n"
-		"errno_)\n"
+		"errno_) Xapian::NetworkError::NetworkError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50238,7 +50472,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::NetworkTimeoutError::NetworkTimeoutError(const std::string\n"
-		"&msg_, int errno_)\n"
+		"&msg_, int errno_) Xapian::NetworkTimeoutError::NetworkTimeoutError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50257,7 +50491,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::QueryParserError::QueryParserError(const std::string &msg_,\n"
-		"int errno_)\n"
+		"int errno_) Xapian::QueryParserError::QueryParserError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50276,7 +50510,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::SerialisationError::SerialisationError(const std::string\n"
-		"&msg_, int errno_)\n"
+		"&msg_, int errno_) Xapian::SerialisationError::SerialisationError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50295,6 +50529,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::RangeError::RangeError(const std::string &msg_, int errno_)\n"
+		"Xapian::RangeError::RangeError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50313,7 +50548,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::WildcardError::WildcardError(const std::string &msg_, int\n"
-		"errno_)\n"
+		"errno_) Xapian::WildcardError::WildcardError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50333,6 +50568,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::DatabaseNotFoundError::DatabaseNotFoundError(const std::string\n"
 		"&msg_, int errno_)\n"
+		"Xapian::DatabaseNotFoundError::DatabaseNotFoundError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50351,7 +50587,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct from message and errno value.\n"
 		"\n"
 		"Xapian::DatabaseClosedError::DatabaseClosedError(const std::string\n"
-		"&msg_, int errno_)\n"
+		"&msg_, int errno_) Xapian::DatabaseClosedError::DatabaseClosedError\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50374,16 +50610,17 @@ static PyMethodDef SwigMethods[] = {
 		"Default constructor.\n"
 		"\n"
 		"Xapian::PositionIterator::PositionIterator()\n"
-		"\n"
-		"Creates an uninitialised iterator, which can't be used before being\n"
-		"assigned to, but is sometimes syntactically convenient. \n"
+		"Xapian::PositionIterator::PositionIterator Creates an uninitialised\n"
+		"iterator, which can't be used before being assigned to, but is\n"
+		"sometimes syntactically convenient. \n"
 		""},
 	 { (char *)"delete__PositionIterator", (PyCFunction)_wrap_delete__PositionIterator, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::PositionIterator::~PositionIterator() \n"
+		"Xapian::PositionIterator::~PositionIterator()\n"
+		"Xapian::PositionIterator::~PositionIterator\n"
 		""},
 	 { (char *)"_PositionIterator_skip_to", _wrap__PositionIterator_skip_to, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -50391,6 +50628,7 @@ static PyMethodDef SwigMethods[] = {
 		"Advance the iterator to term position termpos.\n"
 		"\n"
 		"void Xapian::PositionIterator::skip_to(Xapian::termpos termpos)\n"
+		"Xapian::PositionIterator::skip_to\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50404,7 +50642,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::PositionIterator::get_description() const \n"
+		"std::string Xapian::PositionIterator::get_description() const\n"
+		"Xapian::PositionIterator::get_description\n"
 		""},
 	 { (char *)"_PositionIterator___eq__", _wrap__PositionIterator___eq__, METH_VARARGS, NULL},
 	 { (char *)"_PositionIterator___ne__", _wrap__PositionIterator___ne__, METH_VARARGS, NULL},
@@ -50419,37 +50658,41 @@ static PyMethodDef SwigMethods[] = {
 		"Default constructor.\n"
 		"\n"
 		"Xapian::PostingIterator::PostingIterator()\n"
-		"\n"
-		"Creates an uninitialised iterator, which can't be used before being\n"
-		"assigned to, but is sometimes syntactically convenient. \n"
+		"Xapian::PostingIterator::PostingIterator Creates an uninitialised\n"
+		"iterator, which can't be used before being assigned to, but is\n"
+		"sometimes syntactically convenient. \n"
 		""},
 	 { (char *)"delete__PostingIterator", (PyCFunction)_wrap_delete__PostingIterator, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::PostingIterator::~PostingIterator() \n"
+		"Xapian::PostingIterator::~PostingIterator()\n"
+		"Xapian::PostingIterator::~PostingIterator\n"
 		""},
 	 { (char *)"_PostingIterator_get_wdf", (PyCFunction)_wrap__PostingIterator_get_wdf, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return the wdf for the document at the current position.\n"
 		"\n"
-		"Xapian::termcount Xapian::PostingIterator::get_wdf() const \n"
+		"Xapian::termcount Xapian::PostingIterator::get_wdf() const\n"
+		"Xapian::PostingIterator::get_wdf\n"
 		""},
 	 { (char *)"_PostingIterator_get_doclength", (PyCFunction)_wrap__PostingIterator_get_doclength, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return the length of the document at the current position.\n"
 		"\n"
-		"Xapian::termcount Xapian::PostingIterator::get_doclength() const \n"
+		"Xapian::termcount Xapian::PostingIterator::get_doclength() const\n"
+		"Xapian::PostingIterator::get_doclength\n"
 		""},
 	 { (char *)"_PostingIterator_get_unique_terms", (PyCFunction)_wrap__PostingIterator_get_unique_terms, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return the number of unique terms in the current document.\n"
 		"\n"
-		"Xapian::termcount Xapian::PostingIterator::get_unique_terms() const \n"
+		"Xapian::termcount Xapian::PostingIterator::get_unique_terms() const\n"
+		"Xapian::PostingIterator::get_unique_terms\n"
 		""},
 	 { (char *)"_PostingIterator__positionlist_begin", (PyCFunction)_wrap__PostingIterator__positionlist_begin, METH_O, (char *)"\n"
 		"\n"
@@ -50457,14 +50700,15 @@ static PyMethodDef SwigMethods[] = {
 		"Return a PositionIterator for the current document.\n"
 		"\n"
 		"PositionIterator Xapian::PostingIterator::positionlist_begin() const\n"
-		"\n"
+		"Xapian::PostingIterator::positionlist_begin\n"
 		""},
 	 { (char *)"_PostingIterator__positionlist_end", (PyCFunction)_wrap__PostingIterator__positionlist_end, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return an end PositionIterator for the current document.\n"
 		"\n"
-		"PositionIterator Xapian::PostingIterator::positionlist_end() const \n"
+		"PositionIterator Xapian::PostingIterator::positionlist_end() const\n"
+		"Xapian::PostingIterator::positionlist_end\n"
 		""},
 	 { (char *)"_PostingIterator_skip_to", _wrap__PostingIterator_skip_to, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -50472,6 +50716,7 @@ static PyMethodDef SwigMethods[] = {
 		"Advance the iterator to document did.\n"
 		"\n"
 		"void Xapian::PostingIterator::skip_to(Xapian::docid did)\n"
+		"Xapian::PostingIterator::skip_to\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50485,7 +50730,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::PostingIterator::get_description() const \n"
+		"std::string Xapian::PostingIterator::get_description() const\n"
+		"Xapian::PostingIterator::get_description\n"
 		""},
 	 { (char *)"_PostingIterator___eq__", _wrap__PostingIterator___eq__, METH_VARARGS, NULL},
 	 { (char *)"_PostingIterator___ne__", _wrap__PostingIterator___ne__, METH_VARARGS, NULL},
@@ -50500,51 +50746,57 @@ static PyMethodDef SwigMethods[] = {
 		"Default constructor.\n"
 		"\n"
 		"Xapian::TermIterator::TermIterator()\n"
-		"\n"
-		"Creates an uninitialised iterator, which can't be used before being\n"
-		"assigned to, but is sometimes syntactically convenient. \n"
+		"Xapian::TermIterator::TermIterator Creates an uninitialised iterator,\n"
+		"which can't be used before being assigned to, but is sometimes\n"
+		"syntactically convenient. \n"
 		""},
 	 { (char *)"delete__TermIterator", (PyCFunction)_wrap_delete__TermIterator, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::TermIterator::~TermIterator() \n"
+		"Xapian::TermIterator::~TermIterator()\n"
+		"Xapian::TermIterator::~TermIterator\n"
 		""},
 	 { (char *)"_TermIterator_get_wdf", (PyCFunction)_wrap__TermIterator_get_wdf, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return the wdf for the term at the current position.\n"
 		"\n"
-		"Xapian::termcount Xapian::TermIterator::get_wdf() const \n"
+		"Xapian::termcount Xapian::TermIterator::get_wdf() const\n"
+		"Xapian::TermIterator::get_wdf\n"
 		""},
 	 { (char *)"_TermIterator_get_termfreq", (PyCFunction)_wrap__TermIterator_get_termfreq, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return the term frequency for the term at the current position.\n"
 		"\n"
-		"Xapian::doccount Xapian::TermIterator::get_termfreq() const \n"
+		"Xapian::doccount Xapian::TermIterator::get_termfreq() const\n"
+		"Xapian::TermIterator::get_termfreq\n"
 		""},
 	 { (char *)"_TermIterator_positionlist_count", (PyCFunction)_wrap__TermIterator_positionlist_count, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return the length of the position list for the current position.\n"
 		"\n"
-		"Xapian::termcount Xapian::TermIterator::positionlist_count() const \n"
+		"Xapian::termcount Xapian::TermIterator::positionlist_count() const\n"
+		"Xapian::TermIterator::positionlist_count\n"
 		""},
 	 { (char *)"_TermIterator__positionlist_begin", (PyCFunction)_wrap__TermIterator__positionlist_begin, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return a PositionIterator for the current term.\n"
 		"\n"
-		"PositionIterator Xapian::TermIterator::positionlist_begin() const \n"
+		"PositionIterator Xapian::TermIterator::positionlist_begin() const\n"
+		"Xapian::TermIterator::positionlist_begin\n"
 		""},
 	 { (char *)"_TermIterator__positionlist_end", (PyCFunction)_wrap__TermIterator__positionlist_end, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return an end PositionIterator for the current term.\n"
 		"\n"
-		"PositionIterator Xapian::TermIterator::positionlist_end() const \n"
+		"PositionIterator Xapian::TermIterator::positionlist_end() const\n"
+		"Xapian::TermIterator::positionlist_end\n"
 		""},
 	 { (char *)"_TermIterator_skip_to", _wrap__TermIterator_skip_to, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -50552,9 +50804,9 @@ static PyMethodDef SwigMethods[] = {
 		"Advance the iterator to term term.\n"
 		"\n"
 		"void Xapian::TermIterator::skip_to(const std::string &term)\n"
-		"\n"
-		"If the iteration is over an unsorted list of terms, then this method\n"
-		"will throw Xapian::InvalidOperationError.\n"
+		"Xapian::TermIterator::skip_to If the iteration is over an unsorted\n"
+		"list of terms, then this method will throw\n"
+		"Xapian::InvalidOperationError.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50568,7 +50820,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::TermIterator::get_description() const \n"
+		"std::string Xapian::TermIterator::get_description() const\n"
+		"Xapian::TermIterator::get_description\n"
 		""},
 	 { (char *)"_TermIterator___eq__", _wrap__TermIterator___eq__, METH_VARARGS, NULL},
 	 { (char *)"_TermIterator___ne__", _wrap__TermIterator___ne__, METH_VARARGS, NULL},
@@ -50583,16 +50836,17 @@ static PyMethodDef SwigMethods[] = {
 		"Default constructor.\n"
 		"\n"
 		"Xapian::ValueIterator::ValueIterator()\n"
-		"\n"
-		"Creates an uninitialised iterator, which can't be used before being\n"
-		"assigned to, but is sometimes syntactically convenient. \n"
+		"Xapian::ValueIterator::ValueIterator Creates an uninitialised\n"
+		"iterator, which can't be used before being assigned to, but is\n"
+		"sometimes syntactically convenient. \n"
 		""},
 	 { (char *)"delete__ValueIterator", (PyCFunction)_wrap_delete__ValueIterator, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::ValueIterator::~ValueIterator() \n"
+		"Xapian::ValueIterator::~ValueIterator()\n"
+		"Xapian::ValueIterator::~ValueIterator\n"
 		""},
 	 { (char *)"_ValueIterator_get_docid", (PyCFunction)_wrap__ValueIterator_get_docid, METH_O, (char *)"\n"
 		"\n"
@@ -50600,9 +50854,8 @@ static PyMethodDef SwigMethods[] = {
 		"Return the docid at the current position.\n"
 		"\n"
 		"Xapian::docid Xapian::ValueIterator::get_docid() const\n"
-		"\n"
-		"If we're iterating over values of a document, this method will throw\n"
-		"Xapian::InvalidOperationError. \n"
+		"Xapian::ValueIterator::get_docid If we're iterating over values of a\n"
+		"document, this method will throw Xapian::InvalidOperationError. \n"
 		""},
 	 { (char *)"_ValueIterator_get_valueno", (PyCFunction)_wrap__ValueIterator_get_valueno, METH_O, (char *)"\n"
 		"\n"
@@ -50610,10 +50863,10 @@ static PyMethodDef SwigMethods[] = {
 		"Return the value slot number for the current position.\n"
 		"\n"
 		"Xapian::valueno Xapian::ValueIterator::get_valueno() const\n"
-		"\n"
-		"If the iterator is over all values in a slot, this returns that slot's\n"
-		"number. If the iterator is over the values in a particular document,\n"
-		"it returns the number of each slot in turn. \n"
+		"Xapian::ValueIterator::get_valueno If the iterator is over all values\n"
+		"in a slot, this returns that slot's number. If the iterator is over\n"
+		"the values in a particular document, it returns the number of each\n"
+		"slot in turn. \n"
 		""},
 	 { (char *)"_ValueIterator_skip_to", _wrap__ValueIterator_skip_to, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -50621,10 +50874,10 @@ static PyMethodDef SwigMethods[] = {
 		"Advance the iterator to document id or value slot docid_or_slot.\n"
 		"\n"
 		"void Xapian::ValueIterator::skip_to(Xapian::docid docid_or_slot)\n"
-		"\n"
-		"If this iterator is over values in a document, then this method\n"
-		"advances the iterator to value slot docid_or_slot, or the first slot\n"
-		"after it if there is no value in slot slot.\n"
+		"Xapian::ValueIterator::skip_to If this iterator is over values in a\n"
+		"document, then this method advances the iterator to value slot\n"
+		"docid_or_slot, or the first slot after it if there is no value in slot\n"
+		"slot.\n"
 		"\n"
 		"If this iterator is over values in a particular slot, then this method\n"
 		"advances the iterator to document id docid_or_slot, or the first\n"
@@ -50647,9 +50900,8 @@ static PyMethodDef SwigMethods[] = {
 		"Check if the specified docid occurs.\n"
 		"\n"
 		"bool Xapian::ValueIterator::check(Xapian::docid docid)\n"
-		"\n"
-		"The caller is required to ensure that the specified document id did\n"
-		"actually exists in the database.\n"
+		"Xapian::ValueIterator::check The caller is required to ensure that the\n"
+		"specified document id did actually exists in the database.\n"
 		"\n"
 		"This method acts like skip_to() if that can be done at little extra\n"
 		"cost, in which case it then returns true. This is how chert and glass\n"
@@ -50678,7 +50930,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::ValueIterator::get_description() const \n"
+		"std::string Xapian::ValueIterator::get_description() const\n"
+		"Xapian::ValueIterator::get_description\n"
 		""},
 	 { (char *)"_ValueIterator___eq__", _wrap__ValueIterator___eq__, METH_VARARGS, NULL},
 	 { (char *)"_ValueIterator___ne__", _wrap__ValueIterator___ne__, METH_VARARGS, NULL},
@@ -50692,14 +50945,14 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Make a new empty Document.\n"
 		"\n"
-		"Xapian::Document::Document() \n"
+		"Xapian::Document::Document() Xapian::Document::Document\n"
 		""},
 	 { (char *)"delete_Document", (PyCFunction)_wrap_delete_Document, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::Document::~Document() \n"
+		"Xapian::Document::~Document() Xapian::Document::~Document\n"
 		""},
 	 { (char *)"Document_get_value", _wrap_Document_get_value, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -50707,9 +50960,8 @@ static PyMethodDef SwigMethods[] = {
 		"Get value by number.\n"
 		"\n"
 		"std::string Xapian::Document::get_value(Xapian::valueno slot) const\n"
-		"\n"
-		"Returns an empty string if no value with the given number is present\n"
-		"in the document.\n"
+		"Xapian::Document::get_value Returns an empty string if no value with\n"
+		"the given number is present in the document.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50722,11 +50974,9 @@ static PyMethodDef SwigMethods[] = {
 		"Add a new value.\n"
 		"\n"
 		"void Xapian::Document::add_value(Xapian::valueno slot, const\n"
-		"std::string &value)\n"
-		"\n"
-		"The new value will replace any existing value with the same number (or\n"
-		"if the new value is empty, it will remove any existing value with the\n"
-		"same number).\n"
+		"std::string &value) Xapian::Document::add_value The new value will\n"
+		"replace any existing value with the same number (or if the new value\n"
+		"is empty, it will remove any existing value with the same number).\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50740,14 +50990,15 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Remove any value with the given number.\n"
 		"\n"
-		"void Xapian::Document::remove_value(Xapian::valueno slot) \n"
+		"void Xapian::Document::remove_value(Xapian::valueno slot)\n"
+		"Xapian::Document::remove_value\n"
 		""},
 	 { (char *)"Document_clear_values", (PyCFunction)_wrap_Document_clear_values, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Remove all values associated with the document.\n"
 		"\n"
-		"void Xapian::Document::clear_values() \n"
+		"void Xapian::Document::clear_values() Xapian::Document::clear_values\n"
 		""},
 	 { (char *)"Document_get_data", (PyCFunction)_wrap_Document_get_data, METH_O, (char *)"\n"
 		"\n"
@@ -50755,11 +51006,10 @@ static PyMethodDef SwigMethods[] = {
 		"Get data stored in the document.\n"
 		"\n"
 		"std::string Xapian::Document::get_data() const\n"
-		"\n"
-		"This is potentially a relatively expensive operation, and shouldn't\n"
-		"normally be used during the match (e.g. in a PostingSource or match\n"
-		"decider functor. Put data for use by match deciders in a value\n"
-		"instead. \n"
+		"Xapian::Document::get_data This is potentially a relatively expensive\n"
+		"operation, and shouldn't normally be used during the match (e.g. in a\n"
+		"PostingSource or match decider functor. Put data for use by match\n"
+		"deciders in a value instead. \n"
 		""},
 	 { (char *)"Document_set_data", _wrap_Document_set_data, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -50767,10 +51017,9 @@ static PyMethodDef SwigMethods[] = {
 		"Set data stored in the document.\n"
 		"\n"
 		"void Xapian::Document::set_data(const std::string &data)\n"
-		"\n"
-		"Xapian treats the data as an opaque blob. It may try to compress it,\n"
-		"but other than that it will just store it and return it when\n"
-		"requested.\n"
+		"Xapian::Document::set_data  Xapian treats the data as an opaque blob.\n"
+		"It may try to compress it, but other than that it will just store it\n"
+		"and return it when requested.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50784,9 +51033,9 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::Document::add_posting(const std::string &tname,\n"
 		"Xapian::termpos tpos, Xapian::termcount wdfinc=1)\n"
-		"\n"
-		"Multiple occurrences of the term at the same position are represented\n"
-		"only once in the positional information, but do increase the wdf.\n"
+		"Xapian::Document::add_posting Multiple occurrences of the term at the\n"
+		"same position are represented only once in the positional information,\n"
+		"but do increase the wdf.\n"
 		"\n"
 		"If the term is not already in the document, it will be added to it.\n"
 		"\n"
@@ -50806,10 +51055,8 @@ static PyMethodDef SwigMethods[] = {
 		"Add a term to the document, without positional information.\n"
 		"\n"
 		"void Xapian::Document::add_term(const std::string &tname,\n"
-		"Xapian::termcount wdfinc=1)\n"
-		"\n"
-		"Any existing positional information for the term will be left\n"
-		"unmodified.\n"
+		"Xapian::termcount wdfinc=1) Xapian::Document::add_term Any existing\n"
+		"positional information for the term will be left unmodified.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50825,11 +51072,10 @@ static PyMethodDef SwigMethods[] = {
 		"Add a boolean filter term to the document.\n"
 		"\n"
 		"void Xapian::Document::add_boolean_term(const std::string &term)\n"
-		"\n"
-		"This method adds term to the document with wdf of 0 - this is\n"
-		"generally what you want for a term used for boolean filtering as the\n"
-		"wdf of such terms is ignored, and it doesn't make sense for them to\n"
-		"contribute to the document's length.\n"
+		"Xapian::Document::add_boolean_term This method adds term to the\n"
+		"document with wdf of 0 - this is generally what you want for a term\n"
+		"used for boolean filtering as the wdf of such terms is ignored, and it\n"
+		"doesn't make sense for them to contribute to the document's length.\n"
 		"\n"
 		"If the specified term already indexes this document, this method has\n"
 		"no effect.\n"
@@ -50850,10 +51096,9 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::Document::remove_posting(const std::string &tname,\n"
 		"Xapian::termpos tpos, Xapian::termcount wdfdec=1)\n"
-		"\n"
-		"Note that the term will still index the document even if all\n"
-		"occurrences are removed. To remove a term from a document completely,\n"
-		"use remove_term().\n"
+		"Xapian::Document::remove_posting Note that the term will still index\n"
+		"the document even if all occurrences are removed. To remove a term\n"
+		"from a document completely, use remove_term().\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50882,9 +51127,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::termpos Xapian::Document::remove_postings(const std::string\n"
 		"&term, Xapian::termpos term_pos_first, Xapian::termpos term_pos_last,\n"
-		"Xapian::termcount wdf_dec=1)\n"
-		"\n"
-		"Any instances of the term at positions >= term_pos_first and <=\n"
+		"Xapian::termcount wdf_dec=1) Xapian::Document::remove_postings Any\n"
+		"instances of the term at positions >= term_pos_first and <=\n"
 		"term_pos_last will be removed, and the wdf reduced by wdf_dec for each\n"
 		"instance removed (the wdf will not ever go below zero though).\n"
 		"\n"
@@ -50908,6 +51152,7 @@ static PyMethodDef SwigMethods[] = {
 		"Remove a term and all postings associated with it.\n"
 		"\n"
 		"void Xapian::Document::remove_term(const std::string &tname)\n"
+		"Xapian::Document::remove_term\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -50925,7 +51170,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Remove all terms (and postings) from the document.\n"
 		"\n"
-		"void Xapian::Document::clear_terms() \n"
+		"void Xapian::Document::clear_terms() Xapian::Document::clear_terms\n"
 		""},
 	 { (char *)"Document_termlist_count", (PyCFunction)_wrap_Document_termlist_count, METH_O, (char *)"\n"
 		"\n"
@@ -50933,51 +51178,55 @@ static PyMethodDef SwigMethods[] = {
 		"The length of the termlist - i.e.\n"
 		"\n"
 		"Xapian::termcount Xapian::Document::termlist_count() const\n"
-		"\n"
-		"the number of different terms which index this document. \n"
+		"Xapian::Document::termlist_count the number of different terms which\n"
+		"index this document. \n"
 		""},
 	 { (char *)"Document__termlist_begin", (PyCFunction)_wrap_Document__termlist_begin, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Iterator for the terms in this document.\n"
 		"\n"
-		"TermIterator Xapian::Document::termlist_begin() const \n"
+		"TermIterator Xapian::Document::termlist_begin() const\n"
+		"Xapian::Document::termlist_begin\n"
 		""},
 	 { (char *)"Document__termlist_end", (PyCFunction)_wrap_Document__termlist_end, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Equivalent end iterator for termlist_begin().\n"
 		"\n"
-		"TermIterator Xapian::Document::termlist_end() const \n"
+		"TermIterator Xapian::Document::termlist_end() const\n"
+		"Xapian::Document::termlist_end\n"
 		""},
 	 { (char *)"Document_values_count", (PyCFunction)_wrap_Document_values_count, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Count the values in this document.\n"
 		"\n"
-		"Xapian::termcount Xapian::Document::values_count() const \n"
+		"Xapian::termcount Xapian::Document::values_count() const\n"
+		"Xapian::Document::values_count\n"
 		""},
 	 { (char *)"Document__values_begin", (PyCFunction)_wrap_Document__values_begin, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Iterator for the values in this document.\n"
 		"\n"
-		"ValueIterator Xapian::Document::values_begin() const \n"
+		"ValueIterator Xapian::Document::values_begin() const\n"
+		"Xapian::Document::values_begin\n"
 		""},
 	 { (char *)"Document__values_end", (PyCFunction)_wrap_Document__values_end, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Equivalent end iterator for values_begin().\n"
 		"\n"
-		"ValueIterator Xapian::Document::values_end() const \n"
+		"ValueIterator Xapian::Document::values_end() const\n"
+		"Xapian::Document::values_end\n"
 		""},
 	 { (char *)"Document_get_docid", (PyCFunction)_wrap_Document_get_docid, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get the document id which is associated with this document (if any).\n"
 		"\n"
-		"docid Xapian::Document::get_docid() const\n"
-		"\n"
+		"docid Xapian::Document::get_docid() const Xapian::Document::get_docid\n"
 		"NB If multiple databases are being searched together, then this will\n"
 		"be the document id in the individual database, not the merged\n"
 		"database!\n"
@@ -50992,10 +51241,10 @@ static PyMethodDef SwigMethods[] = {
 		"Serialise document into a string.\n"
 		"\n"
 		"std::string Xapian::Document::serialise() const\n"
-		"\n"
-		"The document representation may change between Xapian releases: even\n"
-		"between minor versions. However, it is guaranteed not to change if the\n"
-		"remote database protocol has not changed between releases. \n"
+		"Xapian::Document::serialise The document representation may change\n"
+		"between Xapian releases: even between minor versions. However, it is\n"
+		"guaranteed not to change if the remote database protocol has not\n"
+		"changed between releases. \n"
 		""},
 	 { (char *)"Document_unserialise", (PyCFunction)_wrap_Document_unserialise, METH_O, NULL},
 	 { (char *)"Document___str__", (PyCFunction)_wrap_Document___str__, METH_O, (char *)"\n"
@@ -51003,7 +51252,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::Document::get_description() const \n"
+		"std::string Xapian::Document::get_description() const\n"
+		"Xapian::Document::get_description\n"
 		""},
 	 { (char *)"Document_swigregister", Document_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Document_swiginit", Document_swiginit, METH_VARARGS, NULL},
@@ -51012,19 +51262,17 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::Registry::Registry()\n"
-		"\n"
-		"The registry will contain all standard subclasses of user-subclassable\n"
-		"classes. \n"
+		"Xapian::Registry::Registry() Xapian::Registry::Registry The registry\n"
+		"will contain all standard subclasses of user-subclassable classes. \n"
 		""},
-	 { (char *)"delete_Registry", (PyCFunction)_wrap_delete_Registry, METH_O, (char *)"Xapian::Registry::~Registry() "},
+	 { (char *)"delete_Registry", (PyCFunction)_wrap_delete_Registry, METH_O, (char *)"Xapian::Registry::~Registry() Xapian::Registry::~Registry"},
 	 { (char *)"Registry_register_weighting_scheme", _wrap_Registry_register_weighting_scheme, METH_VARARGS, (char *)"\n"
 		"\n"
 		"\n"
 		"Register a weighting scheme.\n"
 		"\n"
 		"void Xapian::Registry::register_weighting_scheme(const Xapian::Weight\n"
-		"&wt)\n"
+		"&wt) Xapian::Registry::register_weighting_scheme\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51036,8 +51284,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Get the weighting scheme given a name.\n"
 		"\n"
-		"const Xapian::Weight* Xapian::Registry::get_weighting_scheme(const\n"
-		"std::string &name) const\n"
+		"const Xapian::Weight * Xapian::Registry::get_weighting_scheme(const\n"
+		"std::string &name) const Xapian::Registry::get_weighting_scheme\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51055,6 +51303,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::Registry::register_posting_source(const\n"
 		"Xapian::PostingSource &source)\n"
+		"Xapian::Registry::register_posting_source\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51066,8 +51315,9 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Get a posting source given a name.\n"
 		"\n"
-		"const Xapian::PostingSource*\n"
+		"const Xapian::PostingSource *\n"
 		"Xapian::Registry::get_posting_source(const std::string &name) const\n"
+		"Xapian::Registry::get_posting_source\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51084,6 +51334,7 @@ static PyMethodDef SwigMethods[] = {
 		"Register a user-defined match spy class.\n"
 		"\n"
 		"void Xapian::Registry::register_match_spy(const Xapian::MatchSpy &spy)\n"
+		"Xapian::Registry::register_match_spy\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51095,8 +51346,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Get a match spy given a name.\n"
 		"\n"
-		"const Xapian::MatchSpy* Xapian::Registry::get_match_spy(const\n"
-		"std::string &name) const\n"
+		"const Xapian::MatchSpy * Xapian::Registry::get_match_spy(const\n"
+		"std::string &name) const Xapian::Registry::get_match_spy\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51113,17 +51364,18 @@ static PyMethodDef SwigMethods[] = {
 		"Register a user-defined lat-long metric class.\n"
 		"\n"
 		"void Xapian::Registry::register_lat_long_metric(const\n"
-		"Xapian::LatLongMetric &metric) \n"
+		"Xapian::LatLongMetric &metric)\n"
+		"Xapian::Registry::register_lat_long_metric\n"
 		""},
 	 { (char *)"Registry_get_lat_long_metric", _wrap_Registry_get_lat_long_metric, METH_VARARGS, (char *)"\n"
 		"\n"
 		"\n"
 		"Get a lat-long metric given a name.\n"
 		"\n"
-		"const Xapian::LatLongMetric*\n"
+		"const Xapian::LatLongMetric *\n"
 		"Xapian::Registry::get_lat_long_metric(const std::string &name) const\n"
-		"\n"
-		"The returned metric is owned by the registry object.\n"
+		"Xapian::Registry::get_lat_long_metric The returned metric is owned by\n"
+		"the registry object.\n"
 		"\n"
 		"Returns NULL if the metric could not be found. \n"
 		""},
@@ -51134,7 +51386,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::Query::~Query() \n"
+		"Xapian::Query::~Query() Xapian::Query::~Query\n"
 		""},
 	 { (char *)"Query__get_terms_begin", (PyCFunction)_wrap_Query__get_terms_begin, METH_O, (char *)"\n"
 		"\n"
@@ -51142,18 +51394,18 @@ static PyMethodDef SwigMethods[] = {
 		"Begin iterator for terms in the query object.\n"
 		"\n"
 		"const TermIterator Xapian::Query::get_terms_begin() const\n"
-		"\n"
-		"The iterator returns terms in ascending query position order, and will\n"
-		"return the same term in each unique position it occurs in. If you want\n"
-		"the terms in sorted order and without duplicates, see\n"
-		"get_unique_terms_begin(). \n"
+		"Xapian::Query::get_terms_begin The iterator returns terms in ascending\n"
+		"query position order, and will return the same term in each unique\n"
+		"position it occurs in. If you want the terms in sorted order and\n"
+		"without duplicates, see get_unique_terms_begin(). \n"
 		""},
 	 { (char *)"Query__get_terms_end", (PyCFunction)_wrap_Query__get_terms_end, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"End iterator for terms in the query object.\n"
 		"\n"
-		"const TermIterator Xapian::Query::get_terms_end() const \n"
+		"const TermIterator Xapian::Query::get_terms_end() const\n"
+		"Xapian::Query::get_terms_end\n"
 		""},
 	 { (char *)"Query_get_unique_terms_begin", (PyCFunction)_wrap_Query_get_unique_terms_begin, METH_O, (char *)"\n"
 		"\n"
@@ -51161,8 +51413,8 @@ static PyMethodDef SwigMethods[] = {
 		"Begin iterator for unique terms in the query object.\n"
 		"\n"
 		"const TermIterator Xapian::Query::get_unique_terms_begin() const\n"
-		"\n"
-		"Terms are sorted and terms with the same name removed from the list.\n"
+		"Xapian::Query::get_unique_terms_begin Terms are sorted and terms with\n"
+		"the same name removed from the list.\n"
 		"\n"
 		"If you want the terms in ascending query position order, see\n"
 		"get_terms_begin(). \n"
@@ -51172,28 +51424,31 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"End iterator for unique terms in the query object.\n"
 		"\n"
-		"const TermIterator Xapian::Query::get_unique_terms_end() const \n"
+		"const TermIterator Xapian::Query::get_unique_terms_end() const\n"
+		"Xapian::Query::get_unique_terms_end\n"
 		""},
 	 { (char *)"Query_get_length", (PyCFunction)_wrap_Query_get_length, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return the length of this query object.\n"
 		"\n"
-		"Xapian::termcount Xapian::Query::get_length() const \n"
+		"Xapian::termcount Xapian::Query::get_length() const\n"
+		"Xapian::Query::get_length\n"
 		""},
 	 { (char *)"Query_empty", (PyCFunction)_wrap_Query_empty, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Check if this query is Xapian::Query::MatchNothing.\n"
 		"\n"
-		"bool Xapian::Query::empty() const \n"
+		"bool Xapian::Query::empty() const Xapian::Query::empty\n"
 		""},
 	 { (char *)"Query_serialise", (PyCFunction)_wrap_Query_serialise, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Serialise this object into a string.\n"
 		"\n"
-		"std::string Xapian::Query::serialise() const \n"
+		"std::string Xapian::Query::serialise() const\n"
+		"Xapian::Query::serialise\n"
 		""},
 	 { (char *)"Query_unserialise", _wrap_Query_unserialise, METH_VARARGS, NULL},
 	 { (char *)"Query_get_type", (PyCFunction)_wrap_Query_get_type, METH_O, (char *)"\n"
@@ -51201,14 +51456,15 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Get the type of the top level of the query.\n"
 		"\n"
-		"op Xapian::Query::get_type() const \n"
+		"op Xapian::Query::get_type() const Xapian::Query::get_type\n"
 		""},
 	 { (char *)"Query_get_num_subqueries", (PyCFunction)_wrap_Query_get_num_subqueries, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get the number of subqueries of the top level query.\n"
 		"\n"
-		"size_t Xapian::Query::get_num_subqueries() const \n"
+		"size_t Xapian::Query::get_num_subqueries() const\n"
+		"Xapian::Query::get_num_subqueries\n"
 		""},
 	 { (char *)"Query_get_subquery", _wrap_Query_get_subquery, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -51216,6 +51472,7 @@ static PyMethodDef SwigMethods[] = {
 		"Read a top level subquery.\n"
 		"\n"
 		"const Query Xapian::Query::get_subquery(size_t n) const\n"
+		"Xapian::Query::get_subquery\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51228,14 +51485,15 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::Query::get_description() const \n"
+		"std::string Xapian::Query::get_description() const\n"
+		"Xapian::Query::get_description\n"
 		""},
 	 { (char *)"new_Query", _wrap_new_Query, METH_VARARGS, (char *)"\n"
 		"\n"
 		"\n"
 		"Construct with just an operator.\n"
 		"\n"
-		"Xapian::Query::Query(Query::op op_)\n"
+		"Xapian::Query::Query(Query::op op_) Xapian::Query::Query\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51249,14 +51507,16 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::StemImplementation::StemImplementation() \n"
+		"Xapian::StemImplementation::StemImplementation()\n"
+		"Xapian::StemImplementation::StemImplementation\n"
 		""},
 	 { (char *)"delete_StemImplementation", (PyCFunction)_wrap_delete_StemImplementation, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Virtual destructor.\n"
 		"\n"
-		"virtual Xapian::StemImplementation::~StemImplementation() \n"
+		"virtual Xapian::StemImplementation::~StemImplementation()\n"
+		"Xapian::StemImplementation::~StemImplementation\n"
 		""},
 	 { (char *)"StemImplementation___call__", _wrap_StemImplementation___call__, METH_VARARGS, NULL},
 	 { (char *)"StemImplementation___str__", (PyCFunction)_wrap_StemImplementation___str__, METH_O, (char *)"\n"
@@ -51265,7 +51525,7 @@ static PyMethodDef SwigMethods[] = {
 		"Return a string describing this object.\n"
 		"\n"
 		"virtual std::string Xapian::StemImplementation::get_description()\n"
-		"const =0 \n"
+		"const =0 Xapian::StemImplementation::get_description\n"
 		""},
 	 { (char *)"disown_StemImplementation", (PyCFunction)_wrap_disown_StemImplementation, METH_O, NULL},
 	 { (char *)"StemImplementation_swigregister", StemImplementation_swigregister, METH_VARARGS, NULL},
@@ -51276,12 +51536,10 @@ static PyMethodDef SwigMethods[] = {
 		"Construct a Xapian::Stem object with a user-provided stemming\n"
 		"algorithm.\n"
 		"\n"
-		"Xapian::Stem::Stem(StemImplementation *p)\n"
-		"\n"
-		"You can subclass Xapian::StemImplementation to implement your own\n"
-		"stemming algorithm (or to wrap a third-party algorithm) and then wrap\n"
-		"your implementation in a Xapian::Stem object to pass to the Xapian\n"
-		"API.\n"
+		"Xapian::Stem::Stem(StemImplementation *p) Xapian::Stem::Stem You can\n"
+		"subclass Xapian::StemImplementation to implement your own stemming\n"
+		"algorithm (or to wrap a third-party algorithm) and then wrap your\n"
+		"implementation in a Xapian::Stem object to pass to the Xapian API.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51295,7 +51553,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::Stem::~Stem() \n"
+		"Xapian::Stem::~Stem() Xapian::Stem::~Stem\n"
 		""},
 	 { (char *)"Stem___call__", _wrap_Stem___call__, METH_VARARGS, NULL},
 	 { (char *)"Stem_is_none", (PyCFunction)_wrap_Stem_is_none, METH_O, (char *)"\n"
@@ -51303,14 +51561,15 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return true if this is a no-op stemmer.\n"
 		"\n"
-		"bool Xapian::Stem::is_none() const \n"
+		"bool Xapian::Stem::is_none() const Xapian::Stem::is_none\n"
 		""},
 	 { (char *)"Stem___str__", (PyCFunction)_wrap_Stem___str__, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::Stem::get_description() const \n"
+		"std::string Xapian::Stem::get_description() const\n"
+		"Xapian::Stem::get_description\n"
 		""},
 	 { (char *)"Stem_get_available_languages", (PyCFunction)_wrap_Stem_get_available_languages, METH_NOARGS, NULL},
 	 { (char *)"Stem_swigregister", Stem_swigregister, METH_VARARGS, NULL},
@@ -51320,14 +51579,16 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::TermGenerator::TermGenerator() \n"
+		"Xapian::TermGenerator::TermGenerator()\n"
+		"Xapian::TermGenerator::TermGenerator\n"
 		""},
 	 { (char *)"delete_TermGenerator", (PyCFunction)_wrap_delete_TermGenerator, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::TermGenerator::~TermGenerator() \n"
+		"Xapian::TermGenerator::~TermGenerator()\n"
+		"Xapian::TermGenerator::~TermGenerator\n"
 		""},
 	 { (char *)"TermGenerator_set_stemmer", _wrap_TermGenerator_set_stemmer, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -51335,7 +51596,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the Xapian::Stem object to be used for generating stemmed terms.\n"
 		"\n"
 		"void Xapian::TermGenerator::set_stemmer(const Xapian::Stem &stemmer)\n"
-		"\n"
+		"Xapian::TermGenerator::set_stemmer\n"
 		""},
 	 { (char *)"TermGenerator_set_stopper", _wrap_TermGenerator_set_stopper, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -51343,10 +51604,9 @@ static PyMethodDef SwigMethods[] = {
 		"Set the Xapian::Stopper object to be used for identifying stopwords.\n"
 		"\n"
 		"void Xapian::TermGenerator::set_stopper(const Xapian::Stopper\n"
-		"*stop=NULL)\n"
-		"\n"
-		"Stemmed forms of stopwords aren't indexed, but unstemmed forms still\n"
-		"are so that searches for phrases including stop words still work.\n"
+		"*stop=NULL) Xapian::TermGenerator::set_stopper Stemmed forms of\n"
+		"stopwords aren't indexed, but unstemmed forms still are so that\n"
+		"searches for phrases including stop words still work.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51360,14 +51620,15 @@ static PyMethodDef SwigMethods[] = {
 		"Set the current document.\n"
 		"\n"
 		"void Xapian::TermGenerator::set_document(const Xapian::Document &doc)\n"
-		"\n"
+		"Xapian::TermGenerator::set_document\n"
 		""},
 	 { (char *)"TermGenerator_get_document", (PyCFunction)_wrap_TermGenerator_get_document, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get the current document.\n"
 		"\n"
-		"const Xapian::Document& Xapian::TermGenerator::get_document() const \n"
+		"const Xapian::Document & Xapian::TermGenerator::get_document() const\n"
+		"Xapian::TermGenerator::get_document\n"
 		""},
 	 { (char *)"TermGenerator_set_database", _wrap_TermGenerator_set_database, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -51375,7 +51636,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the database to index spelling data to.\n"
 		"\n"
 		"void Xapian::TermGenerator::set_database(const\n"
-		"Xapian::WritableDatabase &db) \n"
+		"Xapian::WritableDatabase &db) Xapian::TermGenerator::set_database\n"
 		""},
 	 { (char *)"TermGenerator_set_flags", _wrap_TermGenerator_set_flags, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -51383,9 +51644,8 @@ static PyMethodDef SwigMethods[] = {
 		"Set flags.\n"
 		"\n"
 		"flags Xapian::TermGenerator::set_flags(flags toggle, flags\n"
-		"mask=flags(0))\n"
-		"\n"
-		"The new value of flags is: (flags & mask) ^ toggle\n"
+		"mask=flags(0)) Xapian::TermGenerator::set_flags The new value of flags\n"
+		"is: (flags & mask) ^ toggle\n"
 		"\n"
 		"To just set the flags, pass the new flags in toggle and the default\n"
 		"value for mask.\n"
@@ -51405,10 +51665,9 @@ static PyMethodDef SwigMethods[] = {
 		"Set the stemming strategy.\n"
 		"\n"
 		"void Xapian::TermGenerator::set_stemming_strategy(stem_strategy\n"
-		"strategy)\n"
-		"\n"
-		"This method controls how the stemming algorithm is applied. It was new\n"
-		"in Xapian 1.3.1.\n"
+		"strategy) Xapian::TermGenerator::set_stemming_strategy This method\n"
+		"controls how the stemming algorithm is applied. It was new in Xapian\n"
+		"1.3.1.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51433,10 +51692,8 @@ static PyMethodDef SwigMethods[] = {
 		"Set the stopper strategy.\n"
 		"\n"
 		"void Xapian::TermGenerator::set_stopper_strategy(stop_strategy\n"
-		"strategy)\n"
-		"\n"
-		"The method controls how the stopper is used. It was added in Xapian\n"
-		"1.4.1.\n"
+		"strategy) Xapian::TermGenerator::set_stopper_strategy The method\n"
+		"controls how the stopper is used. It was added in Xapian 1.4.1.\n"
 		"\n"
 		"You need to also call  set_stopper() for this to have any effect.\n"
 		"\n"
@@ -51459,10 +51716,9 @@ static PyMethodDef SwigMethods[] = {
 		"Set the maximum length word to index.\n"
 		"\n"
 		"void Xapian::TermGenerator::set_max_word_length(unsigned\n"
-		"max_word_length)\n"
-		"\n"
-		"The limit is on the length of a word prior to stemming and prior to\n"
-		"adding any term prefix.\n"
+		"max_word_length) Xapian::TermGenerator::set_max_word_length The limit\n"
+		"is on the length of a word prior to stemming and prior to adding any\n"
+		"term prefix.\n"
 		"\n"
 		"The backends mostly impose a limit on the length of terms (often of\n"
 		"about 240 bytes), but it's generally useful to have a lower limit to\n"
@@ -51484,6 +51740,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::TermGenerator::index_text(const std::string &text,\n"
 		"Xapian::termcount wdf_inc=1, const std::string &prefix=std::string())\n"
+		"Xapian::TermGenerator::index_text\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51502,9 +51759,9 @@ static PyMethodDef SwigMethods[] = {
 		"void Xapian::TermGenerator::index_text_without_positions(const\n"
 		"std::string &text, Xapian::termcount wdf_inc=1, const std::string\n"
 		"&prefix=std::string())\n"
-		"\n"
-		"Just like index_text, but no positional information is generated. This\n"
-		"means that the database will be significantly smaller, but that phrase\n"
+		"Xapian::TermGenerator::index_text_without_positions Just like\n"
+		"index_text, but no positional information is generated. This means\n"
+		"that the database will be significantly smaller, but that phrase\n"
 		"searching and NEAR won't be supported.\n"
 		"\n"
 		"Parameters:\n"
@@ -51522,11 +51779,10 @@ static PyMethodDef SwigMethods[] = {
 		"Increase the term position used by index_text.\n"
 		"\n"
 		"void Xapian::TermGenerator::increase_termpos(Xapian::termpos\n"
-		"delta=100)\n"
-		"\n"
-		"This can be used between indexing text from different fields or other\n"
-		"places to prevent phrase searches from spanning between them (e.g.\n"
-		"between the title and body text, or between two chapters in a book).\n"
+		"delta=100) Xapian::TermGenerator::increase_termpos This can be used\n"
+		"between indexing text from different fields or other places to prevent\n"
+		"phrase searches from spanning between them (e.g. between the title and\n"
+		"body text, or between two chapters in a book).\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51538,7 +51794,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Get the current term position.\n"
 		"\n"
-		"Xapian::termpos Xapian::TermGenerator::get_termpos() const \n"
+		"Xapian::termpos Xapian::TermGenerator::get_termpos() const\n"
+		"Xapian::TermGenerator::get_termpos\n"
 		""},
 	 { (char *)"TermGenerator_set_termpos", _wrap_TermGenerator_set_termpos, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -51546,6 +51803,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the current term position.\n"
 		"\n"
 		"void Xapian::TermGenerator::set_termpos(Xapian::termpos termpos)\n"
+		"Xapian::TermGenerator::set_termpos\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -51557,7 +51815,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::TermGenerator::get_description() const \n"
+		"std::string Xapian::TermGenerator::get_description() const\n"
+		"Xapian::TermGenerator::get_description\n"
 		""},
 	 { (char *)"TermGenerator_swigregister", TermGenerator_swigregister, METH_VARARGS, NULL},
 	 { (char *)"TermGenerator_swiginit", TermGenerator_swiginit, METH_VARARGS, NULL},
@@ -51566,16 +51825,15 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::MSet::MSet()\n"
-		"\n"
-		"Creates an empty MSet, mostly useful as a placeholder. \n"
+		"Xapian::MSet::MSet() Xapian::MSet::MSet Creates an empty MSet, mostly\n"
+		"useful as a placeholder. \n"
 		""},
 	 { (char *)"delete_MSet", (PyCFunction)_wrap_delete_MSet, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::MSet::~MSet() \n"
+		"Xapian::MSet::~MSet() Xapian::MSet::~MSet\n"
 		""},
 	 { (char *)"MSet_convert_to_percent", _wrap_MSet_convert_to_percent, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -51583,10 +51841,10 @@ static PyMethodDef SwigMethods[] = {
 		"Convert the weight of the current iterator position to a percentage.\n"
 		"\n"
 		"int Xapian::MSet::convert_to_percent(const MSetIterator &it) const\n"
-		"\n"
-		"The matching document with the highest weight will get 100% if it\n"
-		"matches all the weighted query terms, and proportionally less if it\n"
-		"only matches some, and other weights are scaled by the same factor.\n"
+		"Xapian::MSet::convert_to_percent The matching document with the\n"
+		"highest weight will get 100% if it matches all the weighted query\n"
+		"terms, and proportionally less if it only matches some, and other\n"
+		"weights are scaled by the same factor.\n"
 		"\n"
 		"Documents with a non-zero score will always score at least 1%.\n"
 		"\n"
@@ -51599,7 +51857,7 @@ static PyMethodDef SwigMethods[] = {
 		"Get the termfreq of a term.\n"
 		"\n"
 		"Xapian::doccount Xapian::MSet::get_termfreq(const std::string &term)\n"
-		"const\n"
+		"const Xapian::MSet::get_termfreq\n"
 		"\n"
 		"The number of documents which term occurs in. This considers all\n"
 		"documents in the database being searched, so gives the same answer as\n"
@@ -51612,6 +51870,7 @@ static PyMethodDef SwigMethods[] = {
 		"Get the term weight of a term.\n"
 		"\n"
 		"double Xapian::MSet::get_termweight(const std::string &term) const\n"
+		"Xapian::MSet::get_termweight\n"
 		"\n"
 		"The maximum weight that term could have contributed to a document. \n"
 		""},
@@ -51621,29 +51880,32 @@ static PyMethodDef SwigMethods[] = {
 		"Rank of first item in this MSet.\n"
 		"\n"
 		"Xapian::doccount Xapian::MSet::get_firstitem() const\n"
-		"\n"
-		"This is the parameter first passed to Xapian::Enquire::get_mset(). \n"
+		"Xapian::MSet::get_firstitem This is the parameter first passed to\n"
+		"Xapian::Enquire::get_mset(). \n"
 		""},
 	 { (char *)"MSet_get_matches_lower_bound", (PyCFunction)_wrap_MSet_get_matches_lower_bound, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Lower bound on the total number of matching documents.\n"
 		"\n"
-		"Xapian::doccount Xapian::MSet::get_matches_lower_bound() const \n"
+		"Xapian::doccount Xapian::MSet::get_matches_lower_bound() const\n"
+		"Xapian::MSet::get_matches_lower_bound\n"
 		""},
 	 { (char *)"MSet_get_matches_estimated", (PyCFunction)_wrap_MSet_get_matches_estimated, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Estimate of the total number of matching documents.\n"
 		"\n"
-		"Xapian::doccount Xapian::MSet::get_matches_estimated() const \n"
+		"Xapian::doccount Xapian::MSet::get_matches_estimated() const\n"
+		"Xapian::MSet::get_matches_estimated\n"
 		""},
 	 { (char *)"MSet_get_matches_upper_bound", (PyCFunction)_wrap_MSet_get_matches_upper_bound, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Upper bound on the total number of matching documents.\n"
 		"\n"
-		"Xapian::doccount Xapian::MSet::get_matches_upper_bound() const \n"
+		"Xapian::doccount Xapian::MSet::get_matches_upper_bound() const\n"
+		"Xapian::MSet::get_matches_upper_bound\n"
 		""},
 	 { (char *)"MSet_get_uncollapsed_matches_lower_bound", (PyCFunction)_wrap_MSet_get_uncollapsed_matches_lower_bound, METH_O, (char *)"\n"
 		"\n"
@@ -51652,10 +51914,9 @@ static PyMethodDef SwigMethods[] = {
 		"collapsing.\n"
 		"\n"
 		"Xapian::doccount Xapian::MSet::get_uncollapsed_matches_lower_bound()\n"
-		"const\n"
-		"\n"
-		"Conceptually the same as get_matches_lower_bound() for the same query\n"
-		"without any collapse part (though the actual value may differ). \n"
+		"const Xapian::MSet::get_uncollapsed_matches_lower_bound Conceptually\n"
+		"the same as get_matches_lower_bound() for the same query without any\n"
+		"collapse part (though the actual value may differ). \n"
 		""},
 	 { (char *)"MSet_get_uncollapsed_matches_estimated", (PyCFunction)_wrap_MSet_get_uncollapsed_matches_estimated, METH_O, (char *)"\n"
 		"\n"
@@ -51663,10 +51924,9 @@ static PyMethodDef SwigMethods[] = {
 		"Estimate of the total number of matching documents before collapsing.\n"
 		"\n"
 		"Xapian::doccount Xapian::MSet::get_uncollapsed_matches_estimated()\n"
-		"const\n"
-		"\n"
-		"Conceptually the same as get_matches_estimated() for the same query\n"
-		"without any collapse part (though the actual value may differ). \n"
+		"const Xapian::MSet::get_uncollapsed_matches_estimated Conceptually the\n"
+		"same as get_matches_estimated() for the same query without any\n"
+		"collapse part (though the actual value may differ). \n"
 		""},
 	 { (char *)"MSet_get_uncollapsed_matches_upper_bound", (PyCFunction)_wrap_MSet_get_uncollapsed_matches_upper_bound, METH_O, (char *)"\n"
 		"\n"
@@ -51675,24 +51935,25 @@ static PyMethodDef SwigMethods[] = {
 		"collapsing.\n"
 		"\n"
 		"Xapian::doccount Xapian::MSet::get_uncollapsed_matches_upper_bound()\n"
-		"const\n"
-		"\n"
-		"Conceptually the same as get_matches_upper_bound() for the same query\n"
-		"without any collapse part (though the actual value may differ). \n"
+		"const Xapian::MSet::get_uncollapsed_matches_upper_bound Conceptually\n"
+		"the same as get_matches_upper_bound() for the same query without any\n"
+		"collapse part (though the actual value may differ). \n"
 		""},
 	 { (char *)"MSet_get_max_attained", (PyCFunction)_wrap_MSet_get_max_attained, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"The maximum weight attained by any document.\n"
 		"\n"
-		"double Xapian::MSet::get_max_attained() const \n"
+		"double Xapian::MSet::get_max_attained() const\n"
+		"Xapian::MSet::get_max_attained\n"
 		""},
 	 { (char *)"MSet_get_max_possible", (PyCFunction)_wrap_MSet_get_max_possible, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"The maximum possible weight any document could achieve.\n"
 		"\n"
-		"double Xapian::MSet::get_max_possible() const \n"
+		"double Xapian::MSet::get_max_possible() const\n"
+		"Xapian::MSet::get_max_possible\n"
 		""},
 	 { (char *)"MSet_snippet", _wrap_MSet_snippet, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -51703,14 +51964,13 @@ static PyMethodDef SwigMethods[] = {
 		"length=500, const Xapian::Stem &stemmer=Xapian::Stem(), unsigned\n"
 		"flags=SNIPPET_BACKGROUND_MODEL|SNIPPET_EXHAUSTIVE, const std::string\n"
 		"&hi_start=\"<b>\", const std::string &hi_end=\"</b>\", const\n"
-		"std::string &omit=\"...\") const\n"
-		"\n"
-		"This method selects a continuous run of words from text, based mainly\n"
-		"on where the query matches (currently terms, exact phrases and\n"
-		"wildcards are taken into account). If flag SNIPPET_BACKGROUND_MODEL is\n"
-		"used (which it is by default) then the selection algorithm also\n"
-		"considers the non-query terms in the text with the aim of showing a\n"
-		"context which provides more useful information.\n"
+		"std::string &omit=\"...\") const Xapian::MSet::snippet This method\n"
+		"selects a continuous run of words from text, based mainly on where the\n"
+		"query matches (currently terms, exact phrases and wildcards are taken\n"
+		"into account). If flag SNIPPET_BACKGROUND_MODEL is used (which it is\n"
+		"by default) then the selection algorithm also considers the non-query\n"
+		"terms in the text with the aim of showing a context which provides\n"
+		"more useful information.\n"
 		"\n"
 		"The size of the text selected can be controlled by the length\n"
 		"parameter, which specifies a number of bytes of text to aim to select.\n"
@@ -51737,10 +51997,9 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Prefetch hint the whole MSet.\n"
 		"\n"
-		"void Xapian::MSet::fetch() const\n"
-		"\n"
-		"For a remote database, this may start a pipelined fetch of the\n"
-		"requested documents from the remote server.\n"
+		"void Xapian::MSet::fetch() const Xapian::MSet::fetch For a remote\n"
+		"database, this may start a pipelined fetch of the requested documents\n"
+		"from the remote server.\n"
 		"\n"
 		"For a disk-based database, this may send prefetch hints to the\n"
 		"operating system such that the disk blocks the requested documents are\n"
@@ -51752,42 +52011,43 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return number of items in this MSet object.\n"
 		"\n"
-		"Xapian::doccount Xapian::MSet::size() const \n"
+		"Xapian::doccount Xapian::MSet::size() const Xapian::MSet::size\n"
 		""},
 	 { (char *)"MSet_empty", (PyCFunction)_wrap_MSet_empty, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return true if this MSet object is empty.\n"
 		"\n"
-		"bool Xapian::MSet::empty() const \n"
+		"bool Xapian::MSet::empty() const Xapian::MSet::empty\n"
 		""},
 	 { (char *)"MSet__begin", (PyCFunction)_wrap_MSet__begin, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return iterator pointing to the first item in this MSet.\n"
 		"\n"
-		"MSetIterator Xapian::MSet::begin() const \n"
+		"MSetIterator Xapian::MSet::begin() const Xapian::MSet::begin\n"
 		""},
 	 { (char *)"MSet__end", (PyCFunction)_wrap_MSet__end, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return iterator pointing to just after the last item in this MSet.\n"
 		"\n"
-		"MSetIterator Xapian::MSet::end() const \n"
+		"MSetIterator Xapian::MSet::end() const Xapian::MSet::end\n"
 		""},
 	 { (char *)"MSet_back", (PyCFunction)_wrap_MSet_back, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return iterator pointing to the last object in this MSet.\n"
 		"\n"
-		"MSetIterator Xapian::MSet::back() const \n"
+		"MSetIterator Xapian::MSet::back() const Xapian::MSet::back\n"
 		""},
 	 { (char *)"MSet___str__", (PyCFunction)_wrap_MSet___str__, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::MSet::get_description() const \n"
+		"std::string Xapian::MSet::get_description() const\n"
+		"Xapian::MSet::get_description\n"
 		""},
 	 { (char *)"MSet_get_docid", _wrap_MSet_get_docid, METH_VARARGS, NULL},
 	 { (char *)"MSet_get_document", _wrap_MSet_get_document, METH_VARARGS, NULL},
@@ -51809,7 +52069,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Create an unpositioned MSetIterator.\n"
 		"\n"
-		"Xapian::MSetIterator::MSetIterator() \n"
+		"Xapian::MSetIterator::MSetIterator()\n"
+		"Xapian::MSetIterator::MSetIterator\n"
 		""},
 	 { (char *)"_MSetIterator_get_rank", (PyCFunction)_wrap__MSetIterator_get_rank, METH_O, (char *)"\n"
 		"\n"
@@ -51817,22 +52078,24 @@ static PyMethodDef SwigMethods[] = {
 		"Return the MSet rank for the current position.\n"
 		"\n"
 		"Xapian::doccount Xapian::MSetIterator::get_rank() const\n"
-		"\n"
-		"The rank of mset[0] is mset.get_firstitem(). \n"
+		"Xapian::MSetIterator::get_rank The rank of mset[0] is\n"
+		"mset.get_firstitem(). \n"
 		""},
 	 { (char *)"_MSetIterator_get_document", (PyCFunction)_wrap__MSetIterator_get_document, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get the Document object for the current position.\n"
 		"\n"
-		"Xapian::Document Xapian::MSetIterator::get_document() const \n"
+		"Xapian::Document Xapian::MSetIterator::get_document() const\n"
+		"Xapian::MSetIterator::get_document\n"
 		""},
 	 { (char *)"_MSetIterator_get_weight", (PyCFunction)_wrap__MSetIterator_get_weight, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get the weight for the current position.\n"
 		"\n"
-		"double Xapian::MSetIterator::get_weight() const \n"
+		"double Xapian::MSetIterator::get_weight() const\n"
+		"Xapian::MSetIterator::get_weight\n"
 		""},
 	 { (char *)"_MSetIterator_get_collapse_key", (PyCFunction)_wrap__MSetIterator_get_collapse_key, METH_O, (char *)"\n"
 		"\n"
@@ -51840,8 +52103,8 @@ static PyMethodDef SwigMethods[] = {
 		"Return the collapse key for the current position.\n"
 		"\n"
 		"std::string Xapian::MSetIterator::get_collapse_key() const\n"
-		"\n"
-		"If collapsing isn't in use, an empty string will be returned. \n"
+		"Xapian::MSetIterator::get_collapse_key If collapsing isn't in use, an\n"
+		"empty string will be returned. \n"
 		""},
 	 { (char *)"_MSetIterator_get_collapse_count", (PyCFunction)_wrap__MSetIterator_get_collapse_count, METH_O, (char *)"\n"
 		"\n"
@@ -51849,10 +52112,9 @@ static PyMethodDef SwigMethods[] = {
 		"Return a count of the number of collapses done onto the current key.\n"
 		"\n"
 		"Xapian::doccount Xapian::MSetIterator::get_collapse_count() const\n"
-		"\n"
-		"This starts at 0, and is incremented each time an item is eliminated\n"
-		"because its key is the same as that of the current item (as returned\n"
-		"by get_collapse_key()).\n"
+		"Xapian::MSetIterator::get_collapse_count This starts at 0, and is\n"
+		"incremented each time an item is eliminated because its key is the\n"
+		"same as that of the current item (as returned by get_collapse_key()).\n"
 		"\n"
 		"Note that this is NOT necessarily one less than the total number of\n"
 		"matching documents with this collapse key due to various optimisations\n"
@@ -51871,8 +52133,8 @@ static PyMethodDef SwigMethods[] = {
 		"Return the sort key for the current position.\n"
 		"\n"
 		"std::string Xapian::MSetIterator::get_sort_key() const\n"
-		"\n"
-		"If sorting didn't use a key then an empty string will be returned.\n"
+		"Xapian::MSetIterator::get_sort_key If sorting didn't use a key then an\n"
+		"empty string will be returned.\n"
 		"\n"
 		"Added in Xapian 1.4.6. \n"
 		""},
@@ -51882,10 +52144,10 @@ static PyMethodDef SwigMethods[] = {
 		"Convert the weight of the current iterator position to a percentage.\n"
 		"\n"
 		"int Xapian::MSetIterator::get_percent() const\n"
-		"\n"
-		"The matching document with the highest weight will get 100% if it\n"
-		"matches all the weighted query terms, and proportionally less if it\n"
-		"only matches some, and other weights are scaled by the same factor.\n"
+		"Xapian::MSetIterator::get_percent The matching document with the\n"
+		"highest weight will get 100% if it matches all the weighted query\n"
+		"terms, and proportionally less if it only matches some, and other\n"
+		"weights are scaled by the same factor.\n"
 		"\n"
 		"Documents with a non-zero score will always score at least 1%.\n"
 		"\n"
@@ -51897,7 +52159,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::MSetIterator::get_description() const \n"
+		"std::string Xapian::MSetIterator::get_description() const\n"
+		"Xapian::MSetIterator::get_description\n"
 		""},
 	 { (char *)"_MSetIterator___eq__", _wrap__MSetIterator___eq__, METH_VARARGS, NULL},
 	 { (char *)"_MSetIterator___ne__", _wrap__MSetIterator___ne__, METH_VARARGS, NULL},
@@ -51913,30 +52176,29 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::ESet::ESet()\n"
-		"\n"
-		"Creates an empty ESet, mostly useful as a placeholder. \n"
+		"Xapian::ESet::ESet() Xapian::ESet::ESet Creates an empty ESet, mostly\n"
+		"useful as a placeholder. \n"
 		""},
 	 { (char *)"delete_ESet", (PyCFunction)_wrap_delete_ESet, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::ESet::~ESet() \n"
+		"Xapian::ESet::~ESet() Xapian::ESet::~ESet\n"
 		""},
 	 { (char *)"ESet_size", (PyCFunction)_wrap_ESet_size, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return number of items in this ESet object.\n"
 		"\n"
-		"Xapian::doccount Xapian::ESet::size() const \n"
+		"Xapian::doccount Xapian::ESet::size() const Xapian::ESet::size\n"
 		""},
 	 { (char *)"ESet_empty", (PyCFunction)_wrap_ESet_empty, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return true if this ESet object is empty.\n"
 		"\n"
-		"bool Xapian::ESet::empty() const \n"
+		"bool Xapian::ESet::empty() const Xapian::ESet::empty\n"
 		""},
 	 { (char *)"ESet_get_ebound", (PyCFunction)_wrap_ESet_get_ebound, METH_O, (char *)"\n"
 		"\n"
@@ -51944,37 +52206,38 @@ static PyMethodDef SwigMethods[] = {
 		"Return a bound on the full size of this ESet object.\n"
 		"\n"
 		"Xapian::termcount Xapian::ESet::get_ebound() const\n"
-		"\n"
-		"This is a bound on size() if get_eset() had been called with maxitems\n"
-		"set high enough that all results were returned. \n"
+		"Xapian::ESet::get_ebound This is a bound on size() if get_eset() had\n"
+		"been called with maxitems set high enough that all results were\n"
+		"returned. \n"
 		""},
 	 { (char *)"ESet__begin", (PyCFunction)_wrap_ESet__begin, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return iterator pointing to the first item in this ESet.\n"
 		"\n"
-		"ESetIterator Xapian::ESet::begin() const \n"
+		"ESetIterator Xapian::ESet::begin() const Xapian::ESet::begin\n"
 		""},
 	 { (char *)"ESet__end", (PyCFunction)_wrap_ESet__end, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return iterator pointing to just after the last item in this ESet.\n"
 		"\n"
-		"ESetIterator Xapian::ESet::end() const \n"
+		"ESetIterator Xapian::ESet::end() const Xapian::ESet::end\n"
 		""},
 	 { (char *)"ESet_back", (PyCFunction)_wrap_ESet_back, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return iterator pointing to the last object in this ESet.\n"
 		"\n"
-		"ESetIterator Xapian::ESet::back() const \n"
+		"ESetIterator Xapian::ESet::back() const Xapian::ESet::back\n"
 		""},
 	 { (char *)"ESet___str__", (PyCFunction)_wrap_ESet___str__, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::ESet::get_description() const \n"
+		"std::string Xapian::ESet::get_description() const\n"
+		"Xapian::ESet::get_description\n"
 		""},
 	 { (char *)"ESet_swigregister", ESet_swigregister, METH_VARARGS, NULL},
 	 { (char *)"ESet_swiginit", ESet_swiginit, METH_VARARGS, NULL},
@@ -51987,21 +52250,24 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Create an unpositioned ESetIterator.\n"
 		"\n"
-		"Xapian::ESetIterator::ESetIterator() \n"
+		"Xapian::ESetIterator::ESetIterator()\n"
+		"Xapian::ESetIterator::ESetIterator\n"
 		""},
 	 { (char *)"_ESetIterator_get_weight", (PyCFunction)_wrap__ESetIterator_get_weight, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get the weight for the current position.\n"
 		"\n"
-		"double Xapian::ESetIterator::get_weight() const \n"
+		"double Xapian::ESetIterator::get_weight() const\n"
+		"Xapian::ESetIterator::get_weight\n"
 		""},
 	 { (char *)"_ESetIterator___str__", (PyCFunction)_wrap__ESetIterator___str__, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::ESetIterator::get_description() const \n"
+		"std::string Xapian::ESetIterator::get_description() const\n"
+		"Xapian::ESetIterator::get_description\n"
 		""},
 	 { (char *)"_ESetIterator___eq__", _wrap__ESetIterator___eq__, METH_VARARGS, NULL},
 	 { (char *)"_ESetIterator___ne__", _wrap__ESetIterator___ne__, METH_VARARGS, NULL},
@@ -52023,56 +52289,60 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::RSet::RSet() \n"
+		"Xapian::RSet::RSet() Xapian::RSet::RSet\n"
 		""},
 	 { (char *)"delete_RSet", (PyCFunction)_wrap_delete_RSet, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::RSet::~RSet() \n"
+		"Xapian::RSet::~RSet() Xapian::RSet::~RSet\n"
 		""},
 	 { (char *)"RSet_size", (PyCFunction)_wrap_RSet_size, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"The number of documents in this R-Set.\n"
 		"\n"
-		"Xapian::doccount Xapian::RSet::size() const \n"
+		"Xapian::doccount Xapian::RSet::size() const Xapian::RSet::size\n"
 		""},
 	 { (char *)"RSet_empty", (PyCFunction)_wrap_RSet_empty, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Test if this R-Set is empty.\n"
 		"\n"
-		"bool Xapian::RSet::empty() const \n"
+		"bool Xapian::RSet::empty() const Xapian::RSet::empty\n"
 		""},
 	 { (char *)"RSet_add_document", _wrap_RSet_add_document, METH_VARARGS, (char *)"\n"
 		"\n"
 		"\n"
 		"Add a document to the relevance set.\n"
 		"\n"
-		"void Xapian::RSet::add_document(const Xapian::MSetIterator &i) \n"
+		"void Xapian::RSet::add_document(const Xapian::MSetIterator &i)\n"
+		"Xapian::RSet::add_document\n"
 		""},
 	 { (char *)"RSet_remove_document", _wrap_RSet_remove_document, METH_VARARGS, (char *)"\n"
 		"\n"
 		"\n"
 		"Remove a document from the relevance set.\n"
 		"\n"
-		"void Xapian::RSet::remove_document(const Xapian::MSetIterator &i) \n"
+		"void Xapian::RSet::remove_document(const Xapian::MSetIterator &i)\n"
+		"Xapian::RSet::remove_document\n"
 		""},
 	 { (char *)"RSet_contains", _wrap_RSet_contains, METH_VARARGS, (char *)"\n"
 		"\n"
 		"\n"
 		"Test if a given document in the relevance set.\n"
 		"\n"
-		"bool Xapian::RSet::contains(const Xapian::MSetIterator &i) const \n"
+		"bool Xapian::RSet::contains(const Xapian::MSetIterator &i) const\n"
+		"Xapian::RSet::contains\n"
 		""},
 	 { (char *)"RSet___str__", (PyCFunction)_wrap_RSet___str__, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::RSet::get_description() const \n"
+		"std::string Xapian::RSet::get_description() const\n"
+		"Xapian::RSet::get_description\n"
 		""},
 	 { (char *)"RSet_swigregister", RSet_swigregister, METH_VARARGS, NULL},
 	 { (char *)"RSet_swiginit", RSet_swiginit, METH_VARARGS, NULL},
@@ -52081,7 +52351,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::MatchDecider::MatchDecider() \n"
+		"Xapian::MatchDecider::MatchDecider()\n"
+		"Xapian::MatchDecider::MatchDecider\n"
 		""},
 	 { (char *)"MatchDecider___call__", _wrap_MatchDecider___call__, METH_VARARGS, NULL},
 	 { (char *)"delete_MatchDecider", (PyCFunction)_wrap_delete_MatchDecider, METH_O, (char *)"\n"
@@ -52089,7 +52360,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"virtual Xapian::MatchDecider::~MatchDecider() \n"
+		"virtual Xapian::MatchDecider::~MatchDecider()\n"
+		"Xapian::MatchDecider::~MatchDecider\n"
 		""},
 	 { (char *)"disown_MatchDecider", (PyCFunction)_wrap_disown_MatchDecider, METH_O, NULL},
 	 { (char *)"MatchDecider_swigregister", MatchDecider_swigregister, METH_VARARGS, NULL},
@@ -52100,11 +52372,10 @@ static PyMethodDef SwigMethods[] = {
 		"Create a Xapian::Enquire object.\n"
 		"\n"
 		"Xapian::Enquire::Enquire(const Database &database, ErrorHandler\n"
-		"*errorhandler_)\n"
-		"\n"
-		"This specification cannot be changed once the Xapian::Enquire is\n"
-		"opened: you must create a new Xapian::Enquire object to access a\n"
-		"different database, or set of databases.\n"
+		"*errorhandler_) Xapian::Enquire::Enquire This specification cannot be\n"
+		"changed once the Xapian::Enquire is opened: you must create a new\n"
+		"Xapian::Enquire object to access a different database, or set of\n"
+		"databases.\n"
 		"\n"
 		"The database supplied must have been initialised (ie, must not be the\n"
 		"result of calling the Database::Database() constructor). If you need\n"
@@ -52131,7 +52402,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Close the Xapian::Enquire object.\n"
 		"\n"
-		"Xapian::Enquire::~Enquire() \n"
+		"Xapian::Enquire::~Enquire() Xapian::Enquire::~Enquire\n"
 		""},
 	 { (char *)"Enquire_set_query", _wrap_Enquire_set_query, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -52139,7 +52410,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the query to run.\n"
 		"\n"
 		"void Xapian::Enquire::set_query(const Xapian::Query &query,\n"
-		"Xapian::termcount qlen=0)\n"
+		"Xapian::termcount qlen=0) Xapian::Enquire::set_query\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52154,10 +52425,9 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Get the current query.\n"
 		"\n"
-		"const Xapian::Query& Xapian::Enquire::get_query() const\n"
-		"\n"
-		"If called before set_query(), this will return a default initialised\n"
-		"Query object. \n"
+		"const Xapian::Query & Xapian::Enquire::get_query() const\n"
+		"Xapian::Enquire::get_query If called before set_query(), this will\n"
+		"return a default initialised Query object. \n"
 		""},
 	 { (char *)"Enquire_add_matchspy", _wrap_Enquire_add_matchspy, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -52165,12 +52435,12 @@ static PyMethodDef SwigMethods[] = {
 		"Add a matchspy.\n"
 		"\n"
 		"void Xapian::Enquire::add_matchspy(MatchSpy *spy)\n"
-		"\n"
-		"This matchspy will be called with some of the documents which match\n"
-		"the query, during the match process. Exactly which of the matching\n"
-		"documents are passed to it depends on exactly when certain\n"
-		"optimisations occur during the match process, but it can be controlled\n"
-		"to some extent by setting the checkatleast parameter to  get_mset().\n"
+		"Xapian::Enquire::add_matchspy This matchspy will be called with some\n"
+		"of the documents which match the query, during the match process.\n"
+		"Exactly which of the matching documents are passed to it depends on\n"
+		"exactly when certain optimisations occur during the match process, but\n"
+		"it can be controlled to some extent by setting the checkatleast\n"
+		"parameter to  get_mset().\n"
 		"\n"
 		"In particular, if there are enough matching documents, at least the\n"
 		"number specified by checkatleast will be passed to the matchspy. This\n"
@@ -52190,7 +52460,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Remove all the matchspies.\n"
 		"\n"
-		"void Xapian::Enquire::clear_matchspies() \n"
+		"void Xapian::Enquire::clear_matchspies()\n"
+		"Xapian::Enquire::clear_matchspies\n"
 		""},
 	 { (char *)"Enquire_set_weighting_scheme", _wrap_Enquire_set_weighting_scheme, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -52198,6 +52469,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the weighting scheme to use for queries.\n"
 		"\n"
 		"void Xapian::Enquire::set_weighting_scheme(const Weight &weight_)\n"
+		"Xapian::Enquire::set_weighting_scheme\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52212,8 +52484,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::Enquire::set_expansion_scheme(const std::string\n"
 		"&eweightname_, double expand_k_=1.0) const\n"
-		"\n"
-		"If you don't call this method, the default is as if you'd used:\n"
+		"Xapian::Enquire::set_expansion_scheme If you don't call this method,\n"
+		"the default is as if you'd used:\n"
 		"\n"
 		"get_expansion_scheme(\"trad\");\n"
 		"\n"
@@ -52234,7 +52506,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the collapse key to use for queries.\n"
 		"\n"
 		"void Xapian::Enquire::set_collapse_key(Xapian::valueno collapse_key,\n"
-		"Xapian::doccount collapse_max=1)\n"
+		"Xapian::doccount collapse_max=1) Xapian::Enquire::set_collapse_key\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52272,13 +52544,13 @@ static PyMethodDef SwigMethods[] = {
 		"Set sort order for document IDs.\n"
 		"\n"
 		"void Xapian::Enquire::set_docid_order(docid_order order)\n"
-		"\n"
-		"This order only has an effect on documents which would otherwise have\n"
-		"equal rank. When ordering by relevance without a sort key, this means\n"
-		"documents with equal weight. For a boolean match with no sort key,\n"
-		"this means all documents. And if a sort key is used, this means\n"
-		"documents with the same sort key (and also equal weight if ordering on\n"
-		"relevance before or after the sort key).\n"
+		"Xapian::Enquire::set_docid_order This order only has an effect on\n"
+		"documents which would otherwise have equal rank. When ordering by\n"
+		"relevance without a sort key, this means documents with equal weight.\n"
+		"For a boolean match with no sort key, this means all documents. And if\n"
+		"a sort key is used, this means documents with the same sort key (and\n"
+		"also equal weight if ordering on relevance before or after the sort\n"
+		"key).\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52304,7 +52576,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the percentage and/or weight cutoffs.\n"
 		"\n"
 		"void Xapian::Enquire::set_cutoff(int percent_cutoff, double\n"
-		"weight_cutoff=0)\n"
+		"weight_cutoff=0) Xapian::Enquire::set_cutoff\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52330,8 +52602,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the sorting to be by relevance only.\n"
 		"\n"
 		"void Xapian::Enquire::set_sort_by_relevance()\n"
-		"\n"
-		"This is the default. \n"
+		"Xapian::Enquire::set_sort_by_relevance This is the default. \n"
 		""},
 	 { (char *)"Enquire_set_sort_by_value", _wrap_Enquire_set_sort_by_value, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -52339,14 +52610,13 @@ static PyMethodDef SwigMethods[] = {
 		"Set the sorting to be by value only.\n"
 		"\n"
 		"void Xapian::Enquire::set_sort_by_value(Xapian::valueno sort_key, bool\n"
-		"reverse)\n"
-		"\n"
-		"Note that sorting by values uses a string comparison, so to use this\n"
-		"to sort by a numeric value you'll need to store the numeric values in\n"
-		"a manner which sorts appropriately. For example, you could use\n"
-		"Xapian::sortable_serialise() (which works for floating point numbers\n"
-		"as well as integers), or store numbers padded with leading zeros or\n"
-		"spaces, or with the number of digits prepended.\n"
+		"reverse) Xapian::Enquire::set_sort_by_value Note that sorting by\n"
+		"values uses a string comparison, so to use this to sort by a numeric\n"
+		"value you'll need to store the numeric values in a manner which sorts\n"
+		"appropriately. For example, you could use Xapian::sortable_serialise()\n"
+		"(which works for floating point numbers as well as integers), or store\n"
+		"numbers padded with leading zeros or spaces, or with the number of\n"
+		"digits prepended.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52361,7 +52631,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the sorting to be by key generated from values only.\n"
 		"\n"
 		"void Xapian::Enquire::set_sort_by_key(Xapian::KeyMaker *sorter, bool\n"
-		"reverse)\n"
+		"reverse) Xapian::Enquire::set_sort_by_key\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52378,13 +52648,13 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::Enquire::set_sort_by_value_then_relevance(Xapian::valueno\n"
 		"sort_key, bool reverse)\n"
-		"\n"
-		"Note that sorting by values uses a string comparison, so to use this\n"
-		"to sort by a numeric value you'll need to store the numeric values in\n"
-		"a manner which sorts appropriately. For example, you could use\n"
-		"Xapian::sortable_serialise() (which works for floating point numbers\n"
-		"as well as integers), or store numbers padded with leading zeros or\n"
-		"spaces, or with the number of digits prepended.\n"
+		"Xapian::Enquire::set_sort_by_value_then_relevance Note that sorting by\n"
+		"values uses a string comparison, so to use this to sort by a numeric\n"
+		"value you'll need to store the numeric values in a manner which sorts\n"
+		"appropriately. For example, you could use Xapian::sortable_serialise()\n"
+		"(which works for floating point numbers as well as integers), or store\n"
+		"numbers padded with leading zeros or spaces, or with the number of\n"
+		"digits prepended.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52400,7 +52670,7 @@ static PyMethodDef SwigMethods[] = {
 		"for documents with identical keys.\n"
 		"\n"
 		"void Xapian::Enquire::set_sort_by_key_then_relevance(Xapian::KeyMaker\n"
-		"*sorter, bool reverse)\n"
+		"*sorter, bool reverse) Xapian::Enquire::set_sort_by_key_then_relevance\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52416,13 +52686,13 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::Enquire::set_sort_by_relevance_then_value(Xapian::valueno\n"
 		"sort_key, bool reverse)\n"
-		"\n"
-		"Note that sorting by values uses a string comparison, so to use this\n"
-		"to sort by a numeric value you'll need to store the numeric values in\n"
-		"a manner which sorts appropriately. For example, you could use\n"
-		"Xapian::sortable_serialise() (which works for floating point numbers\n"
-		"as well as integers), or store numbers padded with leading zeros or\n"
-		"spaces, or with the number of digits prepended.\n"
+		"Xapian::Enquire::set_sort_by_relevance_then_value Note that sorting by\n"
+		"values uses a string comparison, so to use this to sort by a numeric\n"
+		"value you'll need to store the numeric values in a manner which sorts\n"
+		"appropriately. For example, you could use Xapian::sortable_serialise()\n"
+		"(which works for floating point numbers as well as integers), or store\n"
+		"numbers padded with leading zeros or spaces, or with the number of\n"
+		"digits prepended.\n"
 		"\n"
 		"Note that with the default BM25 weighting scheme parameters, non-\n"
 		"identical documents will rarely have the same weight, so this setting\n"
@@ -52448,8 +52718,7 @@ static PyMethodDef SwigMethods[] = {
 		"values.\n"
 		"\n"
 		"void Xapian::Enquire::set_sort_by_relevance_then_key(Xapian::KeyMaker\n"
-		"*sorter, bool reverse)\n"
-		"\n"
+		"*sorter, bool reverse) Xapian::Enquire::set_sort_by_relevance_then_key\n"
 		"Note that with the default BM25 weighting scheme parameters, non-\n"
 		"identical documents will rarely have the same weight, so this setting\n"
 		"will give very similar results to set_sort_by_relevance(). It becomes\n"
@@ -52473,10 +52742,9 @@ static PyMethodDef SwigMethods[] = {
 		"Set a time limit for the match.\n"
 		"\n"
 		"void Xapian::Enquire::set_time_limit(double time_limit)\n"
-		"\n"
-		"Matches with check_at_least set high can take a long time in some\n"
-		"cases. You can set a time limit on this, after which check_at_least\n"
-		"will be turned off.\n"
+		"Xapian::Enquire::set_time_limit Matches with check_at_least set high\n"
+		"can take a long time in some cases. You can set a time limit on this,\n"
+		"after which check_at_least will be turned off.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52498,7 +52766,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"MSet Xapian::Enquire::get_mset(Xapian::doccount first,\n"
 		"Xapian::doccount maxitems, const RSet *omrset, const MatchDecider\n"
-		"*mdecider=0) const\n"
+		"*mdecider=0) const Xapian::Enquire::get_mset\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52537,7 +52805,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"ESet Xapian::Enquire::get_eset(Xapian::termcount maxitems, const RSet\n"
 		"&rset, int flags, double k, const Xapian::ExpandDecider\n"
-		"*edecider=NULL, double min_wt=0.0) const\n"
+		"*edecider=NULL, double min_wt=0.0) const Xapian::Enquire::get_eset\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52574,10 +52842,9 @@ static PyMethodDef SwigMethods[] = {
 		"Get terms which match a given document, by match set item.\n"
 		"\n"
 		"TermIterator Xapian::Enquire::get_matching_terms_begin(const\n"
-		"MSetIterator &it) const\n"
-		"\n"
-		"This method returns the terms in the current query which match the\n"
-		"given document.\n"
+		"MSetIterator &it) const Xapian::Enquire::get_matching_terms_begin This\n"
+		"method returns the terms in the current query which match the given\n"
+		"document.\n"
 		"\n"
 		"If the underlying database has suitable support, using this call\n"
 		"(rather than passing a Xapian::docid) will enable the system to ensure\n"
@@ -52608,14 +52875,15 @@ static PyMethodDef SwigMethods[] = {
 		"End iterator corresponding to get_matching_terms_begin()\n"
 		"\n"
 		"TermIterator Xapian::Enquire::get_matching_terms_end(const\n"
-		"MSetIterator &) const \n"
+		"MSetIterator &) const Xapian::Enquire::get_matching_terms_end\n"
 		""},
 	 { (char *)"Enquire___str__", (PyCFunction)_wrap_Enquire___str__, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::Enquire::get_description() const \n"
+		"std::string Xapian::Enquire::get_description() const\n"
+		"Xapian::Enquire::get_description\n"
 		""},
 	 { (char *)"Enquire_swigregister", Enquire_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Enquire_swiginit", Enquire_swiginit, METH_VARARGS, NULL},
@@ -52624,7 +52892,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::ExpandDecider::ExpandDecider() \n"
+		"Xapian::ExpandDecider::ExpandDecider()\n"
+		"Xapian::ExpandDecider::ExpandDecider\n"
 		""},
 	 { (char *)"ExpandDecider___call__", _wrap_ExpandDecider___call__, METH_VARARGS, NULL},
 	 { (char *)"delete_ExpandDecider", (PyCFunction)_wrap_delete_ExpandDecider, METH_O, (char *)"\n"
@@ -52632,19 +52901,19 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Virtual destructor, because we have virtual methods.\n"
 		"\n"
-		"virtual Xapian::ExpandDecider::~ExpandDecider() \n"
+		"virtual Xapian::ExpandDecider::~ExpandDecider()\n"
+		"Xapian::ExpandDecider::~ExpandDecider\n"
 		""},
 	 { (char *)"ExpandDecider_release", (PyCFunction)_wrap_ExpandDecider_release, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Start reference counting this object.\n"
 		"\n"
-		"const ExpandDecider* Xapian::ExpandDecider::release() const\n"
-		"\n"
-		"You can hand ownership of a dynamically allocated ExpandDecider object\n"
-		"to Xapian by calling release() and then passing the object to a Xapian\n"
-		"method. Xapian will arrange to delete the object once it is no longer\n"
-		"required. \n"
+		"const ExpandDecider * Xapian::ExpandDecider::release() const\n"
+		"Xapian::ExpandDecider::release You can hand ownership of a dynamically\n"
+		"allocated ExpandDecider object to Xapian by calling release() and then\n"
+		"passing the object to a Xapian method. Xapian will arrange to delete\n"
+		"the object once it is no longer required. \n"
 		""},
 	 { (char *)"disown_ExpandDecider", (PyCFunction)_wrap_disown_ExpandDecider, METH_O, NULL},
 	 { (char *)"ExpandDecider_swigregister", ExpandDecider_swigregister, METH_VARARGS, NULL},
@@ -52656,6 +52925,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::ExpandDeciderAnd::ExpandDeciderAnd(const ExpandDecider\n"
 		"*first_, const ExpandDecider *second_)\n"
+		"Xapian::ExpandDeciderAnd::ExpandDeciderAnd\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52674,6 +52944,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::ExpandDeciderFilterPrefix::ExpandDeciderFilterPrefix(const\n"
 		"std::string &prefix_)\n"
+		"Xapian::ExpandDeciderFilterPrefix::ExpandDeciderFilterPrefix\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52688,7 +52959,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::KeyMaker::KeyMaker() \n"
+		"Xapian::KeyMaker::KeyMaker() Xapian::KeyMaker::KeyMaker\n"
 		""},
 	 { (char *)"KeyMaker___call__", _wrap_KeyMaker___call__, METH_VARARGS, NULL},
 	 { (char *)"delete_KeyMaker", (PyCFunction)_wrap_delete_KeyMaker, METH_O, (char *)"\n"
@@ -52696,19 +52967,18 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Virtual destructor, because we have virtual methods.\n"
 		"\n"
-		"virtual Xapian::KeyMaker::~KeyMaker() \n"
+		"virtual Xapian::KeyMaker::~KeyMaker() Xapian::KeyMaker::~KeyMaker\n"
 		""},
 	 { (char *)"KeyMaker_release", (PyCFunction)_wrap_KeyMaker_release, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Start reference counting this object.\n"
 		"\n"
-		"const KeyMaker* Xapian::KeyMaker::release() const\n"
-		"\n"
-		"You can hand ownership of a dynamically allocated KeyMaker object to\n"
-		"Xapian by calling release() and then passing the object to a Xapian\n"
-		"method. Xapian will arrange to delete the object once it is no longer\n"
-		"required. \n"
+		"const KeyMaker * Xapian::KeyMaker::release() const\n"
+		"Xapian::KeyMaker::release You can hand ownership of a dynamically\n"
+		"allocated KeyMaker object to Xapian by calling release() and then\n"
+		"passing the object to a Xapian method. Xapian will arrange to delete\n"
+		"the object once it is no longer required. \n"
 		""},
 	 { (char *)"disown_KeyMaker", (PyCFunction)_wrap_disown_KeyMaker, METH_O, NULL},
 	 { (char *)"KeyMaker_swigregister", KeyMaker_swigregister, METH_VARARGS, NULL},
@@ -52719,9 +52989,8 @@ static PyMethodDef SwigMethods[] = {
 		"Construct a MultiValueKeyMaker from a pair of iterators.\n"
 		"\n"
 		"Xapian::MultiValueKeyMaker::MultiValueKeyMaker(Iterator begin,\n"
-		"Iterator end)\n"
-		"\n"
-		"The iterators must be a begin/end pair returning Xapian::valueno (or a\n"
+		"Iterator end) Xapian::MultiValueKeyMaker::MultiValueKeyMaker The\n"
+		"iterators must be a begin/end pair returning Xapian::valueno (or a\n"
 		"compatible type) when dereferenced. \n"
 		""},
 	 { (char *)"MultiValueKeyMaker_add_value", _wrap_MultiValueKeyMaker_add_value, METH_VARARGS, (char *)"\n"
@@ -52731,6 +53000,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::MultiValueKeyMaker::add_value(Xapian::valueno slot, bool\n"
 		"reverse=false, const std::string &defvalue=std::string())\n"
+		"Xapian::MultiValueKeyMaker::add_value\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52753,7 +53023,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::Stopper::Stopper() \n"
+		"Xapian::Stopper::Stopper() Xapian::Stopper::Stopper\n"
 		""},
 	 { (char *)"Stopper___call__", _wrap_Stopper___call__, METH_VARARGS, NULL},
 	 { (char *)"delete_Stopper", (PyCFunction)_wrap_delete_Stopper, METH_O, (char *)"\n"
@@ -52761,26 +53031,26 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Class has virtual methods, so provide a virtual destructor.\n"
 		"\n"
-		"virtual Xapian::Stopper::~Stopper() \n"
+		"virtual Xapian::Stopper::~Stopper() Xapian::Stopper::~Stopper\n"
 		""},
 	 { (char *)"Stopper___str__", (PyCFunction)_wrap_Stopper___str__, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"virtual std::string Xapian::Stopper::get_description() const \n"
+		"virtual std::string Xapian::Stopper::get_description() const\n"
+		"Xapian::Stopper::get_description\n"
 		""},
 	 { (char *)"Stopper_release", (PyCFunction)_wrap_Stopper_release, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Start reference counting this object.\n"
 		"\n"
-		"const Stopper* Xapian::Stopper::release() const\n"
-		"\n"
-		"You can hand ownership of a dynamically allocated Stopper object to\n"
-		"Xapian by calling release() and then passing the object to a Xapian\n"
-		"method. Xapian will arrange to delete the object once it is no longer\n"
-		"required. \n"
+		"const Stopper * Xapian::Stopper::release() const\n"
+		"Xapian::Stopper::release You can hand ownership of a dynamically\n"
+		"allocated Stopper object to Xapian by calling release() and then\n"
+		"passing the object to a Xapian method. Xapian will arrange to delete\n"
+		"the object once it is no longer required. \n"
 		""},
 	 { (char *)"disown_Stopper", (PyCFunction)_wrap_disown_Stopper, METH_O, NULL},
 	 { (char *)"Stopper_swigregister", Stopper_swigregister, METH_VARARGS, NULL},
@@ -52790,7 +53060,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Add a single stop word.\n"
 		"\n"
-		"void Xapian::SimpleStopper::add(const std::string &word) \n"
+		"void Xapian::SimpleStopper::add(const std::string &word)\n"
+		"Xapian::SimpleStopper::add\n"
 		""},
 	 { (char *)"new_SimpleStopper", _wrap_new_SimpleStopper, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -52798,9 +53069,12 @@ static PyMethodDef SwigMethods[] = {
 		"Initialise from a pair of iterators.\n"
 		"\n"
 		"Xapian::SimpleStopper::SimpleStopper(Iterator begin, Iterator end)\n"
+		"Xapian::SimpleStopper::SimpleStopper  Xapian includes stopword list\n"
+		"files for many languages. You can initialise from a file like so:\n"
 		"\n"
-		"Xapian includes stop list files for many languages. You can initialise\n"
-		"from a file like that: \n"
+		"In bindings for other languages it isn't possible to pass a C++\n"
+		"iterator pair, so instead this constructor is wrapped to allow passing\n"
+		"a filename. \n"
 		""},
 	 { (char *)"delete_SimpleStopper", (PyCFunction)_wrap_delete_SimpleStopper, METH_O, NULL},
 	 { (char *)"SimpleStopper_swigregister", SimpleStopper_swigregister, METH_VARARGS, NULL},
@@ -52812,6 +53086,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::RangeProcessor::RangeProcessor(Xapian::valueno slot_, const\n"
 		"std::string &str_=std::string(), unsigned flags_=0)\n"
+		"Xapian::RangeProcessor::RangeProcessor\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52836,7 +53111,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"virtual Xapian::RangeProcessor::~RangeProcessor() \n"
+		"virtual Xapian::RangeProcessor::~RangeProcessor()\n"
+		"Xapian::RangeProcessor::~RangeProcessor\n"
 		""},
 	 { (char *)"RangeProcessor_check_range", _wrap_RangeProcessor_check_range, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -52844,10 +53120,9 @@ static PyMethodDef SwigMethods[] = {
 		"Check prefix/suffix on range.\n"
 		"\n"
 		"Xapian::Query Xapian::RangeProcessor::check_range(const std::string\n"
-		"&b, const std::string &e)\n"
-		"\n"
-		"If they match, remove the prefix/suffix and then call operator()() to\n"
-		"try to handle the range. \n"
+		"&b, const std::string &e) Xapian::RangeProcessor::check_range If they\n"
+		"match, remove the prefix/suffix and then call operator()() to try to\n"
+		"handle the range. \n"
 		""},
 	 { (char *)"RangeProcessor___call__", _wrap_RangeProcessor___call__, METH_VARARGS, NULL},
 	 { (char *)"RangeProcessor_release", (PyCFunction)_wrap_RangeProcessor_release, METH_O, (char *)"\n"
@@ -52855,12 +53130,11 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Start reference counting this object.\n"
 		"\n"
-		"const RangeProcessor* Xapian::RangeProcessor::release() const\n"
-		"\n"
-		"You can hand ownership of a dynamically allocated RangeProcessor\n"
-		"object to Xapian by calling release() and then passing the object to a\n"
-		"Xapian method. Xapian will arrange to delete the object once it is no\n"
-		"longer required. \n"
+		"const RangeProcessor * Xapian::RangeProcessor::release() const\n"
+		"Xapian::RangeProcessor::release You can hand ownership of a\n"
+		"dynamically allocated RangeProcessor object to Xapian by calling\n"
+		"release() and then passing the object to a Xapian method. Xapian will\n"
+		"arrange to delete the object once it is no longer required. \n"
 		""},
 	 { (char *)"disown_RangeProcessor", (PyCFunction)_wrap_disown_RangeProcessor, METH_O, NULL},
 	 { (char *)"RangeProcessor_swigregister", RangeProcessor_swigregister, METH_VARARGS, NULL},
@@ -52872,6 +53146,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::DateRangeProcessor::DateRangeProcessor(Xapian::valueno slot_,\n"
 		"const std::string &str_, unsigned flags_=0, int epoch_year_=1970)\n"
+		"Xapian::DateRangeProcessor::DateRangeProcessor\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52923,6 +53198,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::NumberRangeProcessor::NumberRangeProcessor(Xapian::valueno\n"
 		"slot_, const std::string &str_=std::string(), unsigned flags_=0)\n"
+		"Xapian::NumberRangeProcessor::NumberRangeProcessor\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -52969,14 +53245,16 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::ValueRangeProcessor::ValueRangeProcessor() \n"
+		"Xapian::ValueRangeProcessor::ValueRangeProcessor()\n"
+		"Xapian::ValueRangeProcessor::ValueRangeProcessor\n"
 		""},
 	 { (char *)"delete_ValueRangeProcessor", (PyCFunction)_wrap_delete_ValueRangeProcessor, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"virtual Xapian::ValueRangeProcessor::~ValueRangeProcessor() \n"
+		"virtual Xapian::ValueRangeProcessor::~ValueRangeProcessor()\n"
+		"Xapian::ValueRangeProcessor::~ValueRangeProcessor\n"
 		""},
 	 { (char *)"ValueRangeProcessor___call__", _wrap_ValueRangeProcessor___call__, METH_VARARGS, NULL},
 	 { (char *)"ValueRangeProcessor_release", (PyCFunction)_wrap_ValueRangeProcessor_release, METH_O, (char *)"\n"
@@ -52984,13 +53262,11 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Start reference counting this object.\n"
 		"\n"
-		"const ValueRangeProcessor* Xapian::ValueRangeProcessor::release()\n"
-		"const\n"
-		"\n"
-		"You can hand ownership of a dynamically allocated ValueRangeProcessor\n"
-		"object to Xapian by calling release() and then passing the object to a\n"
-		"Xapian method. Xapian will arrange to delete the object once it is no\n"
-		"longer required. \n"
+		"const ValueRangeProcessor * Xapian::ValueRangeProcessor::release()\n"
+		"const Xapian::ValueRangeProcessor::release You can hand ownership of a\n"
+		"dynamically allocated ValueRangeProcessor object to Xapian by calling\n"
+		"release() and then passing the object to a Xapian method. Xapian will\n"
+		"arrange to delete the object once it is no longer required. \n"
 		""},
 	 { (char *)"disown_ValueRangeProcessor", (PyCFunction)_wrap_disown_ValueRangeProcessor, METH_O, NULL},
 	 { (char *)"ValueRangeProcessor_swigregister", ValueRangeProcessor_swigregister, METH_VARARGS, NULL},
@@ -53002,6 +53278,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::StringValueRangeProcessor::StringValueRangeProcessor(Xapian::valueno\n"
 		"slot_, const std::string &str_, bool prefix_=true)\n"
+		"Xapian::StringValueRangeProcessor::StringValueRangeProcessor\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53025,13 +53302,13 @@ static PyMethodDef SwigMethods[] = {
 		"Xapian::DateValueRangeProcessor::DateValueRangeProcessor(Xapian::valueno\n"
 		"slot_, const char *str_, bool prefix_=true, bool prefer_mdy_=false,\n"
 		"int epoch_year_=1970)\n"
-		"\n"
-		"This is like the previous version, but with const char * instead of\n"
-		"std::string - we need this overload as otherwise\n"
-		"DateValueRangeProcessor(1, \"date:\") quietly interprets the second\n"
-		"argument as a boolean in preference to std::string. If you want to be\n"
-		"compatible with 1.2.12 and earlier, then explicitly convert to\n"
-		"std::string, i.e.: DateValueRangeProcessor(1, std::string(\"date:\"))\n"
+		"Xapian::DateValueRangeProcessor::DateValueRangeProcessor This is like\n"
+		"the previous version, but with const char * instead of std::string -\n"
+		"we need this overload as otherwise DateValueRangeProcessor(1,\n"
+		"\"date:\") quietly interprets the second argument as a boolean in\n"
+		"preference to std::string. If you want to be compatible with 1.2.12\n"
+		"and earlier, then explicitly convert to std::string, i.e.:\n"
+		"DateValueRangeProcessor(1, std::string(\"date:\"))\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53079,6 +53356,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::NumberValueRangeProcessor::NumberValueRangeProcessor(Xapian::valueno\n"
 		"slot_, const std::string &str_, bool prefix_=true)\n"
+		"Xapian::NumberValueRangeProcessor::NumberValueRangeProcessor\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53121,14 +53399,16 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::FieldProcessor::FieldProcessor() \n"
+		"Xapian::FieldProcessor::FieldProcessor()\n"
+		"Xapian::FieldProcessor::FieldProcessor\n"
 		""},
 	 { (char *)"delete_FieldProcessor", (PyCFunction)_wrap_delete_FieldProcessor, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"virtual Xapian::FieldProcessor::~FieldProcessor() \n"
+		"virtual Xapian::FieldProcessor::~FieldProcessor()\n"
+		"Xapian::FieldProcessor::~FieldProcessor\n"
 		""},
 	 { (char *)"FieldProcessor___call__", _wrap_FieldProcessor___call__, METH_VARARGS, NULL},
 	 { (char *)"FieldProcessor_release", (PyCFunction)_wrap_FieldProcessor_release, METH_O, (char *)"\n"
@@ -53136,12 +53416,11 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Start reference counting this object.\n"
 		"\n"
-		"const FieldProcessor* Xapian::FieldProcessor::release() const\n"
-		"\n"
-		"You can hand ownership of a dynamically allocated FieldProcessor\n"
-		"object to Xapian by calling release() and then passing the object to a\n"
-		"Xapian method. Xapian will arrange to delete the object once it is no\n"
-		"longer required. \n"
+		"const FieldProcessor * Xapian::FieldProcessor::release() const\n"
+		"Xapian::FieldProcessor::release You can hand ownership of a\n"
+		"dynamically allocated FieldProcessor object to Xapian by calling\n"
+		"release() and then passing the object to a Xapian method. Xapian will\n"
+		"arrange to delete the object once it is no longer required. \n"
 		""},
 	 { (char *)"disown_FieldProcessor", (PyCFunction)_wrap_disown_FieldProcessor, METH_O, NULL},
 	 { (char *)"FieldProcessor_swigregister", FieldProcessor_swigregister, METH_VARARGS, NULL},
@@ -53151,14 +53430,15 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor.\n"
 		"\n"
-		"Xapian::QueryParser::QueryParser() \n"
+		"Xapian::QueryParser::QueryParser() Xapian::QueryParser::QueryParser\n"
 		""},
 	 { (char *)"delete_QueryParser", (PyCFunction)_wrap_delete_QueryParser, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"Xapian::QueryParser::~QueryParser() \n"
+		"Xapian::QueryParser::~QueryParser()\n"
+		"Xapian::QueryParser::~QueryParser\n"
 		""},
 	 { (char *)"QueryParser_set_stemmer", _wrap_QueryParser_set_stemmer, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -53166,14 +53446,14 @@ static PyMethodDef SwigMethods[] = {
 		"Set the stemmer.\n"
 		"\n"
 		"void Xapian::QueryParser::set_stemmer(const Xapian::Stem &stemmer)\n"
-		"\n"
-		"This sets the stemming algorithm which will be used by the query\n"
-		"parser. The stemming algorithm will be used according to the stemming\n"
-		"strategy set by set_stemming_strategy(). As of 1.3.1, this defaults to\n"
-		"STEM_SOME, but in earlier versions the default was STEM_NONE. If you\n"
-		"want to work with older versions, you should explicitly set a stemming\n"
-		"strategy as well as setting a stemmer, otherwise your stemmer won't\n"
-		"actually be used.\n"
+		"Xapian::QueryParser::set_stemmer This sets the stemming algorithm\n"
+		"which will be used by the query parser. The stemming algorithm will be\n"
+		"used according to the stemming strategy set by\n"
+		"set_stemming_strategy(). As of 1.3.1, this defaults to STEM_SOME, but\n"
+		"in earlier versions the default was STEM_NONE. If you want to work\n"
+		"with older versions, you should explicitly set a stemming strategy as\n"
+		"well as setting a stemmer, otherwise your stemmer won't actually be\n"
+		"used.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53186,11 +53466,10 @@ static PyMethodDef SwigMethods[] = {
 		"Set the stemming strategy.\n"
 		"\n"
 		"void Xapian::QueryParser::set_stemming_strategy(stem_strategy\n"
-		"strategy)\n"
-		"\n"
-		"This controls how the query parser will apply the stemming algorithm.\n"
-		"Note that the stemming algorithm is only applied to words in free-text\n"
-		"fields - boolean filter terms are never stemmed.\n"
+		"strategy) Xapian::QueryParser::set_stemming_strategy This controls how\n"
+		"the query parser will apply the stemming algorithm. Note that the\n"
+		"stemming algorithm is only applied to words in free-text fields -\n"
+		"boolean filter terms are never stemmed.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53217,6 +53496,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the stopper.\n"
 		"\n"
 		"void Xapian::QueryParser::set_stopper(const Stopper *stop=NULL)\n"
+		"Xapian::QueryParser::set_stopper\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53230,6 +53510,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the default operator.\n"
 		"\n"
 		"void Xapian::QueryParser::set_default_op(Query::op default_op)\n"
+		"Xapian::QueryParser::set_default_op\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53250,7 +53531,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Get the current default operator.\n"
 		"\n"
-		"Query::op Xapian::QueryParser::get_default_op() const \n"
+		"Query::op Xapian::QueryParser::get_default_op() const\n"
+		"Xapian::QueryParser::get_default_op\n"
 		""},
 	 { (char *)"QueryParser_set_database", _wrap_QueryParser_set_database, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -53258,6 +53540,7 @@ static PyMethodDef SwigMethods[] = {
 		"Specify the database being searched.\n"
 		"\n"
 		"void Xapian::QueryParser::set_database(const Database &db)\n"
+		"Xapian::QueryParser::set_database\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53274,10 +53557,9 @@ static PyMethodDef SwigMethods[] = {
 		"void Xapian::QueryParser::set_max_expansion(Xapian::termcount\n"
 		"max_expansion, int max_type=Xapian::Query::WILDCARD_LIMIT_ERROR,\n"
 		"unsigned flags=FLAG_WILDCARD|FLAG_PARTIAL)\n"
-		"\n"
-		"Note: you must also set FLAG_WILDCARD and/or FLAG_PARTIAL in the flags\n"
-		"parameter to  parse_query() for this setting to have anything to\n"
-		"affect.\n"
+		"Xapian::QueryParser::set_max_expansion Note: you must also set\n"
+		"FLAG_WILDCARD and/or FLAG_PARTIAL in the flags parameter to\n"
+		"parse_query() for this setting to have anything to affect.\n"
 		"\n"
 		"If you don't call this method, the default settings are no limit on\n"
 		"wildcard expansion, and partial terms expanding to the most frequent\n"
@@ -53311,9 +53593,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void\n"
 		"Xapian::QueryParser::set_max_wildcard_expansion(Xapian::termcount)\n"
-		"\n"
-		"If any wildcard expands to more than max_expansion terms, an exception\n"
-		"will be thrown.\n"
+		"Xapian::QueryParser::set_max_wildcard_expansion If any wildcard\n"
+		"expands to more than max_expansion terms, an exception will be thrown.\n"
 		"\n"
 		"This method is provided for API compatibility with Xapian 1.2.x and is\n"
 		"deprecated - replace it with:\n"
@@ -53329,7 +53610,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Query Xapian::QueryParser::parse_query(const std::string\n"
 		"&query_string, unsigned flags=FLAG_DEFAULT, const std::string\n"
-		"&default_prefix=std::string())\n"
+		"&default_prefix=std::string()) Xapian::QueryParser::parse_query\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53371,7 +53652,7 @@ static PyMethodDef SwigMethods[] = {
 		"Register a FieldProcessor.\n"
 		"\n"
 		"void Xapian::QueryParser::add_prefix(const std::string &field,\n"
-		"Xapian::FieldProcessor *proc) \n"
+		"Xapian::FieldProcessor *proc) Xapian::QueryParser::add_prefix\n"
 		""},
 	 { (char *)"QueryParser_add_boolean_prefix", _wrap_QueryParser_add_boolean_prefix, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -53380,23 +53661,25 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::QueryParser::add_boolean_prefix(const std::string &field,\n"
 		"Xapian::FieldProcessor *proc, bool exclusive)\n"
-		"\n"
-		"This is an older version of this method - use the version with the\n"
-		"grouping parameter in preference to this one. \n"
+		"Xapian::QueryParser::add_boolean_prefix This is an older version of\n"
+		"this method - use the version with the grouping parameter in\n"
+		"preference to this one. \n"
 		""},
 	 { (char *)"QueryParser__stoplist_begin", (PyCFunction)_wrap_QueryParser__stoplist_begin, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Begin iterator over terms omitted from the query as stopwords.\n"
 		"\n"
-		"TermIterator Xapian::QueryParser::stoplist_begin() const \n"
+		"TermIterator Xapian::QueryParser::stoplist_begin() const\n"
+		"Xapian::QueryParser::stoplist_begin\n"
 		""},
 	 { (char *)"QueryParser__stoplist_end", (PyCFunction)_wrap_QueryParser__stoplist_end, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"End iterator over terms omitted from the query as stopwords.\n"
 		"\n"
-		"TermIterator Xapian::QueryParser::stoplist_end() const \n"
+		"TermIterator Xapian::QueryParser::stoplist_end() const\n"
+		"Xapian::QueryParser::stoplist_end\n"
 		""},
 	 { (char *)"QueryParser__unstem_begin", _wrap_QueryParser__unstem_begin, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -53404,7 +53687,7 @@ static PyMethodDef SwigMethods[] = {
 		"Begin iterator over unstemmed forms of the given stemmed query term.\n"
 		"\n"
 		"TermIterator Xapian::QueryParser::unstem_begin(const std::string\n"
-		"&term) const \n"
+		"&term) const Xapian::QueryParser::unstem_begin\n"
 		""},
 	 { (char *)"QueryParser__unstem_end", _wrap_QueryParser__unstem_end, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -53412,7 +53695,7 @@ static PyMethodDef SwigMethods[] = {
 		"End iterator over unstemmed forms of the given stemmed query term.\n"
 		"\n"
 		"TermIterator Xapian::QueryParser::unstem_end(const std::string &)\n"
-		"const \n"
+		"const Xapian::QueryParser::unstem_end\n"
 		""},
 	 { (char *)"QueryParser_add_rangeprocessor", _wrap_QueryParser_add_rangeprocessor, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -53420,7 +53703,8 @@ static PyMethodDef SwigMethods[] = {
 		"Register a RangeProcessor.\n"
 		"\n"
 		"void Xapian::QueryParser::add_rangeprocessor(Xapian::RangeProcessor\n"
-		"*range_proc, const std::string *grouping=NULL) \n"
+		"*range_proc, const std::string *grouping=NULL)\n"
+		"Xapian::QueryParser::add_rangeprocessor\n"
 		""},
 	 { (char *)"QueryParser_add_valuerangeprocessor", _wrap_QueryParser_add_valuerangeprocessor, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -53429,10 +53713,9 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void\n"
 		"Xapian::QueryParser::add_valuerangeprocessor(Xapian::ValueRangeProcessor\n"
-		"*vrproc)\n"
-		"\n"
-		"This method is provided for API compatibility with Xapian 1.2.x and is\n"
-		"deprecated - use  add_rangeprocessor() with a RangeProcessor instead.\n"
+		"*vrproc) Xapian::QueryParser::add_valuerangeprocessor This method is\n"
+		"provided for API compatibility with Xapian 1.2.x and is deprecated -\n"
+		"use  add_rangeprocessor() with a RangeProcessor instead.\n"
 		"\n"
 		"Compatibility shim. \n"
 		""},
@@ -53442,8 +53725,8 @@ static PyMethodDef SwigMethods[] = {
 		"Get the spelling-corrected query string.\n"
 		"\n"
 		"std::string Xapian::QueryParser::get_corrected_query_string() const\n"
-		"\n"
-		"This will only be set if FLAG_SPELLING_CORRECTION is specified when\n"
+		"Xapian::QueryParser::get_corrected_query_string This will only be set\n"
+		"if FLAG_SPELLING_CORRECTION is specified when\n"
 		"QueryParser::parse_query() was last called.\n"
 		"\n"
 		"If there were no corrections, an empty string is returned. \n"
@@ -53453,7 +53736,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::QueryParser::get_description() const \n"
+		"std::string Xapian::QueryParser::get_description() const\n"
+		"Xapian::QueryParser::get_description\n"
 		""},
 	 { (char *)"QueryParser_swigregister", QueryParser_swigregister, METH_VARARGS, NULL},
 	 { (char *)"QueryParser_swiginit", QueryParser_swiginit, METH_VARARGS, NULL},
@@ -53466,6 +53750,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::ValueSetMatchDecider::ValueSetMatchDecider(Xapian::valueno\n"
 		"slot, bool inclusive_)\n"
+		"Xapian::ValueSetMatchDecider::ValueSetMatchDecider\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53483,6 +53768,7 @@ static PyMethodDef SwigMethods[] = {
 		"Add a value to the test set.\n"
 		"\n"
 		"void Xapian::ValueSetMatchDecider::add_value(const std::string &value)\n"
+		"Xapian::ValueSetMatchDecider::add_value\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53495,7 +53781,7 @@ static PyMethodDef SwigMethods[] = {
 		"Remove a value from the test set.\n"
 		"\n"
 		"void Xapian::ValueSetMatchDecider::remove_value(const std::string\n"
-		"&value)\n"
+		"&value) Xapian::ValueSetMatchDecider::remove_value\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53510,15 +53796,14 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Virtual destructor, because we have virtual methods.\n"
 		"\n"
-		"virtual Xapian::Weight::~Weight() \n"
+		"virtual Xapian::Weight::~Weight() Xapian::Weight::~Weight\n"
 		""},
 	 { (char *)"Weight_name", (PyCFunction)_wrap_Weight_name, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return the name of this weighting scheme.\n"
 		"\n"
-		"virtual std::string Xapian::Weight::name() const\n"
-		"\n"
+		"virtual std::string Xapian::Weight::name() const Xapian::Weight::name\n"
 		"This name is used by the remote backend. It is passed along with the\n"
 		"serialised parameters to the remote server so that it knows which\n"
 		"class to create.\n"
@@ -53538,9 +53823,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"virtual double Xapian::Weight::get_sumpart(Xapian::termcount wdf,\n"
 		"Xapian::termcount doclen, Xapian::termcount uniqterms) const =0\n"
-		"\n"
-		"The parameters give information about the document which may be used\n"
-		"in the calculations:\n"
+		"Xapian::Weight::get_sumpart The parameters give information about the\n"
+		"document which may be used in the calculations:\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53559,9 +53843,9 @@ static PyMethodDef SwigMethods[] = {
 		"document.\n"
 		"\n"
 		"virtual double Xapian::Weight::get_maxpart() const =0\n"
-		"\n"
-		"This information is used by the matcher to perform various\n"
-		"optimisations, so strive to make the bound as tight as possible. \n"
+		"Xapian::Weight::get_maxpart This information is used by the matcher to\n"
+		"perform various optimisations, so strive to make the bound as tight as\n"
+		"possible. \n"
 		""},
 	 { (char *)"Weight_get_sumextra", _wrap_Weight_get_sumextra, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -53569,10 +53853,9 @@ static PyMethodDef SwigMethods[] = {
 		"Calculate the term-independent weight component for a document.\n"
 		"\n"
 		"virtual double Xapian::Weight::get_sumextra(Xapian::termcount doclen,\n"
-		"Xapian::termcount uniqterms) const =0\n"
-		"\n"
-		"The parameter gives information about the document which may be used\n"
-		"in the calculations:\n"
+		"Xapian::termcount uniqterms) const =0 Xapian::Weight::get_sumextra The\n"
+		"parameter gives information about the document which may be used in\n"
+		"the calculations:\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53588,9 +53871,9 @@ static PyMethodDef SwigMethods[] = {
 		"document.\n"
 		"\n"
 		"virtual double Xapian::Weight::get_maxextra() const =0\n"
-		"\n"
-		"This information is used by the matcher to perform various\n"
-		"optimisations, so strive to make the bound as tight as possible. \n"
+		"Xapian::Weight::get_maxextra This information is used by the matcher\n"
+		"to perform various optimisations, so strive to make the bound as tight\n"
+		"as possible. \n"
 		""},
 	 { (char *)"Weight_swigregister", Weight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_BoolWeight", (PyCFunction)_wrap_new_BoolWeight, METH_NOARGS, (char *)"\n"
@@ -53598,7 +53881,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Construct a BoolWeight.\n"
 		"\n"
-		"Xapian::BoolWeight::BoolWeight() \n"
+		"Xapian::BoolWeight::BoolWeight() Xapian::BoolWeight::BoolWeight\n"
 		""},
 	 { (char *)"delete_BoolWeight", (PyCFunction)_wrap_delete_BoolWeight, METH_O, NULL},
 	 { (char *)"BoolWeight_swigregister", BoolWeight_swigregister, METH_VARARGS, NULL},
@@ -53608,16 +53891,19 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Construct a TfIdfWeight using the default normalizations (\"ntn\").\n"
 		"\n"
-		"Xapian::TfIdfWeight::TfIdfWeight() \n"
+		"Xapian::TfIdfWeight::TfIdfWeight() Xapian::TfIdfWeight::TfIdfWeight\n"
 		""},
 	 { (char *)"delete_TfIdfWeight", (PyCFunction)_wrap_delete_TfIdfWeight, METH_O, NULL},
 	 { (char *)"TfIdfWeight_swigregister", TfIdfWeight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"TfIdfWeight_swiginit", TfIdfWeight_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_BM25Weight", _wrap_new_BM25Weight, METH_VARARGS, (char *)"Xapian::BM25Weight::BM25Weight() "},
+	 { (char *)"new_BM25Weight", _wrap_new_BM25Weight, METH_VARARGS, (char *)"Xapian::BM25Weight::BM25Weight() Xapian::BM25Weight::BM25Weight"},
 	 { (char *)"delete_BM25Weight", (PyCFunction)_wrap_delete_BM25Weight, METH_O, NULL},
 	 { (char *)"BM25Weight_swigregister", BM25Weight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"BM25Weight_swiginit", BM25Weight_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_BM25PlusWeight", _wrap_new_BM25PlusWeight, METH_VARARGS, (char *)"Xapian::BM25PlusWeight::BM25PlusWeight() "},
+	 { (char *)"new_BM25PlusWeight", _wrap_new_BM25PlusWeight, METH_VARARGS, (char *)"\n"
+		"Xapian::BM25PlusWeight::BM25PlusWeight()\n"
+		"Xapian::BM25PlusWeight::BM25PlusWeight\n"
+		""},
 	 { (char *)"delete_BM25PlusWeight", (PyCFunction)_wrap_delete_BM25PlusWeight, METH_O, NULL},
 	 { (char *)"BM25PlusWeight_swigregister", BM25PlusWeight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"BM25PlusWeight_swiginit", BM25PlusWeight_swiginit, METH_VARARGS, NULL},
@@ -53627,6 +53913,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct a TradWeight.\n"
 		"\n"
 		"Xapian::TradWeight::TradWeight(double k=1.0)\n"
+		"Xapian::TradWeight::TradWeight\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53639,31 +53926,34 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"delete_TradWeight", (PyCFunction)_wrap_delete_TradWeight, METH_O, NULL},
 	 { (char *)"TradWeight_swigregister", TradWeight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"TradWeight_swiginit", TradWeight_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_InL2Weight", _wrap_new_InL2Weight, METH_VARARGS, (char *)"Xapian::InL2Weight::InL2Weight() "},
+	 { (char *)"new_InL2Weight", _wrap_new_InL2Weight, METH_VARARGS, (char *)"Xapian::InL2Weight::InL2Weight() Xapian::InL2Weight::InL2Weight"},
 	 { (char *)"delete_InL2Weight", (PyCFunction)_wrap_delete_InL2Weight, METH_O, NULL},
 	 { (char *)"InL2Weight_swigregister", InL2Weight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"InL2Weight_swiginit", InL2Weight_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_IfB2Weight", _wrap_new_IfB2Weight, METH_VARARGS, (char *)"Xapian::IfB2Weight::IfB2Weight() "},
+	 { (char *)"new_IfB2Weight", _wrap_new_IfB2Weight, METH_VARARGS, (char *)"Xapian::IfB2Weight::IfB2Weight() Xapian::IfB2Weight::IfB2Weight"},
 	 { (char *)"delete_IfB2Weight", (PyCFunction)_wrap_delete_IfB2Weight, METH_O, NULL},
 	 { (char *)"IfB2Weight_swigregister", IfB2Weight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"IfB2Weight_swiginit", IfB2Weight_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_IneB2Weight", _wrap_new_IneB2Weight, METH_VARARGS, (char *)"Xapian::IneB2Weight::IneB2Weight() "},
+	 { (char *)"new_IneB2Weight", _wrap_new_IneB2Weight, METH_VARARGS, (char *)"Xapian::IneB2Weight::IneB2Weight() Xapian::IneB2Weight::IneB2Weight"},
 	 { (char *)"delete_IneB2Weight", (PyCFunction)_wrap_delete_IneB2Weight, METH_O, NULL},
 	 { (char *)"IneB2Weight_swigregister", IneB2Weight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"IneB2Weight_swiginit", IneB2Weight_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_BB2Weight", _wrap_new_BB2Weight, METH_VARARGS, (char *)"Xapian::BB2Weight::BB2Weight() "},
+	 { (char *)"new_BB2Weight", _wrap_new_BB2Weight, METH_VARARGS, (char *)"Xapian::BB2Weight::BB2Weight() Xapian::BB2Weight::BB2Weight"},
 	 { (char *)"delete_BB2Weight", (PyCFunction)_wrap_delete_BB2Weight, METH_O, NULL},
 	 { (char *)"BB2Weight_swigregister", BB2Weight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"BB2Weight_swiginit", BB2Weight_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_DLHWeight", (PyCFunction)_wrap_new_DLHWeight, METH_NOARGS, (char *)"Xapian::DLHWeight::DLHWeight() "},
+	 { (char *)"new_DLHWeight", (PyCFunction)_wrap_new_DLHWeight, METH_NOARGS, (char *)"Xapian::DLHWeight::DLHWeight() Xapian::DLHWeight::DLHWeight"},
 	 { (char *)"delete_DLHWeight", (PyCFunction)_wrap_delete_DLHWeight, METH_O, NULL},
 	 { (char *)"DLHWeight_swigregister", DLHWeight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"DLHWeight_swiginit", DLHWeight_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_PL2Weight", _wrap_new_PL2Weight, METH_VARARGS, (char *)"Xapian::PL2Weight::PL2Weight() "},
+	 { (char *)"new_PL2Weight", _wrap_new_PL2Weight, METH_VARARGS, (char *)"Xapian::PL2Weight::PL2Weight() Xapian::PL2Weight::PL2Weight"},
 	 { (char *)"delete_PL2Weight", (PyCFunction)_wrap_delete_PL2Weight, METH_O, NULL},
 	 { (char *)"PL2Weight_swigregister", PL2Weight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PL2Weight_swiginit", PL2Weight_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_PL2PlusWeight", _wrap_new_PL2PlusWeight, METH_VARARGS, (char *)"Xapian::PL2PlusWeight::PL2PlusWeight() "},
+	 { (char *)"new_PL2PlusWeight", _wrap_new_PL2PlusWeight, METH_VARARGS, (char *)"\n"
+		"Xapian::PL2PlusWeight::PL2PlusWeight()\n"
+		"Xapian::PL2PlusWeight::PL2PlusWeight\n"
+		""},
 	 { (char *)"delete_PL2PlusWeight", (PyCFunction)_wrap_delete_PL2PlusWeight, METH_O, NULL},
 	 { (char *)"PL2PlusWeight_swigregister", PL2PlusWeight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PL2PlusWeight_swiginit", PL2PlusWeight_swiginit, METH_VARARGS, NULL},
@@ -53672,7 +53962,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Construct a DPHWeight.\n"
 		"\n"
-		"Xapian::DPHWeight::DPHWeight() \n"
+		"Xapian::DPHWeight::DPHWeight() Xapian::DPHWeight::DPHWeight\n"
 		""},
 	 { (char *)"delete_DPHWeight", (PyCFunction)_wrap_delete_DPHWeight, METH_O, NULL},
 	 { (char *)"DPHWeight_swigregister", DPHWeight_swigregister, METH_VARARGS, NULL},
@@ -53684,7 +53974,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::LMWeight::LMWeight(double param_log_=0.0, type_smoothing\n"
 		"select_smoothing_=TWO_STAGE_SMOOTHING, double param_smoothing1_=-1.0,\n"
-		"double param_smoothing2_=-1.0)\n"
+		"double param_smoothing2_=-1.0) Xapian::LMWeight::LMWeight\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53719,6 +54009,7 @@ static PyMethodDef SwigMethods[] = {
 		"Allow the subclass to perform any initialisation it needs to.\n"
 		"\n"
 		"void Xapian::CoordWeight::init(double factor_)\n"
+		"Xapian::CoordWeight::init\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53734,15 +54025,15 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Construct a CoordWeight.\n"
 		"\n"
-		"Xapian::CoordWeight::CoordWeight() \n"
+		"Xapian::CoordWeight::CoordWeight() Xapian::CoordWeight::CoordWeight\n"
 		""},
 	 { (char *)"delete_CoordWeight", (PyCFunction)_wrap_delete_CoordWeight, METH_O, NULL},
 	 { (char *)"CoordWeight_swigregister", CoordWeight_swigregister, METH_VARARGS, NULL},
 	 { (char *)"CoordWeight_swiginit", CoordWeight_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_Compactor", (PyCFunction)_wrap_new_Compactor, METH_O, (char *)"Xapian::Compactor::Compactor() "},
+	 { (char *)"new_Compactor", (PyCFunction)_wrap_new_Compactor, METH_O, (char *)"Xapian::Compactor::Compactor() Xapian::Compactor::Compactor"},
 	 { (char *)"delete_Compactor", (PyCFunction)_wrap_delete_Compactor, METH_O, (char *)"\n"
 		"virtual\n"
-		"Xapian::Compactor::~Compactor() \n"
+		"Xapian::Compactor::~Compactor() Xapian::Compactor::~Compactor\n"
 		""},
 	 { (char *)"Compactor_set_block_size", _wrap_Compactor_set_block_size, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -53750,6 +54041,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the block size to use for tables in the output database.\n"
 		"\n"
 		"void Xapian::Compactor::set_block_size(size_t block_size)\n"
+		"Xapian::Compactor::set_block_size\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53764,6 +54056,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set whether to preserve existing document id values.\n"
 		"\n"
 		"void Xapian::Compactor::set_renumber(bool renumber)\n"
+		"Xapian::Compactor::set_renumber\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53783,6 +54076,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set whether to merge postlists in multiple passes.\n"
 		"\n"
 		"void Xapian::Compactor::set_multipass(bool multipass)\n"
+		"Xapian::Compactor::set_multipass\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53797,7 +54091,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the compaction level.\n"
 		"\n"
 		"void Xapian::Compactor::set_compaction_level(compaction_level\n"
-		"compaction)\n"
+		"compaction) Xapian::Compactor::set_compaction_level\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53818,8 +54112,8 @@ static PyMethodDef SwigMethods[] = {
 		"Set where to write the output.\n"
 		"\n"
 		"void Xapian::Compactor::set_destdir(const std::string &destdir)\n"
-		"\n"
-		"Deprecated Use Database::compact(destdir[, compactor]) instead.\n"
+		"Xapian::Compactor::set_destdir Deprecated Use\n"
+		"Database::compact(destdir[, compactor]) instead.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53835,8 +54129,8 @@ static PyMethodDef SwigMethods[] = {
 		"Add a source database.\n"
 		"\n"
 		"void Xapian::Compactor::add_source(const std::string &srcdir)\n"
-		"\n"
-		"Deprecated Use Database::compact(destdir[, compactor]) instead.\n"
+		"Xapian::Compactor::add_source Deprecated Use\n"
+		"Database::compact(destdir[, compactor]) instead.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -53848,8 +54142,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Perform the actual compaction/merging operation.\n"
 		"\n"
-		"void Xapian::Compactor::compact()\n"
-		"\n"
+		"void Xapian::Compactor::compact() Xapian::Compactor::compact\n"
 		"Deprecated Use Database::compact(destdir[, compactor]) instead. \n"
 		""},
 	 { (char *)"Compactor_set_status", _wrap_Compactor_set_status, METH_VARARGS, (char *)"\n"
@@ -53858,11 +54151,10 @@ static PyMethodDef SwigMethods[] = {
 		"Update progress.\n"
 		"\n"
 		"virtual void Xapian::Compactor::set_status(const std::string &table,\n"
-		"const std::string &status)\n"
-		"\n"
-		"Subclass this method if you want to get progress updates during\n"
-		"compaction. This is called for each table first with empty status, And\n"
-		"then one or more times with non-empty status.\n"
+		"const std::string &status) Xapian::Compactor::set_status Subclass this\n"
+		"method if you want to get progress updates during compaction. This is\n"
+		"called for each table first with empty status, And then one or more\n"
+		"times with non-empty status.\n"
 		"\n"
 		"The default implementation does nothing.\n"
 		"\n"
@@ -53881,10 +54173,9 @@ static PyMethodDef SwigMethods[] = {
 		"virtual std::string\n"
 		"Xapian::Compactor::resolve_duplicate_metadata(const std::string &key,\n"
 		"size_t num_tags, const std::string tags[])\n"
-		"\n"
-		"When merging, if the same user metadata key is set in more than one\n"
-		"input, then this method is called to allow this to be resolving in an\n"
-		"appropriate way.\n"
+		"Xapian::Compactor::resolve_duplicate_metadata When merging, if the\n"
+		"same user metadata key is set in more than one input, then this method\n"
+		"is called to allow this to be resolving in an appropriate way.\n"
 		"\n"
 		"The default implementation just returns tags[0].\n"
 		"\n"
@@ -53914,11 +54205,13 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Allow subclasses to be instantiated.\n"
 		"\n"
-		"Xapian::PostingSource::PostingSource() \n"
+		"Xapian::PostingSource::PostingSource()\n"
+		"Xapian::PostingSource::PostingSource\n"
 		""},
 	 { (char *)"delete_PostingSource", (PyCFunction)_wrap_delete_PostingSource, METH_O, (char *)"\n"
 		"virtual\n"
-		"Xapian::PostingSource::~PostingSource() \n"
+		"Xapian::PostingSource::~PostingSource()\n"
+		"Xapian::PostingSource::~PostingSource\n"
 		""},
 	 { (char *)"PostingSource_get_termfreq_min", (PyCFunction)_wrap_PostingSource_get_termfreq_min, METH_O, (char *)"\n"
 		"\n"
@@ -53926,10 +54219,9 @@ static PyMethodDef SwigMethods[] = {
 		"A lower bound on the number of documents this object can return.\n"
 		"\n"
 		"virtual Xapian::doccount Xapian::PostingSource::get_termfreq_min()\n"
-		"const =0\n"
+		"const =0 Xapian::PostingSource::get_termfreq_min  Xapian will always\n"
+		"call init() on a PostingSource before calling this for the first time.\n"
 		"\n"
-		"Xapian will always call init() on a PostingSource before calling this\n"
-		"for the first time. \n"
 		""},
 	 { (char *)"PostingSource_get_termfreq_est", (PyCFunction)_wrap_PostingSource_get_termfreq_est, METH_O, (char *)"\n"
 		"\n"
@@ -53937,9 +54229,8 @@ static PyMethodDef SwigMethods[] = {
 		"An estimate of the number of documents this object can return.\n"
 		"\n"
 		"virtual Xapian::doccount Xapian::PostingSource::get_termfreq_est()\n"
-		"const =0\n"
-		"\n"
-		"It must always be true that:\n"
+		"const =0 Xapian::PostingSource::get_termfreq_est It must always be\n"
+		"true that:\n"
 		"\n"
 		"get_termfreq_min() <= get_termfreq_est() <= get_termfreq_max()\n"
 		"\n"
@@ -53952,10 +54243,9 @@ static PyMethodDef SwigMethods[] = {
 		"An upper bound on the number of documents this object can return.\n"
 		"\n"
 		"virtual Xapian::doccount Xapian::PostingSource::get_termfreq_max()\n"
-		"const =0\n"
+		"const =0 Xapian::PostingSource::get_termfreq_max  Xapian will always\n"
+		"call init() on a PostingSource before calling this for the first time.\n"
 		"\n"
-		"Xapian will always call init() on a PostingSource before calling this\n"
-		"for the first time. \n"
 		""},
 	 { (char *)"PostingSource_set_maxweight", _wrap_PostingSource_set_maxweight, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -53963,10 +54253,9 @@ static PyMethodDef SwigMethods[] = {
 		"Specify an upper bound on what get_weight() will return from now on.\n"
 		"\n"
 		"void Xapian::PostingSource::set_maxweight(double max_weight)\n"
-		"\n"
-		"This upper bound is used by the matcher to perform various\n"
-		"optimisations, so if you can return a good bound, then matches will\n"
-		"generally run faster.\n"
+		"Xapian::PostingSource::set_maxweight This upper bound is used by the\n"
+		"matcher to perform various optimisations, so if you can return a good\n"
+		"bound, then matches will generally run faster.\n"
 		"\n"
 		"This method should be called after calling init(), and may be called\n"
 		"during iteration if the upper bound drops. It is probably only useful\n"
@@ -53994,7 +54283,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return the currently set upper bound on what get_weight() can return.\n"
 		"\n"
-		"double Xapian::PostingSource::get_maxweight() const \n"
+		"double Xapian::PostingSource::get_maxweight() const\n"
+		"Xapian::PostingSource::get_maxweight\n"
 		""},
 	 { (char *)"PostingSource_get_weight", (PyCFunction)_wrap_PostingSource_get_weight, METH_O, (char *)"\n"
 		"\n"
@@ -54002,9 +54292,9 @@ static PyMethodDef SwigMethods[] = {
 		"Return the weight contribution for the current document.\n"
 		"\n"
 		"virtual double Xapian::PostingSource::get_weight() const\n"
-		"\n"
-		"This default implementation always returns 0, for convenience when\n"
-		"implementing \"weight-less\" PostingSource subclasses.\n"
+		"Xapian::PostingSource::get_weight This default implementation always\n"
+		"returns 0, for convenience when implementing \"weight-less\"\n"
+		"PostingSource subclasses.\n"
 		"\n"
 		"This method may assume that it will only be called when there is a\n"
 		"\"current document\". In detail: Xapian will always call init() on a\n"
@@ -54020,9 +54310,9 @@ static PyMethodDef SwigMethods[] = {
 		"Return the current docid.\n"
 		"\n"
 		"virtual Xapian::docid Xapian::PostingSource::get_docid() const =0\n"
-		"\n"
-		"This method may assume that it will only be called when there is a\n"
-		"\"current document\". See  get_weight() for details.\n"
+		"Xapian::PostingSource::get_docid This method may assume that it will\n"
+		"only be called when there is a \"current document\". See  get_weight()\n"
+		"for details.\n"
 		"\n"
 		"Note: in the case of a multi-database search, the returned docid\n"
 		"should be in the single subdatabase relevant to this posting source.\n"
@@ -54034,10 +54324,9 @@ static PyMethodDef SwigMethods[] = {
 		"Advance the current position to the next matching document.\n"
 		"\n"
 		"virtual void Xapian::PostingSource::next(double min_wt)=0\n"
-		"\n"
-		"The PostingSource starts before the first entry in the list, so\n"
-		"next(), skip_to() or check() must be called before any methods which\n"
-		"need the context of the current position.\n"
+		"Xapian::PostingSource::next The PostingSource starts before the first\n"
+		"entry in the list, so next(), skip_to() or check() must be called\n"
+		"before any methods which need the context of the current position.\n"
 		"\n"
 		"Xapian will always call init() on a PostingSource before calling this\n"
 		"for the first time.\n"
@@ -54054,11 +54343,9 @@ static PyMethodDef SwigMethods[] = {
 		"Advance to the specified docid.\n"
 		"\n"
 		"virtual void Xapian::PostingSource::skip_to(Xapian::docid did, double\n"
-		"min_wt)\n"
-		"\n"
-		"If the specified docid isn't in the list, position ourselves on the\n"
-		"first document after it (or at_end() if no greater docids are\n"
-		"present).\n"
+		"min_wt) Xapian::PostingSource::skip_to If the specified docid isn't in\n"
+		"the list, position ourselves on the first document after it (or\n"
+		"at_end() if no greater docids are present).\n"
 		"\n"
 		"If the current position is already the specified docid, this method\n"
 		"will leave the position unmodified.\n"
@@ -54092,11 +54379,10 @@ static PyMethodDef SwigMethods[] = {
 		"Check if the specified docid occurs.\n"
 		"\n"
 		"virtual bool Xapian::PostingSource::check(Xapian::docid did, double\n"
-		"min_wt)\n"
-		"\n"
-		"The caller is required to ensure that the specified document id did\n"
-		"actually exists in the database. If it does, it must move to that\n"
-		"document id, and return true. If it does not, it may either:\n"
+		"min_wt) Xapian::PostingSource::check The caller is required to ensure\n"
+		"that the specified document id did actually exists in the database. If\n"
+		"it does, it must move to that document id, and return true. If it does\n"
+		"not, it may either:\n"
 		"\n"
 		"return true, having moved to a definite position (including\n"
 		"\"at_end\"), which must be the same position as skip_to() would have\n"
@@ -54138,9 +54424,8 @@ static PyMethodDef SwigMethods[] = {
 		"list.\n"
 		"\n"
 		"virtual bool Xapian::PostingSource::at_end() const =0\n"
-		"\n"
-		"At least one of  next(),  skip_to() or  check() will be called before\n"
-		"this method is first called. \n"
+		"Xapian::PostingSource::at_end At least one of  next(),  skip_to() or\n"
+		"check() will be called before this method is first called. \n"
 		""},
 	 { (char *)"PostingSource_name", (PyCFunction)_wrap_PostingSource_name, METH_O, (char *)"\n"
 		"\n"
@@ -54148,9 +54433,9 @@ static PyMethodDef SwigMethods[] = {
 		"Name of the posting source class.\n"
 		"\n"
 		"virtual std::string Xapian::PostingSource::name() const\n"
-		"\n"
-		"This is used when serialising and unserialising posting sources; for\n"
-		"example, for performing remote searches.\n"
+		"Xapian::PostingSource::name This is used when serialising and\n"
+		"unserialising posting sources; for example, for performing remote\n"
+		"searches.\n"
 		"\n"
 		"If the subclass is in a C++ namespace, the namespace should be\n"
 		"included in the name, using \"::\" as a separator. For example, for a\n"
@@ -54170,9 +54455,8 @@ static PyMethodDef SwigMethods[] = {
 		"Set this PostingSource to the start of the list of postings.\n"
 		"\n"
 		"virtual void Xapian::PostingSource::init(const Database &db)=0\n"
-		"\n"
-		"This is called automatically by the matcher prior to each query being\n"
-		"processed.\n"
+		"Xapian::PostingSource::init This is called automatically by the\n"
+		"matcher prior to each query being processed.\n"
 		"\n"
 		"If a PostingSource is used for multiple searches,  init() will\n"
 		"therefore be called multiple times, and must handle this by using the\n"
@@ -54197,23 +54481,22 @@ static PyMethodDef SwigMethods[] = {
 		"Return a string describing this object.\n"
 		"\n"
 		"virtual std::string Xapian::PostingSource::get_description() const\n"
-		"\n"
-		"This default implementation returns a generic answer. This default it\n"
-		"provided to avoid forcing those deriving their own PostingSource\n"
-		"subclass from having to implement this (they may not care what\n"
-		"get_description() gives for their subclass). \n"
+		"Xapian::PostingSource::get_description This default implementation\n"
+		"returns a generic answer. This default it provided to avoid forcing\n"
+		"those deriving their own PostingSource subclass from having to\n"
+		"implement this (they may not care what get_description() gives for\n"
+		"their subclass). \n"
 		""},
 	 { (char *)"PostingSource_release", (PyCFunction)_wrap_PostingSource_release, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Start reference counting this object.\n"
 		"\n"
-		"const PostingSource* Xapian::PostingSource::release() const\n"
-		"\n"
-		"You can hand ownership of a dynamically allocated PostingSource object\n"
-		"to Xapian by calling release() and then passing the object to a Xapian\n"
-		"method. Xapian will arrange to delete the object once it is no longer\n"
-		"required. \n"
+		"const PostingSource * Xapian::PostingSource::release() const\n"
+		"Xapian::PostingSource::release You can hand ownership of a dynamically\n"
+		"allocated PostingSource object to Xapian by calling release() and then\n"
+		"passing the object to a Xapian method. Xapian will arrange to delete\n"
+		"the object once it is no longer required. \n"
 		""},
 	 { (char *)"disown_PostingSource", (PyCFunction)_wrap_disown_PostingSource, METH_O, NULL},
 	 { (char *)"PostingSource_swigregister", PostingSource_swigregister, METH_VARARGS, NULL},
@@ -54224,6 +54507,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct a ValuePostingSource.\n"
 		"\n"
 		"Xapian::ValuePostingSource::ValuePostingSource(Xapian::valueno slot_)\n"
+		"Xapian::ValuePostingSource::ValuePostingSource\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -54236,9 +54520,8 @@ static PyMethodDef SwigMethods[] = {
 		"A lower bound on the number of documents this object can return.\n"
 		"\n"
 		"Xapian::doccount Xapian::ValuePostingSource::get_termfreq_min() const\n"
-		"\n"
-		"Xapian will always call init() on a PostingSource before calling this\n"
-		"for the first time. \n"
+		"Xapian::ValuePostingSource::get_termfreq_min  Xapian will always call\n"
+		"init() on a PostingSource before calling this for the first time. \n"
 		""},
 	 { (char *)"ValuePostingSource_get_termfreq_est", (PyCFunction)_wrap_ValuePostingSource_get_termfreq_est, METH_O, (char *)"\n"
 		"\n"
@@ -54246,8 +54529,8 @@ static PyMethodDef SwigMethods[] = {
 		"An estimate of the number of documents this object can return.\n"
 		"\n"
 		"Xapian::doccount Xapian::ValuePostingSource::get_termfreq_est() const\n"
-		"\n"
-		"It must always be true that:\n"
+		"Xapian::ValuePostingSource::get_termfreq_est It must always be true\n"
+		"that:\n"
 		"\n"
 		"get_termfreq_min() <= get_termfreq_est() <= get_termfreq_max()\n"
 		"\n"
@@ -54260,9 +54543,8 @@ static PyMethodDef SwigMethods[] = {
 		"An upper bound on the number of documents this object can return.\n"
 		"\n"
 		"Xapian::doccount Xapian::ValuePostingSource::get_termfreq_max() const\n"
-		"\n"
-		"Xapian will always call init() on a PostingSource before calling this\n"
-		"for the first time. \n"
+		"Xapian::ValuePostingSource::get_termfreq_max  Xapian will always call\n"
+		"init() on a PostingSource before calling this for the first time. \n"
 		""},
 	 { (char *)"ValuePostingSource___next__", _wrap_ValuePostingSource___next__, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -54270,10 +54552,10 @@ static PyMethodDef SwigMethods[] = {
 		"Advance the current position to the next matching document.\n"
 		"\n"
 		"void Xapian::ValuePostingSource::next(double min_wt)\n"
-		"\n"
-		"The PostingSource starts before the first entry in the list, so\n"
-		"next(), skip_to() or check() must be called before any methods which\n"
-		"need the context of the current position.\n"
+		"Xapian::ValuePostingSource::next The PostingSource starts before the\n"
+		"first entry in the list, so next(), skip_to() or check() must be\n"
+		"called before any methods which need the context of the current\n"
+		"position.\n"
 		"\n"
 		"Xapian will always call init() on a PostingSource before calling this\n"
 		"for the first time.\n"
@@ -54290,11 +54572,9 @@ static PyMethodDef SwigMethods[] = {
 		"Advance to the specified docid.\n"
 		"\n"
 		"void Xapian::ValuePostingSource::skip_to(Xapian::docid min_docid,\n"
-		"double min_wt)\n"
-		"\n"
-		"If the specified docid isn't in the list, position ourselves on the\n"
-		"first document after it (or at_end() if no greater docids are\n"
-		"present).\n"
+		"double min_wt) Xapian::ValuePostingSource::skip_to If the specified\n"
+		"docid isn't in the list, position ourselves on the first document\n"
+		"after it (or at_end() if no greater docids are present).\n"
 		"\n"
 		"If the current position is already the specified docid, this method\n"
 		"will leave the position unmodified.\n"
@@ -54328,11 +54608,10 @@ static PyMethodDef SwigMethods[] = {
 		"Check if the specified docid occurs.\n"
 		"\n"
 		"bool Xapian::ValuePostingSource::check(Xapian::docid min_docid, double\n"
-		"min_wt)\n"
-		"\n"
-		"The caller is required to ensure that the specified document id did\n"
-		"actually exists in the database. If it does, it must move to that\n"
-		"document id, and return true. If it does not, it may either:\n"
+		"min_wt) Xapian::ValuePostingSource::check The caller is required to\n"
+		"ensure that the specified document id did actually exists in the\n"
+		"database. If it does, it must move to that document id, and return\n"
+		"true. If it does not, it may either:\n"
 		"\n"
 		"return true, having moved to a definite position (including\n"
 		"\"at_end\"), which must be the same position as skip_to() would have\n"
@@ -54374,9 +54653,8 @@ static PyMethodDef SwigMethods[] = {
 		"list.\n"
 		"\n"
 		"bool Xapian::ValuePostingSource::at_end() const\n"
-		"\n"
-		"At least one of  next(),  skip_to() or  check() will be called before\n"
-		"this method is first called. \n"
+		"Xapian::ValuePostingSource::at_end At least one of  next(),  skip_to()\n"
+		"or  check() will be called before this method is first called. \n"
 		""},
 	 { (char *)"ValuePostingSource_get_docid", (PyCFunction)_wrap_ValuePostingSource_get_docid, METH_O, (char *)"\n"
 		"\n"
@@ -54384,9 +54662,9 @@ static PyMethodDef SwigMethods[] = {
 		"Return the current docid.\n"
 		"\n"
 		"Xapian::docid Xapian::ValuePostingSource::get_docid() const\n"
-		"\n"
-		"This method may assume that it will only be called when there is a\n"
-		"\"current document\". See  get_weight() for details.\n"
+		"Xapian::ValuePostingSource::get_docid This method may assume that it\n"
+		"will only be called when there is a \"current document\". See\n"
+		"get_weight() for details.\n"
 		"\n"
 		"Note: in the case of a multi-database search, the returned docid\n"
 		"should be in the single subdatabase relevant to this posting source.\n"
@@ -54398,9 +54676,8 @@ static PyMethodDef SwigMethods[] = {
 		"Set this PostingSource to the start of the list of postings.\n"
 		"\n"
 		"void Xapian::ValuePostingSource::init(const Database &db_)\n"
-		"\n"
-		"This is called automatically by the matcher prior to each query being\n"
-		"processed.\n"
+		"Xapian::ValuePostingSource::init This is called automatically by the\n"
+		"matcher prior to each query being processed.\n"
 		"\n"
 		"If a PostingSource is used for multiple searches,  init() will\n"
 		"therefore be called multiple times, and must handle this by using the\n"
@@ -54425,8 +54702,7 @@ static PyMethodDef SwigMethods[] = {
 		"The database we're reading values from.\n"
 		"\n"
 		"Xapian::Database Xapian::ValuePostingSource::get_database() const\n"
-		"\n"
-		"Added in 1.2.23 and 1.3.5. \n"
+		"Xapian::ValuePostingSource::get_database Added in 1.2.23 and 1.3.5. \n"
 		""},
 	 { (char *)"ValuePostingSource_get_slot", (PyCFunction)_wrap_ValuePostingSource_get_slot, METH_O, (char *)"\n"
 		"\n"
@@ -54434,8 +54710,7 @@ static PyMethodDef SwigMethods[] = {
 		"The slot we're reading values from.\n"
 		"\n"
 		"Xapian::valueno Xapian::ValuePostingSource::get_slot() const\n"
-		"\n"
-		"Added in 1.2.23 and 1.3.5. \n"
+		"Xapian::ValuePostingSource::get_slot Added in 1.2.23 and 1.3.5. \n"
 		""},
 	 { (char *)"ValuePostingSource_get_value", (PyCFunction)_wrap_ValuePostingSource_get_value, METH_O, (char *)"\n"
 		"\n"
@@ -54443,8 +54718,7 @@ static PyMethodDef SwigMethods[] = {
 		"Read current value.\n"
 		"\n"
 		"std::string Xapian::ValuePostingSource::get_value() const\n"
-		"\n"
-		"Added in 1.2.23 and 1.3.5. \n"
+		"Xapian::ValuePostingSource::get_value Added in 1.2.23 and 1.3.5. \n"
 		""},
 	 { (char *)"ValuePostingSource_done", (PyCFunction)_wrap_ValuePostingSource_done, METH_O, (char *)"\n"
 		"\n"
@@ -54452,8 +54726,8 @@ static PyMethodDef SwigMethods[] = {
 		"End the iteration.\n"
 		"\n"
 		"void Xapian::ValuePostingSource::done()\n"
-		"\n"
-		"Calls to at_end() will return true after calling this method.\n"
+		"Xapian::ValuePostingSource::done Calls to at_end() will return true\n"
+		"after calling this method.\n"
 		"\n"
 		"Added in 1.2.23 and 1.3.5. \n"
 		""},
@@ -54463,8 +54737,7 @@ static PyMethodDef SwigMethods[] = {
 		"Flag indicating if we've started (true if we have).\n"
 		"\n"
 		"bool Xapian::ValuePostingSource::get_started() const\n"
-		"\n"
-		"Added in 1.2.23 and 1.3.5. \n"
+		"Xapian::ValuePostingSource::get_started Added in 1.2.23 and 1.3.5. \n"
 		""},
 	 { (char *)"ValuePostingSource_set_termfreq_min", _wrap_ValuePostingSource_set_termfreq_min, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -54472,10 +54745,9 @@ static PyMethodDef SwigMethods[] = {
 		"Set a lower bound on the term frequency.\n"
 		"\n"
 		"void Xapian::ValuePostingSource::set_termfreq_min(Xapian::doccount\n"
-		"termfreq_min_)\n"
-		"\n"
-		"Subclasses should set this if they are overriding the next(),\n"
-		"skip_to() or check() methods to return fewer documents.\n"
+		"termfreq_min_) Xapian::ValuePostingSource::set_termfreq_min Subclasses\n"
+		"should set this if they are overriding the next(), skip_to() or\n"
+		"check() methods to return fewer documents.\n"
 		"\n"
 		"Added in 1.2.23 and 1.3.5. \n"
 		""},
@@ -54485,10 +54757,9 @@ static PyMethodDef SwigMethods[] = {
 		"An estimate of the term frequency.\n"
 		"\n"
 		"void Xapian::ValuePostingSource::set_termfreq_est(Xapian::doccount\n"
-		"termfreq_est_)\n"
-		"\n"
-		"Subclasses should set this if they are overriding the next(),\n"
-		"skip_to() or check() methods.\n"
+		"termfreq_est_) Xapian::ValuePostingSource::set_termfreq_est Subclasses\n"
+		"should set this if they are overriding the next(), skip_to() or\n"
+		"check() methods.\n"
 		"\n"
 		"Added in 1.2.23 and 1.3.5. \n"
 		""},
@@ -54498,10 +54769,9 @@ static PyMethodDef SwigMethods[] = {
 		"An upper bound on the term frequency.\n"
 		"\n"
 		"void Xapian::ValuePostingSource::set_termfreq_max(Xapian::doccount\n"
-		"termfreq_max_)\n"
-		"\n"
-		"Subclasses should set this if they are overriding the next(),\n"
-		"skip_to() or check() methods.\n"
+		"termfreq_max_) Xapian::ValuePostingSource::set_termfreq_max Subclasses\n"
+		"should set this if they are overriding the next(), skip_to() or\n"
+		"check() methods.\n"
 		"\n"
 		"Added in 1.2.23 and 1.3.5. \n"
 		""},
@@ -54515,7 +54785,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct a ValueWeightPostingSource.\n"
 		"\n"
 		"Xapian::ValueWeightPostingSource::ValueWeightPostingSource(Xapian::valueno\n"
-		"slot_)\n"
+		"slot_) Xapian::ValueWeightPostingSource::ValueWeightPostingSource\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -54528,9 +54798,9 @@ static PyMethodDef SwigMethods[] = {
 		"Return the weight contribution for the current document.\n"
 		"\n"
 		"double Xapian::ValueWeightPostingSource::get_weight() const\n"
-		"\n"
-		"This default implementation always returns 0, for convenience when\n"
-		"implementing \"weight-less\" PostingSource subclasses.\n"
+		"Xapian::ValueWeightPostingSource::get_weight This default\n"
+		"implementation always returns 0, for convenience when implementing\n"
+		"\"weight-less\" PostingSource subclasses.\n"
 		"\n"
 		"This method may assume that it will only be called when there is a\n"
 		"\"current document\". In detail: Xapian will always call init() on a\n"
@@ -54546,9 +54816,9 @@ static PyMethodDef SwigMethods[] = {
 		"Name of the posting source class.\n"
 		"\n"
 		"std::string Xapian::ValueWeightPostingSource::name() const\n"
-		"\n"
-		"This is used when serialising and unserialising posting sources; for\n"
-		"example, for performing remote searches.\n"
+		"Xapian::ValueWeightPostingSource::name This is used when serialising\n"
+		"and unserialising posting sources; for example, for performing remote\n"
+		"searches.\n"
 		"\n"
 		"If the subclass is in a C++ namespace, the namespace should be\n"
 		"included in the name, using \"::\" as a separator. For example, for a\n"
@@ -54568,9 +54838,8 @@ static PyMethodDef SwigMethods[] = {
 		"Set this PostingSource to the start of the list of postings.\n"
 		"\n"
 		"void Xapian::ValueWeightPostingSource::init(const Database &db_)\n"
-		"\n"
-		"This is called automatically by the matcher prior to each query being\n"
-		"processed.\n"
+		"Xapian::ValueWeightPostingSource::init This is called automatically by\n"
+		"the matcher prior to each query being processed.\n"
 		"\n"
 		"If a PostingSource is used for multiple searches,  init() will\n"
 		"therefore be called multiple times, and must handle this by using the\n"
@@ -54595,11 +54864,11 @@ static PyMethodDef SwigMethods[] = {
 		"Return a string describing this object.\n"
 		"\n"
 		"std::string Xapian::ValueWeightPostingSource::get_description() const\n"
-		"\n"
-		"This default implementation returns a generic answer. This default it\n"
-		"provided to avoid forcing those deriving their own PostingSource\n"
-		"subclass from having to implement this (they may not care what\n"
-		"get_description() gives for their subclass). \n"
+		"Xapian::ValueWeightPostingSource::get_description This default\n"
+		"implementation returns a generic answer. This default it provided to\n"
+		"avoid forcing those deriving their own PostingSource subclass from\n"
+		"having to implement this (they may not care what get_description()\n"
+		"gives for their subclass). \n"
 		""},
 	 { (char *)"delete_ValueWeightPostingSource", (PyCFunction)_wrap_delete_ValueWeightPostingSource, METH_O, NULL},
 	 { (char *)"disown_ValueWeightPostingSource", (PyCFunction)_wrap_disown_ValueWeightPostingSource, METH_O, NULL},
@@ -54612,6 +54881,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::DecreasingValueWeightPostingSource::DecreasingValueWeightPostingSource(Xapian::valueno\n"
 		"slot_, Xapian::docid range_start_=0, Xapian::docid range_end_=0)\n"
+		"Xapian::DecreasingValueWeightPostingSource::DecreasingValueWeightPosti\n"
+		"ngSource\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -54633,7 +54904,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct a ValueMapPostingSource.\n"
 		"\n"
 		"Xapian::ValueMapPostingSource::ValueMapPostingSource(Xapian::valueno\n"
-		"slot_)\n"
+		"slot_) Xapian::ValueMapPostingSource::ValueMapPostingSource\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -54646,7 +54917,7 @@ static PyMethodDef SwigMethods[] = {
 		"Add a mapping.\n"
 		"\n"
 		"void Xapian::ValueMapPostingSource::add_mapping(const std::string\n"
-		"&key, double wt)\n"
+		"&key, double wt) Xapian::ValueMapPostingSource::add_mapping\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -54660,7 +54931,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Clear all mappings.\n"
 		"\n"
-		"void Xapian::ValueMapPostingSource::clear_mappings() \n"
+		"void Xapian::ValueMapPostingSource::clear_mappings()\n"
+		"Xapian::ValueMapPostingSource::clear_mappings\n"
 		""},
 	 { (char *)"ValueMapPostingSource_set_default_weight", _wrap_ValueMapPostingSource_set_default_weight, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -54668,6 +54940,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set a default weight for document values not in the map.\n"
 		"\n"
 		"void Xapian::ValueMapPostingSource::set_default_weight(double wt)\n"
+		"Xapian::ValueMapPostingSource::set_default_weight\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -54683,6 +54956,7 @@ static PyMethodDef SwigMethods[] = {
 		"Construct a FixedWeightPostingSource.\n"
 		"\n"
 		"Xapian::FixedWeightPostingSource::FixedWeightPostingSource(double wt)\n"
+		"Xapian::FixedWeightPostingSource::FixedWeightPostingSource\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -54697,14 +54971,14 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor, needed by subclass constructors.\n"
 		"\n"
-		"Xapian::MatchSpy::MatchSpy() \n"
+		"Xapian::MatchSpy::MatchSpy() Xapian::MatchSpy::MatchSpy\n"
 		""},
 	 { (char *)"delete_MatchSpy", (PyCFunction)_wrap_delete_MatchSpy, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Virtual destructor, because we have virtual methods.\n"
 		"\n"
-		"virtual Xapian::MatchSpy::~MatchSpy() \n"
+		"virtual Xapian::MatchSpy::~MatchSpy() Xapian::MatchSpy::~MatchSpy\n"
 		""},
 	 { (char *)"MatchSpy___call__", _wrap_MatchSpy___call__, METH_VARARGS, NULL},
 	 { (char *)"MatchSpy_name", (PyCFunction)_wrap_MatchSpy_name, METH_O, (char *)"\n"
@@ -54713,10 +54987,9 @@ static PyMethodDef SwigMethods[] = {
 		"Return the name of this match spy.\n"
 		"\n"
 		"virtual std::string Xapian::MatchSpy::name() const\n"
-		"\n"
-		"This name is used by the remote backend. It is passed with the\n"
-		"serialised parameters to the remote server so that it knows which\n"
-		"class to create.\n"
+		"Xapian::MatchSpy::name This name is used by the remote backend. It is\n"
+		"passed with the serialised parameters to the remote server so that it\n"
+		"knows which class to create.\n"
 		"\n"
 		"Return the full namespace-qualified name of your class here - if your\n"
 		"class is called MyApp::FooMatchSpy, return \"MyApp::FooMatchSpy\" from\n"
@@ -54732,11 +55005,10 @@ static PyMethodDef SwigMethods[] = {
 		"Unserialise some results, and merge them into this matchspy.\n"
 		"\n"
 		"virtual void Xapian::MatchSpy::merge_results(const std::string\n"
-		"&serialised)\n"
-		"\n"
-		"The order in which results are merged should not be significant, since\n"
-		"this order is not specified (and will vary depending on the speed of\n"
-		"the search in each sub-database).\n"
+		"&serialised) Xapian::MatchSpy::merge_results The order in which\n"
+		"results are merged should not be significant, since this order is not\n"
+		"specified (and will vary depending on the speed of the search in each\n"
+		"sub-database).\n"
 		"\n"
 		"If you don't want to support the remote backend in your match spy, you\n"
 		"can use the default implementation which simply throws\n"
@@ -54753,23 +55025,21 @@ static PyMethodDef SwigMethods[] = {
 		"Return a string describing this object.\n"
 		"\n"
 		"virtual std::string Xapian::MatchSpy::get_description() const\n"
-		"\n"
-		"This default implementation returns a generic answer, to avoid forcing\n"
-		"those deriving their own MatchSpy subclasses from having to implement\n"
-		"this (they may not care what get_description() gives for their\n"
-		"subclass). \n"
+		"Xapian::MatchSpy::get_description This default implementation returns\n"
+		"a generic answer, to avoid forcing those deriving their own MatchSpy\n"
+		"subclasses from having to implement this (they may not care what\n"
+		"get_description() gives for their subclass). \n"
 		""},
 	 { (char *)"MatchSpy_release", (PyCFunction)_wrap_MatchSpy_release, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Start reference counting this object.\n"
 		"\n"
-		"const MatchSpy* Xapian::MatchSpy::release() const\n"
-		"\n"
-		"You can hand ownership of a dynamically allocated MatchSpy object to\n"
-		"Xapian by calling release() and then passing the object to a Xapian\n"
-		"method. Xapian will arrange to delete the object once it is no longer\n"
-		"required. \n"
+		"const MatchSpy * Xapian::MatchSpy::release() const\n"
+		"Xapian::MatchSpy::release You can hand ownership of a dynamically\n"
+		"allocated MatchSpy object to Xapian by calling release() and then\n"
+		"passing the object to a Xapian method. Xapian will arrange to delete\n"
+		"the object once it is no longer required. \n"
 		""},
 	 { (char *)"disown_MatchSpy", (PyCFunction)_wrap_disown_MatchSpy, METH_O, NULL},
 	 { (char *)"MatchSpy_swigregister", MatchSpy_swigregister, METH_VARARGS, NULL},
@@ -54780,14 +55050,15 @@ static PyMethodDef SwigMethods[] = {
 		"Construct a MatchSpy which counts the values in a particular slot.\n"
 		"\n"
 		"Xapian::ValueCountMatchSpy::ValueCountMatchSpy(Xapian::valueno slot_)\n"
-		"\n"
+		"Xapian::ValueCountMatchSpy::ValueCountMatchSpy\n"
 		""},
 	 { (char *)"ValueCountMatchSpy_get_total", (PyCFunction)_wrap_ValueCountMatchSpy_get_total, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return the total number of documents tallied.\n"
 		"\n"
-		"size_t Xapian::ValueCountMatchSpy::get_total() const \n"
+		"size_t Xapian::ValueCountMatchSpy::get_total() const\n"
+		"Xapian::ValueCountMatchSpy::get_total\n"
 		""},
 	 { (char *)"ValueCountMatchSpy_values_begin", (PyCFunction)_wrap_ValueCountMatchSpy_values_begin, METH_O, (char *)"\n"
 		"\n"
@@ -54795,8 +55066,8 @@ static PyMethodDef SwigMethods[] = {
 		"Get an iterator over the values seen in the slot.\n"
 		"\n"
 		"TermIterator Xapian::ValueCountMatchSpy::values_begin() const\n"
-		"\n"
-		"Items will be returned in ascending alphabetical order.\n"
+		"Xapian::ValueCountMatchSpy::values_begin Items will be returned in\n"
+		"ascending alphabetical order.\n"
 		"\n"
 		"During the iteration, the frequency of the current value can be\n"
 		"obtained with the get_termfreq() method on the iterator. \n"
@@ -54806,7 +55077,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"End iterator corresponding to values_begin()\n"
 		"\n"
-		"TermIterator Xapian::ValueCountMatchSpy::values_end() const \n"
+		"TermIterator Xapian::ValueCountMatchSpy::values_end() const\n"
+		"Xapian::ValueCountMatchSpy::values_end\n"
 		""},
 	 { (char *)"ValueCountMatchSpy_top_values_begin", _wrap_ValueCountMatchSpy_top_values_begin, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -54814,10 +55086,9 @@ static PyMethodDef SwigMethods[] = {
 		"Get an iterator over the most frequent values seen in the slot.\n"
 		"\n"
 		"TermIterator Xapian::ValueCountMatchSpy::top_values_begin(size_t\n"
-		"maxvalues) const\n"
-		"\n"
-		"Items will be returned in descending order of frequency. Values with\n"
-		"the same frequency will be returned in ascending alphabetical order.\n"
+		"maxvalues) const Xapian::ValueCountMatchSpy::top_values_begin Items\n"
+		"will be returned in descending order of frequency. Values with the\n"
+		"same frequency will be returned in ascending alphabetical order.\n"
 		"\n"
 		"During the iteration, the frequency of the current value can be\n"
 		"obtained with the get_termfreq() method on the iterator.\n"
@@ -54833,7 +55104,7 @@ static PyMethodDef SwigMethods[] = {
 		"End iterator corresponding to top_values_begin()\n"
 		"\n"
 		"TermIterator Xapian::ValueCountMatchSpy::top_values_end(size_t) const\n"
-		"\n"
+		"Xapian::ValueCountMatchSpy::top_values_end\n"
 		""},
 	 { (char *)"delete_ValueCountMatchSpy", (PyCFunction)_wrap_delete_ValueCountMatchSpy, METH_O, NULL},
 	 { (char *)"ValueCountMatchSpy_swigregister", ValueCountMatchSpy_swigregister, METH_VARARGS, NULL},
@@ -54850,10 +55121,9 @@ static PyMethodDef SwigMethods[] = {
 		"Construct a coordinate.\n"
 		"\n"
 		"Xapian::LatLongCoord::LatLongCoord(double latitude_, double\n"
-		"longitude_)\n"
-		"\n"
-		"If the supplied longitude is out of the standard range, it will be\n"
-		"normalised to the range 0 <= longitude < 360.\n"
+		"longitude_) Xapian::LatLongCoord::LatLongCoord If the supplied\n"
+		"longitude is out of the standard range, it will be normalised to the\n"
+		"range 0 <= longitude < 360.\n"
 		"\n"
 		"If you want to avoid the checks (for example, you know that your\n"
 		"values are already in range), you can use the alternate constructor to\n"
@@ -54871,9 +55141,8 @@ static PyMethodDef SwigMethods[] = {
 		"Unserialise a buffer and set this object to its coordinate.\n"
 		"\n"
 		"void Xapian::LatLongCoord::unserialise(const char **ptr, const char\n"
-		"*end)\n"
-		"\n"
-		"The buffer may contain further data after that for the coordinate.\n"
+		"*end) Xapian::LatLongCoord::unserialise The buffer may contain further\n"
+		"data after that for the coordinate.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -54894,14 +55163,16 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a serialised representation of the coordinate.\n"
 		"\n"
-		"std::string Xapian::LatLongCoord::serialise() const \n"
+		"std::string Xapian::LatLongCoord::serialise() const\n"
+		"Xapian::LatLongCoord::serialise\n"
 		""},
 	 { (char *)"LatLongCoord___str__", (PyCFunction)_wrap_LatLongCoord___str__, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::LatLongCoord::get_description() const \n"
+		"std::string Xapian::LatLongCoord::get_description() const\n"
+		"Xapian::LatLongCoord::get_description\n"
 		""},
 	 { (char *)"delete_LatLongCoord", (PyCFunction)_wrap_delete_LatLongCoord, METH_O, NULL},
 	 { (char *)"LatLongCoord_swigregister", LatLongCoord_swigregister, METH_VARARGS, NULL},
@@ -54911,7 +55182,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Default constructor. Produces an uninitialised iterator.\n"
 		"\n"
-		"Xapian::LatLongCoordsIterator::LatLongCoordsIterator() \n"
+		"Xapian::LatLongCoordsIterator::LatLongCoordsIterator()\n"
+		"Xapian::LatLongCoordsIterator::LatLongCoordsIterator\n"
 		""},
 	 { (char *)"LatLongCoordsIterator___eq__", _wrap_LatLongCoordsIterator___eq__, METH_VARARGS, NULL},
 	 { (char *)"LatLongCoordsIterator_equals", _wrap_LatLongCoordsIterator_equals, METH_VARARGS, NULL},
@@ -54925,42 +55197,48 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Get a begin iterator for the coordinates.\n"
 		"\n"
-		"LatLongCoordsIterator Xapian::LatLongCoords::begin() const \n"
+		"LatLongCoordsIterator Xapian::LatLongCoords::begin() const\n"
+		"Xapian::LatLongCoords::begin\n"
 		""},
 	 { (char *)"LatLongCoords_end", (PyCFunction)_wrap_LatLongCoords_end, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get an end iterator for the coordinates.\n"
 		"\n"
-		"LatLongCoordsIterator Xapian::LatLongCoords::end() const \n"
+		"LatLongCoordsIterator Xapian::LatLongCoords::end() const\n"
+		"Xapian::LatLongCoords::end\n"
 		""},
 	 { (char *)"LatLongCoords_size", (PyCFunction)_wrap_LatLongCoords_size, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get the number of coordinates in the container.\n"
 		"\n"
-		"size_t Xapian::LatLongCoords::size() const \n"
+		"size_t Xapian::LatLongCoords::size() const\n"
+		"Xapian::LatLongCoords::size\n"
 		""},
 	 { (char *)"LatLongCoords_empty", (PyCFunction)_wrap_LatLongCoords_empty, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return true if and only if there are no coordinates in the container.\n"
 		"\n"
-		"bool Xapian::LatLongCoords::empty() const \n"
+		"bool Xapian::LatLongCoords::empty() const\n"
+		"Xapian::LatLongCoords::empty\n"
 		""},
 	 { (char *)"LatLongCoords_append", _wrap_LatLongCoords_append, METH_VARARGS, (char *)"\n"
 		"\n"
 		"\n"
 		"Append a coordinate to the end of the sequence.\n"
 		"\n"
-		"void Xapian::LatLongCoords::append(const LatLongCoord &coord) \n"
+		"void Xapian::LatLongCoords::append(const LatLongCoord &coord)\n"
+		"Xapian::LatLongCoords::append\n"
 		""},
 	 { (char *)"new_LatLongCoords", _wrap_new_LatLongCoords, METH_VARARGS, (char *)"\n"
 		"\n"
 		"\n"
 		"Construct a container holding one coordinate.\n"
 		"\n"
-		"Xapian::LatLongCoords::LatLongCoords(const LatLongCoord &coord) \n"
+		"Xapian::LatLongCoords::LatLongCoords(const LatLongCoord &coord)\n"
+		"Xapian::LatLongCoords::LatLongCoords\n"
 		""},
 	 { (char *)"LatLongCoords_unserialise", _wrap_LatLongCoords_unserialise, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -54968,6 +55246,7 @@ static PyMethodDef SwigMethods[] = {
 		"Unserialise a string and set this object to the coordinates in it.\n"
 		"\n"
 		"void Xapian::LatLongCoords::unserialise(const std::string &serialised)\n"
+		"Xapian::LatLongCoords::unserialise\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -54986,14 +55265,16 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a serialised form of the coordinate list.\n"
 		"\n"
-		"std::string Xapian::LatLongCoords::serialise() const \n"
+		"std::string Xapian::LatLongCoords::serialise() const\n"
+		"Xapian::LatLongCoords::serialise\n"
 		""},
 	 { (char *)"LatLongCoords___str__", (PyCFunction)_wrap_LatLongCoords___str__, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"std::string Xapian::LatLongCoords::get_description() const \n"
+		"std::string Xapian::LatLongCoords::get_description() const\n"
+		"Xapian::LatLongCoords::get_description\n"
 		""},
 	 { (char *)"delete_LatLongCoords", (PyCFunction)_wrap_delete_LatLongCoords, METH_O, NULL},
 	 { (char *)"LatLongCoords_swigregister", LatLongCoords_swigregister, METH_VARARGS, NULL},
@@ -55004,7 +55285,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Destructor.\n"
 		"\n"
-		"virtual Xapian::LatLongMetric::~LatLongMetric() \n"
+		"virtual Xapian::LatLongMetric::~LatLongMetric()\n"
+		"Xapian::LatLongMetric::~LatLongMetric\n"
 		""},
 	 { (char *)"LatLongMetric_pointwise_distance", _wrap_LatLongMetric_pointwise_distance, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55012,7 +55294,8 @@ static PyMethodDef SwigMethods[] = {
 		"Return the distance between two coordinates, in metres.\n"
 		"\n"
 		"virtual double Xapian::LatLongMetric::pointwise_distance(const\n"
-		"LatLongCoord &a, const LatLongCoord &b) const =0 \n"
+		"LatLongCoord &a, const LatLongCoord &b) const =0\n"
+		"Xapian::LatLongMetric::pointwise_distance\n"
 		""},
 	 { (char *)"LatLongMetric___call__", _wrap_LatLongMetric___call__, METH_VARARGS, NULL},
 	 { (char *)"LatLongMetric_name", (PyCFunction)_wrap_LatLongMetric_name, METH_O, (char *)"\n"
@@ -55021,9 +55304,8 @@ static PyMethodDef SwigMethods[] = {
 		"Return the full name of the metric.\n"
 		"\n"
 		"virtual std::string Xapian::LatLongMetric::name() const =0\n"
-		"\n"
-		"This is used when serialising and unserialising metrics; for example,\n"
-		"for performing remote searches.\n"
+		"Xapian::LatLongMetric::name This is used when serialising and\n"
+		"unserialising metrics; for example, for performing remote searches.\n"
 		"\n"
 		"If the subclass is in a C++ namespace, the namespace should be\n"
 		"included in the name, using \"::\" as a separator. For example, for a\n"
@@ -55041,9 +55323,9 @@ static PyMethodDef SwigMethods[] = {
 		"Construct a GreatCircleMetric using a specified radius.\n"
 		"\n"
 		"Xapian::GreatCircleMetric::GreatCircleMetric(double radius_)\n"
-		"\n"
-		"This is useful for data sets in which the points are not on Earth (eg,\n"
-		"a database of features on Mars).\n"
+		"Xapian::GreatCircleMetric::GreatCircleMetric This is useful for data\n"
+		"sets in which the points are not on Earth (eg, a database of features\n"
+		"on Mars).\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55062,6 +55344,7 @@ static PyMethodDef SwigMethods[] = {
 		"Xapian::LatLongDistancePostingSource::LatLongDistancePostingSource(Xapian::valueno\n"
 		"slot_, const LatLongCoords &centre_, double max_range_=0.0, double\n"
 		"k1_=1000.0, double k2_=1.0)\n"
+		"Xapian::LatLongDistancePostingSource::LatLongDistancePostingSource\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55080,7 +55363,7 @@ static PyMethodDef SwigMethods[] = {
 		""},
 	 { (char *)"delete_LatLongDistancePostingSource", (PyCFunction)_wrap_delete_LatLongDistancePostingSource, METH_O, (char *)"\n"
 		"Xapian::LatLongDistancePostingSource::~LatLongDistancePostingSource()\n"
-		"\n"
+		"Xapian::LatLongDistancePostingSource::~LatLongDistancePostingSource\n"
 		""},
 	 { (char *)"LatLongDistancePostingSource_swigregister", LatLongDistancePostingSource_swigregister, METH_VARARGS, NULL},
 	 { (char *)"LatLongDistancePostingSource_swiginit", LatLongDistancePostingSource_swiginit, METH_VARARGS, NULL},
@@ -55091,6 +55374,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::LatLongDistanceKeyMaker::LatLongDistanceKeyMaker(Xapian::valueno\n"
 		"slot_, const LatLongCoord &centre_)\n"
+		"Xapian::LatLongDistanceKeyMaker::LatLongDistanceKeyMaker\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55104,7 +55388,10 @@ static PyMethodDef SwigMethods[] = {
 		"Documents where no value is set are assumed to be a large distance\n"
 		"away. \n"
 		""},
-	 { (char *)"delete_LatLongDistanceKeyMaker", (PyCFunction)_wrap_delete_LatLongDistanceKeyMaker, METH_O, (char *)"Xapian::LatLongDistanceKeyMaker::~LatLongDistanceKeyMaker() "},
+	 { (char *)"delete_LatLongDistanceKeyMaker", (PyCFunction)_wrap_delete_LatLongDistanceKeyMaker, METH_O, (char *)"\n"
+		"Xapian::LatLongDistanceKeyMaker::~LatLongDistanceKeyMaker()\n"
+		"Xapian::LatLongDistanceKeyMaker::~LatLongDistanceKeyMaker\n"
+		""},
 	 { (char *)"LatLongDistanceKeyMaker_swigregister", LatLongDistanceKeyMaker_swigregister, METH_VARARGS, NULL},
 	 { (char *)"LatLongDistanceKeyMaker_swiginit", LatLongDistanceKeyMaker_swiginit, METH_VARARGS, NULL},
 	 { (char *)"Database_add_database", _wrap_Database_add_database, METH_VARARGS, (char *)"\n"
@@ -55114,6 +55401,7 @@ static PyMethodDef SwigMethods[] = {
 		"this object.\n"
 		"\n"
 		"void Xapian::Database::add_database(const Database &database)\n"
+		"Xapian::Database::add_database\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55125,7 +55413,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return number of shards in this Database object.\n"
 		"\n"
-		"size_t Xapian::Database::size() const \n"
+		"size_t Xapian::Database::size() const Xapian::Database::size\n"
 		""},
 	 { (char *)"new_Database", _wrap_new_Database, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55133,8 +55421,8 @@ static PyMethodDef SwigMethods[] = {
 		"Copying is allowed.\n"
 		"\n"
 		"Xapian::Database::Database(const Database &other)\n"
-		"\n"
-		"The internals are reference counted, so copying is cheap.\n"
+		"Xapian::Database::Database The internals are reference counted, so\n"
+		"copying is cheap.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55146,21 +55434,19 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Destroy this handle on the database.\n"
 		"\n"
-		"virtual Xapian::Database::~Database()\n"
-		"\n"
-		"If there are no copies of this object remaining, the database(s) will\n"
-		"be closed. \n"
+		"virtual Xapian::Database::~Database() Xapian::Database::~Database If\n"
+		"there are no copies of this object remaining, the database(s) will be\n"
+		"closed. \n"
 		""},
 	 { (char *)"Database_reopen", (PyCFunction)_wrap_Database_reopen, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Re-open the database.\n"
 		"\n"
-		"bool Xapian::Database::reopen()\n"
-		"\n"
-		"This re-opens the database(s) to the latest available version(s). It\n"
-		"can be used either to make sure the latest results are returned, or to\n"
-		"recover from a Xapian::DatabaseModifiedError.\n"
+		"bool Xapian::Database::reopen() Xapian::Database::reopen This re-opens\n"
+		"the database(s) to the latest available version(s). It can be used\n"
+		"either to make sure the latest results are returned, or to recover\n"
+		"from a Xapian::DatabaseModifiedError.\n"
 		"\n"
 		"Calling reopen() on a database which has been closed (with  close())\n"
 		"will always raise a Xapian::DatabaseError.\n"
@@ -55175,9 +55461,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Close the database.\n"
 		"\n"
-		"virtual void Xapian::Database::close()\n"
-		"\n"
-		"This closes the database and closes all its file handles.\n"
+		"virtual void Xapian::Database::close() Xapian::Database::close This\n"
+		"closes the database and closes all its file handles.\n"
 		"\n"
 		"For a WritableDatabase, if a transaction is active it will be aborted,\n"
 		"while if no transaction is active commit() will be implicitly called.\n"
@@ -55213,7 +55498,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Return a string describing this object.\n"
 		"\n"
-		"virtual std::string Xapian::Database::get_description() const \n"
+		"virtual std::string Xapian::Database::get_description() const\n"
+		"Xapian::Database::get_description\n"
 		""},
 	 { (char *)"Database__postlist_begin", _wrap_Database__postlist_begin, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55221,7 +55507,7 @@ static PyMethodDef SwigMethods[] = {
 		"An iterator pointing to the start of the postlist for a given term.\n"
 		"\n"
 		"PostingIterator Xapian::Database::postlist_begin(const std::string\n"
-		"&tname) const\n"
+		"&tname) const Xapian::Database::postlist_begin\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55237,7 +55523,7 @@ static PyMethodDef SwigMethods[] = {
 		"Corresponding end iterator to postlist_begin().\n"
 		"\n"
 		"PostingIterator Xapian::Database::postlist_end(const std::string &)\n"
-		"const \n"
+		"const Xapian::Database::postlist_end\n"
 		""},
 	 { (char *)"Database__termlist_begin", _wrap_Database__termlist_begin, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55246,6 +55532,7 @@ static PyMethodDef SwigMethods[] = {
 		"document.\n"
 		"\n"
 		"TermIterator Xapian::Database::termlist_begin(Xapian::docid did) const\n"
+		"Xapian::Database::termlist_begin\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55257,14 +55544,16 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Corresponding end iterator to termlist_begin().\n"
 		"\n"
-		"TermIterator Xapian::Database::termlist_end(Xapian::docid) const \n"
+		"TermIterator Xapian::Database::termlist_end(Xapian::docid) const\n"
+		"Xapian::Database::termlist_end\n"
 		""},
 	 { (char *)"Database_has_positions", (PyCFunction)_wrap_Database_has_positions, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Does this database have any positional information?\n"
 		"\n"
-		"bool Xapian::Database::has_positions() const \n"
+		"bool Xapian::Database::has_positions() const\n"
+		"Xapian::Database::has_positions\n"
 		""},
 	 { (char *)"Database__positionlist_begin", _wrap_Database__positionlist_begin, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55273,7 +55562,8 @@ static PyMethodDef SwigMethods[] = {
 		"term in a given document.\n"
 		"\n"
 		"PositionIterator Xapian::Database::positionlist_begin(Xapian::docid\n"
-		"did, const std::string &tname) const \n"
+		"did, const std::string &tname) const\n"
+		"Xapian::Database::positionlist_begin\n"
 		""},
 	 { (char *)"Database__positionlist_end", _wrap_Database__positionlist_end, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55281,7 +55571,7 @@ static PyMethodDef SwigMethods[] = {
 		"Corresponding end iterator to positionlist_begin().\n"
 		"\n"
 		"PositionIterator Xapian::Database::positionlist_end(Xapian::docid,\n"
-		"const std::string &) const \n"
+		"const std::string &) const Xapian::Database::positionlist_end\n"
 		""},
 	 { (char *)"Database__allterms_begin", _wrap_Database__allterms_begin, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55289,7 +55579,7 @@ static PyMethodDef SwigMethods[] = {
 		"An iterator which runs across all terms with a given prefix.\n"
 		"\n"
 		"TermIterator Xapian::Database::allterms_begin(const std::string\n"
-		"&prefix=std::string()) const\n"
+		"&prefix=std::string()) const Xapian::Database::allterms_begin\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55303,28 +55593,31 @@ static PyMethodDef SwigMethods[] = {
 		"Corresponding end iterator to allterms_begin(prefix).\n"
 		"\n"
 		"TermIterator Xapian::Database::allterms_end(const std::string\n"
-		"&=std::string()) const \n"
+		"&=std::string()) const Xapian::Database::allterms_end\n"
 		""},
 	 { (char *)"Database_get_doccount", (PyCFunction)_wrap_Database_get_doccount, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get the number of documents in the database.\n"
 		"\n"
-		"Xapian::doccount Xapian::Database::get_doccount() const \n"
+		"Xapian::doccount Xapian::Database::get_doccount() const\n"
+		"Xapian::Database::get_doccount\n"
 		""},
 	 { (char *)"Database_get_lastdocid", (PyCFunction)_wrap_Database_get_lastdocid, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get the highest document id which has been used in the database.\n"
 		"\n"
-		"Xapian::docid Xapian::Database::get_lastdocid() const \n"
+		"Xapian::docid Xapian::Database::get_lastdocid() const\n"
+		"Xapian::Database::get_lastdocid\n"
 		""},
 	 { (char *)"Database_get_avlength", (PyCFunction)_wrap_Database_get_avlength, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Get the average length of the documents in the database.\n"
 		"\n"
-		"Xapian::doclength Xapian::Database::get_avlength() const \n"
+		"Xapian::doclength Xapian::Database::get_avlength() const\n"
+		"Xapian::Database::get_avlength\n"
 		""},
 	 { (char *)"Database_get_average_length", (PyCFunction)_wrap_Database_get_average_length, METH_O, (char *)"\n"
 		"\n"
@@ -55332,8 +55625,8 @@ static PyMethodDef SwigMethods[] = {
 		"New name for get_avlength().\n"
 		"\n"
 		"double Xapian::Database::get_average_length() const\n"
-		"\n"
-		"Added for forward compatibility with the next release series.\n"
+		"Xapian::Database::get_average_length Added for forward compatibility\n"
+		"with the next release series.\n"
 		"\n"
 		"1.4.17. \n"
 		""},
@@ -55343,8 +55636,7 @@ static PyMethodDef SwigMethods[] = {
 		"Get the total length of all the documents in the database.\n"
 		"\n"
 		"Xapian::totallength Xapian::Database::get_total_length() const\n"
-		"\n"
-		"Added in Xapian 1.4.5. \n"
+		"Xapian::Database::get_total_length Added in Xapian 1.4.5. \n"
 		""},
 	 { (char *)"Database_get_termfreq", _wrap_Database_get_termfreq, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55352,7 +55644,7 @@ static PyMethodDef SwigMethods[] = {
 		"Get the number of documents in the database indexed by a given term.\n"
 		"\n"
 		"Xapian::doccount Xapian::Database::get_termfreq(const std::string\n"
-		"&tname) const \n"
+		"&tname) const Xapian::Database::get_termfreq\n"
 		""},
 	 { (char *)"Database_term_exists", _wrap_Database_term_exists, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55360,6 +55652,7 @@ static PyMethodDef SwigMethods[] = {
 		"Check if a given term exists in the database.\n"
 		"\n"
 		"bool Xapian::Database::term_exists(const std::string &tname) const\n"
+		"Xapian::Database::term_exists\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55375,11 +55668,10 @@ static PyMethodDef SwigMethods[] = {
 		"Return the total number of occurrences of the given term.\n"
 		"\n"
 		"Xapian::termcount Xapian::Database::get_collection_freq(const\n"
-		"std::string &tname) const\n"
-		"\n"
-		"This is the sum of the number of occurrences of the term in each\n"
-		"document it indexes: i.e., the sum of the within document frequencies\n"
-		"of the term.\n"
+		"std::string &tname) const Xapian::Database::get_collection_freq This\n"
+		"is the sum of the number of occurrences of the term in each document\n"
+		"it indexes: i.e., the sum of the within document frequencies of the\n"
+		"term.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55392,10 +55684,8 @@ static PyMethodDef SwigMethods[] = {
 		"Return the frequency of a given value slot.\n"
 		"\n"
 		"Xapian::doccount Xapian::Database::get_value_freq(Xapian::valueno\n"
-		"slot) const\n"
-		"\n"
-		"This is the number of documents which have a (non-empty) value stored\n"
-		"in the slot.\n"
+		"slot) const Xapian::Database::get_value_freq This is the number of\n"
+		"documents which have a (non-empty) value stored in the slot.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55408,10 +55698,9 @@ static PyMethodDef SwigMethods[] = {
 		"Get a lower bound on the values stored in the given value slot.\n"
 		"\n"
 		"std::string Xapian::Database::get_value_lower_bound(Xapian::valueno\n"
-		"slot) const\n"
-		"\n"
-		"If there are no values stored in the given value slot, this will\n"
-		"return an empty string.\n"
+		"slot) const Xapian::Database::get_value_lower_bound If there are no\n"
+		"values stored in the given value slot, this will return an empty\n"
+		"string.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55424,10 +55713,9 @@ static PyMethodDef SwigMethods[] = {
 		"Get an upper bound on the values stored in the given value slot.\n"
 		"\n"
 		"std::string Xapian::Database::get_value_upper_bound(Xapian::valueno\n"
-		"slot) const\n"
-		"\n"
-		"If there are no values stored in the given value slot, this will\n"
-		"return an empty string.\n"
+		"slot) const Xapian::Database::get_value_upper_bound If there are no\n"
+		"values stored in the given value slot, this will return an empty\n"
+		"string.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55440,8 +55728,8 @@ static PyMethodDef SwigMethods[] = {
 		"Get a lower bound on the length of a document in this DB.\n"
 		"\n"
 		"Xapian::termcount Xapian::Database::get_doclength_lower_bound() const\n"
-		"\n"
-		"This bound does not include any zero-length documents. \n"
+		"Xapian::Database::get_doclength_lower_bound This bound does not\n"
+		"include any zero-length documents. \n"
 		""},
 	 { (char *)"Database_get_doclength_upper_bound", (PyCFunction)_wrap_Database_get_doclength_upper_bound, METH_O, (char *)"\n"
 		"\n"
@@ -55449,7 +55737,7 @@ static PyMethodDef SwigMethods[] = {
 		"Get an upper bound on the length of a document in this DB.\n"
 		"\n"
 		"Xapian::termcount Xapian::Database::get_doclength_upper_bound() const\n"
-		"\n"
+		"Xapian::Database::get_doclength_upper_bound\n"
 		""},
 	 { (char *)"Database_get_wdf_upper_bound", _wrap_Database_get_wdf_upper_bound, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55457,7 +55745,7 @@ static PyMethodDef SwigMethods[] = {
 		"Get an upper bound on the wdf of term term.\n"
 		"\n"
 		"Xapian::termcount Xapian::Database::get_wdf_upper_bound(const\n"
-		"std::string &term) const \n"
+		"std::string &term) const Xapian::Database::get_wdf_upper_bound\n"
 		""},
 	 { (char *)"Database_valuestream_begin", _wrap_Database_valuestream_begin, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55465,7 +55753,7 @@ static PyMethodDef SwigMethods[] = {
 		"Return an iterator over the value in slot slot for each document.\n"
 		"\n"
 		"ValueIterator Xapian::Database::valuestream_begin(Xapian::valueno\n"
-		"slot) const \n"
+		"slot) const Xapian::Database::valuestream_begin\n"
 		""},
 	 { (char *)"Database_valuestream_end", _wrap_Database_valuestream_end, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55473,7 +55761,7 @@ static PyMethodDef SwigMethods[] = {
 		"Return end iterator corresponding to valuestream_begin().\n"
 		"\n"
 		"ValueIterator Xapian::Database::valuestream_end(Xapian::valueno) const\n"
-		"\n"
+		"Xapian::Database::valuestream_end\n"
 		""},
 	 { (char *)"Database_get_doclength", _wrap_Database_get_doclength, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55481,7 +55769,7 @@ static PyMethodDef SwigMethods[] = {
 		"Get the length of a document.\n"
 		"\n"
 		"Xapian::termcount Xapian::Database::get_doclength(Xapian::docid did)\n"
-		"const \n"
+		"const Xapian::Database::get_doclength\n"
 		""},
 	 { (char *)"Database_get_unique_terms", _wrap_Database_get_unique_terms, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55489,16 +55777,15 @@ static PyMethodDef SwigMethods[] = {
 		"Get the number of unique terms in document.\n"
 		"\n"
 		"Xapian::termcount Xapian::Database::get_unique_terms(Xapian::docid\n"
-		"did) const \n"
+		"did) const Xapian::Database::get_unique_terms\n"
 		""},
 	 { (char *)"Database_keep_alive", (PyCFunction)_wrap_Database_keep_alive, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Send a \"keep-alive\" to remote databases to stop them timing out.\n"
 		"\n"
-		"void Xapian::Database::keep_alive()\n"
-		"\n"
-		"Has no effect on non-remote databases. \n"
+		"void Xapian::Database::keep_alive() Xapian::Database::keep_alive Has\n"
+		"no effect on non-remote databases. \n"
 		""},
 	 { (char *)"Database_get_document", _wrap_Database_get_document, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55506,10 +55793,9 @@ static PyMethodDef SwigMethods[] = {
 		"Get a document from the database, given its document id.\n"
 		"\n"
 		"Xapian::Document Xapian::Database::get_document(Xapian::docid did,\n"
-		"unsigned flags) const\n"
-		"\n"
-		"This method returns a Xapian::Document object which provides the\n"
-		"information about a document.\n"
+		"unsigned flags) const Xapian::Database::get_document This method\n"
+		"returns a Xapian::Document object which provides the information about\n"
+		"a document.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55537,6 +55823,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"std::string Xapian::Database::get_spelling_suggestion(const\n"
 		"std::string &word, unsigned max_edit_distance=2) const\n"
+		"Xapian::Database::get_spelling_suggestion\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55554,17 +55841,18 @@ static PyMethodDef SwigMethods[] = {
 		"An iterator which returns all the spelling correction targets.\n"
 		"\n"
 		"Xapian::TermIterator Xapian::Database::spellings_begin() const\n"
-		"\n"
-		"This returns all the words which are considered as targets for the\n"
-		"spelling correction algorithm. The frequency of each word is available\n"
-		"as the term frequency of each entry in the returned iterator. \n"
+		"Xapian::Database::spellings_begin This returns all the words which are\n"
+		"considered as targets for the spelling correction algorithm. The\n"
+		"frequency of each word is available as the term frequency of each\n"
+		"entry in the returned iterator. \n"
 		""},
 	 { (char *)"Database__spellings_end", (PyCFunction)_wrap_Database__spellings_end, METH_O, (char *)"\n"
 		"\n"
 		"\n"
 		"Corresponding end iterator to spellings_begin().\n"
 		"\n"
-		"Xapian::TermIterator Xapian::Database::spellings_end() const \n"
+		"Xapian::TermIterator Xapian::Database::spellings_end() const\n"
+		"Xapian::Database::spellings_end\n"
 		""},
 	 { (char *)"Database__synonyms_begin", _wrap_Database__synonyms_begin, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55572,7 +55860,7 @@ static PyMethodDef SwigMethods[] = {
 		"An iterator which returns all the synonyms for a given term.\n"
 		"\n"
 		"Xapian::TermIterator Xapian::Database::synonyms_begin(const\n"
-		"std::string &term) const\n"
+		"std::string &term) const Xapian::Database::synonyms_begin\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55585,7 +55873,7 @@ static PyMethodDef SwigMethods[] = {
 		"Corresponding end iterator to synonyms_begin(term).\n"
 		"\n"
 		"Xapian::TermIterator Xapian::Database::synonyms_end(const std::string\n"
-		"&) const \n"
+		"&) const Xapian::Database::synonyms_end\n"
 		""},
 	 { (char *)"Database__synonym_keys_begin", _wrap_Database__synonym_keys_begin, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55594,6 +55882,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::TermIterator Xapian::Database::synonym_keys_begin(const\n"
 		"std::string &prefix=std::string()) const\n"
+		"Xapian::Database::synonym_keys_begin\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55606,7 +55895,8 @@ static PyMethodDef SwigMethods[] = {
 		"Corresponding end iterator to synonym_keys_begin(prefix).\n"
 		"\n"
 		"Xapian::TermIterator Xapian::Database::synonym_keys_end(const\n"
-		"std::string &=std::string()) const \n"
+		"std::string &=std::string()) const\n"
+		"Xapian::Database::synonym_keys_end\n"
 		""},
 	 { (char *)"Database_get_metadata", _wrap_Database_get_metadata, METH_VARARGS, (char *)"\n"
 		"\n"
@@ -55614,11 +55904,9 @@ static PyMethodDef SwigMethods[] = {
 		"Get the user-specified metadata associated with a given key.\n"
 		"\n"
 		"std::string Xapian::Database::get_metadata(const std::string &key)\n"
-		"const\n"
-		"\n"
-		"User-specified metadata allows you to store arbitrary information in\n"
-		"the form of (key, value) pairs. See  WritableDatabase::set_metadata()\n"
-		"for more information.\n"
+		"const Xapian::Database::get_metadata User-specified metadata allows\n"
+		"you to store arbitrary information in the form of (key, value) pairs.\n"
+		"See  WritableDatabase::set_metadata() for more information.\n"
 		"\n"
 		"When invoked on a Xapian::Database object representing multiple\n"
 		"databases, currently only the metadata for the first is considered but\n"
@@ -55650,10 +55938,10 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::TermIterator Xapian::Database::metadata_keys_begin(const\n"
 		"std::string &prefix=std::string()) const\n"
-		"\n"
-		"When invoked on a Xapian::Database object representing multiple\n"
-		"databases, currently only the metadata for the first is considered but\n"
-		"this behaviour may change in the future.\n"
+		"Xapian::Database::metadata_keys_begin When invoked on a\n"
+		"Xapian::Database object representing multiple databases, currently\n"
+		"only the metadata for the first is considered but this behaviour may\n"
+		"change in the future.\n"
 		"\n"
 		"If the backend doesn't support metadata, then this method returns an\n"
 		"iterator which compares equal to that returned by metadata_keys_end().\n"
@@ -55676,7 +55964,8 @@ static PyMethodDef SwigMethods[] = {
 		"Corresponding end iterator to metadata_keys_begin().\n"
 		"\n"
 		"Xapian::TermIterator Xapian::Database::metadata_keys_end(const\n"
-		"std::string &=std::string()) const \n"
+		"std::string &=std::string()) const\n"
+		"Xapian::Database::metadata_keys_end\n"
 		""},
 	 { (char *)"Database_get_uuid", (PyCFunction)_wrap_Database_get_uuid, METH_O, (char *)"\n"
 		"\n"
@@ -55684,8 +55973,8 @@ static PyMethodDef SwigMethods[] = {
 		"Get a UUID for the database.\n"
 		"\n"
 		"std::string Xapian::Database::get_uuid() const\n"
-		"\n"
-		"The UUID will persist for the lifetime of the database.\n"
+		"Xapian::Database::get_uuid The UUID will persist for the lifetime of\n"
+		"the database.\n"
 		"\n"
 		"Replicas (eg, made with the replication protocol, or by copying all\n"
 		"the database files) will have the same UUID. However, copies (made\n"
@@ -55702,10 +55991,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Test if this database is currently locked for writing.\n"
 		"\n"
-		"bool Xapian::Database::locked() const\n"
-		"\n"
-		"If the underlying object is actually a WritableDatabase, always\n"
-		"returns true.\n"
+		"bool Xapian::Database::locked() const Xapian::Database::locked If the\n"
+		"underlying object is actually a WritableDatabase, always returns true.\n"
 		"\n"
 		"Otherwise tests if there's a writer holding the lock (or if we can't\n"
 		"test for a lock without taking it on the current platform, throw\n"
@@ -55721,8 +56008,8 @@ static PyMethodDef SwigMethods[] = {
 		"Get the revision of the database.\n"
 		"\n"
 		"Xapian::rev Xapian::Database::get_revision() const\n"
-		"\n"
-		"The revision is an unsigned integer which increases with each commit.\n"
+		"Xapian::Database::get_revision The revision is an unsigned integer\n"
+		"which increases with each commit.\n"
 		"\n"
 		"The database must have exactly one sub-database, which must be of type\n"
 		"chert or glass. Otherwise an exception will be thrown.\n"
@@ -55737,10 +56024,8 @@ static PyMethodDef SwigMethods[] = {
 		"Produce a compact version of this database.\n"
 		"\n"
 		"void Xapian::Database::compact(int fd, unsigned flags, int block_size,\n"
-		"Xapian::Compactor &compactor)\n"
-		"\n"
-		"New 1.3.4. Various methods of the Compactor class were deprecated in\n"
-		"1.3.4.\n"
+		"Xapian::Compactor &compactor) Xapian::Database::compact New 1.3.4.\n"
+		"Various methods of the Compactor class were deprecated in 1.3.4.\n"
 		"\n"
 		"The compactor functor allows handling progress output and specifying\n"
 		"how user metadata is merged.\n"
@@ -55790,9 +56075,8 @@ static PyMethodDef SwigMethods[] = {
 		"Destroy this handle on the database.\n"
 		"\n"
 		"virtual Xapian::WritableDatabase::~WritableDatabase()\n"
-		"\n"
-		"If no other handles to this database remain, the database will be\n"
-		"closed.\n"
+		"Xapian::WritableDatabase::~WritableDatabase If no other handles to\n"
+		"this database remain, the database will be closed.\n"
 		"\n"
 		"If a transaction is active cancel_transaction() will be implicitly\n"
 		"called; if no transaction is active commit() will be implicitly\n"
@@ -55807,14 +56091,28 @@ static PyMethodDef SwigMethods[] = {
 		"Copying is allowed.\n"
 		"\n"
 		"Xapian::WritableDatabase::WritableDatabase(const WritableDatabase\n"
-		"&other)\n"
-		"\n"
-		"The internals are reference counted, so copying is cheap.\n"
+		"&other) Xapian::WritableDatabase::WritableDatabase The internals are\n"
+		"reference counted, so copying is cheap.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
 		"\n"
 		"other:  The object to copy. \n"
+		""},
+	 { (char *)"WritableDatabase_add_database", _wrap_WritableDatabase_add_database, METH_VARARGS, (char *)"\n"
+		"\n"
+		"\n"
+		"Add shards from another WritableDatabase.\n"
+		"\n"
+		"void Xapian::WritableDatabase::add_database(const WritableDatabase\n"
+		"&other) Xapian::WritableDatabase::add_database Any shards in other are\n"
+		"added to the list of shards in this object. The shards are reference\n"
+		"counted and also remain in other.\n"
+		"\n"
+		"Parameters:\n"
+		"-----------\n"
+		"\n"
+		"other:  Another WritableDatabase object to add shards from \n"
 		""},
 	 { (char *)"WritableDatabase_commit", (PyCFunction)_wrap_WritableDatabase_commit, METH_O, (char *)"\n"
 		"\n"
@@ -55822,11 +56120,11 @@ static PyMethodDef SwigMethods[] = {
 		"Commit any pending modifications made to the database.\n"
 		"\n"
 		"void Xapian::WritableDatabase::commit()\n"
-		"\n"
-		"For efficiency reasons, when performing multiple updates to a database\n"
-		"it is best (indeed, almost essential) to make as many modifications as\n"
-		"memory will permit in a single pass through the database. To ensure\n"
-		"this, Xapian batches up modifications.\n"
+		"Xapian::WritableDatabase::commit For efficiency reasons, when\n"
+		"performing multiple updates to a database it is best (indeed, almost\n"
+		"essential) to make as many modifications as memory will permit in a\n"
+		"single pass through the database. To ensure this, Xapian batches up\n"
+		"modifications.\n"
 		"\n"
 		"This method may be called at any time to commit any pending\n"
 		"modifications to the database.\n"
@@ -55867,8 +56165,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Pre-1.1.0 name for commit().\n"
 		"\n"
-		"void Xapian::WritableDatabase::flush()\n"
-		"\n"
+		"void Xapian::WritableDatabase::flush() Xapian::WritableDatabase::flush\n"
 		"Use commit() instead. \n"
 		""},
 	 { (char *)"WritableDatabase_begin_transaction", _wrap_WritableDatabase_begin_transaction, METH_VARARGS, (char *)"\n"
@@ -55877,12 +56174,11 @@ static PyMethodDef SwigMethods[] = {
 		"Begin a transaction.\n"
 		"\n"
 		"void Xapian::WritableDatabase::begin_transaction(bool flushed=true)\n"
-		"\n"
-		"In Xapian a transaction is a group of modifications to the database\n"
-		"which are linked such that either all will be applied simultaneously\n"
-		"or none will be applied at all. Even in the case of a power failure,\n"
-		"this characteristic should be preserved (as long as the filesystem\n"
-		"isn't corrupted, etc).\n"
+		"Xapian::WritableDatabase::begin_transaction In Xapian a transaction is\n"
+		"a group of modifications to the database which are linked such that\n"
+		"either all will be applied simultaneously or none will be applied at\n"
+		"all. Even in the case of a power failure, this characteristic should\n"
+		"be preserved (as long as the filesystem isn't corrupted, etc).\n"
 		"\n"
 		"A transaction is started with begin_transaction() and can either be\n"
 		"committed by calling commit_transaction() or aborted by calling\n"
@@ -55931,10 +56227,10 @@ static PyMethodDef SwigMethods[] = {
 		"Complete the transaction currently in progress.\n"
 		"\n"
 		"void Xapian::WritableDatabase::commit_transaction()\n"
-		"\n"
-		"If this method completes successfully and this is a flushed\n"
-		"transaction, all the database modifications made during the\n"
-		"transaction will have been committed to the database.\n"
+		"Xapian::WritableDatabase::commit_transaction If this method completes\n"
+		"successfully and this is a flushed transaction, all the database\n"
+		"modifications made during the transaction will have been committed to\n"
+		"the database.\n"
 		"\n"
 		"If an error occurs, an exception will be thrown, and none of the\n"
 		"modifications made to the database during the transaction will have\n"
@@ -55964,9 +56260,9 @@ static PyMethodDef SwigMethods[] = {
 		"modifications made to the database.\n"
 		"\n"
 		"void Xapian::WritableDatabase::cancel_transaction()\n"
-		"\n"
-		"If an error occurs in this method, an exception will be thrown, but\n"
-		"the transaction will be cancelled anyway.\n"
+		"Xapian::WritableDatabase::cancel_transaction If an error occurs in\n"
+		"this method, an exception will be thrown, but the transaction will be\n"
+		"cancelled anyway.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -55989,8 +56285,7 @@ static PyMethodDef SwigMethods[] = {
 		"Add a new document to the database.\n"
 		"\n"
 		"Xapian::docid Xapian::WritableDatabase::add_document(const\n"
-		"Xapian::Document &document)\n"
-		"\n"
+		"Xapian::Document &document) Xapian::WritableDatabase::add_document\n"
 		"This method adds the specified document to the database, returning a\n"
 		"newly allocated document ID. Automatically allocated document IDs come\n"
 		"from a per-database monotonically increasing counter, so IDs from\n"
@@ -56029,10 +56324,8 @@ static PyMethodDef SwigMethods[] = {
 		"Delete any documents indexed by a term from the database.\n"
 		"\n"
 		"void Xapian::WritableDatabase::delete_document(const std::string\n"
-		"&unique_term)\n"
-		"\n"
-		"This method removes any documents indexed by the specified term from\n"
-		"the database.\n"
+		"&unique_term) Xapian::WritableDatabase::delete_document This method\n"
+		"removes any documents indexed by the specified term from the database.\n"
 		"\n"
 		"A major use is for convenience when UIDs from another system are\n"
 		"mapped to terms in Xapian, although this method has other uses (for\n"
@@ -56061,11 +56354,11 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"Xapian::docid Xapian::WritableDatabase::replace_document(const\n"
 		"std::string &unique_term, const Xapian::Document &document)\n"
-		"\n"
-		"This method replaces any documents indexed by the specified term with\n"
-		"the specified document. If any documents are indexed by the term, the\n"
-		"lowest document ID will be used for the document, otherwise a new\n"
-		"document ID will be generated as for add_document.\n"
+		"Xapian::WritableDatabase::replace_document This method replaces any\n"
+		"documents indexed by the specified term with the specified document.\n"
+		"If any documents are indexed by the term, the lowest document ID will\n"
+		"be used for the document, otherwise a new document ID will be\n"
+		"generated as for add_document.\n"
 		"\n"
 		"One common use is to allow UIDs from another system to easily be\n"
 		"mapped to terms in Xapian. Note that this method doesn't automatically\n"
@@ -56106,8 +56399,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::WritableDatabase::add_spelling(const std::string &word,\n"
 		"Xapian::termcount freqinc=1) const\n"
-		"\n"
-		"If the word is already present, its frequency is increased.\n"
+		"Xapian::WritableDatabase::add_spelling If the word is already present,\n"
+		"its frequency is increased.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -56123,9 +56416,9 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::WritableDatabase::remove_spelling(const std::string\n"
 		"&word, Xapian::termcount freqdec=1) const\n"
-		"\n"
-		"The word's frequency is decreased, and if would become zero or less\n"
-		"then the word is removed completely.\n"
+		"Xapian::WritableDatabase::remove_spelling The word's frequency is\n"
+		"decreased, and if would become zero or less then the word is removed\n"
+		"completely.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -56141,6 +56434,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::WritableDatabase::add_synonym(const std::string &term,\n"
 		"const std::string &synonym) const\n"
+		"Xapian::WritableDatabase::add_synonym\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -56157,6 +56451,7 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"void Xapian::WritableDatabase::remove_synonym(const std::string &term,\n"
 		"const std::string &synonym) const\n"
+		"Xapian::WritableDatabase::remove_synonym\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -56172,7 +56467,7 @@ static PyMethodDef SwigMethods[] = {
 		"Remove all synonyms for a term.\n"
 		"\n"
 		"void Xapian::WritableDatabase::clear_synonyms(const std::string &term)\n"
-		"const\n"
+		"const Xapian::WritableDatabase::clear_synonyms\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -56186,8 +56481,7 @@ static PyMethodDef SwigMethods[] = {
 		"Set the user-specified metadata associated with a given key.\n"
 		"\n"
 		"void Xapian::WritableDatabase::set_metadata(const std::string &key,\n"
-		"const std::string &metadata)\n"
-		"\n"
+		"const std::string &metadata) Xapian::WritableDatabase::set_metadata\n"
 		"This method sets the metadata value associated with a given key. If\n"
 		"there is already a metadata value stored in the database with the same\n"
 		"key, the old value is replaced. If you want to delete an existing item\n"
@@ -56243,8 +56537,7 @@ static PyMethodDef SwigMethods[] = {
 		"accessed via a program.\n"
 		"\n"
 		"Database Xapian::Remote::open(const std::string &program, const\n"
-		"std::string &args, useconds_t timeout=10000)\n"
-		"\n"
+		"std::string &args, useconds_t timeout=10000) Xapian::Remote::open\n"
 		"Access to the remote database is done by running an external program\n"
 		"and communicating with it on stdin/stdout.\n"
 		"\n"
@@ -56268,9 +56561,8 @@ static PyMethodDef SwigMethods[] = {
 		"\n"
 		"WritableDatabase Xapian::Remote::open_writable(const std::string\n"
 		"&program, const std::string &args, useconds_t timeout=0, int flags=0)\n"
-		"\n"
-		"Access to the remote database is done by running an external program\n"
-		"and communicating with it on stdin/stdout.\n"
+		"Xapian::Remote::open_writable Access to the remote database is done by\n"
+		"running an external program and communicating with it on stdin/stdout.\n"
 		"\n"
 		"Parameters:\n"
 		"-----------\n"
@@ -57806,6 +58098,7 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "QueryParser_FLAG_AUTO_MULTIWORD_SYNONYMS",SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_AUTO_MULTIWORD_SYNONYMS)));
   SWIG_Python_SetConstant(d, "QueryParser_FLAG_CJK_NGRAM",SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_CJK_NGRAM)));
   SWIG_Python_SetConstant(d, "QueryParser_FLAG_ACCUMULATE",SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_ACCUMULATE)));
+  SWIG_Python_SetConstant(d, "QueryParser_FLAG_NO_POSITIONS",SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_NO_POSITIONS)));
   SWIG_Python_SetConstant(d, "QueryParser_FLAG_DEFAULT",SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_DEFAULT)));
   SWIG_Python_SetConstant(d, "QueryParser_STEM_NONE",SWIG_From_int(static_cast< int >(Xapian::QueryParser::STEM_NONE)));
   SWIG_Python_SetConstant(d, "QueryParser_STEM_SOME",SWIG_From_int(static_cast< int >(Xapian::QueryParser::STEM_SOME)));

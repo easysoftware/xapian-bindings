@@ -21,6 +21,17 @@
 # pragma GCC diagnostic ignored "-Wliteral-suffix"
 #endif
 
+#if defined __clang__ && !defined _WIN32
+// Ruby 3.0.0 tries to use __declspec on non-Microsoft platforms because
+// clang's __has_declspec_attribute(x) gives 1 even when __declspec support
+// isn't actually enabled.  We undefine __has_declspec_attribute to avoid
+// this, and suppress the warning clang gives about undefining a builtin macro.
+# pragma clang diagnostic push
+# pragma clang diagnostic ignored "-Wbuiltin-macro-redefined"
+# undef __has_declspec_attribute
+# pragma clang diagnostic pop
+#endif
+
 #include <ruby.h>
 #include <ruby/version.h>
 
@@ -3001,7 +3012,7 @@ SWIG_ruby_failed(void)
 } 
 
 
-/*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
+/*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
 SWIGINTERN VALUE SWIG_AUX_NUM2ULONG(VALUE *args)
 {
   VALUE obj = args[0];
@@ -3046,7 +3057,7 @@ SWIG_AsVal_unsigned_SS_long (VALUE obj, unsigned long *val)
 
 
 #ifdef SWIG_LONG_LONG_AVAILABLE
-/*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
+/*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
 SWIGINTERN VALUE SWIG_AUX_NUM2ULL(VALUE *args)
 {
   VALUE obj = args[0];
@@ -3104,7 +3115,7 @@ SWIG_From_bool  (bool value)
 }
 
 
-/*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
+/*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
 SWIGINTERN VALUE SWIG_AUX_NUM2LONG(VALUE *args)
 {
   VALUE obj = args[0];
@@ -3134,7 +3145,7 @@ SWIG_AsVal_long (VALUE obj, long* val)
 
 
 #ifdef SWIG_LONG_LONG_AVAILABLE
-/*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
+/*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
 SWIGINTERN VALUE SWIG_AUX_NUM2LL(VALUE *args)
 {
   VALUE obj = args[0];
@@ -3535,7 +3546,7 @@ SWIGINTERN bool Xapian_ValueIterator_equals(Xapian::ValueIterator const *self,Xa
 SWIGINTERN std::string Xapian_ValueIterator_get_value(Xapian::ValueIterator const *self){ return **self; }
 SWIGINTERN void Xapian_ValueIterator_next(Xapian::ValueIterator *self){ ++(*self); }
 
-/*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
+/*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
 SWIGINTERN VALUE SWIG_AUX_NUM2DBL(VALUE *args)
 {
   VALUE obj = args[0];
@@ -43155,6 +43166,46 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_WritableDatabase_add_database(int argc, VALUE *argv, VALUE self) {
+  Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
+  Xapian::WritableDatabase *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  
+  if ((argc < 1) || (argc > 1)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Xapian__WritableDatabase, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::WritableDatabase *","add_database", 1, self )); 
+  }
+  arg1 = reinterpret_cast< Xapian::WritableDatabase * >(argp1);
+  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_Xapian__WritableDatabase,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "Xapian::WritableDatabase const &","add_database", 2, argv[0] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "Xapian::WritableDatabase const &","add_database", 2, argv[0])); 
+  }
+  arg2 = reinterpret_cast< Xapian::WritableDatabase * >(argp2);
+  {
+    try {
+      (arg1)->add_database((Xapian::WritableDatabase const &)*arg2);
+    } catch (...) {
+      string msg;
+      int code = XapianExceptionHandler(msg);
+      SWIG_exception(code, msg.c_str());
+    }
+  }
+  return Qnil;
+fail:
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_WritableDatabase_commit(int argc, VALUE *argv, VALUE self) {
   Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
   void *argp1 = 0 ;
@@ -46962,6 +47013,7 @@ SWIGEXPORT void Init__xapian(void) {
   rb_define_const(SwigClassQueryParser.klass, "FLAG_AUTO_MULTIWORD_SYNONYMS", SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_AUTO_MULTIWORD_SYNONYMS)));
   rb_define_const(SwigClassQueryParser.klass, "FLAG_CJK_NGRAM", SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_CJK_NGRAM)));
   rb_define_const(SwigClassQueryParser.klass, "FLAG_ACCUMULATE", SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_ACCUMULATE)));
+  rb_define_const(SwigClassQueryParser.klass, "FLAG_NO_POSITIONS", SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_NO_POSITIONS)));
   rb_define_const(SwigClassQueryParser.klass, "FLAG_DEFAULT", SWIG_From_int(static_cast< int >(Xapian::QueryParser::FLAG_DEFAULT)));
   rb_define_const(SwigClassQueryParser.klass, "STEM_NONE", SWIG_From_int(static_cast< int >(Xapian::QueryParser::STEM_NONE)));
   rb_define_const(SwigClassQueryParser.klass, "STEM_SOME", SWIG_From_int(static_cast< int >(Xapian::QueryParser::STEM_SOME)));
@@ -47534,6 +47586,7 @@ SWIGEXPORT void Init__xapian(void) {
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__WritableDatabase, (void *) &SwigClassWritableDatabase);
   rb_define_alloc_func(SwigClassWritableDatabase.klass, _wrap_WritableDatabase_allocate);
   rb_define_method(SwigClassWritableDatabase.klass, "initialize", VALUEFUNC(_wrap_new_WritableDatabase), -1);
+  rb_define_method(SwigClassWritableDatabase.klass, "add_database", VALUEFUNC(_wrap_WritableDatabase_add_database), -1);
   rb_define_method(SwigClassWritableDatabase.klass, "commit", VALUEFUNC(_wrap_WritableDatabase_commit), -1);
   rb_define_method(SwigClassWritableDatabase.klass, "flush", VALUEFUNC(_wrap_WritableDatabase_flush), -1);
   rb_define_method(SwigClassWritableDatabase.klass, "begin_transaction", VALUEFUNC(_wrap_WritableDatabase_begin_transaction), -1);

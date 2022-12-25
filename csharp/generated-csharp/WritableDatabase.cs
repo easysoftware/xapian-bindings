@@ -55,6 +55,11 @@ public class WritableDatabase : Database {
     if (XapianPINVOKE.SWIGPendingException.Pending) throw XapianPINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public void AddDatabase(WritableDatabase other) {
+    XapianPINVOKE.WritableDatabase_AddDatabase(swigCPtr, WritableDatabase.getCPtr(other));
+    if (XapianPINVOKE.SWIGPendingException.Pending) throw XapianPINVOKE.SWIGPendingException.Retrieve();
+  }
+
   public void Commit() {
     XapianPINVOKE.WritableDatabase_Commit(swigCPtr);
     if (XapianPINVOKE.SWIGPendingException.Pending) throw XapianPINVOKE.SWIGPendingException.Retrieve();

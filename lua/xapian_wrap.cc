@@ -28983,6 +28983,7 @@ static swig_lua_const_info swig_QueryParser_Sf_SwigStatic_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("FLAG_AUTO_MULTIWORD_SYNONYMS", Xapian::QueryParser::FLAG_AUTO_MULTIWORD_SYNONYMS)},
     {SWIG_LUA_CONSTTAB_INT("FLAG_CJK_NGRAM", Xapian::QueryParser::FLAG_CJK_NGRAM)},
     {SWIG_LUA_CONSTTAB_INT("FLAG_ACCUMULATE", Xapian::QueryParser::FLAG_ACCUMULATE)},
+    {SWIG_LUA_CONSTTAB_INT("FLAG_NO_POSITIONS", Xapian::QueryParser::FLAG_NO_POSITIONS)},
     {SWIG_LUA_CONSTTAB_INT("FLAG_DEFAULT", Xapian::QueryParser::FLAG_DEFAULT)},
     {SWIG_LUA_CONSTTAB_INT("STEM_NONE", Xapian::QueryParser::STEM_NONE)},
     {SWIG_LUA_CONSTTAB_INT("STEM_SOME", Xapian::QueryParser::STEM_SOME)},
@@ -44911,6 +44912,43 @@ static int _wrap_new_WritableDatabase(lua_State* L) {
 }
 
 
+static int _wrap_WritableDatabase_add_database(lua_State* L) {
+  int SWIG_arg = 0;
+  Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
+  Xapian::WritableDatabase *arg2 = 0 ;
+  
+  SWIG_check_num_args("Xapian::WritableDatabase::add_database",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Xapian::WritableDatabase::add_database",1,"Xapian::WritableDatabase *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("Xapian::WritableDatabase::add_database",2,"Xapian::WritableDatabase const &");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Xapian__WritableDatabase,0))){
+    SWIG_fail_ptr("WritableDatabase_add_database",1,SWIGTYPE_p_Xapian__WritableDatabase);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_Xapian__WritableDatabase,0))){
+    SWIG_fail_ptr("WritableDatabase_add_database",2,SWIGTYPE_p_Xapian__WritableDatabase);
+  }
+  
+  {
+    try {
+      (arg1)->add_database((Xapian::WritableDatabase const &)*arg2);
+    } catch (...) {
+      Xapian::handle_exception(L);
+      SWIG_fail;
+    }
+  }
+  
+  return SWIG_arg;
+  
+  if(0) SWIG_fail;
+  
+fail:
+  lua_error(L);
+  return SWIG_arg;
+}
+
+
 static int _wrap_WritableDatabase_commit(lua_State* L) {
   int SWIG_arg = 0;
   Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
@@ -45917,6 +45955,7 @@ static swig_lua_attribute swig_WritableDatabase_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_WritableDatabase_methods[]= {
+    { "add_database", _wrap_WritableDatabase_add_database},
     { "commit", _wrap_WritableDatabase_commit},
     { "flush", _wrap_WritableDatabase_flush},
     { "begin_transaction", _wrap_WritableDatabase_begin_transaction},
@@ -47083,6 +47122,7 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("QueryParser_FLAG_AUTO_MULTIWORD_SYNONYMS", Xapian::QueryParser::FLAG_AUTO_MULTIWORD_SYNONYMS)},
     {SWIG_LUA_CONSTTAB_INT("QueryParser_FLAG_CJK_NGRAM", Xapian::QueryParser::FLAG_CJK_NGRAM)},
     {SWIG_LUA_CONSTTAB_INT("QueryParser_FLAG_ACCUMULATE", Xapian::QueryParser::FLAG_ACCUMULATE)},
+    {SWIG_LUA_CONSTTAB_INT("QueryParser_FLAG_NO_POSITIONS", Xapian::QueryParser::FLAG_NO_POSITIONS)},
     {SWIG_LUA_CONSTTAB_INT("QueryParser_FLAG_DEFAULT", Xapian::QueryParser::FLAG_DEFAULT)},
     {SWIG_LUA_CONSTTAB_INT("QueryParser_STEM_NONE", Xapian::QueryParser::STEM_NONE)},
     {SWIG_LUA_CONSTTAB_INT("QueryParser_STEM_SOME", Xapian::QueryParser::STEM_SOME)},

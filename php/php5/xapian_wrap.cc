@@ -2321,7 +2321,7 @@ bool SwigDirector_MatchDecider::operator ()(Xapian::Document const &doc) const {
   
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 1, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(&result);
   c_result = (bool) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -2362,7 +2362,7 @@ bool SwigDirector_ExpandDecider::operator ()(std::string const &term) const {
   
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 1, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(&result);
   c_result = (bool) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -2442,7 +2442,7 @@ bool SwigDirector_Stopper::operator ()(std::string const &term) const {
   
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 1, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(&result);
   c_result = (bool) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -2573,7 +2573,7 @@ Xapian::valueno SwigDirector_ValueRangeProcessor::operator ()(std::string &begin
   
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 2, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::valueno) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -2737,7 +2737,7 @@ Xapian::doccount SwigDirector_PostingSource::get_termfreq_min() const {
   ZVAL_STRINGL(&funcname, (char *)"get_termfreq_min", 16, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::doccount) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -2763,7 +2763,7 @@ Xapian::doccount SwigDirector_PostingSource::get_termfreq_est() const {
   ZVAL_STRINGL(&funcname, (char *)"get_termfreq_est", 16, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::doccount) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -2789,7 +2789,7 @@ Xapian::doccount SwigDirector_PostingSource::get_termfreq_max() const {
   ZVAL_STRINGL(&funcname, (char *)"get_termfreq_max", 16, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::doccount) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -2815,7 +2815,7 @@ double SwigDirector_PostingSource::get_weight() const {
   ZVAL_STRINGL(&funcname, (char *)"get_weight", 10, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(&result);
   c_result = (double) Z_DVAL_PP(&result);
   /*@SWIG@*/;
@@ -2841,7 +2841,7 @@ Xapian::docid SwigDirector_PostingSource::get_docid() const {
   ZVAL_STRINGL(&funcname, (char *)"get_docid", 9, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::docid) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -2935,7 +2935,7 @@ bool SwigDirector_PostingSource::check(Xapian::docid did, double min_wt) {
   }
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 2, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(&result);
   c_result = (bool) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -2961,7 +2961,7 @@ bool SwigDirector_PostingSource::at_end() const {
   ZVAL_STRINGL(&funcname, (char *)"at_end", 6, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(&result);
   c_result = (bool) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3105,7 +3105,7 @@ Xapian::doccount SwigDirector_ValuePostingSource::get_termfreq_min() const {
   ZVAL_STRINGL(&funcname, (char *)"get_termfreq_min", 16, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::doccount) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3131,7 +3131,7 @@ Xapian::doccount SwigDirector_ValuePostingSource::get_termfreq_est() const {
   ZVAL_STRINGL(&funcname, (char *)"get_termfreq_est", 16, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::doccount) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3157,7 +3157,7 @@ Xapian::doccount SwigDirector_ValuePostingSource::get_termfreq_max() const {
   ZVAL_STRINGL(&funcname, (char *)"get_termfreq_max", 16, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::doccount) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3183,7 +3183,7 @@ double SwigDirector_ValuePostingSource::get_weight() const {
   ZVAL_STRINGL(&funcname, (char *)"get_weight", 10, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(&result);
   c_result = (double) Z_DVAL_PP(&result);
   /*@SWIG@*/;
@@ -3209,7 +3209,7 @@ Xapian::docid SwigDirector_ValuePostingSource::get_docid() const {
   ZVAL_STRINGL(&funcname, (char *)"get_docid", 9, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::docid) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3303,7 +3303,7 @@ bool SwigDirector_ValuePostingSource::check(Xapian::docid min_docid, double min_
   }
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 2, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(&result);
   c_result = (bool) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3329,7 +3329,7 @@ bool SwigDirector_ValuePostingSource::at_end() const {
   ZVAL_STRINGL(&funcname, (char *)"at_end", 6, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(&result);
   c_result = (bool) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3473,7 +3473,7 @@ Xapian::doccount SwigDirector_ValueWeightPostingSource::get_termfreq_min() const
   ZVAL_STRINGL(&funcname, (char *)"get_termfreq_min", 16, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::doccount) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3499,7 +3499,7 @@ Xapian::doccount SwigDirector_ValueWeightPostingSource::get_termfreq_est() const
   ZVAL_STRINGL(&funcname, (char *)"get_termfreq_est", 16, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::doccount) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3525,7 +3525,7 @@ Xapian::doccount SwigDirector_ValueWeightPostingSource::get_termfreq_max() const
   ZVAL_STRINGL(&funcname, (char *)"get_termfreq_max", 16, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::doccount) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3551,7 +3551,7 @@ double SwigDirector_ValueWeightPostingSource::get_weight() const {
   ZVAL_STRINGL(&funcname, (char *)"get_weight", 10, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(&result);
   c_result = (double) Z_DVAL_PP(&result);
   /*@SWIG@*/;
@@ -3577,7 +3577,7 @@ Xapian::docid SwigDirector_ValueWeightPostingSource::get_docid() const {
   ZVAL_STRINGL(&funcname, (char *)"get_docid", 9, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(&result);
   c_result = (Xapian::docid) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3671,7 +3671,7 @@ bool SwigDirector_ValueWeightPostingSource::check(Xapian::docid min_docid, doubl
   }
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 2, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(&result);
   c_result = (bool) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -3697,7 +3697,7 @@ bool SwigDirector_ValueWeightPostingSource::at_end() const {
   ZVAL_STRINGL(&funcname, (char *)"at_end", 6, 0);
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 0, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(&result);
   c_result = (bool) Z_LVAL_PP(&result);
   /*@SWIG@*/;
@@ -4002,7 +4002,7 @@ double SwigDirector_LatLongMetric::pointwise_distance(Xapian::LatLongCoord const
   
   call_user_function(EG(function_table), (zval**)&swig_self, &funcname, result, 2, args TSRMLS_CC);
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(&result);
   c_result = (double) Z_DVAL_PP(&result);
   /*@SWIG@*/;
@@ -4293,7 +4293,7 @@ ZEND_NAMED_FUNCTION(_wrap_PositionIterator_skip_to) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termpos) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -4779,7 +4779,7 @@ ZEND_NAMED_FUNCTION(_wrap_PostingIterator_skip_to) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -5655,7 +5655,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValueIterator_skip_to) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -5694,7 +5694,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValueIterator_check) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -6025,7 +6025,7 @@ ZEND_NAMED_FUNCTION(_wrap_Document_get_value) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -6067,7 +6067,7 @@ ZEND_NAMED_FUNCTION(_wrap_Document_add_value) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -6111,7 +6111,7 @@ ZEND_NAMED_FUNCTION(_wrap_Document_remove_value) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -6261,13 +6261,13 @@ ZEND_NAMED_FUNCTION(_wrap_Document_add_posting__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termpos) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -6313,7 +6313,7 @@ ZEND_NAMED_FUNCTION(_wrap_Document_add_posting__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termpos) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -6411,7 +6411,7 @@ ZEND_NAMED_FUNCTION(_wrap_Document_add_term__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -6582,13 +6582,13 @@ ZEND_NAMED_FUNCTION(_wrap_Document_remove_posting__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termpos) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -6634,7 +6634,7 @@ ZEND_NAMED_FUNCTION(_wrap_Document_remove_posting__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termpos) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -6735,19 +6735,19 @@ ZEND_NAMED_FUNCTION(_wrap_Document_remove_postings__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termpos) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termpos) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[4]);
   arg5 = (Xapian::termcount) Z_LVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -6797,13 +6797,13 @@ ZEND_NAMED_FUNCTION(_wrap_Document_remove_postings__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termpos) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termpos) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -7745,13 +7745,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_1) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termpos) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -7793,7 +7793,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_2) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -7897,7 +7897,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_5) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -7938,7 +7938,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_6) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -7949,7 +7949,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_6) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -7985,7 +7985,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_7) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -8033,7 +8033,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_8) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -8082,13 +8082,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_9) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -8133,13 +8133,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_10) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -8190,7 +8190,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_11) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -8201,19 +8201,19 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_11) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[4]);
   arg5 = (Xapian::Query::op) Z_LVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -8252,7 +8252,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_12) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -8263,13 +8263,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_12) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -8307,7 +8307,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_13) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -8318,7 +8318,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_13) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -8355,7 +8355,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_14) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -8398,7 +8398,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_17) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -8411,7 +8411,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_17) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -8447,7 +8447,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_18) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -8878,7 +8878,7 @@ ZEND_NAMED_FUNCTION(_wrap_Query_get_subquery) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -8947,7 +8947,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Query__SWIG_19) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::Query::op) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -9436,7 +9436,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Stem__SWIG_1) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[1]);
   arg2 = (bool) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -10012,13 +10012,13 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_set_flags__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::TermGenerator::flags) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::TermGenerator::flags) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -10059,7 +10059,7 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_set_flags__SWIG_1) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::TermGenerator::flags) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -10141,7 +10141,7 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_set_stemming_strategy) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::TermGenerator::stem_strategy) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -10179,7 +10179,7 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_set_stopper_strategy) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::TermGenerator::stop_strategy) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -10217,7 +10217,7 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_set_max_word_length) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -10264,7 +10264,7 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_index_text__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -10316,7 +10316,7 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_index_text__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -10472,7 +10472,7 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_index_text_without_positions__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -10524,7 +10524,7 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_index_text_without_positions__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -10671,7 +10671,7 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_increase_termpos__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termpos) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -10810,7 +10810,7 @@ ZEND_NAMED_FUNCTION(_wrap_TermGenerator_set_termpos) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termpos) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -10929,7 +10929,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_convert_to_percent__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -11457,7 +11457,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_snippet__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (size_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -11468,7 +11468,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_snippet__SWIG_0) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[4]);
   arg5 = (unsigned int) Z_LVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -11541,7 +11541,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_snippet__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (size_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -11552,7 +11552,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_snippet__SWIG_1) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[4]);
   arg5 = (unsigned int) Z_LVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -11617,7 +11617,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_snippet__SWIG_2) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (size_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -11628,7 +11628,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_snippet__SWIG_2) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[4]);
   arg5 = (unsigned int) Z_LVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -11685,7 +11685,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_snippet__SWIG_3) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (size_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -11696,7 +11696,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_snippet__SWIG_3) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[4]);
   arg5 = (unsigned int) Z_LVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -11746,7 +11746,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_snippet__SWIG_4) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (size_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -11800,7 +11800,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_snippet__SWIG_5) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (size_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -12471,7 +12471,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_get_docid) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -12512,7 +12512,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_get_document) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -12554,7 +12554,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_get_hit) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -12596,7 +12596,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSet_get_document_percentage) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -12693,7 +12693,7 @@ ZEND_NAMED_FUNCTION(_wrap_MSetIterator_off_from_end_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::MSet::size_type) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -13655,7 +13655,7 @@ ZEND_NAMED_FUNCTION(_wrap_ESetIterator_off_from_end_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::ESet::size_type) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -14182,7 +14182,7 @@ ZEND_NAMED_FUNCTION(_wrap_RSet_add_document__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -14299,7 +14299,7 @@ ZEND_NAMED_FUNCTION(_wrap_RSet_remove_document__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -14417,7 +14417,7 @@ ZEND_NAMED_FUNCTION(_wrap_RSet_contains__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -14734,7 +14734,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_query__SWIG_0) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15003,7 +15003,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_expansion_scheme__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15128,13 +15128,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_collapse_key__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::doccount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15172,7 +15172,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_collapse_key__SWIG_1) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -15252,7 +15252,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_docid_order) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::Enquire::docid_order) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -15291,13 +15291,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_cutoff__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15335,7 +15335,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_cutoff__SWIG_1) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -15447,13 +15447,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_sort_by_value) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15497,7 +15497,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_sort_by_key) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15536,13 +15536,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_sort_by_value_then_relevance) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15586,7 +15586,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_sort_by_key_then_relevance) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15625,13 +15625,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_sort_by_relevance_then_value) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15675,7 +15675,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_sort_by_relevance_then_key) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15713,7 +15713,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_set_time_limit) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -15756,19 +15756,19 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_mset__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::doccount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::doccount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -15823,19 +15823,19 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_mset__SWIG_1) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::doccount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::doccount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -15884,19 +15884,19 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_mset__SWIG_2) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::doccount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::doccount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -15939,13 +15939,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_mset__SWIG_3) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::doccount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -15990,13 +15990,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_mset__SWIG_4) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::doccount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -16050,13 +16050,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_mset__SWIG_5) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::doccount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -16261,7 +16261,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -16272,7 +16272,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_0) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -16283,7 +16283,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_0) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[5]);
   arg6 = (double) Z_DVAL_PP(args[5]);
   /*@SWIG@*/;
@@ -16328,7 +16328,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_1) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -16339,7 +16339,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_1) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -16388,7 +16388,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_2) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -16399,7 +16399,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_2) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -16442,7 +16442,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_3) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -16491,7 +16491,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_4) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -16548,7 +16548,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_5) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -16559,13 +16559,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_5) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[4]);
   arg5 = (double) Z_DVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -16576,7 +16576,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_5) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[6]);
   arg7 = (double) Z_DVAL_PP(args[6]);
   /*@SWIG@*/;
@@ -16622,7 +16622,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_6) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -16633,13 +16633,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_6) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[4]);
   arg5 = (double) Z_DVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -16689,7 +16689,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_7) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -16700,13 +16700,13 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_eset__SWIG_7) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[4]);
   arg5 = (double) Z_DVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -16976,7 +16976,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_matching_terms_begin__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -17018,7 +17018,7 @@ ZEND_NAMED_FUNCTION(_wrap_Enquire_get_matching_terms_end__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -17842,13 +17842,13 @@ ZEND_NAMED_FUNCTION(_wrap_MultiValueKeyMaker_add_value__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -17893,13 +17893,13 @@ ZEND_NAMED_FUNCTION(_wrap_MultiValueKeyMaker_add_value__SWIG_1) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -17937,7 +17937,7 @@ ZEND_NAMED_FUNCTION(_wrap_MultiValueKeyMaker_add_value__SWIG_2) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -18497,7 +18497,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_RangeProcessor__SWIG_1) {
   arg0 = *args[0];
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -18508,7 +18508,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_RangeProcessor__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg3 = (unsigned int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -18554,7 +18554,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_RangeProcessor__SWIG_2) {
   arg0 = *args[0];
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -18603,7 +18603,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_RangeProcessor__SWIG_3) {
   arg0 = *args[0];
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -18858,19 +18858,19 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateRangeProcessor__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -18905,13 +18905,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateRangeProcessor__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -18945,7 +18945,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateRangeProcessor__SWIG_2) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -18983,7 +18983,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateRangeProcessor__SWIG_3) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -18994,13 +18994,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateRangeProcessor__SWIG_3) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -19038,7 +19038,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateRangeProcessor__SWIG_4) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -19049,7 +19049,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateRangeProcessor__SWIG_4) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -19086,7 +19086,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateRangeProcessor__SWIG_5) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -19288,7 +19288,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_NumberRangeProcessor__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -19299,7 +19299,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_NumberRangeProcessor__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -19336,7 +19336,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_NumberRangeProcessor__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -19376,7 +19376,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_NumberRangeProcessor__SWIG_2) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -19678,7 +19678,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_StringValueRangeProcessor__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -19715,7 +19715,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_StringValueRangeProcessor__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -19726,7 +19726,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_StringValueRangeProcessor__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -19763,7 +19763,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_StringValueRangeProcessor__SWIG_2) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -19935,19 +19935,19 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateValueRangeProcessor__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[1]);
   arg2 = (bool) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -19982,13 +19982,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateValueRangeProcessor__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[1]);
   arg2 = (bool) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -20022,7 +20022,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateValueRangeProcessor__SWIG_2) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -20061,7 +20061,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateValueRangeProcessor__SWIG_3) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -20072,19 +20072,19 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateValueRangeProcessor__SWIG_3) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[3]);
   arg4 = (bool) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[4]);
   arg5 = (int) Z_LVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -20123,7 +20123,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateValueRangeProcessor__SWIG_4) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -20134,13 +20134,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateValueRangeProcessor__SWIG_4) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[3]);
   arg4 = (bool) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -20178,7 +20178,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateValueRangeProcessor__SWIG_5) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -20189,7 +20189,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateValueRangeProcessor__SWIG_5) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -20226,7 +20226,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DateValueRangeProcessor__SWIG_6) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -20470,7 +20470,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_NumberValueRangeProcessor__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -20507,7 +20507,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_NumberValueRangeProcessor__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -20518,7 +20518,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_NumberValueRangeProcessor__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[2]);
   arg3 = (bool) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -20555,7 +20555,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_NumberValueRangeProcessor__SWIG_2) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -20953,7 +20953,7 @@ ZEND_NAMED_FUNCTION(_wrap_QueryParser_set_stemming_strategy) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::QueryParser::stem_strategy) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -21098,7 +21098,7 @@ ZEND_NAMED_FUNCTION(_wrap_QueryParser_set_default_op) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::Query::op) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -21209,19 +21209,19 @@ ZEND_NAMED_FUNCTION(_wrap_QueryParser_set_max_expansion__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (unsigned int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -21260,13 +21260,13 @@ ZEND_NAMED_FUNCTION(_wrap_QueryParser_set_max_expansion__SWIG_1) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -21304,7 +21304,7 @@ ZEND_NAMED_FUNCTION(_wrap_QueryParser_set_max_expansion__SWIG_2) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -21403,7 +21403,7 @@ ZEND_NAMED_FUNCTION(_wrap_QueryParser_set_max_wildcard_expansion) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -21451,7 +21451,7 @@ ZEND_NAMED_FUNCTION(_wrap_QueryParser_parse_query__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -21507,7 +21507,7 @@ ZEND_NAMED_FUNCTION(_wrap_QueryParser_parse_query__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -21921,7 +21921,7 @@ ZEND_NAMED_FUNCTION(_wrap_QueryParser_add_boolean_prefix__SWIG_2) {
   arg3 = &temp3;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[3]);
   arg4 = (bool) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -22070,7 +22070,7 @@ ZEND_NAMED_FUNCTION(_wrap_QueryParser_add_boolean_prefix__SWIG_5) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[3]);
   arg4 = (bool) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -22639,7 +22639,7 @@ ZEND_NAMED_FUNCTION(_wrap_sortable_serialise) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -22709,13 +22709,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_ValueSetMatchDecider) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[1]);
   arg2 = (bool) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -22950,19 +22950,19 @@ ZEND_NAMED_FUNCTION(_wrap_Weight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -23038,13 +23038,13 @@ ZEND_NAMED_FUNCTION(_wrap_Weight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -23181,19 +23181,19 @@ ZEND_NAMED_FUNCTION(_wrap_BoolWeight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -23269,13 +23269,13 @@ ZEND_NAMED_FUNCTION(_wrap_BoolWeight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -23492,19 +23492,19 @@ ZEND_NAMED_FUNCTION(_wrap_TfIdfWeight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -23580,13 +23580,13 @@ ZEND_NAMED_FUNCTION(_wrap_TfIdfWeight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -23678,31 +23678,31 @@ ZEND_NAMED_FUNCTION(_wrap_new_BM25Weight__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[3]);
   arg4 = (double) Z_DVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[4]);
   arg5 = (double) Z_DVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -23840,19 +23840,19 @@ ZEND_NAMED_FUNCTION(_wrap_BM25Weight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -23928,13 +23928,13 @@ ZEND_NAMED_FUNCTION(_wrap_BM25Weight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -24027,37 +24027,37 @@ ZEND_NAMED_FUNCTION(_wrap_new_BM25PlusWeight__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[3]);
   arg4 = (double) Z_DVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[4]);
   arg5 = (double) Z_DVAL_PP(args[4]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[5]);
   arg6 = (double) Z_DVAL_PP(args[5]);
   /*@SWIG@*/;
@@ -24198,19 +24198,19 @@ ZEND_NAMED_FUNCTION(_wrap_BM25PlusWeight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -24286,13 +24286,13 @@ ZEND_NAMED_FUNCTION(_wrap_BM25PlusWeight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -24380,7 +24380,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_TradWeight__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -24506,19 +24506,19 @@ ZEND_NAMED_FUNCTION(_wrap_TradWeight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -24594,13 +24594,13 @@ ZEND_NAMED_FUNCTION(_wrap_TradWeight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -24688,7 +24688,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_InL2Weight__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -24814,19 +24814,19 @@ ZEND_NAMED_FUNCTION(_wrap_InL2Weight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -24902,13 +24902,13 @@ ZEND_NAMED_FUNCTION(_wrap_InL2Weight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -24996,7 +24996,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_IfB2Weight__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -25122,19 +25122,19 @@ ZEND_NAMED_FUNCTION(_wrap_IfB2Weight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -25210,13 +25210,13 @@ ZEND_NAMED_FUNCTION(_wrap_IfB2Weight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -25304,7 +25304,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_IneB2Weight__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -25430,19 +25430,19 @@ ZEND_NAMED_FUNCTION(_wrap_IneB2Weight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -25518,13 +25518,13 @@ ZEND_NAMED_FUNCTION(_wrap_IneB2Weight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -25612,7 +25612,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_BB2Weight__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -25738,19 +25738,19 @@ ZEND_NAMED_FUNCTION(_wrap_BB2Weight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -25826,13 +25826,13 @@ ZEND_NAMED_FUNCTION(_wrap_BB2Weight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -25989,19 +25989,19 @@ ZEND_NAMED_FUNCTION(_wrap_DLHWeight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -26077,13 +26077,13 @@ ZEND_NAMED_FUNCTION(_wrap_DLHWeight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -26171,7 +26171,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_PL2Weight__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -26297,19 +26297,19 @@ ZEND_NAMED_FUNCTION(_wrap_PL2Weight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -26385,13 +26385,13 @@ ZEND_NAMED_FUNCTION(_wrap_PL2Weight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -26480,13 +26480,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_PL2PlusWeight__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -26615,19 +26615,19 @@ ZEND_NAMED_FUNCTION(_wrap_PL2PlusWeight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -26703,13 +26703,13 @@ ZEND_NAMED_FUNCTION(_wrap_PL2PlusWeight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -26866,19 +26866,19 @@ ZEND_NAMED_FUNCTION(_wrap_DPHWeight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -26954,13 +26954,13 @@ ZEND_NAMED_FUNCTION(_wrap_DPHWeight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -27051,25 +27051,25 @@ ZEND_NAMED_FUNCTION(_wrap_new_LMWeight__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::Weight::type_smoothing) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[3]);
   arg4 = (double) Z_DVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -27105,19 +27105,19 @@ ZEND_NAMED_FUNCTION(_wrap_new_LMWeight__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::Weight::type_smoothing) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -27152,13 +27152,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_LMWeight__SWIG_2) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::Weight::type_smoothing) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -27192,7 +27192,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LMWeight__SWIG_3) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -27357,19 +27357,19 @@ ZEND_NAMED_FUNCTION(_wrap_LMWeight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -27445,13 +27445,13 @@ ZEND_NAMED_FUNCTION(_wrap_LMWeight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -27545,7 +27545,7 @@ ZEND_NAMED_FUNCTION(_wrap_CoordWeight_init) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -27646,19 +27646,19 @@ ZEND_NAMED_FUNCTION(_wrap_CoordWeight_get_sumpart) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (Xapian::termcount) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -27734,13 +27734,13 @@ ZEND_NAMED_FUNCTION(_wrap_CoordWeight_get_sumextra) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::termcount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -27890,7 +27890,7 @@ ZEND_NAMED_FUNCTION(_wrap_Compactor_set_block_size) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -27928,7 +27928,7 @@ ZEND_NAMED_FUNCTION(_wrap_Compactor_set_renumber) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[1]);
   arg2 = (bool) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -27966,7 +27966,7 @@ ZEND_NAMED_FUNCTION(_wrap_Compactor_set_multipass) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[1]);
   arg2 = (bool) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -28004,7 +28004,7 @@ ZEND_NAMED_FUNCTION(_wrap_Compactor_set_compaction_level) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::Compactor::compaction_level) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -28214,7 +28214,7 @@ ZEND_NAMED_FUNCTION(_wrap_Compactor_resolve_duplicate_metadata) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (size_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -28434,7 +28434,7 @@ ZEND_NAMED_FUNCTION(_wrap_PostingSource_set_maxweight) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -28580,7 +28580,7 @@ ZEND_NAMED_FUNCTION(_wrap_PostingSource_next) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -28625,13 +28625,13 @@ ZEND_NAMED_FUNCTION(_wrap_PostingSource_skip_to) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -28677,13 +28677,13 @@ ZEND_NAMED_FUNCTION(_wrap_PostingSource_check) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -28922,7 +28922,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_ValuePostingSource) {
   arg0 = *args[0];
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -29089,7 +29089,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValuePostingSource_next) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -29134,13 +29134,13 @@ ZEND_NAMED_FUNCTION(_wrap_ValuePostingSource_skip_to) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -29186,13 +29186,13 @@ ZEND_NAMED_FUNCTION(_wrap_ValuePostingSource_check) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -29528,7 +29528,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValuePostingSource_set_termfreq_min) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -29566,7 +29566,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValuePostingSource_set_termfreq_est) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -29604,7 +29604,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValuePostingSource_set_termfreq_max) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::doccount) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -29659,7 +29659,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_ValueWeightPostingSource) {
   arg0 = *args[0];
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -29884,19 +29884,19 @@ ZEND_NAMED_FUNCTION(_wrap_new_DecreasingValueWeightPostingSource__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::docid) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -29931,13 +29931,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_DecreasingValueWeightPostingSource__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -29971,7 +29971,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_DecreasingValueWeightPostingSource__SWIG_2) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -30159,7 +30159,7 @@ ZEND_NAMED_FUNCTION(_wrap_DecreasingValueWeightPostingSource_next) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -30198,13 +30198,13 @@ ZEND_NAMED_FUNCTION(_wrap_DecreasingValueWeightPostingSource_skip_to) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -30244,13 +30244,13 @@ ZEND_NAMED_FUNCTION(_wrap_DecreasingValueWeightPostingSource_check) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -30338,7 +30338,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_ValueMapPostingSource) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -30385,7 +30385,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValueMapPostingSource_add_mapping) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -30455,7 +30455,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValueMapPostingSource_set_default_weight) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -30646,7 +30646,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_FixedWeightPostingSource) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -30822,7 +30822,7 @@ ZEND_NAMED_FUNCTION(_wrap_FixedWeightPostingSource_next) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -30861,13 +30861,13 @@ ZEND_NAMED_FUNCTION(_wrap_FixedWeightPostingSource_skip_to) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -30907,13 +30907,13 @@ ZEND_NAMED_FUNCTION(_wrap_FixedWeightPostingSource_check) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -31202,7 +31202,7 @@ ZEND_NAMED_FUNCTION(_wrap_MatchSpy_apply) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -31424,7 +31424,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_ValueCountMatchSpy__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -31578,7 +31578,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValueCountMatchSpy_top_values_begin) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -31620,7 +31620,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValueCountMatchSpy_top_values_end) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -31660,7 +31660,7 @@ ZEND_NAMED_FUNCTION(_wrap_ValueCountMatchSpy_apply) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -31819,7 +31819,7 @@ ZEND_NAMED_FUNCTION(_wrap_miles_to_metres) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -31853,7 +31853,7 @@ ZEND_NAMED_FUNCTION(_wrap_metres_to_miles) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -31893,7 +31893,7 @@ ZEND_NAMED_FUNCTION(_wrap_LatLongCoord_latitude_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -31951,7 +31951,7 @@ ZEND_NAMED_FUNCTION(_wrap_LatLongCoord_longitude_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -32030,13 +32030,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongCoord__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -32949,7 +32949,7 @@ ZEND_NAMED_FUNCTION(_wrap_LatLongMetric_apply__SWIG_2) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,62,CONVERT_STRING_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,62,CONVERT_STRING_IN@*/
   if ((*args[2])->type==IS_NULL) {
     arg3 = (char *) 0;
   } else {
@@ -32959,7 +32959,7 @@ ZEND_NAMED_FUNCTION(_wrap_LatLongMetric_apply__SWIG_2) {
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (size_t) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -33173,7 +33173,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_GreatCircleMetric__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[0]);
   arg1 = (double) Z_DVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -33335,7 +33335,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -33351,19 +33351,19 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_0) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[3]);
   arg4 = (double) Z_DVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[4]);
   arg5 = (double) Z_DVAL_PP(args[4]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[5]);
   arg6 = (double) Z_DVAL_PP(args[5]);
   /*@SWIG@*/;
@@ -33401,7 +33401,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -33417,13 +33417,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_1) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[3]);
   arg4 = (double) Z_DVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[4]);
   arg5 = (double) Z_DVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -33460,7 +33460,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_2) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -33476,7 +33476,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_2) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[3]);
   arg4 = (double) Z_DVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -33512,7 +33512,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_3) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -33560,7 +33560,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_4) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -33571,19 +33571,19 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_4) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[3]);
   arg4 = (double) Z_DVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[4]);
   arg5 = (double) Z_DVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -33620,7 +33620,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_5) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -33631,13 +33631,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_5) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[3]);
   arg4 = (double) Z_DVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -33673,7 +33673,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_6) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -33684,7 +33684,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_6) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -33719,7 +33719,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistancePostingSource__SWIG_7) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -33961,7 +33961,7 @@ ZEND_NAMED_FUNCTION(_wrap_LatLongDistancePostingSource_next) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[1]);
   arg2 = (double) Z_DVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -34000,13 +34000,13 @@ ZEND_NAMED_FUNCTION(_wrap_LatLongDistancePostingSource_skip_to) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -34046,13 +34046,13 @@ ZEND_NAMED_FUNCTION(_wrap_LatLongDistancePostingSource_check) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[2]);
   arg3 = (double) Z_DVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -34228,7 +34228,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistanceKeyMaker__SWIG_0) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -34244,7 +34244,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistanceKeyMaker__SWIG_0) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[3]);
   arg4 = (double) Z_DVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -34280,7 +34280,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistanceKeyMaker__SWIG_1) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -34325,7 +34325,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistanceKeyMaker__SWIG_2) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -34367,7 +34367,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistanceKeyMaker__SWIG_3) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -34383,7 +34383,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistanceKeyMaker__SWIG_3) {
     }
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,52,CONVERT_FLOAT_IN@*/
   convert_to_double_ex(args[3]);
   arg4 = (double) Z_DVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -34419,7 +34419,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistanceKeyMaker__SWIG_4) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -34464,7 +34464,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_LatLongDistanceKeyMaker__SWIG_5) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (Xapian::valueno) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -34788,7 +34788,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Database__SWIG_1) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -34859,13 +34859,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_Database__SWIG_3) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (int) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -34899,7 +34899,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_Database__SWIG_4) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (int) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -35192,7 +35192,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_termlist_begin) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -35234,7 +35234,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_termlist_end) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -35305,7 +35305,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_positionlist_begin) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -35355,7 +35355,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_positionlist_end) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -35910,7 +35910,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_get_value_freq) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -35951,7 +35951,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_get_value_lower_bound) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -35992,7 +35992,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_get_value_upper_bound) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -36143,7 +36143,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_valuestream_begin) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -36185,7 +36185,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_valuestream_end) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::valueno) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -36220,7 +36220,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_get_doclength) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -36261,7 +36261,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_get_unique_terms) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -36333,7 +36333,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_get_document__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -36376,13 +36376,13 @@ ZEND_NAMED_FUNCTION(_wrap_Database_get_document__SWIG_1) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -36473,7 +36473,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_get_spelling_suggestion__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -37325,7 +37325,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_check__SWIG_0) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -37396,13 +37396,13 @@ ZEND_NAMED_FUNCTION(_wrap_Database_check__SWIG_2) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (int) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -37436,7 +37436,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_check__SWIG_3) {
   }
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (int) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -37535,13 +37535,13 @@ ZEND_NAMED_FUNCTION(_wrap_Database_compact__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -37587,7 +37587,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_compact__SWIG_1) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -37667,19 +37667,19 @@ ZEND_NAMED_FUNCTION(_wrap_Database_compact__SWIG_3) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -37718,13 +37718,13 @@ ZEND_NAMED_FUNCTION(_wrap_Database_compact__SWIG_4) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -37762,7 +37762,7 @@ ZEND_NAMED_FUNCTION(_wrap_Database_compact__SWIG_5) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -37809,13 +37809,13 @@ ZEND_NAMED_FUNCTION(_wrap_Database_compact__SWIG_6) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -37862,19 +37862,19 @@ ZEND_NAMED_FUNCTION(_wrap_Database_compact__SWIG_7) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -38132,13 +38132,13 @@ ZEND_NAMED_FUNCTION(_wrap_new_WritableDatabase__SWIG_1) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -38180,7 +38180,7 @@ ZEND_NAMED_FUNCTION(_wrap_new_WritableDatabase__SWIG_2) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -38291,6 +38291,43 @@ ZEND_NAMED_FUNCTION(_wrap_new_WritableDatabase) {
 }
 
 
+ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_add_database) {
+  Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
+  Xapian::WritableDatabase *arg2 = 0 ;
+  zval **args[2];
+  
+  SWIG_ResetError(TSRMLS_C);
+  if(ZEND_NUM_ARGS() != 2 || zend_get_parameters_array_ex(2, args) != SUCCESS) {
+    WRONG_PARAM_COUNT;
+  }
+  
+  {
+    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_Xapian__WritableDatabase, 0) < 0) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of WritableDatabase_add_database. Expected SWIGTYPE_p_Xapian__WritableDatabase");
+    }
+  }
+  if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
+  {
+    if(SWIG_ConvertPtr(*args[1], (void **) &arg2, SWIGTYPE_p_Xapian__WritableDatabase, 0) < 0 || arg2 == NULL) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 2 of WritableDatabase_add_database. Expected SWIGTYPE_p_Xapian__WritableDatabase");
+    }
+  }
+  {
+    try {
+      (arg1)->add_database((Xapian::WritableDatabase const &)*arg2);
+    } catch (...) {
+      XapianExceptionHandler();
+      return;
+    }
+  }
+  
+thrown:
+  return;
+fail:
+  SWIG_FAIL(TSRMLS_C);
+}
+
+
 ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_commit) {
   Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
   zval **args[1];
@@ -38370,7 +38407,7 @@ ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_begin_transaction__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,2,CONVERT_BOOL_IN@*/
   convert_to_boolean_ex(args[1]);
   arg2 = (bool) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -38579,7 +38616,7 @@ ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_delete_document__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -38698,7 +38735,7 @@ ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_replace_document__SWIG_0) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (Xapian::docid) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -38849,7 +38886,7 @@ ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_add_spelling__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -38980,7 +39017,7 @@ ZEND_NAMED_FUNCTION(_wrap_WritableDatabase_remove_spelling__SWIG_0) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (Xapian::termcount) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -39355,7 +39392,7 @@ ZEND_NAMED_FUNCTION(_wrap_auto_open_stub__SWIG_1) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -39496,13 +39533,13 @@ ZEND_NAMED_FUNCTION(_wrap_chert_open__SWIG_1) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -39545,7 +39582,7 @@ ZEND_NAMED_FUNCTION(_wrap_chert_open__SWIG_2) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -39639,19 +39676,19 @@ ZEND_NAMED_FUNCTION(_wrap_remote_open__SWIG_0) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (useconds_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (useconds_t) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -39695,13 +39732,13 @@ ZEND_NAMED_FUNCTION(_wrap_remote_open__SWIG_1) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (useconds_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -39744,7 +39781,7 @@ ZEND_NAMED_FUNCTION(_wrap_remote_open__SWIG_2) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -39790,25 +39827,25 @@ ZEND_NAMED_FUNCTION(_wrap_remote_open_writable__SWIG_0) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (useconds_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (useconds_t) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[4]);
   arg5 = (int) Z_LVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -39853,19 +39890,19 @@ ZEND_NAMED_FUNCTION(_wrap_remote_open_writable__SWIG_1) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (useconds_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (useconds_t) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -39909,13 +39946,13 @@ ZEND_NAMED_FUNCTION(_wrap_remote_open_writable__SWIG_2) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (useconds_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -39958,7 +39995,7 @@ ZEND_NAMED_FUNCTION(_wrap_remote_open_writable__SWIG_3) {
   arg1 = &temp1;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -40008,7 +40045,7 @@ ZEND_NAMED_FUNCTION(_wrap_remote_open__SWIG_3) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (useconds_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -40193,13 +40230,13 @@ ZEND_NAMED_FUNCTION(_wrap_remote_open_writable__SWIG_4) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (useconds_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -40250,7 +40287,7 @@ ZEND_NAMED_FUNCTION(_wrap_remote_open_writable__SWIG_5) {
   arg2 = &temp2;
   
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/php5/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (useconds_t) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -41299,6 +41336,7 @@ static zend_function_entry xapian_functions[] = {
  SWIG_ZEND_NAMED_FE(database_check,_wrap_Database_check,swig_arginfo_0)
  SWIG_ZEND_NAMED_FE(database_compact,_wrap_Database_compact,swig_arginfo_00000)
  SWIG_ZEND_NAMED_FE(new_writabledatabase,_wrap_new_WritableDatabase,swig_arginfo_0)
+ SWIG_ZEND_NAMED_FE(writabledatabase_add_database,_wrap_WritableDatabase_add_database,swig_arginfo_00)
  SWIG_ZEND_NAMED_FE(writabledatabase_commit,_wrap_WritableDatabase_commit,swig_arginfo_0)
  SWIG_ZEND_NAMED_FE(writabledatabase_flush,_wrap_WritableDatabase_flush,swig_arginfo_0)
  SWIG_ZEND_NAMED_FE(writabledatabase_begin_transaction,_wrap_WritableDatabase_begin_transaction,swig_arginfo_0)
@@ -41838,6 +41876,7 @@ SWIG_LONG_CONSTANT(QueryParser_FLAG_AUTO_SYNONYMS, (int)Xapian::QueryParser::FLA
 SWIG_LONG_CONSTANT(QueryParser_FLAG_AUTO_MULTIWORD_SYNONYMS, (int)Xapian::QueryParser::FLAG_AUTO_MULTIWORD_SYNONYMS);
 SWIG_LONG_CONSTANT(QueryParser_FLAG_CJK_NGRAM, (int)Xapian::QueryParser::FLAG_CJK_NGRAM);
 SWIG_LONG_CONSTANT(QueryParser_FLAG_ACCUMULATE, (int)Xapian::QueryParser::FLAG_ACCUMULATE);
+SWIG_LONG_CONSTANT(QueryParser_FLAG_NO_POSITIONS, (int)Xapian::QueryParser::FLAG_NO_POSITIONS);
 SWIG_LONG_CONSTANT(QueryParser_FLAG_DEFAULT, (int)Xapian::QueryParser::FLAG_DEFAULT);
 SWIG_LONG_CONSTANT(QueryParser_STEM_NONE, (int)Xapian::QueryParser::STEM_NONE);
 SWIG_LONG_CONSTANT(QueryParser_STEM_SOME, (int)Xapian::QueryParser::STEM_SOME);

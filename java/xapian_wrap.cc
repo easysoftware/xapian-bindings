@@ -14513,6 +14513,18 @@ SWIGEXPORT jint JNICALL Java_org_xapian_XapianJNI_QueryParser_1FLAG_1ACCUMULATE_
 }
 
 
+SWIGEXPORT jint JNICALL Java_org_xapian_XapianJNI_QueryParser_1FLAG_1NO_1POSITIONS_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  Xapian::QueryParser::feature_flag result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (Xapian::QueryParser::feature_flag)Xapian::QueryParser::FLAG_NO_POSITIONS;
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT jint JNICALL Java_org_xapian_XapianJNI_QueryParser_1FLAG_1DEFAULT_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   Xapian::QueryParser::feature_flag result;
@@ -25995,6 +26007,34 @@ SWIGEXPORT jlong JNICALL Java_org_xapian_XapianJNI_new_1WritableDatabase_1_1SWIG
   }
   *(Xapian::WritableDatabase **)&jresult = result; 
   return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_org_xapian_XapianJNI_WritableDatabase_1addDatabase(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
+  Xapian::WritableDatabase *arg2 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(Xapian::WritableDatabase **)&jarg1; 
+  arg2 = *(Xapian::WritableDatabase **)&jarg2;
+  if (!arg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Xapian::WritableDatabase const & reference is null");
+    return ;
+  } 
+  {
+    try {
+      (arg1)->add_database((Xapian::WritableDatabase const &)*arg2);
+    } catch (...) {
+      string msg;
+      int code = XapianExceptionHandler(msg);
+      {
+        SWIG_JavaException(jenv, code, msg.c_str()); return ; 
+      };
+    }
+  }
 }
 
 

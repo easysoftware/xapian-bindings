@@ -1774,6 +1774,7 @@ class XapianEnquire {
 	}
 
 	function set_sort_by_value($sort_key,$reverse) {
+		$this->_sorter=null;
 		Enquire_set_sort_by_value($this->_cPtr,$sort_key,$reverse);
 	}
 
@@ -1783,6 +1784,7 @@ class XapianEnquire {
 	}
 
 	function set_sort_by_value_then_relevance($sort_key,$reverse) {
+		$this->_sorter=null;
 		Enquire_set_sort_by_value_then_relevance($this->_cPtr,$sort_key,$reverse);
 	}
 
@@ -1792,6 +1794,7 @@ class XapianEnquire {
 	}
 
 	function set_sort_by_relevance_then_value($sort_key,$reverse) {
+		$this->_sorter=null;
 		Enquire_set_sort_by_relevance_then_value($this->_cPtr,$sort_key,$reverse);
 	}
 
@@ -2491,8 +2494,7 @@ abstract class XapianFieldProcessor {
 }
 
 class XapianQueryParser {
-	protected $_rps=null;
-	protected $_vrps=null;
+	protected $_procs=null;
 	protected $_stopper=null;
 	public $_cPtr=null;
 	protected $_pData=array();
@@ -2537,6 +2539,8 @@ class XapianQueryParser {
 	const FLAG_CJK_NGRAM = 2048;
 
 	const FLAG_ACCUMULATE = 65536;
+
+	const FLAG_NO_POSITIONS = QueryParser_FLAG_NO_POSITIONS;
 
 	const FLAG_DEFAULT = QueryParser_FLAG_DEFAULT;
 
@@ -2610,10 +2614,12 @@ class XapianQueryParser {
 	}
 
 	function add_prefix($field,$prefix_or_proc) {
+		if ($prefix_or_proc instanceof XapianFieldProcessor) $this->_procs[]=$prefix_or_proc;
 		QueryParser_add_prefix($this->_cPtr,$field,$prefix_or_proc);
 	}
 
 	function add_boolean_prefix($field,$prefix_or_proc,$grouping_or_exclusive=null) {
+		if ($prefix_or_proc instanceof XapianFieldProcessor) $this->_procs[]=$prefix_or_proc;
 		switch (func_num_args()) {
 		case 2: QueryParser_add_boolean_prefix($this->_cPtr,$field,$prefix_or_proc); break;
 		default: QueryParser_add_boolean_prefix($this->_cPtr,$field,$prefix_or_proc,$grouping_or_exclusive);
@@ -2661,12 +2667,12 @@ class XapianQueryParser {
 	}
 
 	function add_rangeprocessor(XapianRangeProcessor $range_proc,$grouping=null) {
-		$this->_rps[]=$range_proc;
+		$this->_procs[]=$range_proc;
 		QueryParser_add_rangeprocessor($this->_cPtr,$range_proc,$grouping);
 	}
 
 	function add_valuerangeprocessor(XapianValueRangeProcessor $vrproc) {
-		$this->_vrps[]=$vrproc;
+		$this->_procs[]=$vrproc;
 		QueryParser_add_valuerangeprocessor($this->_cPtr,$vrproc);
 	}
 
@@ -4922,6 +4928,10 @@ class XapianWritableDatabase extends XapianDatabase {
 		case 0: $this->_cPtr=new_WritableDatabase(); break;
 		default: $this->_cPtr=new_WritableDatabase($path,$flags,$block_size);
 		}
+	}
+
+	function add_database($other) {
+		WritableDatabase_add_database($this->_cPtr,$other);
 	}
 
 	function commit() {

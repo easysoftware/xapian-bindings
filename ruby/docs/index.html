@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.16: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <title>Ruby bindings for Xapian</title>
 <style type="text/css">
 
@@ -380,9 +380,9 @@ which shows how to define a MatchDecider in Ruby.</p>
 in your ruby program.</p>
 <p>Most standard Xapian methods are available directly
 to your Ruby program. Names have been altered to conform to the
-standard Ruby naming conventions (i.e. get_foo() in C++ becomes foo()
-in Ruby; set_foo() becomes foo=().)  C++ 'operator()' methods are
-renamed to 'call' methods in Ruby.</p>
+standard Ruby naming conventions (i.e. <tt class="docutils literal">get_foo()</tt> in C++ becomes <tt class="docutils literal">foo()</tt>
+in Ruby; <tt class="docutils literal">set_foo()</tt> becomes <tt class="docutils literal"><span class="pre">foo=()</span></tt>).  C++ <tt class="docutils literal">operator()</tt> methods are
+renamed to <tt class="docutils literal">call</tt> methods in Ruby.</p>
 <p>The C++ methods are not yet documented in the <a class="reference external" href="rdocs/">RDocs</a>.
 In the meantime, refer to the
 <a class="reference external" href="https://xapian.org/docs/apidoc/html/annotated.html">C++ API documentation</a>
@@ -390,10 +390,10 @@ for information on how to use the various methods. Most are
 available directly in the Ruby version. The RDocs currently provide information
 only on methods that are unique to the Ruby version.</p>
 <p>The dangerous/non-Rubish methods from the C++ API have been renamed to
-start with underscores ('_') in the Ruby bindings. You can see them in
+start with underscores (<tt class="docutils literal">_</tt>) in the Ruby bindings. You can see them in
 use in xapian.rb. It is strongly recommended that you do not call any
-method that starts with _ directly in your code, but instead use the
-wrappers defined in xapian.rb. Improper use of an _ method can cause
+method that starts with <tt class="docutils literal">_</tt> directly in your code, but instead use the
+wrappers defined in xapian.rb. Improper use of an <tt class="docutils literal">_</tt> method can cause
 the Ruby process to segfault.</p>
 </div>
 <div class="section" id="unicode-support">

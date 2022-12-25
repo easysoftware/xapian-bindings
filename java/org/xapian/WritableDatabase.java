@@ -51,6 +51,10 @@ public class WritableDatabase extends Database {
     this(XapianJNI.new_WritableDatabase__SWIG_3(path), true);
   }
 
+  public void addDatabase(WritableDatabase other) {
+    XapianJNI.WritableDatabase_addDatabase(swigCPtr, this, WritableDatabase.getCPtr(other), other);
+  }
+
   public void commit() {
     XapianJNI.WritableDatabase_commit(swigCPtr, this);
   }

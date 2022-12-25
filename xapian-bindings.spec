@@ -34,7 +34,7 @@
 
 Summary: Bindings for the Xapian Search Engine Library
 Name: xapian-bindings
-Version: 1.4.18
+Version: 1.4.21
 Release: 1
 License: GPL
 Vendor: xapian.org

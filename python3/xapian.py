@@ -60,7 +60,7 @@ from weakref import proxy as weakref_proxy
 
 
 
-__version__ = '1.4.18'
+__version__ = '1.4.21'
 
 class SwigPyIterator(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -115,7 +115,7 @@ class Error(Exception):
 
         The type of this error (e.g. "DocNotFoundError".)
 
-        const char* Xapian::Error::get_type() const 
+        const char * Xapian::Error::get_type() const Xapian::Error::get_type
         """
         return _xapian.Error_get_type(self)
 
@@ -126,7 +126,8 @@ class Error(Exception):
 
         Message giving details of the error, intended for human consumption.
 
-        const std::string& Xapian::Error::get_msg() const 
+        const std::string & Xapian::Error::get_msg() const
+        Xapian::Error::get_msg
         """
         return _xapian.Error_get_msg(self)
 
@@ -137,13 +138,12 @@ class Error(Exception):
 
         Optional context information.
 
-        const std::string& Xapian::Error::get_context() const
-
-        This context is intended for use by Xapian::ErrorHandler (for example
-        so it can know which remote server is unreliable and report the
-        problem and remove that server from those being searched). But it's
-        typically a plain-text string, and so also fit for human consumption.
-
+        const std::string & Xapian::Error::get_context() const
+        Xapian::Error::get_context This context is intended for use by
+        Xapian::ErrorHandler (for example so it can know which remote server
+        is unreliable and report the problem and remove that server from those
+        being searched). But it's typically a plain-text string, and so also
+        fit for human consumption. 
         """
         return _xapian.Error_get_context(self)
 
@@ -154,11 +154,10 @@ class Error(Exception):
 
         Returns any system error string associated with this exception.
 
-        const char* Xapian::Error::get_error_string() const
-
-        The system error string may come from errno, h_errno (on UNIX), or
-        GetLastError() (on MS Windows). If there is no associated system error
-        string, NULL is returned. 
+        const char * Xapian::Error::get_error_string() const
+        Xapian::Error::get_error_string The system error string may come from
+        errno, h_errno (on UNIX), or GetLastError() (on MS Windows). If there
+        is no associated system error string, NULL is returned. 
         """
         return _xapian.Error_get_error_string(self)
 
@@ -257,7 +256,7 @@ class AssertionError(LogicError):
         Construct from message and errno value.
 
         Xapian::AssertionError::AssertionError(const std::string &msg_, int
-        errno_)
+        errno_) Xapian::AssertionError::AssertionError
 
         Parameters:
         -----------
@@ -297,7 +296,7 @@ class InvalidArgumentError(LogicError):
         Construct from message and errno value.
 
         Xapian::InvalidArgumentError::InvalidArgumentError(const std::string
-        &msg_, int errno_)
+        &msg_, int errno_) Xapian::InvalidArgumentError::InvalidArgumentError
 
         Parameters:
         -----------
@@ -337,6 +336,7 @@ class InvalidOperationError(LogicError):
 
         Xapian::InvalidOperationError::InvalidOperationError(const std::string
         &msg_, int errno_)
+        Xapian::InvalidOperationError::InvalidOperationError
 
         Parameters:
         -----------
@@ -376,7 +376,7 @@ class UnimplementedError(LogicError):
         Construct from message and errno value.
 
         Xapian::UnimplementedError::UnimplementedError(const std::string
-        &msg_, int errno_)
+        &msg_, int errno_) Xapian::UnimplementedError::UnimplementedError
 
         Parameters:
         -----------
@@ -415,7 +415,7 @@ class DatabaseError(RuntimeError):
         Construct from message and errno value.
 
         Xapian::DatabaseError::DatabaseError(const std::string &msg_, int
-        errno_)
+        errno_) Xapian::DatabaseError::DatabaseError
 
         Parameters:
         -----------
@@ -454,7 +454,7 @@ class DatabaseCorruptError(DatabaseError):
         Construct from message and errno value.
 
         Xapian::DatabaseCorruptError::DatabaseCorruptError(const std::string
-        &msg_, int errno_)
+        &msg_, int errno_) Xapian::DatabaseCorruptError::DatabaseCorruptError
 
         Parameters:
         -----------
@@ -493,7 +493,7 @@ class DatabaseCreateError(DatabaseError):
         Construct from message and errno value.
 
         Xapian::DatabaseCreateError::DatabaseCreateError(const std::string
-        &msg_, int errno_)
+        &msg_, int errno_) Xapian::DatabaseCreateError::DatabaseCreateError
 
         Parameters:
         -----------
@@ -532,7 +532,7 @@ class DatabaseLockError(DatabaseError):
         Construct from message and errno value.
 
         Xapian::DatabaseLockError::DatabaseLockError(const std::string &msg_,
-        int errno_)
+        int errno_) Xapian::DatabaseLockError::DatabaseLockError
 
         Parameters:
         -----------
@@ -576,6 +576,7 @@ class DatabaseModifiedError(DatabaseError):
 
         Xapian::DatabaseModifiedError::DatabaseModifiedError(const std::string
         &msg_, int errno_)
+        Xapian::DatabaseModifiedError::DatabaseModifiedError
 
         Parameters:
         -----------
@@ -614,7 +615,7 @@ class DatabaseOpeningError(DatabaseError):
         Construct from message and errno value.
 
         Xapian::DatabaseOpeningError::DatabaseOpeningError(const std::string
-        &msg_, int errno_)
+        &msg_, int errno_) Xapian::DatabaseOpeningError::DatabaseOpeningError
 
         Parameters:
         -----------
@@ -664,7 +665,7 @@ class DatabaseVersionError(DatabaseOpeningError):
         Construct from message and errno value.
 
         Xapian::DatabaseVersionError::DatabaseVersionError(const std::string
-        &msg_, int errno_)
+        &msg_, int errno_) Xapian::DatabaseVersionError::DatabaseVersionError
 
         Parameters:
         -----------
@@ -704,7 +705,7 @@ class DocNotFoundError(RuntimeError):
         Construct from message and errno value.
 
         Xapian::DocNotFoundError::DocNotFoundError(const std::string &msg_,
-        int errno_)
+        int errno_) Xapian::DocNotFoundError::DocNotFoundError
 
         Parameters:
         -----------
@@ -748,6 +749,7 @@ class FeatureUnavailableError(RuntimeError):
 
         Xapian::FeatureUnavailableError::FeatureUnavailableError(const
         std::string &msg_, int errno_)
+        Xapian::FeatureUnavailableError::FeatureUnavailableError
 
         Parameters:
         -----------
@@ -786,7 +788,7 @@ class InternalError(RuntimeError):
         Construct from message and errno value.
 
         Xapian::InternalError::InternalError(const std::string &msg_, int
-        errno_)
+        errno_) Xapian::InternalError::InternalError
 
         Parameters:
         -----------
@@ -825,7 +827,7 @@ class NetworkError(RuntimeError):
         Construct from message and errno value.
 
         Xapian::NetworkError::NetworkError(const std::string &msg_, int
-        errno_)
+        errno_) Xapian::NetworkError::NetworkError
 
         Parameters:
         -----------
@@ -865,7 +867,7 @@ class NetworkTimeoutError(NetworkError):
         Construct from message and errno value.
 
         Xapian::NetworkTimeoutError::NetworkTimeoutError(const std::string
-        &msg_, int errno_)
+        &msg_, int errno_) Xapian::NetworkTimeoutError::NetworkTimeoutError
 
         Parameters:
         -----------
@@ -904,7 +906,7 @@ class QueryParserError(RuntimeError):
         Construct from message and errno value.
 
         Xapian::QueryParserError::QueryParserError(const std::string &msg_,
-        int errno_)
+        int errno_) Xapian::QueryParserError::QueryParserError
 
         Parameters:
         -----------
@@ -943,7 +945,7 @@ class SerialisationError(RuntimeError):
         Construct from message and errno value.
 
         Xapian::SerialisationError::SerialisationError(const std::string
-        &msg_, int errno_)
+        &msg_, int errno_) Xapian::SerialisationError::SerialisationError
 
         Parameters:
         -----------
@@ -983,6 +985,7 @@ class RangeError(RuntimeError):
         Construct from message and errno value.
 
         Xapian::RangeError::RangeError(const std::string &msg_, int errno_)
+        Xapian::RangeError::RangeError
 
         Parameters:
         -----------
@@ -1021,7 +1024,7 @@ class WildcardError(RuntimeError):
         Construct from message and errno value.
 
         Xapian::WildcardError::WildcardError(const std::string &msg_, int
-        errno_)
+        errno_) Xapian::WildcardError::WildcardError
 
         Parameters:
         -----------
@@ -1061,6 +1064,7 @@ class DatabaseNotFoundError(DatabaseOpeningError):
 
         Xapian::DatabaseNotFoundError::DatabaseNotFoundError(const std::string
         &msg_, int errno_)
+        Xapian::DatabaseNotFoundError::DatabaseNotFoundError
 
         Parameters:
         -----------
@@ -1099,7 +1103,7 @@ class DatabaseClosedError(DatabaseError):
         Construct from message and errno value.
 
         Xapian::DatabaseClosedError::DatabaseClosedError(const std::string
-        &msg_, int errno_)
+        &msg_, int errno_) Xapian::DatabaseClosedError::DatabaseClosedError
 
         Parameters:
         -----------
@@ -1170,9 +1174,9 @@ class _PositionIterator(object):
         Default constructor.
 
         Xapian::PositionIterator::PositionIterator()
-
-        Creates an uninitialised iterator, which can't be used before being
-        assigned to, but is sometimes syntactically convenient. 
+        Xapian::PositionIterator::PositionIterator Creates an uninitialised
+        iterator, which can't be used before being assigned to, but is
+        sometimes syntactically convenient. 
         """
         _xapian._PositionIterator_swiginit(self, _xapian.new__PositionIterator())
     __swig_destroy__ = _xapian.delete__PositionIterator
@@ -1184,6 +1188,7 @@ class _PositionIterator(object):
         Advance the iterator to term position termpos.
 
         void Xapian::PositionIterator::skip_to(Xapian::termpos termpos)
+        Xapian::PositionIterator::skip_to
 
         Parameters:
         -----------
@@ -1201,7 +1206,8 @@ class _PositionIterator(object):
 
         Return a string describing this object.
 
-        std::string Xapian::PositionIterator::get_description() const 
+        std::string Xapian::PositionIterator::get_description() const
+        Xapian::PositionIterator::get_description
         """
         return _xapian._PositionIterator___str__(self)
 
@@ -1232,9 +1238,9 @@ class _PostingIterator(object):
         Default constructor.
 
         Xapian::PostingIterator::PostingIterator()
-
-        Creates an uninitialised iterator, which can't be used before being
-        assigned to, but is sometimes syntactically convenient. 
+        Xapian::PostingIterator::PostingIterator Creates an uninitialised
+        iterator, which can't be used before being assigned to, but is
+        sometimes syntactically convenient. 
         """
         _xapian._PostingIterator_swiginit(self, _xapian.new__PostingIterator())
     __swig_destroy__ = _xapian.delete__PostingIterator
@@ -1245,7 +1251,8 @@ class _PostingIterator(object):
 
         Return the wdf for the document at the current position.
 
-        Xapian::termcount Xapian::PostingIterator::get_wdf() const 
+        Xapian::termcount Xapian::PostingIterator::get_wdf() const
+        Xapian::PostingIterator::get_wdf
         """
         return _xapian._PostingIterator_get_wdf(self)
 
@@ -1256,7 +1263,8 @@ class _PostingIterator(object):
 
         Return the length of the document at the current position.
 
-        Xapian::termcount Xapian::PostingIterator::get_doclength() const 
+        Xapian::termcount Xapian::PostingIterator::get_doclength() const
+        Xapian::PostingIterator::get_doclength
         """
         return _xapian._PostingIterator_get_doclength(self)
 
@@ -1267,7 +1275,8 @@ class _PostingIterator(object):
 
         Return the number of unique terms in the current document.
 
-        Xapian::termcount Xapian::PostingIterator::get_unique_terms() const 
+        Xapian::termcount Xapian::PostingIterator::get_unique_terms() const
+        Xapian::PostingIterator::get_unique_terms
         """
         return _xapian._PostingIterator_get_unique_terms(self)
 
@@ -1279,7 +1288,7 @@ class _PostingIterator(object):
         Return a PositionIterator for the current document.
 
         PositionIterator Xapian::PostingIterator::positionlist_begin() const
-
+        Xapian::PostingIterator::positionlist_begin
         """
         return _xapian._PostingIterator__positionlist_begin(self)
 
@@ -1290,7 +1299,8 @@ class _PostingIterator(object):
 
         Return an end PositionIterator for the current document.
 
-        PositionIterator Xapian::PostingIterator::positionlist_end() const 
+        PositionIterator Xapian::PostingIterator::positionlist_end() const
+        Xapian::PostingIterator::positionlist_end
         """
         return _xapian._PostingIterator__positionlist_end(self)
 
@@ -1302,6 +1312,7 @@ class _PostingIterator(object):
         Advance the iterator to document did.
 
         void Xapian::PostingIterator::skip_to(Xapian::docid did)
+        Xapian::PostingIterator::skip_to
 
         Parameters:
         -----------
@@ -1319,7 +1330,8 @@ class _PostingIterator(object):
 
         Return a string describing this object.
 
-        std::string Xapian::PostingIterator::get_description() const 
+        std::string Xapian::PostingIterator::get_description() const
+        Xapian::PostingIterator::get_description
         """
         return _xapian._PostingIterator___str__(self)
 
@@ -1355,9 +1367,9 @@ class _TermIterator(object):
         Default constructor.
 
         Xapian::TermIterator::TermIterator()
-
-        Creates an uninitialised iterator, which can't be used before being
-        assigned to, but is sometimes syntactically convenient. 
+        Xapian::TermIterator::TermIterator Creates an uninitialised iterator,
+        which can't be used before being assigned to, but is sometimes
+        syntactically convenient. 
         """
         _xapian._TermIterator_swiginit(self, _xapian.new__TermIterator())
     __swig_destroy__ = _xapian.delete__TermIterator
@@ -1368,7 +1380,8 @@ class _TermIterator(object):
 
         Return the wdf for the term at the current position.
 
-        Xapian::termcount Xapian::TermIterator::get_wdf() const 
+        Xapian::termcount Xapian::TermIterator::get_wdf() const
+        Xapian::TermIterator::get_wdf
         """
         return _xapian._TermIterator_get_wdf(self)
 
@@ -1379,7 +1392,8 @@ class _TermIterator(object):
 
         Return the term frequency for the term at the current position.
 
-        Xapian::doccount Xapian::TermIterator::get_termfreq() const 
+        Xapian::doccount Xapian::TermIterator::get_termfreq() const
+        Xapian::TermIterator::get_termfreq
         """
         return _xapian._TermIterator_get_termfreq(self)
 
@@ -1390,7 +1404,8 @@ class _TermIterator(object):
 
         Return the length of the position list for the current position.
 
-        Xapian::termcount Xapian::TermIterator::positionlist_count() const 
+        Xapian::termcount Xapian::TermIterator::positionlist_count() const
+        Xapian::TermIterator::positionlist_count
         """
         return _xapian._TermIterator_positionlist_count(self)
 
@@ -1401,7 +1416,8 @@ class _TermIterator(object):
 
         Return a PositionIterator for the current term.
 
-        PositionIterator Xapian::TermIterator::positionlist_begin() const 
+        PositionIterator Xapian::TermIterator::positionlist_begin() const
+        Xapian::TermIterator::positionlist_begin
         """
         return _xapian._TermIterator__positionlist_begin(self)
 
@@ -1412,7 +1428,8 @@ class _TermIterator(object):
 
         Return an end PositionIterator for the current term.
 
-        PositionIterator Xapian::TermIterator::positionlist_end() const 
+        PositionIterator Xapian::TermIterator::positionlist_end() const
+        Xapian::TermIterator::positionlist_end
         """
         return _xapian._TermIterator__positionlist_end(self)
 
@@ -1424,9 +1441,9 @@ class _TermIterator(object):
         Advance the iterator to term term.
 
         void Xapian::TermIterator::skip_to(const std::string &term)
-
-        If the iteration is over an unsorted list of terms, then this method
-        will throw Xapian::InvalidOperationError.
+        Xapian::TermIterator::skip_to If the iteration is over an unsorted
+        list of terms, then this method will throw
+        Xapian::InvalidOperationError.
 
         Parameters:
         -----------
@@ -1444,7 +1461,8 @@ class _TermIterator(object):
 
         Return a string describing this object.
 
-        std::string Xapian::TermIterator::get_description() const 
+        std::string Xapian::TermIterator::get_description() const
+        Xapian::TermIterator::get_description
         """
         return _xapian._TermIterator___str__(self)
 
@@ -1480,9 +1498,9 @@ class _ValueIterator(object):
         Default constructor.
 
         Xapian::ValueIterator::ValueIterator()
-
-        Creates an uninitialised iterator, which can't be used before being
-        assigned to, but is sometimes syntactically convenient. 
+        Xapian::ValueIterator::ValueIterator Creates an uninitialised
+        iterator, which can't be used before being assigned to, but is
+        sometimes syntactically convenient. 
         """
         _xapian._ValueIterator_swiginit(self, _xapian.new__ValueIterator())
     __swig_destroy__ = _xapian.delete__ValueIterator
@@ -1494,9 +1512,8 @@ class _ValueIterator(object):
         Return the docid at the current position.
 
         Xapian::docid Xapian::ValueIterator::get_docid() const
-
-        If we're iterating over values of a document, this method will throw
-        Xapian::InvalidOperationError. 
+        Xapian::ValueIterator::get_docid If we're iterating over values of a
+        document, this method will throw Xapian::InvalidOperationError. 
         """
         return _xapian._ValueIterator_get_docid(self)
 
@@ -1508,10 +1525,10 @@ class _ValueIterator(object):
         Return the value slot number for the current position.
 
         Xapian::valueno Xapian::ValueIterator::get_valueno() const
-
-        If the iterator is over all values in a slot, this returns that slot's
-        number. If the iterator is over the values in a particular document,
-        it returns the number of each slot in turn. 
+        Xapian::ValueIterator::get_valueno If the iterator is over all values
+        in a slot, this returns that slot's number. If the iterator is over
+        the values in a particular document, it returns the number of each
+        slot in turn. 
         """
         return _xapian._ValueIterator_get_valueno(self)
 
@@ -1523,10 +1540,10 @@ class _ValueIterator(object):
         Advance the iterator to document id or value slot docid_or_slot.
 
         void Xapian::ValueIterator::skip_to(Xapian::docid docid_or_slot)
-
-        If this iterator is over values in a document, then this method
-        advances the iterator to value slot docid_or_slot, or the first slot
-        after it if there is no value in slot slot.
+        Xapian::ValueIterator::skip_to If this iterator is over values in a
+        document, then this method advances the iterator to value slot
+        docid_or_slot, or the first slot after it if there is no value in slot
+        slot.
 
         If this iterator is over values in a particular slot, then this method
         advances the iterator to document id docid_or_slot, or the first
@@ -1553,9 +1570,8 @@ class _ValueIterator(object):
         Check if the specified docid occurs.
 
         bool Xapian::ValueIterator::check(Xapian::docid docid)
-
-        The caller is required to ensure that the specified document id did
-        actually exists in the database.
+        Xapian::ValueIterator::check The caller is required to ensure that the
+        specified document id did actually exists in the database.
 
         This method acts like skip_to() if that can be done at little extra
         cost, in which case it then returns true. This is how chert and glass
@@ -1588,7 +1604,8 @@ class _ValueIterator(object):
 
         Return a string describing this object.
 
-        std::string Xapian::ValueIterator::get_description() const 
+        std::string Xapian::ValueIterator::get_description() const
+        Xapian::ValueIterator::get_description
         """
         return _xapian._ValueIterator___str__(self)
 
@@ -1636,7 +1653,7 @@ class Document(object):
 
         Make a new empty Document.
 
-        Xapian::Document::Document() 
+        Xapian::Document::Document() Xapian::Document::Document
         """
         _xapian.Document_swiginit(self, _xapian.new_Document())
     __swig_destroy__ = _xapian.delete_Document
@@ -1648,9 +1665,8 @@ class Document(object):
         Get value by number.
 
         std::string Xapian::Document::get_value(Xapian::valueno slot) const
-
-        Returns an empty string if no value with the given number is present
-        in the document.
+        Xapian::Document::get_value Returns an empty string if no value with
+        the given number is present in the document.
 
         Parameters:
         -----------
@@ -1667,11 +1683,9 @@ class Document(object):
         Add a new value.
 
         void Xapian::Document::add_value(Xapian::valueno slot, const
-        std::string &value)
-
-        The new value will replace any existing value with the same number (or
-        if the new value is empty, it will remove any existing value with the
-        same number).
+        std::string &value) Xapian::Document::add_value The new value will
+        replace any existing value with the same number (or if the new value
+        is empty, it will remove any existing value with the same number).
 
         Parameters:
         -----------
@@ -1689,7 +1703,8 @@ class Document(object):
 
         Remove any value with the given number.
 
-        void Xapian::Document::remove_value(Xapian::valueno slot) 
+        void Xapian::Document::remove_value(Xapian::valueno slot)
+        Xapian::Document::remove_value
         """
         return _xapian.Document_remove_value(self, slot)
 
@@ -1700,7 +1715,7 @@ class Document(object):
 
         Remove all values associated with the document.
 
-        void Xapian::Document::clear_values() 
+        void Xapian::Document::clear_values() Xapian::Document::clear_values
         """
         return _xapian.Document_clear_values(self)
 
@@ -1712,11 +1727,10 @@ class Document(object):
         Get data stored in the document.
 
         std::string Xapian::Document::get_data() const
-
-        This is potentially a relatively expensive operation, and shouldn't
-        normally be used during the match (e.g. in a PostingSource or match
-        decider functor. Put data for use by match deciders in a value
-        instead. 
+        Xapian::Document::get_data This is potentially a relatively expensive
+        operation, and shouldn't normally be used during the match (e.g. in a
+        PostingSource or match decider functor. Put data for use by match
+        deciders in a value instead. 
         """
         return _xapian.Document_get_data(self)
 
@@ -1728,10 +1742,9 @@ class Document(object):
         Set data stored in the document.
 
         void Xapian::Document::set_data(const std::string &data)
-
-        Xapian treats the data as an opaque blob. It may try to compress it,
-        but other than that it will just store it and return it when
-        requested.
+        Xapian::Document::set_data  Xapian treats the data as an opaque blob.
+        It may try to compress it, but other than that it will just store it
+        and return it when requested.
 
         Parameters:
         -----------
@@ -1749,9 +1762,9 @@ class Document(object):
 
         void Xapian::Document::add_posting(const std::string &tname,
         Xapian::termpos tpos, Xapian::termcount wdfinc=1)
-
-        Multiple occurrences of the term at the same position are represented
-        only once in the positional information, but do increase the wdf.
+        Xapian::Document::add_posting Multiple occurrences of the term at the
+        same position are represented only once in the positional information,
+        but do increase the wdf.
 
         If the term is not already in the document, it will be added to it.
 
@@ -1775,10 +1788,8 @@ class Document(object):
         Add a term to the document, without positional information.
 
         void Xapian::Document::add_term(const std::string &tname,
-        Xapian::termcount wdfinc=1)
-
-        Any existing positional information for the term will be left
-        unmodified.
+        Xapian::termcount wdfinc=1) Xapian::Document::add_term Any existing
+        positional information for the term will be left unmodified.
 
         Parameters:
         -----------
@@ -1798,11 +1809,10 @@ class Document(object):
         Add a boolean filter term to the document.
 
         void Xapian::Document::add_boolean_term(const std::string &term)
-
-        This method adds term to the document with wdf of 0 - this is
-        generally what you want for a term used for boolean filtering as the
-        wdf of such terms is ignored, and it doesn't make sense for them to
-        contribute to the document's length.
+        Xapian::Document::add_boolean_term This method adds term to the
+        document with wdf of 0 - this is generally what you want for a term
+        used for boolean filtering as the wdf of such terms is ignored, and it
+        doesn't make sense for them to contribute to the document's length.
 
         If the specified term already indexes this document, this method has
         no effect.
@@ -1827,10 +1837,9 @@ class Document(object):
 
         void Xapian::Document::remove_posting(const std::string &tname,
         Xapian::termpos tpos, Xapian::termcount wdfdec=1)
-
-        Note that the term will still index the document even if all
-        occurrences are removed. To remove a term from a document completely,
-        use remove_term().
+        Xapian::Document::remove_posting Note that the term will still index
+        the document even if all occurrences are removed. To remove a term
+        from a document completely, use remove_term().
 
         Parameters:
         -----------
@@ -1863,9 +1872,8 @@ class Document(object):
 
         Xapian::termpos Xapian::Document::remove_postings(const std::string
         &term, Xapian::termpos term_pos_first, Xapian::termpos term_pos_last,
-        Xapian::termcount wdf_dec=1)
-
-        Any instances of the term at positions >= term_pos_first and <=
+        Xapian::termcount wdf_dec=1) Xapian::Document::remove_postings Any
+        instances of the term at positions >= term_pos_first and <=
         term_pos_last will be removed, and the wdf reduced by wdf_dec for each
         instance removed (the wdf will not ever go below zero though).
 
@@ -1893,6 +1901,7 @@ class Document(object):
         Remove a term and all postings associated with it.
 
         void Xapian::Document::remove_term(const std::string &tname)
+        Xapian::Document::remove_term
 
         Parameters:
         -----------
@@ -1914,7 +1923,7 @@ class Document(object):
 
         Remove all terms (and postings) from the document.
 
-        void Xapian::Document::clear_terms() 
+        void Xapian::Document::clear_terms() Xapian::Document::clear_terms
         """
         return _xapian.Document_clear_terms(self)
 
@@ -1926,8 +1935,8 @@ class Document(object):
         The length of the termlist - i.e.
 
         Xapian::termcount Xapian::Document::termlist_count() const
-
-        the number of different terms which index this document. 
+        Xapian::Document::termlist_count the number of different terms which
+        index this document. 
         """
         return _xapian.Document_termlist_count(self)
 
@@ -1938,7 +1947,8 @@ class Document(object):
 
         Iterator for the terms in this document.
 
-        TermIterator Xapian::Document::termlist_begin() const 
+        TermIterator Xapian::Document::termlist_begin() const
+        Xapian::Document::termlist_begin
         """
         return _xapian.Document__termlist_begin(self)
 
@@ -1949,7 +1959,8 @@ class Document(object):
 
         Equivalent end iterator for termlist_begin().
 
-        TermIterator Xapian::Document::termlist_end() const 
+        TermIterator Xapian::Document::termlist_end() const
+        Xapian::Document::termlist_end
         """
         return _xapian.Document__termlist_end(self)
 
@@ -1960,7 +1971,8 @@ class Document(object):
 
         Count the values in this document.
 
-        Xapian::termcount Xapian::Document::values_count() const 
+        Xapian::termcount Xapian::Document::values_count() const
+        Xapian::Document::values_count
         """
         return _xapian.Document_values_count(self)
 
@@ -1971,7 +1983,8 @@ class Document(object):
 
         Iterator for the values in this document.
 
-        ValueIterator Xapian::Document::values_begin() const 
+        ValueIterator Xapian::Document::values_begin() const
+        Xapian::Document::values_begin
         """
         return _xapian.Document__values_begin(self)
 
@@ -1982,7 +1995,8 @@ class Document(object):
 
         Equivalent end iterator for values_begin().
 
-        ValueIterator Xapian::Document::values_end() const 
+        ValueIterator Xapian::Document::values_end() const
+        Xapian::Document::values_end
         """
         return _xapian.Document__values_end(self)
 
@@ -1993,8 +2007,7 @@ class Document(object):
 
         Get the document id which is associated with this document (if any).
 
-        docid Xapian::Document::get_docid() const
-
+        docid Xapian::Document::get_docid() const Xapian::Document::get_docid
         NB If multiple databases are being searched together, then this will
         be the document id in the individual database, not the merged
         database!
@@ -2013,10 +2026,10 @@ class Document(object):
         Serialise document into a string.
 
         std::string Xapian::Document::serialise() const
-
-        The document representation may change between Xapian releases: even
-        between minor versions. However, it is guaranteed not to change if the
-        remote database protocol has not changed between releases. 
+        Xapian::Document::serialise The document representation may change
+        between Xapian releases: even between minor versions. However, it is
+        guaranteed not to change if the remote database protocol has not
+        changed between releases. 
         """
         return _xapian.Document_serialise(self)
 
@@ -2028,7 +2041,8 @@ class Document(object):
 
         Return a string describing this object.
 
-        std::string Xapian::Document::get_description() const 
+        std::string Xapian::Document::get_description() const
+        Xapian::Document::get_description
         """
         return _xapian.Document___str__(self)
 
@@ -2080,10 +2094,8 @@ class Registry(object):
 
         Default constructor.
 
-        Xapian::Registry::Registry()
-
-        The registry will contain all standard subclasses of user-subclassable
-        classes. 
+        Xapian::Registry::Registry() Xapian::Registry::Registry The registry
+        will contain all standard subclasses of user-subclassable classes. 
         """
         _xapian.Registry_swiginit(self, _xapian.new_Registry())
     __swig_destroy__ = _xapian.delete_Registry
@@ -2095,7 +2107,7 @@ class Registry(object):
         Register a weighting scheme.
 
         void Xapian::Registry::register_weighting_scheme(const Xapian::Weight
-        &wt)
+        &wt) Xapian::Registry::register_weighting_scheme
 
         Parameters:
         -----------
@@ -2111,8 +2123,8 @@ class Registry(object):
 
         Get the weighting scheme given a name.
 
-        const Xapian::Weight* Xapian::Registry::get_weighting_scheme(const
-        std::string &name) const
+        const Xapian::Weight * Xapian::Registry::get_weighting_scheme(const
+        std::string &name) const Xapian::Registry::get_weighting_scheme
 
         Parameters:
         -----------
@@ -2134,6 +2146,7 @@ class Registry(object):
 
         void Xapian::Registry::register_posting_source(const
         Xapian::PostingSource &source)
+        Xapian::Registry::register_posting_source
 
         Parameters:
         -----------
@@ -2149,8 +2162,9 @@ class Registry(object):
 
         Get a posting source given a name.
 
-        const Xapian::PostingSource*
+        const Xapian::PostingSource *
         Xapian::Registry::get_posting_source(const std::string &name) const
+        Xapian::Registry::get_posting_source
 
         Parameters:
         -----------
@@ -2171,6 +2185,7 @@ class Registry(object):
         Register a user-defined match spy class.
 
         void Xapian::Registry::register_match_spy(const Xapian::MatchSpy &spy)
+        Xapian::Registry::register_match_spy
 
         Parameters:
         -----------
@@ -2186,8 +2201,8 @@ class Registry(object):
 
         Get a match spy given a name.
 
-        const Xapian::MatchSpy* Xapian::Registry::get_match_spy(const
-        std::string &name) const
+        const Xapian::MatchSpy * Xapian::Registry::get_match_spy(const
+        std::string &name) const Xapian::Registry::get_match_spy
 
         Parameters:
         -----------
@@ -2208,7 +2223,8 @@ class Registry(object):
         Register a user-defined lat-long metric class.
 
         void Xapian::Registry::register_lat_long_metric(const
-        Xapian::LatLongMetric &metric) 
+        Xapian::LatLongMetric &metric)
+        Xapian::Registry::register_lat_long_metric
         """
         return _xapian.Registry_register_lat_long_metric(self, metric)
 
@@ -2219,10 +2235,10 @@ class Registry(object):
 
         Get a lat-long metric given a name.
 
-        const Xapian::LatLongMetric*
+        const Xapian::LatLongMetric *
         Xapian::Registry::get_lat_long_metric(const std::string &name) const
-
-        The returned metric is owned by the registry object.
+        Xapian::Registry::get_lat_long_metric The returned metric is owned by
+        the registry object.
 
         Returns NULL if the metric could not be found. 
         """
@@ -2277,11 +2293,10 @@ class Query(object):
         Begin iterator for terms in the query object.
 
         const TermIterator Xapian::Query::get_terms_begin() const
-
-        The iterator returns terms in ascending query position order, and will
-        return the same term in each unique position it occurs in. If you want
-        the terms in sorted order and without duplicates, see
-        get_unique_terms_begin(). 
+        Xapian::Query::get_terms_begin The iterator returns terms in ascending
+        query position order, and will return the same term in each unique
+        position it occurs in. If you want the terms in sorted order and
+        without duplicates, see get_unique_terms_begin(). 
         """
         return _xapian.Query__get_terms_begin(self)
 
@@ -2292,7 +2307,8 @@ class Query(object):
 
         End iterator for terms in the query object.
 
-        const TermIterator Xapian::Query::get_terms_end() const 
+        const TermIterator Xapian::Query::get_terms_end() const
+        Xapian::Query::get_terms_end
         """
         return _xapian.Query__get_terms_end(self)
 
@@ -2304,8 +2320,8 @@ class Query(object):
         Begin iterator for unique terms in the query object.
 
         const TermIterator Xapian::Query::get_unique_terms_begin() const
-
-        Terms are sorted and terms with the same name removed from the list.
+        Xapian::Query::get_unique_terms_begin Terms are sorted and terms with
+        the same name removed from the list.
 
         If you want the terms in ascending query position order, see
         get_terms_begin(). 
@@ -2319,7 +2335,8 @@ class Query(object):
 
         End iterator for unique terms in the query object.
 
-        const TermIterator Xapian::Query::get_unique_terms_end() const 
+        const TermIterator Xapian::Query::get_unique_terms_end() const
+        Xapian::Query::get_unique_terms_end
         """
         return _xapian.Query_get_unique_terms_end(self)
 
@@ -2330,7 +2347,8 @@ class Query(object):
 
         Return the length of this query object.
 
-        Xapian::termcount Xapian::Query::get_length() const 
+        Xapian::termcount Xapian::Query::get_length() const
+        Xapian::Query::get_length
         """
         return _xapian.Query_get_length(self)
 
@@ -2341,7 +2359,7 @@ class Query(object):
 
         Check if this query is Xapian::Query::MatchNothing.
 
-        bool Xapian::Query::empty() const 
+        bool Xapian::Query::empty() const Xapian::Query::empty
         """
         return _xapian.Query_empty(self)
 
@@ -2352,7 +2370,8 @@ class Query(object):
 
         Serialise this object into a string.
 
-        std::string Xapian::Query::serialise() const 
+        std::string Xapian::Query::serialise() const
+        Xapian::Query::serialise
         """
         return _xapian.Query_serialise(self)
 
@@ -2364,7 +2383,7 @@ class Query(object):
 
         Get the type of the top level of the query.
 
-        op Xapian::Query::get_type() const 
+        op Xapian::Query::get_type() const Xapian::Query::get_type
         """
         return _xapian.Query_get_type(self)
 
@@ -2375,7 +2394,8 @@ class Query(object):
 
         Get the number of subqueries of the top level query.
 
-        size_t Xapian::Query::get_num_subqueries() const 
+        size_t Xapian::Query::get_num_subqueries() const
+        Xapian::Query::get_num_subqueries
         """
         return _xapian.Query_get_num_subqueries(self)
 
@@ -2387,6 +2407,7 @@ class Query(object):
         Read a top level subquery.
 
         const Query Xapian::Query::get_subquery(size_t n) const
+        Xapian::Query::get_subquery
 
         Parameters:
         -----------
@@ -2403,7 +2424,8 @@ class Query(object):
 
         Return a string describing this object.
 
-        std::string Xapian::Query::get_description() const 
+        std::string Xapian::Query::get_description() const
+        Xapian::Query::get_description
         """
         return _xapian.Query___str__(self)
 
@@ -2414,7 +2436,7 @@ class Query(object):
 
         Construct with just an operator.
 
-        Xapian::Query::Query(Query::op op_)
+        Xapian::Query::Query(Query::op op_) Xapian::Query::Query
 
         Parameters:
         -----------
@@ -2456,7 +2478,8 @@ class StemImplementation(object):
 
         Default constructor.
 
-        Xapian::StemImplementation::StemImplementation() 
+        Xapian::StemImplementation::StemImplementation()
+        Xapian::StemImplementation::StemImplementation
         """
         if self.__class__ == StemImplementation:
             _self = None
@@ -2472,7 +2495,7 @@ class StemImplementation(object):
         Return a string describing this object.
 
         virtual std::string Xapian::StemImplementation::get_description()
-        const =0 
+        const =0 Xapian::StemImplementation::get_description
         """
         return _xapian.StemImplementation___str__(self)
 
@@ -2502,12 +2525,10 @@ class Stem(object):
         Construct a Xapian::Stem object with a user-provided stemming
         algorithm.
 
-        Xapian::Stem::Stem(StemImplementation *p)
-
-        You can subclass Xapian::StemImplementation to implement your own
-        stemming algorithm (or to wrap a third-party algorithm) and then wrap
-        your implementation in a Xapian::Stem object to pass to the Xapian
-        API.
+        Xapian::Stem::Stem(StemImplementation *p) Xapian::Stem::Stem You can
+        subclass Xapian::StemImplementation to implement your own stemming
+        algorithm (or to wrap a third-party algorithm) and then wrap your
+        implementation in a Xapian::Stem object to pass to the Xapian API.
 
         Parameters:
         -----------
@@ -2525,7 +2546,7 @@ class Stem(object):
 
         Return true if this is a no-op stemmer.
 
-        bool Xapian::Stem::is_none() const 
+        bool Xapian::Stem::is_none() const Xapian::Stem::is_none
         """
         return _xapian.Stem_is_none(self)
 
@@ -2536,7 +2557,8 @@ class Stem(object):
 
         Return a string describing this object.
 
-        std::string Xapian::Stem::get_description() const 
+        std::string Xapian::Stem::get_description() const
+        Xapian::Stem::get_description
         """
         return _xapian.Stem___str__(self)
 
@@ -2572,7 +2594,8 @@ class TermGenerator(object):
 
         Default constructor.
 
-        Xapian::TermGenerator::TermGenerator() 
+        Xapian::TermGenerator::TermGenerator()
+        Xapian::TermGenerator::TermGenerator
         """
         _xapian.TermGenerator_swiginit(self, _xapian.new_TermGenerator())
     __swig_destroy__ = _xapian.delete_TermGenerator
@@ -2584,7 +2607,7 @@ class TermGenerator(object):
         Set the Xapian::Stem object to be used for generating stemmed terms.
 
         void Xapian::TermGenerator::set_stemmer(const Xapian::Stem &stemmer)
-
+        Xapian::TermGenerator::set_stemmer
         """
         return _xapian.TermGenerator_set_stemmer(self, stemmer)
 
@@ -2596,10 +2619,9 @@ class TermGenerator(object):
         Set the Xapian::Stopper object to be used for identifying stopwords.
 
         void Xapian::TermGenerator::set_stopper(const Xapian::Stopper
-        *stop=NULL)
-
-        Stemmed forms of stopwords aren't indexed, but unstemmed forms still
-        are so that searches for phrases including stop words still work.
+        *stop=NULL) Xapian::TermGenerator::set_stopper Stemmed forms of
+        stopwords aren't indexed, but unstemmed forms still are so that
+        searches for phrases including stop words still work.
 
         Parameters:
         -----------
@@ -2617,7 +2639,7 @@ class TermGenerator(object):
         Set the current document.
 
         void Xapian::TermGenerator::set_document(const Xapian::Document &doc)
-
+        Xapian::TermGenerator::set_document
         """
         return _xapian.TermGenerator_set_document(self, doc)
 
@@ -2628,7 +2650,8 @@ class TermGenerator(object):
 
         Get the current document.
 
-        const Xapian::Document& Xapian::TermGenerator::get_document() const 
+        const Xapian::Document & Xapian::TermGenerator::get_document() const
+        Xapian::TermGenerator::get_document
         """
         return _xapian.TermGenerator_get_document(self)
 
@@ -2640,7 +2663,7 @@ class TermGenerator(object):
         Set the database to index spelling data to.
 
         void Xapian::TermGenerator::set_database(const
-        Xapian::WritableDatabase &db) 
+        Xapian::WritableDatabase &db) Xapian::TermGenerator::set_database
         """
         return _xapian.TermGenerator_set_database(self, db)
 
@@ -2662,9 +2685,8 @@ class TermGenerator(object):
         Set flags.
 
         flags Xapian::TermGenerator::set_flags(flags toggle, flags
-        mask=flags(0))
-
-        The new value of flags is: (flags & mask) ^ toggle
+        mask=flags(0)) Xapian::TermGenerator::set_flags The new value of flags
+        is: (flags & mask) ^ toggle
 
         To just set the flags, pass the new flags in toggle and the default
         value for mask.
@@ -2688,10 +2710,9 @@ class TermGenerator(object):
         Set the stemming strategy.
 
         void Xapian::TermGenerator::set_stemming_strategy(stem_strategy
-        strategy)
-
-        This method controls how the stemming algorithm is applied. It was new
-        in Xapian 1.3.1.
+        strategy) Xapian::TermGenerator::set_stemming_strategy This method
+        controls how the stemming algorithm is applied. It was new in Xapian
+        1.3.1.
 
         Parameters:
         -----------
@@ -2720,10 +2741,8 @@ class TermGenerator(object):
         Set the stopper strategy.
 
         void Xapian::TermGenerator::set_stopper_strategy(stop_strategy
-        strategy)
-
-        The method controls how the stopper is used. It was added in Xapian
-        1.4.1.
+        strategy) Xapian::TermGenerator::set_stopper_strategy The method
+        controls how the stopper is used. It was added in Xapian 1.4.1.
 
         You need to also call  set_stopper() for this to have any effect.
 
@@ -2750,10 +2769,9 @@ class TermGenerator(object):
         Set the maximum length word to index.
 
         void Xapian::TermGenerator::set_max_word_length(unsigned
-        max_word_length)
-
-        The limit is on the length of a word prior to stemming and prior to
-        adding any term prefix.
+        max_word_length) Xapian::TermGenerator::set_max_word_length The limit
+        is on the length of a word prior to stemming and prior to adding any
+        term prefix.
 
         The backends mostly impose a limit on the length of terms (often of
         about 240 bytes), but it's generally useful to have a lower limit to
@@ -2779,6 +2797,7 @@ class TermGenerator(object):
 
         void Xapian::TermGenerator::index_text(const std::string &text,
         Xapian::termcount wdf_inc=1, const std::string &prefix=std::string())
+        Xapian::TermGenerator::index_text
 
         Parameters:
         -----------
@@ -2801,9 +2820,9 @@ class TermGenerator(object):
         void Xapian::TermGenerator::index_text_without_positions(const
         std::string &text, Xapian::termcount wdf_inc=1, const std::string
         &prefix=std::string())
-
-        Just like index_text, but no positional information is generated. This
-        means that the database will be significantly smaller, but that phrase
+        Xapian::TermGenerator::index_text_without_positions Just like
+        index_text, but no positional information is generated. This means
+        that the database will be significantly smaller, but that phrase
         searching and NEAR won't be supported.
 
         Parameters:
@@ -2825,11 +2844,10 @@ class TermGenerator(object):
         Increase the term position used by index_text.
 
         void Xapian::TermGenerator::increase_termpos(Xapian::termpos
-        delta=100)
-
-        This can be used between indexing text from different fields or other
-        places to prevent phrase searches from spanning between them (e.g.
-        between the title and body text, or between two chapters in a book).
+        delta=100) Xapian::TermGenerator::increase_termpos This can be used
+        between indexing text from different fields or other places to prevent
+        phrase searches from spanning between them (e.g. between the title and
+        body text, or between two chapters in a book).
 
         Parameters:
         -----------
@@ -2845,7 +2863,8 @@ class TermGenerator(object):
 
         Get the current term position.
 
-        Xapian::termpos Xapian::TermGenerator::get_termpos() const 
+        Xapian::termpos Xapian::TermGenerator::get_termpos() const
+        Xapian::TermGenerator::get_termpos
         """
         return _xapian.TermGenerator_get_termpos(self)
 
@@ -2857,6 +2876,7 @@ class TermGenerator(object):
         Set the current term position.
 
         void Xapian::TermGenerator::set_termpos(Xapian::termpos termpos)
+        Xapian::TermGenerator::set_termpos
 
         Parameters:
         -----------
@@ -2872,7 +2892,8 @@ class TermGenerator(object):
 
         Return a string describing this object.
 
-        std::string Xapian::TermGenerator::get_description() const 
+        std::string Xapian::TermGenerator::get_description() const
+        Xapian::TermGenerator::get_description
         """
         return _xapian.TermGenerator___str__(self)
 
@@ -2910,9 +2931,8 @@ class MSet(object):
 
         Default constructor.
 
-        Xapian::MSet::MSet()
-
-        Creates an empty MSet, mostly useful as a placeholder. 
+        Xapian::MSet::MSet() Xapian::MSet::MSet Creates an empty MSet, mostly
+        useful as a placeholder. 
         """
         _xapian.MSet_swiginit(self, _xapian.new_MSet())
     __swig_destroy__ = _xapian.delete_MSet
@@ -2924,10 +2944,10 @@ class MSet(object):
         Convert the weight of the current iterator position to a percentage.
 
         int Xapian::MSet::convert_to_percent(const MSetIterator &it) const
-
-        The matching document with the highest weight will get 100% if it
-        matches all the weighted query terms, and proportionally less if it
-        only matches some, and other weights are scaled by the same factor.
+        Xapian::MSet::convert_to_percent The matching document with the
+        highest weight will get 100% if it matches all the weighted query
+        terms, and proportionally less if it only matches some, and other
+        weights are scaled by the same factor.
 
         Documents with a non-zero score will always score at least 1%.
 
@@ -2944,7 +2964,7 @@ class MSet(object):
         Get the termfreq of a term.
 
         Xapian::doccount Xapian::MSet::get_termfreq(const std::string &term)
-        const
+        const Xapian::MSet::get_termfreq
 
         The number of documents which term occurs in. This considers all
         documents in the database being searched, so gives the same answer as
@@ -2961,6 +2981,7 @@ class MSet(object):
         Get the term weight of a term.
 
         double Xapian::MSet::get_termweight(const std::string &term) const
+        Xapian::MSet::get_termweight
 
         The maximum weight that term could have contributed to a document. 
         """
@@ -2974,8 +2995,8 @@ class MSet(object):
         Rank of first item in this MSet.
 
         Xapian::doccount Xapian::MSet::get_firstitem() const
-
-        This is the parameter first passed to Xapian::Enquire::get_mset(). 
+        Xapian::MSet::get_firstitem This is the parameter first passed to
+        Xapian::Enquire::get_mset(). 
         """
         return _xapian.MSet_get_firstitem(self)
 
@@ -2986,7 +3007,8 @@ class MSet(object):
 
         Lower bound on the total number of matching documents.
 
-        Xapian::doccount Xapian::MSet::get_matches_lower_bound() const 
+        Xapian::doccount Xapian::MSet::get_matches_lower_bound() const
+        Xapian::MSet::get_matches_lower_bound
         """
         return _xapian.MSet_get_matches_lower_bound(self)
 
@@ -2997,7 +3019,8 @@ class MSet(object):
 
         Estimate of the total number of matching documents.
 
-        Xapian::doccount Xapian::MSet::get_matches_estimated() const 
+        Xapian::doccount Xapian::MSet::get_matches_estimated() const
+        Xapian::MSet::get_matches_estimated
         """
         return _xapian.MSet_get_matches_estimated(self)
 
@@ -3008,7 +3031,8 @@ class MSet(object):
 
         Upper bound on the total number of matching documents.
 
-        Xapian::doccount Xapian::MSet::get_matches_upper_bound() const 
+        Xapian::doccount Xapian::MSet::get_matches_upper_bound() const
+        Xapian::MSet::get_matches_upper_bound
         """
         return _xapian.MSet_get_matches_upper_bound(self)
 
@@ -3021,10 +3045,9 @@ class MSet(object):
         collapsing.
 
         Xapian::doccount Xapian::MSet::get_uncollapsed_matches_lower_bound()
-        const
-
-        Conceptually the same as get_matches_lower_bound() for the same query
-        without any collapse part (though the actual value may differ). 
+        const Xapian::MSet::get_uncollapsed_matches_lower_bound Conceptually
+        the same as get_matches_lower_bound() for the same query without any
+        collapse part (though the actual value may differ). 
         """
         return _xapian.MSet_get_uncollapsed_matches_lower_bound(self)
 
@@ -3036,10 +3059,9 @@ class MSet(object):
         Estimate of the total number of matching documents before collapsing.
 
         Xapian::doccount Xapian::MSet::get_uncollapsed_matches_estimated()
-        const
-
-        Conceptually the same as get_matches_estimated() for the same query
-        without any collapse part (though the actual value may differ). 
+        const Xapian::MSet::get_uncollapsed_matches_estimated Conceptually the
+        same as get_matches_estimated() for the same query without any
+        collapse part (though the actual value may differ). 
         """
         return _xapian.MSet_get_uncollapsed_matches_estimated(self)
 
@@ -3052,10 +3074,9 @@ class MSet(object):
         collapsing.
 
         Xapian::doccount Xapian::MSet::get_uncollapsed_matches_upper_bound()
-        const
-
-        Conceptually the same as get_matches_upper_bound() for the same query
-        without any collapse part (though the actual value may differ). 
+        const Xapian::MSet::get_uncollapsed_matches_upper_bound Conceptually
+        the same as get_matches_upper_bound() for the same query without any
+        collapse part (though the actual value may differ). 
         """
         return _xapian.MSet_get_uncollapsed_matches_upper_bound(self)
 
@@ -3066,7 +3087,8 @@ class MSet(object):
 
         The maximum weight attained by any document.
 
-        double Xapian::MSet::get_max_attained() const 
+        double Xapian::MSet::get_max_attained() const
+        Xapian::MSet::get_max_attained
         """
         return _xapian.MSet_get_max_attained(self)
 
@@ -3077,7 +3099,8 @@ class MSet(object):
 
         The maximum possible weight any document could achieve.
 
-        double Xapian::MSet::get_max_possible() const 
+        double Xapian::MSet::get_max_possible() const
+        Xapian::MSet::get_max_possible
         """
         return _xapian.MSet_get_max_possible(self)
 
@@ -3096,14 +3119,13 @@ class MSet(object):
         length=500, const Xapian::Stem &stemmer=Xapian::Stem(), unsigned
         flags=SNIPPET_BACKGROUND_MODEL|SNIPPET_EXHAUSTIVE, const std::string
         &hi_start="<b>", const std::string &hi_end="</b>", const
-        std::string &omit="...") const
-
-        This method selects a continuous run of words from text, based mainly
-        on where the query matches (currently terms, exact phrases and
-        wildcards are taken into account). If flag SNIPPET_BACKGROUND_MODEL is
-        used (which it is by default) then the selection algorithm also
-        considers the non-query terms in the text with the aim of showing a
-        context which provides more useful information.
+        std::string &omit="...") const Xapian::MSet::snippet This method
+        selects a continuous run of words from text, based mainly on where the
+        query matches (currently terms, exact phrases and wildcards are taken
+        into account). If flag SNIPPET_BACKGROUND_MODEL is used (which it is
+        by default) then the selection algorithm also considers the non-query
+        terms in the text with the aim of showing a context which provides
+        more useful information.
 
         The size of the text selected can be controlled by the length
         parameter, which specifies a number of bytes of text to aim to select.
@@ -3134,10 +3156,9 @@ class MSet(object):
 
         Prefetch hint the whole MSet.
 
-        void Xapian::MSet::fetch() const
-
-        For a remote database, this may start a pipelined fetch of the
-        requested documents from the remote server.
+        void Xapian::MSet::fetch() const Xapian::MSet::fetch For a remote
+        database, this may start a pipelined fetch of the requested documents
+        from the remote server.
 
         For a disk-based database, this may send prefetch hints to the
         operating system such that the disk blocks the requested documents are
@@ -3153,7 +3174,7 @@ class MSet(object):
 
         Return number of items in this MSet object.
 
-        Xapian::doccount Xapian::MSet::size() const 
+        Xapian::doccount Xapian::MSet::size() const Xapian::MSet::size
         """
         return _xapian.MSet_size(self)
 
@@ -3164,7 +3185,7 @@ class MSet(object):
 
         Return true if this MSet object is empty.
 
-        bool Xapian::MSet::empty() const 
+        bool Xapian::MSet::empty() const Xapian::MSet::empty
         """
         return _xapian.MSet_empty(self)
 
@@ -3175,7 +3196,7 @@ class MSet(object):
 
         Return iterator pointing to the first item in this MSet.
 
-        MSetIterator Xapian::MSet::begin() const 
+        MSetIterator Xapian::MSet::begin() const Xapian::MSet::begin
         """
         return _xapian.MSet__begin(self)
 
@@ -3186,7 +3207,7 @@ class MSet(object):
 
         Return iterator pointing to just after the last item in this MSet.
 
-        MSetIterator Xapian::MSet::end() const 
+        MSetIterator Xapian::MSet::end() const Xapian::MSet::end
         """
         return _xapian.MSet__end(self)
 
@@ -3197,7 +3218,7 @@ class MSet(object):
 
         Return iterator pointing to the last object in this MSet.
 
-        MSetIterator Xapian::MSet::back() const 
+        MSetIterator Xapian::MSet::back() const Xapian::MSet::back
         """
         return _xapian.MSet_back(self)
 
@@ -3208,7 +3229,8 @@ class MSet(object):
 
         Return a string describing this object.
 
-        std::string Xapian::MSet::get_description() const 
+        std::string Xapian::MSet::get_description() const
+        Xapian::MSet::get_description
         """
         return _xapian.MSet___str__(self)
 
@@ -3267,7 +3289,8 @@ class _MSetIterator(object):
 
         Create an unpositioned MSetIterator.
 
-        Xapian::MSetIterator::MSetIterator() 
+        Xapian::MSetIterator::MSetIterator()
+        Xapian::MSetIterator::MSetIterator
         """
         _xapian._MSetIterator_swiginit(self, _xapian.new__MSetIterator())
 
@@ -3278,8 +3301,8 @@ class _MSetIterator(object):
         Return the MSet rank for the current position.
 
         Xapian::doccount Xapian::MSetIterator::get_rank() const
-
-        The rank of mset[0] is mset.get_firstitem(). 
+        Xapian::MSetIterator::get_rank The rank of mset[0] is
+        mset.get_firstitem(). 
         """
         return _xapian._MSetIterator_get_rank(self)
 
@@ -3290,7 +3313,8 @@ class _MSetIterator(object):
 
         Get the Document object for the current position.
 
-        Xapian::Document Xapian::MSetIterator::get_document() const 
+        Xapian::Document Xapian::MSetIterator::get_document() const
+        Xapian::MSetIterator::get_document
         """
         return _xapian._MSetIterator_get_document(self)
 
@@ -3301,7 +3325,8 @@ class _MSetIterator(object):
 
         Get the weight for the current position.
 
-        double Xapian::MSetIterator::get_weight() const 
+        double Xapian::MSetIterator::get_weight() const
+        Xapian::MSetIterator::get_weight
         """
         return _xapian._MSetIterator_get_weight(self)
 
@@ -3313,8 +3338,8 @@ class _MSetIterator(object):
         Return the collapse key for the current position.
 
         std::string Xapian::MSetIterator::get_collapse_key() const
-
-        If collapsing isn't in use, an empty string will be returned. 
+        Xapian::MSetIterator::get_collapse_key If collapsing isn't in use, an
+        empty string will be returned. 
         """
         return _xapian._MSetIterator_get_collapse_key(self)
 
@@ -3326,10 +3351,9 @@ class _MSetIterator(object):
         Return a count of the number of collapses done onto the current key.
 
         Xapian::doccount Xapian::MSetIterator::get_collapse_count() const
-
-        This starts at 0, and is incremented each time an item is eliminated
-        because its key is the same as that of the current item (as returned
-        by get_collapse_key()).
+        Xapian::MSetIterator::get_collapse_count This starts at 0, and is
+        incremented each time an item is eliminated because its key is the
+        same as that of the current item (as returned by get_collapse_key()).
 
         Note that this is NOT necessarily one less than the total number of
         matching documents with this collapse key due to various optimisations
@@ -3352,8 +3376,8 @@ class _MSetIterator(object):
         Return the sort key for the current position.
 
         std::string Xapian::MSetIterator::get_sort_key() const
-
-        If sorting didn't use a key then an empty string will be returned.
+        Xapian::MSetIterator::get_sort_key If sorting didn't use a key then an
+        empty string will be returned.
 
         Added in Xapian 1.4.6. 
         """
@@ -3367,10 +3391,10 @@ class _MSetIterator(object):
         Convert the weight of the current iterator position to a percentage.
 
         int Xapian::MSetIterator::get_percent() const
-
-        The matching document with the highest weight will get 100% if it
-        matches all the weighted query terms, and proportionally less if it
-        only matches some, and other weights are scaled by the same factor.
+        Xapian::MSetIterator::get_percent The matching document with the
+        highest weight will get 100% if it matches all the weighted query
+        terms, and proportionally less if it only matches some, and other
+        weights are scaled by the same factor.
 
         Documents with a non-zero score will always score at least 1%.
 
@@ -3386,7 +3410,8 @@ class _MSetIterator(object):
 
         Return a string describing this object.
 
-        std::string Xapian::MSetIterator::get_description() const 
+        std::string Xapian::MSetIterator::get_description() const
+        Xapian::MSetIterator::get_description
         """
         return _xapian._MSetIterator___str__(self)
 
@@ -3424,9 +3449,8 @@ class ESet(object):
 
         Default constructor.
 
-        Xapian::ESet::ESet()
-
-        Creates an empty ESet, mostly useful as a placeholder. 
+        Xapian::ESet::ESet() Xapian::ESet::ESet Creates an empty ESet, mostly
+        useful as a placeholder. 
         """
         _xapian.ESet_swiginit(self, _xapian.new_ESet())
     __swig_destroy__ = _xapian.delete_ESet
@@ -3437,7 +3461,7 @@ class ESet(object):
 
         Return number of items in this ESet object.
 
-        Xapian::doccount Xapian::ESet::size() const 
+        Xapian::doccount Xapian::ESet::size() const Xapian::ESet::size
         """
         return _xapian.ESet_size(self)
 
@@ -3448,7 +3472,7 @@ class ESet(object):
 
         Return true if this ESet object is empty.
 
-        bool Xapian::ESet::empty() const 
+        bool Xapian::ESet::empty() const Xapian::ESet::empty
         """
         return _xapian.ESet_empty(self)
 
@@ -3460,9 +3484,9 @@ class ESet(object):
         Return a bound on the full size of this ESet object.
 
         Xapian::termcount Xapian::ESet::get_ebound() const
-
-        This is a bound on size() if get_eset() had been called with maxitems
-        set high enough that all results were returned. 
+        Xapian::ESet::get_ebound This is a bound on size() if get_eset() had
+        been called with maxitems set high enough that all results were
+        returned. 
         """
         return _xapian.ESet_get_ebound(self)
 
@@ -3473,7 +3497,7 @@ class ESet(object):
 
         Return iterator pointing to the first item in this ESet.
 
-        ESetIterator Xapian::ESet::begin() const 
+        ESetIterator Xapian::ESet::begin() const Xapian::ESet::begin
         """
         return _xapian.ESet__begin(self)
 
@@ -3484,7 +3508,7 @@ class ESet(object):
 
         Return iterator pointing to just after the last item in this ESet.
 
-        ESetIterator Xapian::ESet::end() const 
+        ESetIterator Xapian::ESet::end() const Xapian::ESet::end
         """
         return _xapian.ESet__end(self)
 
@@ -3495,7 +3519,7 @@ class ESet(object):
 
         Return iterator pointing to the last object in this ESet.
 
-        ESetIterator Xapian::ESet::back() const 
+        ESetIterator Xapian::ESet::back() const Xapian::ESet::back
         """
         return _xapian.ESet_back(self)
 
@@ -3506,7 +3530,8 @@ class ESet(object):
 
         Return a string describing this object.
 
-        std::string Xapian::ESet::get_description() const 
+        std::string Xapian::ESet::get_description() const
+        Xapian::ESet::get_description
         """
         return _xapian.ESet___str__(self)
 
@@ -3538,7 +3563,8 @@ class _ESetIterator(object):
 
         Create an unpositioned ESetIterator.
 
-        Xapian::ESetIterator::ESetIterator() 
+        Xapian::ESetIterator::ESetIterator()
+        Xapian::ESetIterator::ESetIterator
         """
         _xapian._ESetIterator_swiginit(self, _xapian.new__ESetIterator())
 
@@ -3548,7 +3574,8 @@ class _ESetIterator(object):
 
         Get the weight for the current position.
 
-        double Xapian::ESetIterator::get_weight() const 
+        double Xapian::ESetIterator::get_weight() const
+        Xapian::ESetIterator::get_weight
         """
         return _xapian._ESetIterator_get_weight(self)
 
@@ -3559,7 +3586,8 @@ class _ESetIterator(object):
 
         Return a string describing this object.
 
-        std::string Xapian::ESetIterator::get_description() const 
+        std::string Xapian::ESetIterator::get_description() const
+        Xapian::ESetIterator::get_description
         """
         return _xapian._ESetIterator___str__(self)
 
@@ -3618,7 +3646,7 @@ class RSet(object):
 
         Default constructor.
 
-        Xapian::RSet::RSet() 
+        Xapian::RSet::RSet() Xapian::RSet::RSet
         """
         _xapian.RSet_swiginit(self, _xapian.new_RSet())
     __swig_destroy__ = _xapian.delete_RSet
@@ -3629,7 +3657,7 @@ class RSet(object):
 
         The number of documents in this R-Set.
 
-        Xapian::doccount Xapian::RSet::size() const 
+        Xapian::doccount Xapian::RSet::size() const Xapian::RSet::size
         """
         return _xapian.RSet_size(self)
 
@@ -3640,7 +3668,7 @@ class RSet(object):
 
         Test if this R-Set is empty.
 
-        bool Xapian::RSet::empty() const 
+        bool Xapian::RSet::empty() const Xapian::RSet::empty
         """
         return _xapian.RSet_empty(self)
 
@@ -3651,7 +3679,8 @@ class RSet(object):
 
         Add a document to the relevance set.
 
-        void Xapian::RSet::add_document(const Xapian::MSetIterator &i) 
+        void Xapian::RSet::add_document(const Xapian::MSetIterator &i)
+        Xapian::RSet::add_document
         """
         return _xapian.RSet_add_document(self, *args)
 
@@ -3662,7 +3691,8 @@ class RSet(object):
 
         Remove a document from the relevance set.
 
-        void Xapian::RSet::remove_document(const Xapian::MSetIterator &i) 
+        void Xapian::RSet::remove_document(const Xapian::MSetIterator &i)
+        Xapian::RSet::remove_document
         """
         return _xapian.RSet_remove_document(self, *args)
 
@@ -3673,7 +3703,8 @@ class RSet(object):
 
         Test if a given document in the relevance set.
 
-        bool Xapian::RSet::contains(const Xapian::MSetIterator &i) const 
+        bool Xapian::RSet::contains(const Xapian::MSetIterator &i) const
+        Xapian::RSet::contains
         """
         return _xapian.RSet_contains(self, *args)
 
@@ -3684,7 +3715,8 @@ class RSet(object):
 
         Return a string describing this object.
 
-        std::string Xapian::RSet::get_description() const 
+        std::string Xapian::RSet::get_description() const
+        Xapian::RSet::get_description
         """
         return _xapian.RSet___str__(self)
 
@@ -3713,7 +3745,8 @@ class MatchDecider(object):
 
         Default constructor.
 
-        Xapian::MatchDecider::MatchDecider() 
+        Xapian::MatchDecider::MatchDecider()
+        Xapian::MatchDecider::MatchDecider
         """
         if self.__class__ == MatchDecider:
             _self = None
@@ -3757,11 +3790,10 @@ class Enquire(object):
         Create a Xapian::Enquire object.
 
         Xapian::Enquire::Enquire(const Database &database, ErrorHandler
-        *errorhandler_)
-
-        This specification cannot be changed once the Xapian::Enquire is
-        opened: you must create a new Xapian::Enquire object to access a
-        different database, or set of databases.
+        *errorhandler_) Xapian::Enquire::Enquire This specification cannot be
+        changed once the Xapian::Enquire is opened: you must create a new
+        Xapian::Enquire object to access a different database, or set of
+        databases.
 
         The database supplied must have been initialised (ie, must not be the
         result of calling the Database::Database() constructor). If you need
@@ -3793,7 +3825,7 @@ class Enquire(object):
         Set the query to run.
 
         void Xapian::Enquire::set_query(const Xapian::Query &query,
-        Xapian::termcount qlen=0)
+        Xapian::termcount qlen=0) Xapian::Enquire::set_query
 
         Parameters:
         -----------
@@ -3812,10 +3844,9 @@ class Enquire(object):
 
         Get the current query.
 
-        const Xapian::Query& Xapian::Enquire::get_query() const
-
-        If called before set_query(), this will return a default initialised
-        Query object. 
+        const Xapian::Query & Xapian::Enquire::get_query() const
+        Xapian::Enquire::get_query If called before set_query(), this will
+        return a default initialised Query object. 
         """
         return _xapian.Enquire_get_query(self)
 
@@ -3827,12 +3858,12 @@ class Enquire(object):
         Add a matchspy.
 
         void Xapian::Enquire::add_matchspy(MatchSpy *spy)
-
-        This matchspy will be called with some of the documents which match
-        the query, during the match process. Exactly which of the matching
-        documents are passed to it depends on exactly when certain
-        optimisations occur during the match process, but it can be controlled
-        to some extent by setting the checkatleast parameter to  get_mset().
+        Xapian::Enquire::add_matchspy This matchspy will be called with some
+        of the documents which match the query, during the match process.
+        Exactly which of the matching documents are passed to it depends on
+        exactly when certain optimisations occur during the match process, but
+        it can be controlled to some extent by setting the checkatleast
+        parameter to  get_mset().
 
         In particular, if there are enough matching documents, at least the
         number specified by checkatleast will be passed to the matchspy. This
@@ -3856,7 +3887,8 @@ class Enquire(object):
 
         Remove all the matchspies.
 
-        void Xapian::Enquire::clear_matchspies() 
+        void Xapian::Enquire::clear_matchspies()
+        Xapian::Enquire::clear_matchspies
         """
         return _xapian.Enquire_clear_matchspies(self)
 
@@ -3868,6 +3900,7 @@ class Enquire(object):
         Set the weighting scheme to use for queries.
 
         void Xapian::Enquire::set_weighting_scheme(const Weight &weight_)
+        Xapian::Enquire::set_weighting_scheme
 
         Parameters:
         -----------
@@ -3886,8 +3919,8 @@ class Enquire(object):
 
         void Xapian::Enquire::set_expansion_scheme(const std::string
         &eweightname_, double expand_k_=1.0) const
-
-        If you don't call this method, the default is as if you'd used:
+        Xapian::Enquire::set_expansion_scheme If you don't call this method,
+        the default is as if you'd used:
 
         get_expansion_scheme("trad");
 
@@ -3912,7 +3945,7 @@ class Enquire(object):
         Set the collapse key to use for queries.
 
         void Xapian::Enquire::set_collapse_key(Xapian::valueno collapse_key,
-        Xapian::doccount collapse_max=1)
+        Xapian::doccount collapse_max=1) Xapian::Enquire::set_collapse_key
 
         Parameters:
         -----------
@@ -3957,13 +3990,13 @@ class Enquire(object):
         Set sort order for document IDs.
 
         void Xapian::Enquire::set_docid_order(docid_order order)
-
-        This order only has an effect on documents which would otherwise have
-        equal rank. When ordering by relevance without a sort key, this means
-        documents with equal weight. For a boolean match with no sort key,
-        this means all documents. And if a sort key is used, this means
-        documents with the same sort key (and also equal weight if ordering on
-        relevance before or after the sort key).
+        Xapian::Enquire::set_docid_order This order only has an effect on
+        documents which would otherwise have equal rank. When ordering by
+        relevance without a sort key, this means documents with equal weight.
+        For a boolean match with no sort key, this means all documents. And if
+        a sort key is used, this means documents with the same sort key (and
+        also equal weight if ordering on relevance before or after the sort
+        key).
 
         Parameters:
         -----------
@@ -3993,7 +4026,7 @@ class Enquire(object):
         Set the percentage and/or weight cutoffs.
 
         void Xapian::Enquire::set_cutoff(int percent_cutoff, double
-        weight_cutoff=0)
+        weight_cutoff=0) Xapian::Enquire::set_cutoff
 
         Parameters:
         -----------
@@ -4023,8 +4056,7 @@ class Enquire(object):
         Set the sorting to be by relevance only.
 
         void Xapian::Enquire::set_sort_by_relevance()
-
-        This is the default. 
+        Xapian::Enquire::set_sort_by_relevance This is the default. 
         """
         return _xapian.Enquire_set_sort_by_relevance(self)
 
@@ -4036,14 +4068,13 @@ class Enquire(object):
         Set the sorting to be by value only.
 
         void Xapian::Enquire::set_sort_by_value(Xapian::valueno sort_key, bool
-        reverse)
-
-        Note that sorting by values uses a string comparison, so to use this
-        to sort by a numeric value you'll need to store the numeric values in
-        a manner which sorts appropriately. For example, you could use
-        Xapian::sortable_serialise() (which works for floating point numbers
-        as well as integers), or store numbers padded with leading zeros or
-        spaces, or with the number of digits prepended.
+        reverse) Xapian::Enquire::set_sort_by_value Note that sorting by
+        values uses a string comparison, so to use this to sort by a numeric
+        value you'll need to store the numeric values in a manner which sorts
+        appropriately. For example, you could use Xapian::sortable_serialise()
+        (which works for floating point numbers as well as integers), or store
+        numbers padded with leading zeros or spaces, or with the number of
+        digits prepended.
 
         Parameters:
         -----------
@@ -4062,7 +4093,7 @@ class Enquire(object):
         Set the sorting to be by key generated from values only.
 
         void Xapian::Enquire::set_sort_by_key(Xapian::KeyMaker *sorter, bool
-        reverse)
+        reverse) Xapian::Enquire::set_sort_by_key
 
         Parameters:
         -----------
@@ -4083,13 +4114,13 @@ class Enquire(object):
 
         void Xapian::Enquire::set_sort_by_value_then_relevance(Xapian::valueno
         sort_key, bool reverse)
-
-        Note that sorting by values uses a string comparison, so to use this
-        to sort by a numeric value you'll need to store the numeric values in
-        a manner which sorts appropriately. For example, you could use
-        Xapian::sortable_serialise() (which works for floating point numbers
-        as well as integers), or store numbers padded with leading zeros or
-        spaces, or with the number of digits prepended.
+        Xapian::Enquire::set_sort_by_value_then_relevance Note that sorting by
+        values uses a string comparison, so to use this to sort by a numeric
+        value you'll need to store the numeric values in a manner which sorts
+        appropriately. For example, you could use Xapian::sortable_serialise()
+        (which works for floating point numbers as well as integers), or store
+        numbers padded with leading zeros or spaces, or with the number of
+        digits prepended.
 
         Parameters:
         -----------
@@ -4109,7 +4140,7 @@ class Enquire(object):
         for documents with identical keys.
 
         void Xapian::Enquire::set_sort_by_key_then_relevance(Xapian::KeyMaker
-        *sorter, bool reverse)
+        *sorter, bool reverse) Xapian::Enquire::set_sort_by_key_then_relevance
 
         Parameters:
         -----------
@@ -4129,13 +4160,13 @@ class Enquire(object):
 
         void Xapian::Enquire::set_sort_by_relevance_then_value(Xapian::valueno
         sort_key, bool reverse)
-
-        Note that sorting by values uses a string comparison, so to use this
-        to sort by a numeric value you'll need to store the numeric values in
-        a manner which sorts appropriately. For example, you could use
-        Xapian::sortable_serialise() (which works for floating point numbers
-        as well as integers), or store numbers padded with leading zeros or
-        spaces, or with the number of digits prepended.
+        Xapian::Enquire::set_sort_by_relevance_then_value Note that sorting by
+        values uses a string comparison, so to use this to sort by a numeric
+        value you'll need to store the numeric values in a manner which sorts
+        appropriately. For example, you could use Xapian::sortable_serialise()
+        (which works for floating point numbers as well as integers), or store
+        numbers padded with leading zeros or spaces, or with the number of
+        digits prepended.
 
         Note that with the default BM25 weighting scheme parameters, non-
         identical documents will rarely have the same weight, so this setting
@@ -4165,8 +4196,7 @@ class Enquire(object):
         values.
 
         void Xapian::Enquire::set_sort_by_relevance_then_key(Xapian::KeyMaker
-        *sorter, bool reverse)
-
+        *sorter, bool reverse) Xapian::Enquire::set_sort_by_relevance_then_key
         Note that with the default BM25 weighting scheme parameters, non-
         identical documents will rarely have the same weight, so this setting
         will give very similar results to set_sort_by_relevance(). It becomes
@@ -4194,10 +4224,9 @@ class Enquire(object):
         Set a time limit for the match.
 
         void Xapian::Enquire::set_time_limit(double time_limit)
-
-        Matches with check_at_least set high can take a long time in some
-        cases. You can set a time limit on this, after which check_at_least
-        will be turned off.
+        Xapian::Enquire::set_time_limit Matches with check_at_least set high
+        can take a long time in some cases. You can set a time limit on this,
+        after which check_at_least will be turned off.
 
         Parameters:
         -----------
@@ -4223,7 +4252,7 @@ class Enquire(object):
 
         MSet Xapian::Enquire::get_mset(Xapian::doccount first,
         Xapian::doccount maxitems, const RSet *omrset, const MatchDecider
-        *mdecider=0) const
+        *mdecider=0) const Xapian::Enquire::get_mset
 
         Parameters:
         -----------
@@ -4268,7 +4297,7 @@ class Enquire(object):
 
         ESet Xapian::Enquire::get_eset(Xapian::termcount maxitems, const RSet
         &rset, int flags, double k, const Xapian::ExpandDecider
-        *edecider=NULL, double min_wt=0.0) const
+        *edecider=NULL, double min_wt=0.0) const Xapian::Enquire::get_eset
 
         Parameters:
         -----------
@@ -4309,10 +4338,9 @@ class Enquire(object):
         Get terms which match a given document, by match set item.
 
         TermIterator Xapian::Enquire::get_matching_terms_begin(const
-        MSetIterator &it) const
-
-        This method returns the terms in the current query which match the
-        given document.
+        MSetIterator &it) const Xapian::Enquire::get_matching_terms_begin This
+        method returns the terms in the current query which match the given
+        document.
 
         If the underlying database has suitable support, using this call
         (rather than passing a Xapian::docid) will enable the system to ensure
@@ -4347,7 +4375,7 @@ class Enquire(object):
         End iterator corresponding to get_matching_terms_begin()
 
         TermIterator Xapian::Enquire::get_matching_terms_end(const
-        MSetIterator &) const 
+        MSetIterator &) const Xapian::Enquire::get_matching_terms_end
         """
         return _xapian.Enquire__get_matching_terms_end(self, *args)
 
@@ -4358,7 +4386,8 @@ class Enquire(object):
 
         Return a string describing this object.
 
-        std::string Xapian::Enquire::get_description() const 
+        std::string Xapian::Enquire::get_description() const
+        Xapian::Enquire::get_description
         """
         return _xapian.Enquire___str__(self)
 
@@ -4403,7 +4432,8 @@ class ExpandDecider(object):
 
         Default constructor.
 
-        Xapian::ExpandDecider::ExpandDecider() 
+        Xapian::ExpandDecider::ExpandDecider()
+        Xapian::ExpandDecider::ExpandDecider
         """
         if self.__class__ == ExpandDecider:
             _self = None
@@ -4418,12 +4448,11 @@ class ExpandDecider(object):
 
         Start reference counting this object.
 
-        const ExpandDecider* Xapian::ExpandDecider::release() const
-
-        You can hand ownership of a dynamically allocated ExpandDecider object
-        to Xapian by calling release() and then passing the object to a Xapian
-        method. Xapian will arrange to delete the object once it is no longer
-        required. 
+        const ExpandDecider * Xapian::ExpandDecider::release() const
+        Xapian::ExpandDecider::release You can hand ownership of a dynamically
+        allocated ExpandDecider object to Xapian by calling release() and then
+        passing the object to a Xapian method. Xapian will arrange to delete
+        the object once it is no longer required. 
         """
         return _xapian.ExpandDecider_release(self)
 
@@ -4457,6 +4486,7 @@ class ExpandDeciderAnd(ExpandDecider):
 
         Xapian::ExpandDeciderAnd::ExpandDeciderAnd(const ExpandDecider
         *first_, const ExpandDecider *second_)
+        Xapian::ExpandDeciderAnd::ExpandDeciderAnd
 
         Parameters:
         -----------
@@ -4491,6 +4521,7 @@ class ExpandDeciderFilterPrefix(ExpandDecider):
 
         Xapian::ExpandDeciderFilterPrefix::ExpandDeciderFilterPrefix(const
         std::string &prefix_)
+        Xapian::ExpandDeciderFilterPrefix::ExpandDeciderFilterPrefix
 
         Parameters:
         -----------
@@ -4518,7 +4549,7 @@ class KeyMaker(object):
 
         Default constructor.
 
-        Xapian::KeyMaker::KeyMaker() 
+        Xapian::KeyMaker::KeyMaker() Xapian::KeyMaker::KeyMaker
         """
         if self.__class__ == KeyMaker:
             _self = None
@@ -4533,12 +4564,11 @@ class KeyMaker(object):
 
         Start reference counting this object.
 
-        const KeyMaker* Xapian::KeyMaker::release() const
-
-        You can hand ownership of a dynamically allocated KeyMaker object to
-        Xapian by calling release() and then passing the object to a Xapian
-        method. Xapian will arrange to delete the object once it is no longer
-        required. 
+        const KeyMaker * Xapian::KeyMaker::release() const
+        Xapian::KeyMaker::release You can hand ownership of a dynamically
+        allocated KeyMaker object to Xapian by calling release() and then
+        passing the object to a Xapian method. Xapian will arrange to delete
+        the object once it is no longer required. 
         """
         return _xapian.KeyMaker_release(self)
 
@@ -4582,9 +4612,8 @@ class MultiValueKeyMaker(KeyMaker):
         Construct a MultiValueKeyMaker from a pair of iterators.
 
         Xapian::MultiValueKeyMaker::MultiValueKeyMaker(Iterator begin,
-        Iterator end)
-
-        The iterators must be a begin/end pair returning Xapian::valueno (or a
+        Iterator end) Xapian::MultiValueKeyMaker::MultiValueKeyMaker The
+        iterators must be a begin/end pair returning Xapian::valueno (or a
         compatible type) when dereferenced. 
         """
         _xapian.MultiValueKeyMaker_swiginit(self, _xapian.new_MultiValueKeyMaker())
@@ -4597,6 +4626,7 @@ class MultiValueKeyMaker(KeyMaker):
 
         void Xapian::MultiValueKeyMaker::add_value(Xapian::valueno slot, bool
         reverse=false, const std::string &defvalue=std::string())
+        Xapian::MultiValueKeyMaker::add_value
 
         Parameters:
         -----------
@@ -4625,7 +4655,10 @@ class Stopper(object):
     """
 
 
-    Base class for stop-word decision functor. 
+    Abstract base class for stop-word decision functor.
+
+    If you just want to use an existing stopword list, see
+    Xapian::SimpleStopper. 
     """
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -4637,7 +4670,7 @@ class Stopper(object):
 
         Default constructor.
 
-        Xapian::Stopper::Stopper() 
+        Xapian::Stopper::Stopper() Xapian::Stopper::Stopper
         """
         if self.__class__ == Stopper:
             _self = None
@@ -4652,7 +4685,8 @@ class Stopper(object):
 
         Return a string describing this object.
 
-        virtual std::string Xapian::Stopper::get_description() const 
+        virtual std::string Xapian::Stopper::get_description() const
+        Xapian::Stopper::get_description
         """
         return _xapian.Stopper___str__(self)
 
@@ -4663,12 +4697,11 @@ class Stopper(object):
 
         Start reference counting this object.
 
-        const Stopper* Xapian::Stopper::release() const
-
-        You can hand ownership of a dynamically allocated Stopper object to
-        Xapian by calling release() and then passing the object to a Xapian
-        method. Xapian will arrange to delete the object once it is no longer
-        required. 
+        const Stopper * Xapian::Stopper::release() const
+        Xapian::Stopper::release You can hand ownership of a dynamically
+        allocated Stopper object to Xapian by calling release() and then
+        passing the object to a Xapian method. Xapian will arrange to delete
+        the object once it is no longer required. 
         """
         return _xapian.Stopper_release(self)
 
@@ -4698,7 +4731,8 @@ class SimpleStopper(Stopper):
 
         Add a single stop word.
 
-        void Xapian::SimpleStopper::add(const std::string &word) 
+        void Xapian::SimpleStopper::add(const std::string &word)
+        Xapian::SimpleStopper::add
         """
         return _xapian.SimpleStopper_add(self, word)
 
@@ -4710,9 +4744,12 @@ class SimpleStopper(Stopper):
         Initialise from a pair of iterators.
 
         Xapian::SimpleStopper::SimpleStopper(Iterator begin, Iterator end)
+        Xapian::SimpleStopper::SimpleStopper  Xapian includes stopword list
+        files for many languages. You can initialise from a file like so:
 
-        Xapian includes stop list files for many languages. You can initialise
-        from a file like that: 
+        In bindings for other languages it isn't possible to pass a C++
+        iterator pair, so instead this constructor is wrapped to allow passing
+        a filename. 
         """
         _xapian.SimpleStopper_swiginit(self, _xapian.new_SimpleStopper(*args))
     __swig_destroy__ = _xapian.delete_SimpleStopper
@@ -4738,6 +4775,7 @@ class RangeProcessor(object):
 
         Xapian::RangeProcessor::RangeProcessor(Xapian::valueno slot_, const
         std::string &str_=std::string(), unsigned flags_=0)
+        Xapian::RangeProcessor::RangeProcessor
 
         Parameters:
         -----------
@@ -4771,10 +4809,9 @@ class RangeProcessor(object):
         Check prefix/suffix on range.
 
         Xapian::Query Xapian::RangeProcessor::check_range(const std::string
-        &b, const std::string &e)
-
-        If they match, remove the prefix/suffix and then call operator()() to
-        try to handle the range. 
+        &b, const std::string &e) Xapian::RangeProcessor::check_range If they
+        match, remove the prefix/suffix and then call operator()() to try to
+        handle the range. 
         """
         return _xapian.RangeProcessor_check_range(self, b, e)
 
@@ -4785,12 +4822,11 @@ class RangeProcessor(object):
 
         Start reference counting this object.
 
-        const RangeProcessor* Xapian::RangeProcessor::release() const
-
-        You can hand ownership of a dynamically allocated RangeProcessor
-        object to Xapian by calling release() and then passing the object to a
-        Xapian method. Xapian will arrange to delete the object once it is no
-        longer required. 
+        const RangeProcessor * Xapian::RangeProcessor::release() const
+        Xapian::RangeProcessor::release You can hand ownership of a
+        dynamically allocated RangeProcessor object to Xapian by calling
+        release() and then passing the object to a Xapian method. Xapian will
+        arrange to delete the object once it is no longer required. 
         """
         return _xapian.RangeProcessor_release(self)
 
@@ -4824,6 +4860,7 @@ class DateRangeProcessor(RangeProcessor):
 
         Xapian::DateRangeProcessor::DateRangeProcessor(Xapian::valueno slot_,
         const std::string &str_, unsigned flags_=0, int epoch_year_=1970)
+        Xapian::DateRangeProcessor::DateRangeProcessor
 
         Parameters:
         -----------
@@ -4893,6 +4930,7 @@ class NumberRangeProcessor(RangeProcessor):
 
         Xapian::NumberRangeProcessor::NumberRangeProcessor(Xapian::valueno
         slot_, const std::string &str_=std::string(), unsigned flags_=0)
+        Xapian::NumberRangeProcessor::NumberRangeProcessor
 
         Parameters:
         -----------
@@ -4952,7 +4990,8 @@ class ValueRangeProcessor(object):
 
         Default constructor.
 
-        Xapian::ValueRangeProcessor::ValueRangeProcessor() 
+        Xapian::ValueRangeProcessor::ValueRangeProcessor()
+        Xapian::ValueRangeProcessor::ValueRangeProcessor
         """
         if self.__class__ == ValueRangeProcessor:
             _self = None
@@ -4967,13 +5006,11 @@ class ValueRangeProcessor(object):
 
         Start reference counting this object.
 
-        const ValueRangeProcessor* Xapian::ValueRangeProcessor::release()
-        const
-
-        You can hand ownership of a dynamically allocated ValueRangeProcessor
-        object to Xapian by calling release() and then passing the object to a
-        Xapian method. Xapian will arrange to delete the object once it is no
-        longer required. 
+        const ValueRangeProcessor * Xapian::ValueRangeProcessor::release()
+        const Xapian::ValueRangeProcessor::release You can hand ownership of a
+        dynamically allocated ValueRangeProcessor object to Xapian by calling
+        release() and then passing the object to a Xapian method. Xapian will
+        arrange to delete the object once it is no longer required. 
         """
         return _xapian.ValueRangeProcessor_release(self)
 
@@ -5008,6 +5045,7 @@ class StringValueRangeProcessor(ValueRangeProcessor):
 
         Xapian::StringValueRangeProcessor::StringValueRangeProcessor(Xapian::valueno
         slot_, const std::string &str_, bool prefix_=true)
+        Xapian::StringValueRangeProcessor::StringValueRangeProcessor
 
         Parameters:
         -----------
@@ -5048,13 +5086,13 @@ class DateValueRangeProcessor(StringValueRangeProcessor):
         Xapian::DateValueRangeProcessor::DateValueRangeProcessor(Xapian::valueno
         slot_, const char *str_, bool prefix_=true, bool prefer_mdy_=false,
         int epoch_year_=1970)
-
-        This is like the previous version, but with const char * instead of
-        std::string - we need this overload as otherwise
-        DateValueRangeProcessor(1, "date:") quietly interprets the second
-        argument as a boolean in preference to std::string. If you want to be
-        compatible with 1.2.12 and earlier, then explicitly convert to
-        std::string, i.e.: DateValueRangeProcessor(1, std::string("date:"))
+        Xapian::DateValueRangeProcessor::DateValueRangeProcessor This is like
+        the previous version, but with const char * instead of std::string -
+        we need this overload as otherwise DateValueRangeProcessor(1,
+        "date:") quietly interprets the second argument as a boolean in
+        preference to std::string. If you want to be compatible with 1.2.12
+        and earlier, then explicitly convert to std::string, i.e.:
+        DateValueRangeProcessor(1, std::string("date:"))
 
         Parameters:
         -----------
@@ -5123,6 +5161,7 @@ class NumberValueRangeProcessor(StringValueRangeProcessor):
 
         Xapian::NumberValueRangeProcessor::NumberValueRangeProcessor(Xapian::valueno
         slot_, const std::string &str_, bool prefix_=true)
+        Xapian::NumberValueRangeProcessor::NumberValueRangeProcessor
 
         Parameters:
         -----------
@@ -5178,7 +5217,8 @@ class FieldProcessor(object):
 
         Default constructor.
 
-        Xapian::FieldProcessor::FieldProcessor() 
+        Xapian::FieldProcessor::FieldProcessor()
+        Xapian::FieldProcessor::FieldProcessor
         """
         if self.__class__ == FieldProcessor:
             _self = None
@@ -5193,12 +5233,11 @@ class FieldProcessor(object):
 
         Start reference counting this object.
 
-        const FieldProcessor* Xapian::FieldProcessor::release() const
-
-        You can hand ownership of a dynamically allocated FieldProcessor
-        object to Xapian by calling release() and then passing the object to a
-        Xapian method. Xapian will arrange to delete the object once it is no
-        longer required. 
+        const FieldProcessor * Xapian::FieldProcessor::release() const
+        Xapian::FieldProcessor::release You can hand ownership of a
+        dynamically allocated FieldProcessor object to Xapian by calling
+        release() and then passing the object to a Xapian method. Xapian will
+        arrange to delete the object once it is no longer required. 
         """
         return _xapian.FieldProcessor_release(self)
 
@@ -5233,6 +5272,7 @@ class QueryParser(object):
     FLAG_AUTO_MULTIWORD_SYNONYMS = _xapian.QueryParser_FLAG_AUTO_MULTIWORD_SYNONYMS
     FLAG_CJK_NGRAM = _xapian.QueryParser_FLAG_CJK_NGRAM
     FLAG_ACCUMULATE = _xapian.QueryParser_FLAG_ACCUMULATE
+    FLAG_NO_POSITIONS = _xapian.QueryParser_FLAG_NO_POSITIONS
     FLAG_DEFAULT = _xapian.QueryParser_FLAG_DEFAULT
     STEM_NONE = _xapian.QueryParser_STEM_NONE
     STEM_SOME = _xapian.QueryParser_STEM_SOME
@@ -5246,7 +5286,7 @@ class QueryParser(object):
 
         Default constructor.
 
-        Xapian::QueryParser::QueryParser() 
+        Xapian::QueryParser::QueryParser() Xapian::QueryParser::QueryParser
         """
         _xapian.QueryParser_swiginit(self, _xapian.new_QueryParser())
     __swig_destroy__ = _xapian.delete_QueryParser
@@ -5258,14 +5298,14 @@ class QueryParser(object):
         Set the stemmer.
 
         void Xapian::QueryParser::set_stemmer(const Xapian::Stem &stemmer)
-
-        This sets the stemming algorithm which will be used by the query
-        parser. The stemming algorithm will be used according to the stemming
-        strategy set by set_stemming_strategy(). As of 1.3.1, this defaults to
-        STEM_SOME, but in earlier versions the default was STEM_NONE. If you
-        want to work with older versions, you should explicitly set a stemming
-        strategy as well as setting a stemmer, otherwise your stemmer won't
-        actually be used.
+        Xapian::QueryParser::set_stemmer This sets the stemming algorithm
+        which will be used by the query parser. The stemming algorithm will be
+        used according to the stemming strategy set by
+        set_stemming_strategy(). As of 1.3.1, this defaults to STEM_SOME, but
+        in earlier versions the default was STEM_NONE. If you want to work
+        with older versions, you should explicitly set a stemming strategy as
+        well as setting a stemmer, otherwise your stemmer won't actually be
+        used.
 
         Parameters:
         -----------
@@ -5282,11 +5322,10 @@ class QueryParser(object):
         Set the stemming strategy.
 
         void Xapian::QueryParser::set_stemming_strategy(stem_strategy
-        strategy)
-
-        This controls how the query parser will apply the stemming algorithm.
-        Note that the stemming algorithm is only applied to words in free-text
-        fields - boolean filter terms are never stemmed.
+        strategy) Xapian::QueryParser::set_stemming_strategy This controls how
+        the query parser will apply the stemming algorithm. Note that the
+        stemming algorithm is only applied to words in free-text fields -
+        boolean filter terms are never stemmed.
 
         Parameters:
         -----------
@@ -5317,6 +5356,7 @@ class QueryParser(object):
         Set the stopper.
 
         void Xapian::QueryParser::set_stopper(const Stopper *stop=NULL)
+        Xapian::QueryParser::set_stopper
 
         Parameters:
         -----------
@@ -5334,6 +5374,7 @@ class QueryParser(object):
         Set the default operator.
 
         void Xapian::QueryParser::set_default_op(Query::op default_op)
+        Xapian::QueryParser::set_default_op
 
         Parameters:
         -----------
@@ -5358,7 +5399,8 @@ class QueryParser(object):
 
         Get the current default operator.
 
-        Query::op Xapian::QueryParser::get_default_op() const 
+        Query::op Xapian::QueryParser::get_default_op() const
+        Xapian::QueryParser::get_default_op
         """
         return _xapian.QueryParser_get_default_op(self)
 
@@ -5370,6 +5412,7 @@ class QueryParser(object):
         Specify the database being searched.
 
         void Xapian::QueryParser::set_database(const Database &db)
+        Xapian::QueryParser::set_database
 
         Parameters:
         -----------
@@ -5390,10 +5433,9 @@ class QueryParser(object):
         void Xapian::QueryParser::set_max_expansion(Xapian::termcount
         max_expansion, int max_type=Xapian::Query::WILDCARD_LIMIT_ERROR,
         unsigned flags=FLAG_WILDCARD|FLAG_PARTIAL)
-
-        Note: you must also set FLAG_WILDCARD and/or FLAG_PARTIAL in the flags
-        parameter to  parse_query() for this setting to have anything to
-        affect.
+        Xapian::QueryParser::set_max_expansion Note: you must also set
+        FLAG_WILDCARD and/or FLAG_PARTIAL in the flags parameter to
+        parse_query() for this setting to have anything to affect.
 
         If you don't call this method, the default settings are no limit on
         wildcard expansion, and partial terms expanding to the most frequent
@@ -5431,9 +5473,8 @@ class QueryParser(object):
 
         void
         Xapian::QueryParser::set_max_wildcard_expansion(Xapian::termcount)
-
-        If any wildcard expands to more than max_expansion terms, an exception
-        will be thrown.
+        Xapian::QueryParser::set_max_wildcard_expansion If any wildcard
+        expands to more than max_expansion terms, an exception will be thrown.
 
         This method is provided for API compatibility with Xapian 1.2.x and is
         deprecated - replace it with:
@@ -5453,7 +5494,7 @@ class QueryParser(object):
 
         Query Xapian::QueryParser::parse_query(const std::string
         &query_string, unsigned flags=FLAG_DEFAULT, const std::string
-        &default_prefix=std::string())
+        &default_prefix=std::string()) Xapian::QueryParser::parse_query
 
         Parameters:
         -----------
@@ -5499,7 +5540,7 @@ class QueryParser(object):
         Register a FieldProcessor.
 
         void Xapian::QueryParser::add_prefix(const std::string &field,
-        Xapian::FieldProcessor *proc) 
+        Xapian::FieldProcessor *proc) Xapian::QueryParser::add_prefix
         """
         return _xapian.QueryParser_add_prefix(self, *args)
 
@@ -5512,9 +5553,9 @@ class QueryParser(object):
 
         void Xapian::QueryParser::add_boolean_prefix(const std::string &field,
         Xapian::FieldProcessor *proc, bool exclusive)
-
-        This is an older version of this method - use the version with the
-        grouping parameter in preference to this one. 
+        Xapian::QueryParser::add_boolean_prefix This is an older version of
+        this method - use the version with the grouping parameter in
+        preference to this one. 
         """
         return _xapian.QueryParser_add_boolean_prefix(self, *args)
 
@@ -5525,7 +5566,8 @@ class QueryParser(object):
 
         Begin iterator over terms omitted from the query as stopwords.
 
-        TermIterator Xapian::QueryParser::stoplist_begin() const 
+        TermIterator Xapian::QueryParser::stoplist_begin() const
+        Xapian::QueryParser::stoplist_begin
         """
         return _xapian.QueryParser__stoplist_begin(self)
 
@@ -5536,7 +5578,8 @@ class QueryParser(object):
 
         End iterator over terms omitted from the query as stopwords.
 
-        TermIterator Xapian::QueryParser::stoplist_end() const 
+        TermIterator Xapian::QueryParser::stoplist_end() const
+        Xapian::QueryParser::stoplist_end
         """
         return _xapian.QueryParser__stoplist_end(self)
 
@@ -5548,7 +5591,7 @@ class QueryParser(object):
         Begin iterator over unstemmed forms of the given stemmed query term.
 
         TermIterator Xapian::QueryParser::unstem_begin(const std::string
-        &term) const 
+        &term) const Xapian::QueryParser::unstem_begin
         """
         return _xapian.QueryParser__unstem_begin(self, term)
 
@@ -5560,7 +5603,7 @@ class QueryParser(object):
         End iterator over unstemmed forms of the given stemmed query term.
 
         TermIterator Xapian::QueryParser::unstem_end(const std::string &)
-        const 
+        const Xapian::QueryParser::unstem_end
         """
         return _xapian.QueryParser__unstem_end(self, arg2)
 
@@ -5572,7 +5615,8 @@ class QueryParser(object):
         Register a RangeProcessor.
 
         void Xapian::QueryParser::add_rangeprocessor(Xapian::RangeProcessor
-        *range_proc, const std::string *grouping=NULL) 
+        *range_proc, const std::string *grouping=NULL)
+        Xapian::QueryParser::add_rangeprocessor
         """
         return _xapian.QueryParser_add_rangeprocessor(self, range_proc, grouping)
 
@@ -5585,10 +5629,9 @@ class QueryParser(object):
 
         void
         Xapian::QueryParser::add_valuerangeprocessor(Xapian::ValueRangeProcessor
-        *vrproc)
-
-        This method is provided for API compatibility with Xapian 1.2.x and is
-        deprecated - use  add_rangeprocessor() with a RangeProcessor instead.
+        *vrproc) Xapian::QueryParser::add_valuerangeprocessor This method is
+        provided for API compatibility with Xapian 1.2.x and is deprecated -
+        use  add_rangeprocessor() with a RangeProcessor instead.
 
         Compatibility shim. 
         """
@@ -5602,8 +5645,8 @@ class QueryParser(object):
         Get the spelling-corrected query string.
 
         std::string Xapian::QueryParser::get_corrected_query_string() const
-
-        This will only be set if FLAG_SPELLING_CORRECTION is specified when
+        Xapian::QueryParser::get_corrected_query_string This will only be set
+        if FLAG_SPELLING_CORRECTION is specified when
         QueryParser::parse_query() was last called.
 
         If there were no corrections, an empty string is returned. 
@@ -5617,7 +5660,8 @@ class QueryParser(object):
 
         Return a string describing this object.
 
-        std::string Xapian::QueryParser::get_description() const 
+        std::string Xapian::QueryParser::get_description() const
+        Xapian::QueryParser::get_description
         """
         return _xapian.QueryParser___str__(self)
 
@@ -5670,6 +5714,7 @@ class ValueSetMatchDecider(MatchDecider):
 
         Xapian::ValueSetMatchDecider::ValueSetMatchDecider(Xapian::valueno
         slot, bool inclusive_)
+        Xapian::ValueSetMatchDecider::ValueSetMatchDecider
 
         Parameters:
         -----------
@@ -5690,6 +5735,7 @@ class ValueSetMatchDecider(MatchDecider):
         Add a value to the test set.
 
         void Xapian::ValueSetMatchDecider::add_value(const std::string &value)
+        Xapian::ValueSetMatchDecider::add_value
 
         Parameters:
         -----------
@@ -5706,7 +5752,7 @@ class ValueSetMatchDecider(MatchDecider):
         Remove a value from the test set.
 
         void Xapian::ValueSetMatchDecider::remove_value(const std::string
-        &value)
+        &value) Xapian::ValueSetMatchDecider::remove_value
 
         Parameters:
         -----------
@@ -5746,8 +5792,7 @@ class Weight(object):
 
         Return the name of this weighting scheme.
 
-        virtual std::string Xapian::Weight::name() const
-
+        virtual std::string Xapian::Weight::name() const Xapian::Weight::name
         This name is used by the remote backend. It is passed along with the
         serialised parameters to the remote server so that it knows which
         class to create.
@@ -5771,9 +5816,8 @@ class Weight(object):
 
         virtual double Xapian::Weight::get_sumpart(Xapian::termcount wdf,
         Xapian::termcount doclen, Xapian::termcount uniqterms) const =0
-
-        The parameters give information about the document which may be used
-        in the calculations:
+        Xapian::Weight::get_sumpart The parameters give information about the
+        document which may be used in the calculations:
 
         Parameters:
         -----------
@@ -5796,9 +5840,9 @@ class Weight(object):
         document.
 
         virtual double Xapian::Weight::get_maxpart() const =0
-
-        This information is used by the matcher to perform various
-        optimisations, so strive to make the bound as tight as possible. 
+        Xapian::Weight::get_maxpart This information is used by the matcher to
+        perform various optimisations, so strive to make the bound as tight as
+        possible. 
         """
         return _xapian.Weight_get_maxpart(self)
 
@@ -5810,10 +5854,9 @@ class Weight(object):
         Calculate the term-independent weight component for a document.
 
         virtual double Xapian::Weight::get_sumextra(Xapian::termcount doclen,
-        Xapian::termcount uniqterms) const =0
-
-        The parameter gives information about the document which may be used
-        in the calculations:
+        Xapian::termcount uniqterms) const =0 Xapian::Weight::get_sumextra The
+        parameter gives information about the document which may be used in
+        the calculations:
 
         Parameters:
         -----------
@@ -5833,9 +5876,9 @@ class Weight(object):
         document.
 
         virtual double Xapian::Weight::get_maxextra() const =0
-
-        This information is used by the matcher to perform various
-        optimisations, so strive to make the bound as tight as possible. 
+        Xapian::Weight::get_maxextra This information is used by the matcher
+        to perform various optimisations, so strive to make the bound as tight
+        as possible. 
         """
         return _xapian.Weight_get_maxextra(self)
 
@@ -5865,7 +5908,7 @@ class BoolWeight(Weight):
 
         Construct a BoolWeight.
 
-        Xapian::BoolWeight::BoolWeight() 
+        Xapian::BoolWeight::BoolWeight() Xapian::BoolWeight::BoolWeight
         """
         _xapian.BoolWeight_swiginit(self, _xapian.new_BoolWeight())
     __swig_destroy__ = _xapian.delete_BoolWeight
@@ -5888,7 +5931,7 @@ class TfIdfWeight(Weight):
 
         Construct a TfIdfWeight using the default normalizations ("ntn").
 
-        Xapian::TfIdfWeight::TfIdfWeight() 
+        Xapian::TfIdfWeight::TfIdfWeight() Xapian::TfIdfWeight::TfIdfWeight
         """
         _xapian.TfIdfWeight_swiginit(self, _xapian.new_TfIdfWeight(*args))
     __swig_destroy__ = _xapian.delete_TfIdfWeight
@@ -5907,7 +5950,7 @@ class BM25Weight(Weight):
     __repr__ = _swig_repr
 
     def __init__(self, *args):
-        """Xapian::BM25Weight::BM25Weight() """
+        """Xapian::BM25Weight::BM25Weight() Xapian::BM25Weight::BM25Weight"""
         _xapian.BM25Weight_swiginit(self, _xapian.new_BM25Weight(*args))
     __swig_destroy__ = _xapian.delete_BM25Weight
 BM25Weight_swigregister = _xapian.BM25Weight_swigregister
@@ -5925,7 +5968,10 @@ class BM25PlusWeight(Weight):
     __repr__ = _swig_repr
 
     def __init__(self, *args):
-        """Xapian::BM25PlusWeight::BM25PlusWeight() """
+        """
+        Xapian::BM25PlusWeight::BM25PlusWeight()
+        Xapian::BM25PlusWeight::BM25PlusWeight
+        """
         _xapian.BM25PlusWeight_swiginit(self, _xapian.new_BM25PlusWeight(*args))
     __swig_destroy__ = _xapian.delete_BM25PlusWeight
 BM25PlusWeight_swigregister = _xapian.BM25PlusWeight_swigregister
@@ -5956,6 +6002,7 @@ class TradWeight(Weight):
         Construct a TradWeight.
 
         Xapian::TradWeight::TradWeight(double k=1.0)
+        Xapian::TradWeight::TradWeight
 
         Parameters:
         -----------
@@ -5998,7 +6045,7 @@ class InL2Weight(Weight):
     __repr__ = _swig_repr
 
     def __init__(self, *args):
-        """Xapian::InL2Weight::InL2Weight() """
+        """Xapian::InL2Weight::InL2Weight() Xapian::InL2Weight::InL2Weight"""
         _xapian.InL2Weight_swiginit(self, _xapian.new_InL2Weight(*args))
     __swig_destroy__ = _xapian.delete_InL2Weight
 InL2Weight_swigregister = _xapian.InL2Weight_swigregister
@@ -6029,7 +6076,7 @@ class IfB2Weight(Weight):
     __repr__ = _swig_repr
 
     def __init__(self, *args):
-        """Xapian::IfB2Weight::IfB2Weight() """
+        """Xapian::IfB2Weight::IfB2Weight() Xapian::IfB2Weight::IfB2Weight"""
         _xapian.IfB2Weight_swiginit(self, _xapian.new_IfB2Weight(*args))
     __swig_destroy__ = _xapian.delete_IfB2Weight
 IfB2Weight_swigregister = _xapian.IfB2Weight_swigregister
@@ -6060,7 +6107,7 @@ class IneB2Weight(Weight):
     __repr__ = _swig_repr
 
     def __init__(self, *args):
-        """Xapian::IneB2Weight::IneB2Weight() """
+        """Xapian::IneB2Weight::IneB2Weight() Xapian::IneB2Weight::IneB2Weight"""
         _xapian.IneB2Weight_swiginit(self, _xapian.new_IneB2Weight(*args))
     __swig_destroy__ = _xapian.delete_IneB2Weight
 IneB2Weight_swigregister = _xapian.IneB2Weight_swigregister
@@ -6092,7 +6139,7 @@ class BB2Weight(Weight):
     __repr__ = _swig_repr
 
     def __init__(self, *args):
-        """Xapian::BB2Weight::BB2Weight() """
+        """Xapian::BB2Weight::BB2Weight() Xapian::BB2Weight::BB2Weight"""
         _xapian.BB2Weight_swiginit(self, _xapian.new_BB2Weight(*args))
     __swig_destroy__ = _xapian.delete_BB2Weight
 BB2Weight_swigregister = _xapian.BB2Weight_swigregister
@@ -6125,7 +6172,7 @@ class DLHWeight(Weight):
     __repr__ = _swig_repr
 
     def __init__(self):
-        """Xapian::DLHWeight::DLHWeight() """
+        """Xapian::DLHWeight::DLHWeight() Xapian::DLHWeight::DLHWeight"""
         _xapian.DLHWeight_swiginit(self, _xapian.new_DLHWeight())
     __swig_destroy__ = _xapian.delete_DLHWeight
 DLHWeight_swigregister = _xapian.DLHWeight_swigregister
@@ -6160,7 +6207,7 @@ class PL2Weight(Weight):
     __repr__ = _swig_repr
 
     def __init__(self, *args):
-        """Xapian::PL2Weight::PL2Weight() """
+        """Xapian::PL2Weight::PL2Weight() Xapian::PL2Weight::PL2Weight"""
         _xapian.PL2Weight_swiginit(self, _xapian.new_PL2Weight(*args))
     __swig_destroy__ = _xapian.delete_PL2Weight
 PL2Weight_swigregister = _xapian.PL2Weight_swigregister
@@ -6178,7 +6225,10 @@ class PL2PlusWeight(Weight):
     __repr__ = _swig_repr
 
     def __init__(self, *args):
-        """Xapian::PL2PlusWeight::PL2PlusWeight() """
+        """
+        Xapian::PL2PlusWeight::PL2PlusWeight()
+        Xapian::PL2PlusWeight::PL2PlusWeight
+        """
         _xapian.PL2PlusWeight_swiginit(self, _xapian.new_PL2PlusWeight(*args))
     __swig_destroy__ = _xapian.delete_PL2PlusWeight
 PL2PlusWeight_swigregister = _xapian.PL2PlusWeight_swigregister
@@ -6217,7 +6267,7 @@ class DPHWeight(Weight):
 
         Construct a DPHWeight.
 
-        Xapian::DPHWeight::DPHWeight() 
+        Xapian::DPHWeight::DPHWeight() Xapian::DPHWeight::DPHWeight
         """
         _xapian.DPHWeight_swiginit(self, _xapian.new_DPHWeight())
     __swig_destroy__ = _xapian.delete_DPHWeight
@@ -6249,7 +6299,7 @@ class LMWeight(Weight):
 
         Xapian::LMWeight::LMWeight(double param_log_=0.0, type_smoothing
         select_smoothing_=TWO_STAGE_SMOOTHING, double param_smoothing1_=-1.0,
-        double param_smoothing2_=-1.0)
+        double param_smoothing2_=-1.0) Xapian::LMWeight::LMWeight
 
         Parameters:
         -----------
@@ -6300,6 +6350,7 @@ class CoordWeight(Weight):
         Allow the subclass to perform any initialisation it needs to.
 
         void Xapian::CoordWeight::init(double factor_)
+        Xapian::CoordWeight::init
 
         Parameters:
         -----------
@@ -6319,7 +6370,7 @@ class CoordWeight(Weight):
 
         Construct a CoordWeight.
 
-        Xapian::CoordWeight::CoordWeight() 
+        Xapian::CoordWeight::CoordWeight() Xapian::CoordWeight::CoordWeight
         """
         _xapian.CoordWeight_swiginit(self, _xapian.new_CoordWeight())
     __swig_destroy__ = _xapian.delete_CoordWeight
@@ -6341,7 +6392,7 @@ class Compactor(object):
     FULLER = _xapian.Compactor_FULLER
 
     def __init__(self):
-        """Xapian::Compactor::Compactor() """
+        """Xapian::Compactor::Compactor() Xapian::Compactor::Compactor"""
         if self.__class__ == Compactor:
             _self = None
         else:
@@ -6356,6 +6407,7 @@ class Compactor(object):
         Set the block size to use for tables in the output database.
 
         void Xapian::Compactor::set_block_size(size_t block_size)
+        Xapian::Compactor::set_block_size
 
         Parameters:
         -----------
@@ -6374,6 +6426,7 @@ class Compactor(object):
         Set whether to preserve existing document id values.
 
         void Xapian::Compactor::set_renumber(bool renumber)
+        Xapian::Compactor::set_renumber
 
         Parameters:
         -----------
@@ -6397,6 +6450,7 @@ class Compactor(object):
         Set whether to merge postlists in multiple passes.
 
         void Xapian::Compactor::set_multipass(bool multipass)
+        Xapian::Compactor::set_multipass
 
         Parameters:
         -----------
@@ -6415,7 +6469,7 @@ class Compactor(object):
         Set the compaction level.
 
         void Xapian::Compactor::set_compaction_level(compaction_level
-        compaction)
+        compaction) Xapian::Compactor::set_compaction_level
 
         Parameters:
         -----------
@@ -6440,8 +6494,8 @@ class Compactor(object):
         Set where to write the output.
 
         void Xapian::Compactor::set_destdir(const std::string &destdir)
-
-        Deprecated Use Database::compact(destdir[, compactor]) instead.
+        Xapian::Compactor::set_destdir Deprecated Use
+        Database::compact(destdir[, compactor]) instead.
 
         Parameters:
         -----------
@@ -6461,8 +6515,8 @@ class Compactor(object):
         Add a source database.
 
         void Xapian::Compactor::add_source(const std::string &srcdir)
-
-        Deprecated Use Database::compact(destdir[, compactor]) instead.
+        Xapian::Compactor::add_source Deprecated Use
+        Database::compact(destdir[, compactor]) instead.
 
         Parameters:
         -----------
@@ -6478,8 +6532,7 @@ class Compactor(object):
 
         Perform the actual compaction/merging operation.
 
-        void Xapian::Compactor::compact()
-
+        void Xapian::Compactor::compact() Xapian::Compactor::compact
         Deprecated Use Database::compact(destdir[, compactor]) instead. 
         """
         return _xapian.Compactor_compact(self)
@@ -6492,11 +6545,10 @@ class Compactor(object):
         Update progress.
 
         virtual void Xapian::Compactor::set_status(const std::string &table,
-        const std::string &status)
-
-        Subclass this method if you want to get progress updates during
-        compaction. This is called for each table first with empty status, And
-        then one or more times with non-empty status.
+        const std::string &status) Xapian::Compactor::set_status Subclass this
+        method if you want to get progress updates during compaction. This is
+        called for each table first with empty status, And then one or more
+        times with non-empty status.
 
         The default implementation does nothing.
 
@@ -6519,10 +6571,9 @@ class Compactor(object):
         virtual std::string
         Xapian::Compactor::resolve_duplicate_metadata(const std::string &key,
         size_t num_tags, const std::string tags[])
-
-        When merging, if the same user metadata key is set in more than one
-        input, then this method is called to allow this to be resolving in an
-        appropriate way.
+        Xapian::Compactor::resolve_duplicate_metadata When merging, if the
+        same user metadata key is set in more than one input, then this method
+        is called to allow this to be resolving in an appropriate way.
 
         The default implementation just returns tags[0].
 
@@ -6578,7 +6629,8 @@ class PostingSource(object):
 
         Allow subclasses to be instantiated.
 
-        Xapian::PostingSource::PostingSource() 
+        Xapian::PostingSource::PostingSource()
+        Xapian::PostingSource::PostingSource
         """
         if self.__class__ == PostingSource:
             _self = None
@@ -6594,10 +6646,9 @@ class PostingSource(object):
         A lower bound on the number of documents this object can return.
 
         virtual Xapian::doccount Xapian::PostingSource::get_termfreq_min()
-        const =0
+        const =0 Xapian::PostingSource::get_termfreq_min  Xapian will always
+        call init() on a PostingSource before calling this for the first time.
 
-        Xapian will always call init() on a PostingSource before calling this
-        for the first time. 
         """
         return _xapian.PostingSource_get_termfreq_min(self)
 
@@ -6609,9 +6660,8 @@ class PostingSource(object):
         An estimate of the number of documents this object can return.
 
         virtual Xapian::doccount Xapian::PostingSource::get_termfreq_est()
-        const =0
-
-        It must always be true that:
+        const =0 Xapian::PostingSource::get_termfreq_est It must always be
+        true that:
 
         get_termfreq_min() <= get_termfreq_est() <= get_termfreq_max()
 
@@ -6628,10 +6678,9 @@ class PostingSource(object):
         An upper bound on the number of documents this object can return.
 
         virtual Xapian::doccount Xapian::PostingSource::get_termfreq_max()
-        const =0
+        const =0 Xapian::PostingSource::get_termfreq_max  Xapian will always
+        call init() on a PostingSource before calling this for the first time.
 
-        Xapian will always call init() on a PostingSource before calling this
-        for the first time. 
         """
         return _xapian.PostingSource_get_termfreq_max(self)
 
@@ -6643,10 +6692,9 @@ class PostingSource(object):
         Specify an upper bound on what get_weight() will return from now on.
 
         void Xapian::PostingSource::set_maxweight(double max_weight)
-
-        This upper bound is used by the matcher to perform various
-        optimisations, so if you can return a good bound, then matches will
-        generally run faster.
+        Xapian::PostingSource::set_maxweight This upper bound is used by the
+        matcher to perform various optimisations, so if you can return a good
+        bound, then matches will generally run faster.
 
         This method should be called after calling init(), and may be called
         during iteration if the upper bound drops. It is probably only useful
@@ -6678,7 +6726,8 @@ class PostingSource(object):
 
         Return the currently set upper bound on what get_weight() can return.
 
-        double Xapian::PostingSource::get_maxweight() const 
+        double Xapian::PostingSource::get_maxweight() const
+        Xapian::PostingSource::get_maxweight
         """
         return _xapian.PostingSource_get_maxweight(self)
 
@@ -6690,9 +6739,9 @@ class PostingSource(object):
         Return the weight contribution for the current document.
 
         virtual double Xapian::PostingSource::get_weight() const
-
-        This default implementation always returns 0, for convenience when
-        implementing "weight-less" PostingSource subclasses.
+        Xapian::PostingSource::get_weight This default implementation always
+        returns 0, for convenience when implementing "weight-less"
+        PostingSource subclasses.
 
         This method may assume that it will only be called when there is a
         "current document". In detail: Xapian will always call init() on a
@@ -6712,9 +6761,9 @@ class PostingSource(object):
         Return the current docid.
 
         virtual Xapian::docid Xapian::PostingSource::get_docid() const =0
-
-        This method may assume that it will only be called when there is a
-        "current document". See  get_weight() for details.
+        Xapian::PostingSource::get_docid This method may assume that it will
+        only be called when there is a "current document". See  get_weight()
+        for details.
 
         Note: in the case of a multi-database search, the returned docid
         should be in the single subdatabase relevant to this posting source.
@@ -6730,10 +6779,9 @@ class PostingSource(object):
         Advance the current position to the next matching document.
 
         virtual void Xapian::PostingSource::next(double min_wt)=0
-
-        The PostingSource starts before the first entry in the list, so
-        next(), skip_to() or check() must be called before any methods which
-        need the context of the current position.
+        Xapian::PostingSource::next The PostingSource starts before the first
+        entry in the list, so next(), skip_to() or check() must be called
+        before any methods which need the context of the current position.
 
         Xapian will always call init() on a PostingSource before calling this
         for the first time.
@@ -6754,11 +6802,9 @@ class PostingSource(object):
         Advance to the specified docid.
 
         virtual void Xapian::PostingSource::skip_to(Xapian::docid did, double
-        min_wt)
-
-        If the specified docid isn't in the list, position ourselves on the
-        first document after it (or at_end() if no greater docids are
-        present).
+        min_wt) Xapian::PostingSource::skip_to If the specified docid isn't in
+        the list, position ourselves on the first document after it (or
+        at_end() if no greater docids are present).
 
         If the current position is already the specified docid, this method
         will leave the position unmodified.
@@ -6796,11 +6842,10 @@ class PostingSource(object):
         Check if the specified docid occurs.
 
         virtual bool Xapian::PostingSource::check(Xapian::docid did, double
-        min_wt)
-
-        The caller is required to ensure that the specified document id did
-        actually exists in the database. If it does, it must move to that
-        document id, and return true. If it does not, it may either:
+        min_wt) Xapian::PostingSource::check The caller is required to ensure
+        that the specified document id did actually exists in the database. If
+        it does, it must move to that document id, and return true. If it does
+        not, it may either:
 
         return true, having moved to a definite position (including
         "at_end"), which must be the same position as skip_to() would have
@@ -6846,9 +6891,8 @@ class PostingSource(object):
         list.
 
         virtual bool Xapian::PostingSource::at_end() const =0
-
-        At least one of  next(),  skip_to() or  check() will be called before
-        this method is first called. 
+        Xapian::PostingSource::at_end At least one of  next(),  skip_to() or
+        check() will be called before this method is first called. 
         """
         return _xapian.PostingSource_at_end(self)
 
@@ -6860,9 +6904,9 @@ class PostingSource(object):
         Name of the posting source class.
 
         virtual std::string Xapian::PostingSource::name() const
-
-        This is used when serialising and unserialising posting sources; for
-        example, for performing remote searches.
+        Xapian::PostingSource::name This is used when serialising and
+        unserialising posting sources; for example, for performing remote
+        searches.
 
         If the subclass is in a C++ namespace, the namespace should be
         included in the name, using "::" as a separator. For example, for a
@@ -6886,9 +6930,8 @@ class PostingSource(object):
         Set this PostingSource to the start of the list of postings.
 
         virtual void Xapian::PostingSource::init(const Database &db)=0
-
-        This is called automatically by the matcher prior to each query being
-        processed.
+        Xapian::PostingSource::init This is called automatically by the
+        matcher prior to each query being processed.
 
         If a PostingSource is used for multiple searches,  init() will
         therefore be called multiple times, and must handle this by using the
@@ -6917,11 +6960,11 @@ class PostingSource(object):
         Return a string describing this object.
 
         virtual std::string Xapian::PostingSource::get_description() const
-
-        This default implementation returns a generic answer. This default it
-        provided to avoid forcing those deriving their own PostingSource
-        subclass from having to implement this (they may not care what
-        get_description() gives for their subclass). 
+        Xapian::PostingSource::get_description This default implementation
+        returns a generic answer. This default it provided to avoid forcing
+        those deriving their own PostingSource subclass from having to
+        implement this (they may not care what get_description() gives for
+        their subclass). 
         """
         return _xapian.PostingSource___str__(self)
 
@@ -6932,12 +6975,11 @@ class PostingSource(object):
 
         Start reference counting this object.
 
-        const PostingSource* Xapian::PostingSource::release() const
-
-        You can hand ownership of a dynamically allocated PostingSource object
-        to Xapian by calling release() and then passing the object to a Xapian
-        method. Xapian will arrange to delete the object once it is no longer
-        required. 
+        const PostingSource * Xapian::PostingSource::release() const
+        Xapian::PostingSource::release You can hand ownership of a dynamically
+        allocated PostingSource object to Xapian by calling release() and then
+        passing the object to a Xapian method. Xapian will arrange to delete
+        the object once it is no longer required. 
         """
         return _xapian.PostingSource_release(self)
 
@@ -6989,6 +7031,7 @@ class ValuePostingSource(PostingSource):
         Construct a ValuePostingSource.
 
         Xapian::ValuePostingSource::ValuePostingSource(Xapian::valueno slot_)
+        Xapian::ValuePostingSource::ValuePostingSource
 
         Parameters:
         -----------
@@ -7008,9 +7051,8 @@ class ValuePostingSource(PostingSource):
         A lower bound on the number of documents this object can return.
 
         Xapian::doccount Xapian::ValuePostingSource::get_termfreq_min() const
-
-        Xapian will always call init() on a PostingSource before calling this
-        for the first time. 
+        Xapian::ValuePostingSource::get_termfreq_min  Xapian will always call
+        init() on a PostingSource before calling this for the first time. 
         """
         return _xapian.ValuePostingSource_get_termfreq_min(self)
 
@@ -7022,8 +7064,8 @@ class ValuePostingSource(PostingSource):
         An estimate of the number of documents this object can return.
 
         Xapian::doccount Xapian::ValuePostingSource::get_termfreq_est() const
-
-        It must always be true that:
+        Xapian::ValuePostingSource::get_termfreq_est It must always be true
+        that:
 
         get_termfreq_min() <= get_termfreq_est() <= get_termfreq_max()
 
@@ -7040,9 +7082,8 @@ class ValuePostingSource(PostingSource):
         An upper bound on the number of documents this object can return.
 
         Xapian::doccount Xapian::ValuePostingSource::get_termfreq_max() const
-
-        Xapian will always call init() on a PostingSource before calling this
-        for the first time. 
+        Xapian::ValuePostingSource::get_termfreq_max  Xapian will always call
+        init() on a PostingSource before calling this for the first time. 
         """
         return _xapian.ValuePostingSource_get_termfreq_max(self)
 
@@ -7054,10 +7095,10 @@ class ValuePostingSource(PostingSource):
         Advance the current position to the next matching document.
 
         void Xapian::ValuePostingSource::next(double min_wt)
-
-        The PostingSource starts before the first entry in the list, so
-        next(), skip_to() or check() must be called before any methods which
-        need the context of the current position.
+        Xapian::ValuePostingSource::next The PostingSource starts before the
+        first entry in the list, so next(), skip_to() or check() must be
+        called before any methods which need the context of the current
+        position.
 
         Xapian will always call init() on a PostingSource before calling this
         for the first time.
@@ -7078,11 +7119,9 @@ class ValuePostingSource(PostingSource):
         Advance to the specified docid.
 
         void Xapian::ValuePostingSource::skip_to(Xapian::docid min_docid,
-        double min_wt)
-
-        If the specified docid isn't in the list, position ourselves on the
-        first document after it (or at_end() if no greater docids are
-        present).
+        double min_wt) Xapian::ValuePostingSource::skip_to If the specified
+        docid isn't in the list, position ourselves on the first document
+        after it (or at_end() if no greater docids are present).
 
         If the current position is already the specified docid, this method
         will leave the position unmodified.
@@ -7120,11 +7159,10 @@ class ValuePostingSource(PostingSource):
         Check if the specified docid occurs.
 
         bool Xapian::ValuePostingSource::check(Xapian::docid min_docid, double
-        min_wt)
-
-        The caller is required to ensure that the specified document id did
-        actually exists in the database. If it does, it must move to that
-        document id, and return true. If it does not, it may either:
+        min_wt) Xapian::ValuePostingSource::check The caller is required to
+        ensure that the specified document id did actually exists in the
+        database. If it does, it must move to that document id, and return
+        true. If it does not, it may either:
 
         return true, having moved to a definite position (including
         "at_end"), which must be the same position as skip_to() would have
@@ -7170,9 +7208,8 @@ class ValuePostingSource(PostingSource):
         list.
 
         bool Xapian::ValuePostingSource::at_end() const
-
-        At least one of  next(),  skip_to() or  check() will be called before
-        this method is first called. 
+        Xapian::ValuePostingSource::at_end At least one of  next(),  skip_to()
+        or  check() will be called before this method is first called. 
         """
         return _xapian.ValuePostingSource_at_end(self)
 
@@ -7184,9 +7221,9 @@ class ValuePostingSource(PostingSource):
         Return the current docid.
 
         Xapian::docid Xapian::ValuePostingSource::get_docid() const
-
-        This method may assume that it will only be called when there is a
-        "current document". See  get_weight() for details.
+        Xapian::ValuePostingSource::get_docid This method may assume that it
+        will only be called when there is a "current document". See
+        get_weight() for details.
 
         Note: in the case of a multi-database search, the returned docid
         should be in the single subdatabase relevant to this posting source.
@@ -7202,9 +7239,8 @@ class ValuePostingSource(PostingSource):
         Set this PostingSource to the start of the list of postings.
 
         void Xapian::ValuePostingSource::init(const Database &db_)
-
-        This is called automatically by the matcher prior to each query being
-        processed.
+        Xapian::ValuePostingSource::init This is called automatically by the
+        matcher prior to each query being processed.
 
         If a PostingSource is used for multiple searches,  init() will
         therefore be called multiple times, and must handle this by using the
@@ -7233,8 +7269,7 @@ class ValuePostingSource(PostingSource):
         The database we're reading values from.
 
         Xapian::Database Xapian::ValuePostingSource::get_database() const
-
-        Added in 1.2.23 and 1.3.5. 
+        Xapian::ValuePostingSource::get_database Added in 1.2.23 and 1.3.5. 
         """
         return _xapian.ValuePostingSource_get_database(self)
 
@@ -7246,8 +7281,7 @@ class ValuePostingSource(PostingSource):
         The slot we're reading values from.
 
         Xapian::valueno Xapian::ValuePostingSource::get_slot() const
-
-        Added in 1.2.23 and 1.3.5. 
+        Xapian::ValuePostingSource::get_slot Added in 1.2.23 and 1.3.5. 
         """
         return _xapian.ValuePostingSource_get_slot(self)
 
@@ -7259,8 +7293,7 @@ class ValuePostingSource(PostingSource):
         Read current value.
 
         std::string Xapian::ValuePostingSource::get_value() const
-
-        Added in 1.2.23 and 1.3.5. 
+        Xapian::ValuePostingSource::get_value Added in 1.2.23 and 1.3.5. 
         """
         return _xapian.ValuePostingSource_get_value(self)
 
@@ -7272,8 +7305,8 @@ class ValuePostingSource(PostingSource):
         End the iteration.
 
         void Xapian::ValuePostingSource::done()
-
-        Calls to at_end() will return true after calling this method.
+        Xapian::ValuePostingSource::done Calls to at_end() will return true
+        after calling this method.
 
         Added in 1.2.23 and 1.3.5. 
         """
@@ -7287,8 +7320,7 @@ class ValuePostingSource(PostingSource):
         Flag indicating if we've started (true if we have).
 
         bool Xapian::ValuePostingSource::get_started() const
-
-        Added in 1.2.23 and 1.3.5. 
+        Xapian::ValuePostingSource::get_started Added in 1.2.23 and 1.3.5. 
         """
         return _xapian.ValuePostingSource_get_started(self)
 
@@ -7300,10 +7332,9 @@ class ValuePostingSource(PostingSource):
         Set a lower bound on the term frequency.
 
         void Xapian::ValuePostingSource::set_termfreq_min(Xapian::doccount
-        termfreq_min_)
-
-        Subclasses should set this if they are overriding the next(),
-        skip_to() or check() methods to return fewer documents.
+        termfreq_min_) Xapian::ValuePostingSource::set_termfreq_min Subclasses
+        should set this if they are overriding the next(), skip_to() or
+        check() methods to return fewer documents.
 
         Added in 1.2.23 and 1.3.5. 
         """
@@ -7317,10 +7348,9 @@ class ValuePostingSource(PostingSource):
         An estimate of the term frequency.
 
         void Xapian::ValuePostingSource::set_termfreq_est(Xapian::doccount
-        termfreq_est_)
-
-        Subclasses should set this if they are overriding the next(),
-        skip_to() or check() methods.
+        termfreq_est_) Xapian::ValuePostingSource::set_termfreq_est Subclasses
+        should set this if they are overriding the next(), skip_to() or
+        check() methods.
 
         Added in 1.2.23 and 1.3.5. 
         """
@@ -7334,10 +7364,9 @@ class ValuePostingSource(PostingSource):
         An upper bound on the term frequency.
 
         void Xapian::ValuePostingSource::set_termfreq_max(Xapian::doccount
-        termfreq_max_)
-
-        Subclasses should set this if they are overriding the next(),
-        skip_to() or check() methods.
+        termfreq_max_) Xapian::ValuePostingSource::set_termfreq_max Subclasses
+        should set this if they are overriding the next(), skip_to() or
+        check() methods.
 
         Added in 1.2.23 and 1.3.5. 
         """
@@ -7402,7 +7431,7 @@ class ValueWeightPostingSource(ValuePostingSource):
         Construct a ValueWeightPostingSource.
 
         Xapian::ValueWeightPostingSource::ValueWeightPostingSource(Xapian::valueno
-        slot_)
+        slot_) Xapian::ValueWeightPostingSource::ValueWeightPostingSource
 
         Parameters:
         -----------
@@ -7422,9 +7451,9 @@ class ValueWeightPostingSource(ValuePostingSource):
         Return the weight contribution for the current document.
 
         double Xapian::ValueWeightPostingSource::get_weight() const
-
-        This default implementation always returns 0, for convenience when
-        implementing "weight-less" PostingSource subclasses.
+        Xapian::ValueWeightPostingSource::get_weight This default
+        implementation always returns 0, for convenience when implementing
+        "weight-less" PostingSource subclasses.
 
         This method may assume that it will only be called when there is a
         "current document". In detail: Xapian will always call init() on a
@@ -7444,9 +7473,9 @@ class ValueWeightPostingSource(ValuePostingSource):
         Name of the posting source class.
 
         std::string Xapian::ValueWeightPostingSource::name() const
-
-        This is used when serialising and unserialising posting sources; for
-        example, for performing remote searches.
+        Xapian::ValueWeightPostingSource::name This is used when serialising
+        and unserialising posting sources; for example, for performing remote
+        searches.
 
         If the subclass is in a C++ namespace, the namespace should be
         included in the name, using "::" as a separator. For example, for a
@@ -7470,9 +7499,8 @@ class ValueWeightPostingSource(ValuePostingSource):
         Set this PostingSource to the start of the list of postings.
 
         void Xapian::ValueWeightPostingSource::init(const Database &db_)
-
-        This is called automatically by the matcher prior to each query being
-        processed.
+        Xapian::ValueWeightPostingSource::init This is called automatically by
+        the matcher prior to each query being processed.
 
         If a PostingSource is used for multiple searches,  init() will
         therefore be called multiple times, and must handle this by using the
@@ -7501,11 +7529,11 @@ class ValueWeightPostingSource(ValuePostingSource):
         Return a string describing this object.
 
         std::string Xapian::ValueWeightPostingSource::get_description() const
-
-        This default implementation returns a generic answer. This default it
-        provided to avoid forcing those deriving their own PostingSource
-        subclass from having to implement this (they may not care what
-        get_description() gives for their subclass). 
+        Xapian::ValueWeightPostingSource::get_description This default
+        implementation returns a generic answer. This default it provided to
+        avoid forcing those deriving their own PostingSource subclass from
+        having to implement this (they may not care what get_description()
+        gives for their subclass). 
         """
         return _xapian.ValueWeightPostingSource___str__(self)
 
@@ -7557,6 +7585,8 @@ class DecreasingValueWeightPostingSource(ValueWeightPostingSource):
 
         Xapian::DecreasingValueWeightPostingSource::DecreasingValueWeightPostingSource(Xapian::valueno
         slot_, Xapian::docid range_start_=0, Xapian::docid range_end_=0)
+        Xapian::DecreasingValueWeightPostingSource::DecreasingValueWeightPosti
+        ngSource
 
         Parameters:
         -----------
@@ -7598,7 +7628,7 @@ class ValueMapPostingSource(ValuePostingSource):
         Construct a ValueMapPostingSource.
 
         Xapian::ValueMapPostingSource::ValueMapPostingSource(Xapian::valueno
-        slot_)
+        slot_) Xapian::ValueMapPostingSource::ValueMapPostingSource
 
         Parameters:
         -----------
@@ -7614,7 +7644,7 @@ class ValueMapPostingSource(ValuePostingSource):
         Add a mapping.
 
         void Xapian::ValueMapPostingSource::add_mapping(const std::string
-        &key, double wt)
+        &key, double wt) Xapian::ValueMapPostingSource::add_mapping
 
         Parameters:
         -----------
@@ -7632,7 +7662,8 @@ class ValueMapPostingSource(ValuePostingSource):
 
         Clear all mappings.
 
-        void Xapian::ValueMapPostingSource::clear_mappings() 
+        void Xapian::ValueMapPostingSource::clear_mappings()
+        Xapian::ValueMapPostingSource::clear_mappings
         """
         return _xapian.ValueMapPostingSource_clear_mappings(self)
 
@@ -7644,6 +7675,7 @@ class ValueMapPostingSource(ValuePostingSource):
         Set a default weight for document values not in the map.
 
         void Xapian::ValueMapPostingSource::set_default_weight(double wt)
+        Xapian::ValueMapPostingSource::set_default_weight
 
         Parameters:
         -----------
@@ -7679,6 +7711,7 @@ class FixedWeightPostingSource(PostingSource):
         Construct a FixedWeightPostingSource.
 
         Xapian::FixedWeightPostingSource::FixedWeightPostingSource(double wt)
+        Xapian::FixedWeightPostingSource::FixedWeightPostingSource
 
         Parameters:
         -----------
@@ -7710,7 +7743,7 @@ class MatchSpy(object):
 
         Default constructor, needed by subclass constructors.
 
-        Xapian::MatchSpy::MatchSpy() 
+        Xapian::MatchSpy::MatchSpy() Xapian::MatchSpy::MatchSpy
         """
         if self.__class__ == MatchSpy:
             _self = None
@@ -7726,10 +7759,9 @@ class MatchSpy(object):
         Return the name of this match spy.
 
         virtual std::string Xapian::MatchSpy::name() const
-
-        This name is used by the remote backend. It is passed with the
-        serialised parameters to the remote server so that it knows which
-        class to create.
+        Xapian::MatchSpy::name This name is used by the remote backend. It is
+        passed with the serialised parameters to the remote server so that it
+        knows which class to create.
 
         Return the full namespace-qualified name of your class here - if your
         class is called MyApp::FooMatchSpy, return "MyApp::FooMatchSpy" from
@@ -7749,11 +7781,10 @@ class MatchSpy(object):
         Unserialise some results, and merge them into this matchspy.
 
         virtual void Xapian::MatchSpy::merge_results(const std::string
-        &serialised)
-
-        The order in which results are merged should not be significant, since
-        this order is not specified (and will vary depending on the speed of
-        the search in each sub-database).
+        &serialised) Xapian::MatchSpy::merge_results The order in which
+        results are merged should not be significant, since this order is not
+        specified (and will vary depending on the speed of the search in each
+        sub-database).
 
         If you don't want to support the remote backend in your match spy, you
         can use the default implementation which simply throws
@@ -7774,11 +7805,10 @@ class MatchSpy(object):
         Return a string describing this object.
 
         virtual std::string Xapian::MatchSpy::get_description() const
-
-        This default implementation returns a generic answer, to avoid forcing
-        those deriving their own MatchSpy subclasses from having to implement
-        this (they may not care what get_description() gives for their
-        subclass). 
+        Xapian::MatchSpy::get_description This default implementation returns
+        a generic answer, to avoid forcing those deriving their own MatchSpy
+        subclasses from having to implement this (they may not care what
+        get_description() gives for their subclass). 
         """
         return _xapian.MatchSpy___str__(self)
 
@@ -7789,12 +7819,11 @@ class MatchSpy(object):
 
         Start reference counting this object.
 
-        const MatchSpy* Xapian::MatchSpy::release() const
-
-        You can hand ownership of a dynamically allocated MatchSpy object to
-        Xapian by calling release() and then passing the object to a Xapian
-        method. Xapian will arrange to delete the object once it is no longer
-        required. 
+        const MatchSpy * Xapian::MatchSpy::release() const
+        Xapian::MatchSpy::release You can hand ownership of a dynamically
+        allocated MatchSpy object to Xapian by calling release() and then
+        passing the object to a Xapian method. Xapian will arrange to delete
+        the object once it is no longer required. 
         """
         return _xapian.MatchSpy_release(self)
 
@@ -7828,7 +7857,7 @@ class ValueCountMatchSpy(MatchSpy):
         Construct a MatchSpy which counts the values in a particular slot.
 
         Xapian::ValueCountMatchSpy::ValueCountMatchSpy(Xapian::valueno slot_)
-
+        Xapian::ValueCountMatchSpy::ValueCountMatchSpy
         """
         _xapian.ValueCountMatchSpy_swiginit(self, _xapian.new_ValueCountMatchSpy(*args))
 
@@ -7838,7 +7867,8 @@ class ValueCountMatchSpy(MatchSpy):
 
         Return the total number of documents tallied.
 
-        size_t Xapian::ValueCountMatchSpy::get_total() const 
+        size_t Xapian::ValueCountMatchSpy::get_total() const
+        Xapian::ValueCountMatchSpy::get_total
         """
         return _xapian.ValueCountMatchSpy_get_total(self)
 
@@ -7850,8 +7880,8 @@ class ValueCountMatchSpy(MatchSpy):
         Get an iterator over the values seen in the slot.
 
         TermIterator Xapian::ValueCountMatchSpy::values_begin() const
-
-        Items will be returned in ascending alphabetical order.
+        Xapian::ValueCountMatchSpy::values_begin Items will be returned in
+        ascending alphabetical order.
 
         During the iteration, the frequency of the current value can be
         obtained with the get_termfreq() method on the iterator. 
@@ -7865,7 +7895,8 @@ class ValueCountMatchSpy(MatchSpy):
 
         End iterator corresponding to values_begin()
 
-        TermIterator Xapian::ValueCountMatchSpy::values_end() const 
+        TermIterator Xapian::ValueCountMatchSpy::values_end() const
+        Xapian::ValueCountMatchSpy::values_end
         """
         return _xapian.ValueCountMatchSpy_values_end(self)
 
@@ -7877,10 +7908,9 @@ class ValueCountMatchSpy(MatchSpy):
         Get an iterator over the most frequent values seen in the slot.
 
         TermIterator Xapian::ValueCountMatchSpy::top_values_begin(size_t
-        maxvalues) const
-
-        Items will be returned in descending order of frequency. Values with
-        the same frequency will be returned in ascending alphabetical order.
+        maxvalues) const Xapian::ValueCountMatchSpy::top_values_begin Items
+        will be returned in descending order of frequency. Values with the
+        same frequency will be returned in ascending alphabetical order.
 
         During the iteration, the frequency of the current value can be
         obtained with the get_termfreq() method on the iterator.
@@ -7900,7 +7930,7 @@ class ValueCountMatchSpy(MatchSpy):
         End iterator corresponding to top_values_begin()
 
         TermIterator Xapian::ValueCountMatchSpy::top_values_end(size_t) const
-
+        Xapian::ValueCountMatchSpy::top_values_end
         """
         return _xapian.ValueCountMatchSpy_top_values_end(self, arg2)
 
@@ -7948,10 +7978,9 @@ class LatLongCoord(object):
         Construct a coordinate.
 
         Xapian::LatLongCoord::LatLongCoord(double latitude_, double
-        longitude_)
-
-        If the supplied longitude is out of the standard range, it will be
-        normalised to the range 0 <= longitude < 360.
+        longitude_) Xapian::LatLongCoord::LatLongCoord If the supplied
+        longitude is out of the standard range, it will be normalised to the
+        range 0 <= longitude < 360.
 
         If you want to avoid the checks (for example, you know that your
         values are already in range), you can use the alternate constructor to
@@ -7972,9 +8001,8 @@ class LatLongCoord(object):
         Unserialise a buffer and set this object to its coordinate.
 
         void Xapian::LatLongCoord::unserialise(const char **ptr, const char
-        *end)
-
-        The buffer may contain further data after that for the coordinate.
+        *end) Xapian::LatLongCoord::unserialise The buffer may contain further
+        data after that for the coordinate.
 
         Parameters:
         -----------
@@ -7999,7 +8027,8 @@ class LatLongCoord(object):
 
         Return a serialised representation of the coordinate.
 
-        std::string Xapian::LatLongCoord::serialise() const 
+        std::string Xapian::LatLongCoord::serialise() const
+        Xapian::LatLongCoord::serialise
         """
         return _xapian.LatLongCoord_serialise(self)
 
@@ -8010,7 +8039,8 @@ class LatLongCoord(object):
 
         Return a string describing this object.
 
-        std::string Xapian::LatLongCoord::get_description() const 
+        std::string Xapian::LatLongCoord::get_description() const
+        Xapian::LatLongCoord::get_description
         """
         return _xapian.LatLongCoord___str__(self)
 
@@ -8040,7 +8070,8 @@ class LatLongCoordsIterator(object):
 
         Default constructor. Produces an uninitialised iterator.
 
-        Xapian::LatLongCoordsIterator::LatLongCoordsIterator() 
+        Xapian::LatLongCoordsIterator::LatLongCoordsIterator()
+        Xapian::LatLongCoordsIterator::LatLongCoordsIterator
         """
         _xapian.LatLongCoordsIterator_swiginit(self, _xapian.new_LatLongCoordsIterator())
     __swig_destroy__ = _xapian.delete_LatLongCoordsIterator
@@ -8070,7 +8101,8 @@ class LatLongCoords(object):
 
         Get a begin iterator for the coordinates.
 
-        LatLongCoordsIterator Xapian::LatLongCoords::begin() const 
+        LatLongCoordsIterator Xapian::LatLongCoords::begin() const
+        Xapian::LatLongCoords::begin
         """
         return _xapian.LatLongCoords_begin(self)
 
@@ -8081,7 +8113,8 @@ class LatLongCoords(object):
 
         Get an end iterator for the coordinates.
 
-        LatLongCoordsIterator Xapian::LatLongCoords::end() const 
+        LatLongCoordsIterator Xapian::LatLongCoords::end() const
+        Xapian::LatLongCoords::end
         """
         return _xapian.LatLongCoords_end(self)
 
@@ -8092,7 +8125,8 @@ class LatLongCoords(object):
 
         Get the number of coordinates in the container.
 
-        size_t Xapian::LatLongCoords::size() const 
+        size_t Xapian::LatLongCoords::size() const
+        Xapian::LatLongCoords::size
         """
         return _xapian.LatLongCoords_size(self)
 
@@ -8103,7 +8137,8 @@ class LatLongCoords(object):
 
         Return true if and only if there are no coordinates in the container.
 
-        bool Xapian::LatLongCoords::empty() const 
+        bool Xapian::LatLongCoords::empty() const
+        Xapian::LatLongCoords::empty
         """
         return _xapian.LatLongCoords_empty(self)
 
@@ -8114,7 +8149,8 @@ class LatLongCoords(object):
 
         Append a coordinate to the end of the sequence.
 
-        void Xapian::LatLongCoords::append(const LatLongCoord &coord) 
+        void Xapian::LatLongCoords::append(const LatLongCoord &coord)
+        Xapian::LatLongCoords::append
         """
         return _xapian.LatLongCoords_append(self, coord)
 
@@ -8125,7 +8161,8 @@ class LatLongCoords(object):
 
         Construct a container holding one coordinate.
 
-        Xapian::LatLongCoords::LatLongCoords(const LatLongCoord &coord) 
+        Xapian::LatLongCoords::LatLongCoords(const LatLongCoord &coord)
+        Xapian::LatLongCoords::LatLongCoords
         """
         _xapian.LatLongCoords_swiginit(self, _xapian.new_LatLongCoords(*args))
 
@@ -8136,6 +8173,7 @@ class LatLongCoords(object):
         Unserialise a string and set this object to the coordinates in it.
 
         void Xapian::LatLongCoords::unserialise(const std::string &serialised)
+        Xapian::LatLongCoords::unserialise
 
         Parameters:
         -----------
@@ -8158,7 +8196,8 @@ class LatLongCoords(object):
 
         Return a serialised form of the coordinate list.
 
-        std::string Xapian::LatLongCoords::serialise() const 
+        std::string Xapian::LatLongCoords::serialise() const
+        Xapian::LatLongCoords::serialise
         """
         return _xapian.LatLongCoords_serialise(self)
 
@@ -8169,7 +8208,8 @@ class LatLongCoords(object):
 
         Return a string describing this object.
 
-        std::string Xapian::LatLongCoords::get_description() const 
+        std::string Xapian::LatLongCoords::get_description() const
+        Xapian::LatLongCoords::get_description
         """
         return _xapian.LatLongCoords___str__(self)
 
@@ -8210,7 +8250,8 @@ class LatLongMetric(object):
         Return the distance between two coordinates, in metres.
 
         virtual double Xapian::LatLongMetric::pointwise_distance(const
-        LatLongCoord &a, const LatLongCoord &b) const =0 
+        LatLongCoord &a, const LatLongCoord &b) const =0
+        Xapian::LatLongMetric::pointwise_distance
         """
         return _xapian.LatLongMetric_pointwise_distance(self, a, b)
 
@@ -8222,9 +8263,8 @@ class LatLongMetric(object):
         Return the full name of the metric.
 
         virtual std::string Xapian::LatLongMetric::name() const =0
-
-        This is used when serialising and unserialising metrics; for example,
-        for performing remote searches.
+        Xapian::LatLongMetric::name This is used when serialising and
+        unserialising metrics; for example, for performing remote searches.
 
         If the subclass is in a C++ namespace, the namespace should be
         included in the name, using "::" as a separator. For example, for a
@@ -8278,9 +8318,9 @@ class GreatCircleMetric(LatLongMetric):
         Construct a GreatCircleMetric using a specified radius.
 
         Xapian::GreatCircleMetric::GreatCircleMetric(double radius_)
-
-        This is useful for data sets in which the points are not on Earth (eg,
-        a database of features on Mars).
+        Xapian::GreatCircleMetric::GreatCircleMetric This is useful for data
+        sets in which the points are not on Earth (eg, a database of features
+        on Mars).
 
         Parameters:
         -----------
@@ -8333,6 +8373,7 @@ class LatLongDistancePostingSource(ValuePostingSource):
         Xapian::LatLongDistancePostingSource::LatLongDistancePostingSource(Xapian::valueno
         slot_, const LatLongCoords &centre_, double max_range_=0.0, double
         k1_=1000.0, double k2_=1.0)
+        Xapian::LatLongDistancePostingSource::LatLongDistancePostingSource
 
         Parameters:
         -----------
@@ -8385,6 +8426,7 @@ class LatLongDistanceKeyMaker(KeyMaker):
 
         Xapian::LatLongDistanceKeyMaker::LatLongDistanceKeyMaker(Xapian::valueno
         slot_, const LatLongCoord &centre_)
+        Xapian::LatLongDistanceKeyMaker::LatLongDistanceKeyMaker
 
         Parameters:
         -----------
@@ -8437,6 +8479,7 @@ class Database(object):
         this object.
 
         void Xapian::Database::add_database(const Database &database)
+        Xapian::Database::add_database
 
         Parameters:
         -----------
@@ -8452,7 +8495,7 @@ class Database(object):
 
         Return number of shards in this Database object.
 
-        size_t Xapian::Database::size() const 
+        size_t Xapian::Database::size() const Xapian::Database::size
         """
         return _xapian.Database_size(self)
 
@@ -8464,8 +8507,8 @@ class Database(object):
         Copying is allowed.
 
         Xapian::Database::Database(const Database &other)
-
-        The internals are reference counted, so copying is cheap.
+        Xapian::Database::Database The internals are reference counted, so
+        copying is cheap.
 
         Parameters:
         -----------
@@ -8481,11 +8524,10 @@ class Database(object):
 
         Re-open the database.
 
-        bool Xapian::Database::reopen()
-
-        This re-opens the database(s) to the latest available version(s). It
-        can be used either to make sure the latest results are returned, or to
-        recover from a Xapian::DatabaseModifiedError.
+        bool Xapian::Database::reopen() Xapian::Database::reopen This re-opens
+        the database(s) to the latest available version(s). It can be used
+        either to make sure the latest results are returned, or to recover
+        from a Xapian::DatabaseModifiedError.
 
         Calling reopen() on a database which has been closed (with  close())
         will always raise a Xapian::DatabaseError.
@@ -8504,9 +8546,8 @@ class Database(object):
 
         Close the database.
 
-        virtual void Xapian::Database::close()
-
-        This closes the database and closes all its file handles.
+        virtual void Xapian::Database::close() Xapian::Database::close This
+        closes the database and closes all its file handles.
 
         For a WritableDatabase, if a transaction is active it will be aborted,
         while if no transaction is active commit() will be implicitly called.
@@ -8546,7 +8587,8 @@ class Database(object):
 
         Return a string describing this object.
 
-        virtual std::string Xapian::Database::get_description() const 
+        virtual std::string Xapian::Database::get_description() const
+        Xapian::Database::get_description
         """
         return _xapian.Database___str__(self)
 
@@ -8558,7 +8600,7 @@ class Database(object):
         An iterator pointing to the start of the postlist for a given term.
 
         PostingIterator Xapian::Database::postlist_begin(const std::string
-        &tname) const
+        &tname) const Xapian::Database::postlist_begin
 
         Parameters:
         -----------
@@ -8578,7 +8620,7 @@ class Database(object):
         Corresponding end iterator to postlist_begin().
 
         PostingIterator Xapian::Database::postlist_end(const std::string &)
-        const 
+        const Xapian::Database::postlist_end
         """
         return _xapian.Database__postlist_end(self, arg2)
 
@@ -8591,6 +8633,7 @@ class Database(object):
         document.
 
         TermIterator Xapian::Database::termlist_begin(Xapian::docid did) const
+        Xapian::Database::termlist_begin
 
         Parameters:
         -----------
@@ -8606,7 +8649,8 @@ class Database(object):
 
         Corresponding end iterator to termlist_begin().
 
-        TermIterator Xapian::Database::termlist_end(Xapian::docid) const 
+        TermIterator Xapian::Database::termlist_end(Xapian::docid) const
+        Xapian::Database::termlist_end
         """
         return _xapian.Database__termlist_end(self, arg2)
 
@@ -8617,7 +8661,8 @@ class Database(object):
 
         Does this database have any positional information?
 
-        bool Xapian::Database::has_positions() const 
+        bool Xapian::Database::has_positions() const
+        Xapian::Database::has_positions
         """
         return _xapian.Database_has_positions(self)
 
@@ -8630,7 +8675,8 @@ class Database(object):
         term in a given document.
 
         PositionIterator Xapian::Database::positionlist_begin(Xapian::docid
-        did, const std::string &tname) const 
+        did, const std::string &tname) const
+        Xapian::Database::positionlist_begin
         """
         return _xapian.Database__positionlist_begin(self, did, tname)
 
@@ -8642,7 +8688,7 @@ class Database(object):
         Corresponding end iterator to positionlist_begin().
 
         PositionIterator Xapian::Database::positionlist_end(Xapian::docid,
-        const std::string &) const 
+        const std::string &) const Xapian::Database::positionlist_end
         """
         return _xapian.Database__positionlist_end(self, arg2, arg3)
 
@@ -8654,7 +8700,7 @@ class Database(object):
         An iterator which runs across all terms with a given prefix.
 
         TermIterator Xapian::Database::allterms_begin(const std::string
-        &prefix=std::string()) const
+        &prefix=std::string()) const Xapian::Database::allterms_begin
 
         Parameters:
         -----------
@@ -8672,7 +8718,7 @@ class Database(object):
         Corresponding end iterator to allterms_begin(prefix).
 
         TermIterator Xapian::Database::allterms_end(const std::string
-        &=std::string()) const 
+        &=std::string()) const Xapian::Database::allterms_end
         """
         return _xapian.Database__allterms_end(self, *args)
 
@@ -8683,7 +8729,8 @@ class Database(object):
 
         Get the number of documents in the database.
 
-        Xapian::doccount Xapian::Database::get_doccount() const 
+        Xapian::doccount Xapian::Database::get_doccount() const
+        Xapian::Database::get_doccount
         """
         return _xapian.Database_get_doccount(self)
 
@@ -8694,7 +8741,8 @@ class Database(object):
 
         Get the highest document id which has been used in the database.
 
-        Xapian::docid Xapian::Database::get_lastdocid() const 
+        Xapian::docid Xapian::Database::get_lastdocid() const
+        Xapian::Database::get_lastdocid
         """
         return _xapian.Database_get_lastdocid(self)
 
@@ -8705,7 +8753,8 @@ class Database(object):
 
         Get the average length of the documents in the database.
 
-        Xapian::doclength Xapian::Database::get_avlength() const 
+        Xapian::doclength Xapian::Database::get_avlength() const
+        Xapian::Database::get_avlength
         """
         return _xapian.Database_get_avlength(self)
 
@@ -8717,8 +8766,8 @@ class Database(object):
         New name for get_avlength().
 
         double Xapian::Database::get_average_length() const
-
-        Added for forward compatibility with the next release series.
+        Xapian::Database::get_average_length Added for forward compatibility
+        with the next release series.
 
         1.4.17. 
         """
@@ -8732,8 +8781,7 @@ class Database(object):
         Get the total length of all the documents in the database.
 
         Xapian::totallength Xapian::Database::get_total_length() const
-
-        Added in Xapian 1.4.5. 
+        Xapian::Database::get_total_length Added in Xapian 1.4.5. 
         """
         return _xapian.Database_get_total_length(self)
 
@@ -8745,7 +8793,7 @@ class Database(object):
         Get the number of documents in the database indexed by a given term.
 
         Xapian::doccount Xapian::Database::get_termfreq(const std::string
-        &tname) const 
+        &tname) const Xapian::Database::get_termfreq
         """
         return _xapian.Database_get_termfreq(self, tname)
 
@@ -8757,6 +8805,7 @@ class Database(object):
         Check if a given term exists in the database.
 
         bool Xapian::Database::term_exists(const std::string &tname) const
+        Xapian::Database::term_exists
 
         Parameters:
         -----------
@@ -8776,11 +8825,10 @@ class Database(object):
         Return the total number of occurrences of the given term.
 
         Xapian::termcount Xapian::Database::get_collection_freq(const
-        std::string &tname) const
-
-        This is the sum of the number of occurrences of the term in each
-        document it indexes: i.e., the sum of the within document frequencies
-        of the term.
+        std::string &tname) const Xapian::Database::get_collection_freq This
+        is the sum of the number of occurrences of the term in each document
+        it indexes: i.e., the sum of the within document frequencies of the
+        term.
 
         Parameters:
         -----------
@@ -8797,10 +8845,8 @@ class Database(object):
         Return the frequency of a given value slot.
 
         Xapian::doccount Xapian::Database::get_value_freq(Xapian::valueno
-        slot) const
-
-        This is the number of documents which have a (non-empty) value stored
-        in the slot.
+        slot) const Xapian::Database::get_value_freq This is the number of
+        documents which have a (non-empty) value stored in the slot.
 
         Parameters:
         -----------
@@ -8817,10 +8863,9 @@ class Database(object):
         Get a lower bound on the values stored in the given value slot.
 
         std::string Xapian::Database::get_value_lower_bound(Xapian::valueno
-        slot) const
-
-        If there are no values stored in the given value slot, this will
-        return an empty string.
+        slot) const Xapian::Database::get_value_lower_bound If there are no
+        values stored in the given value slot, this will return an empty
+        string.
 
         Parameters:
         -----------
@@ -8837,10 +8882,9 @@ class Database(object):
         Get an upper bound on the values stored in the given value slot.
 
         std::string Xapian::Database::get_value_upper_bound(Xapian::valueno
-        slot) const
-
-        If there are no values stored in the given value slot, this will
-        return an empty string.
+        slot) const Xapian::Database::get_value_upper_bound If there are no
+        values stored in the given value slot, this will return an empty
+        string.
 
         Parameters:
         -----------
@@ -8857,8 +8901,8 @@ class Database(object):
         Get a lower bound on the length of a document in this DB.
 
         Xapian::termcount Xapian::Database::get_doclength_lower_bound() const
-
-        This bound does not include any zero-length documents. 
+        Xapian::Database::get_doclength_lower_bound This bound does not
+        include any zero-length documents. 
         """
         return _xapian.Database_get_doclength_lower_bound(self)
 
@@ -8870,7 +8914,7 @@ class Database(object):
         Get an upper bound on the length of a document in this DB.
 
         Xapian::termcount Xapian::Database::get_doclength_upper_bound() const
-
+        Xapian::Database::get_doclength_upper_bound
         """
         return _xapian.Database_get_doclength_upper_bound(self)
 
@@ -8882,7 +8926,7 @@ class Database(object):
         Get an upper bound on the wdf of term term.
 
         Xapian::termcount Xapian::Database::get_wdf_upper_bound(const
-        std::string &term) const 
+        std::string &term) const Xapian::Database::get_wdf_upper_bound
         """
         return _xapian.Database_get_wdf_upper_bound(self, term)
 
@@ -8894,7 +8938,7 @@ class Database(object):
         Return an iterator over the value in slot slot for each document.
 
         ValueIterator Xapian::Database::valuestream_begin(Xapian::valueno
-        slot) const 
+        slot) const Xapian::Database::valuestream_begin
         """
         return _xapian.Database_valuestream_begin(self, slot)
 
@@ -8906,7 +8950,7 @@ class Database(object):
         Return end iterator corresponding to valuestream_begin().
 
         ValueIterator Xapian::Database::valuestream_end(Xapian::valueno) const
-
+        Xapian::Database::valuestream_end
         """
         return _xapian.Database_valuestream_end(self, arg2)
 
@@ -8918,7 +8962,7 @@ class Database(object):
         Get the length of a document.
 
         Xapian::termcount Xapian::Database::get_doclength(Xapian::docid did)
-        const 
+        const Xapian::Database::get_doclength
         """
         return _xapian.Database_get_doclength(self, did)
 
@@ -8930,7 +8974,7 @@ class Database(object):
         Get the number of unique terms in document.
 
         Xapian::termcount Xapian::Database::get_unique_terms(Xapian::docid
-        did) const 
+        did) const Xapian::Database::get_unique_terms
         """
         return _xapian.Database_get_unique_terms(self, did)
 
@@ -8941,9 +8985,8 @@ class Database(object):
 
         Send a "keep-alive" to remote databases to stop them timing out.
 
-        void Xapian::Database::keep_alive()
-
-        Has no effect on non-remote databases. 
+        void Xapian::Database::keep_alive() Xapian::Database::keep_alive Has
+        no effect on non-remote databases. 
         """
         return _xapian.Database_keep_alive(self)
 
@@ -8955,10 +8998,9 @@ class Database(object):
         Get a document from the database, given its document id.
 
         Xapian::Document Xapian::Database::get_document(Xapian::docid did,
-        unsigned flags) const
-
-        This method returns a Xapian::Document object which provides the
-        information about a document.
+        unsigned flags) const Xapian::Database::get_document This method
+        returns a Xapian::Document object which provides the information about
+        a document.
 
         Parameters:
         -----------
@@ -8990,6 +9032,7 @@ class Database(object):
 
         std::string Xapian::Database::get_spelling_suggestion(const
         std::string &word, unsigned max_edit_distance=2) const
+        Xapian::Database::get_spelling_suggestion
 
         Parameters:
         -----------
@@ -9011,10 +9054,10 @@ class Database(object):
         An iterator which returns all the spelling correction targets.
 
         Xapian::TermIterator Xapian::Database::spellings_begin() const
-
-        This returns all the words which are considered as targets for the
-        spelling correction algorithm. The frequency of each word is available
-        as the term frequency of each entry in the returned iterator. 
+        Xapian::Database::spellings_begin This returns all the words which are
+        considered as targets for the spelling correction algorithm. The
+        frequency of each word is available as the term frequency of each
+        entry in the returned iterator. 
         """
         return _xapian.Database__spellings_begin(self)
 
@@ -9025,7 +9068,8 @@ class Database(object):
 
         Corresponding end iterator to spellings_begin().
 
-        Xapian::TermIterator Xapian::Database::spellings_end() const 
+        Xapian::TermIterator Xapian::Database::spellings_end() const
+        Xapian::Database::spellings_end
         """
         return _xapian.Database__spellings_end(self)
 
@@ -9037,7 +9081,7 @@ class Database(object):
         An iterator which returns all the synonyms for a given term.
 
         Xapian::TermIterator Xapian::Database::synonyms_begin(const
-        std::string &term) const
+        std::string &term) const Xapian::Database::synonyms_begin
 
         Parameters:
         -----------
@@ -9054,7 +9098,7 @@ class Database(object):
         Corresponding end iterator to synonyms_begin(term).
 
         Xapian::TermIterator Xapian::Database::synonyms_end(const std::string
-        &) const 
+        &) const Xapian::Database::synonyms_end
         """
         return _xapian.Database__synonyms_end(self, arg2)
 
@@ -9067,6 +9111,7 @@ class Database(object):
 
         Xapian::TermIterator Xapian::Database::synonym_keys_begin(const
         std::string &prefix=std::string()) const
+        Xapian::Database::synonym_keys_begin
 
         Parameters:
         -----------
@@ -9083,7 +9128,8 @@ class Database(object):
         Corresponding end iterator to synonym_keys_begin(prefix).
 
         Xapian::TermIterator Xapian::Database::synonym_keys_end(const
-        std::string &=std::string()) const 
+        std::string &=std::string()) const
+        Xapian::Database::synonym_keys_end
         """
         return _xapian.Database__synonym_keys_end(self, *args)
 
@@ -9095,11 +9141,9 @@ class Database(object):
         Get the user-specified metadata associated with a given key.
 
         std::string Xapian::Database::get_metadata(const std::string &key)
-        const
-
-        User-specified metadata allows you to store arbitrary information in
-        the form of (key, value) pairs. See  WritableDatabase::set_metadata()
-        for more information.
+        const Xapian::Database::get_metadata User-specified metadata allows
+        you to store arbitrary information in the form of (key, value) pairs.
+        See  WritableDatabase::set_metadata() for more information.
 
         When invoked on a Xapian::Database object representing multiple
         databases, currently only the metadata for the first is considered but
@@ -9135,10 +9179,10 @@ class Database(object):
 
         Xapian::TermIterator Xapian::Database::metadata_keys_begin(const
         std::string &prefix=std::string()) const
-
-        When invoked on a Xapian::Database object representing multiple
-        databases, currently only the metadata for the first is considered but
-        this behaviour may change in the future.
+        Xapian::Database::metadata_keys_begin When invoked on a
+        Xapian::Database object representing multiple databases, currently
+        only the metadata for the first is considered but this behaviour may
+        change in the future.
 
         If the backend doesn't support metadata, then this method returns an
         iterator which compares equal to that returned by metadata_keys_end().
@@ -9165,7 +9209,8 @@ class Database(object):
         Corresponding end iterator to metadata_keys_begin().
 
         Xapian::TermIterator Xapian::Database::metadata_keys_end(const
-        std::string &=std::string()) const 
+        std::string &=std::string()) const
+        Xapian::Database::metadata_keys_end
         """
         return _xapian.Database__metadata_keys_end(self, *args)
 
@@ -9177,8 +9222,8 @@ class Database(object):
         Get a UUID for the database.
 
         std::string Xapian::Database::get_uuid() const
-
-        The UUID will persist for the lifetime of the database.
+        Xapian::Database::get_uuid The UUID will persist for the lifetime of
+        the database.
 
         Replicas (eg, made with the replication protocol, or by copying all
         the database files) will have the same UUID. However, copies (made
@@ -9199,10 +9244,8 @@ class Database(object):
 
         Test if this database is currently locked for writing.
 
-        bool Xapian::Database::locked() const
-
-        If the underlying object is actually a WritableDatabase, always
-        returns true.
+        bool Xapian::Database::locked() const Xapian::Database::locked If the
+        underlying object is actually a WritableDatabase, always returns true.
 
         Otherwise tests if there's a writer holding the lock (or if we can't
         test for a lock without taking it on the current platform, throw
@@ -9222,8 +9265,8 @@ class Database(object):
         Get the revision of the database.
 
         Xapian::rev Xapian::Database::get_revision() const
-
-        The revision is an unsigned integer which increases with each commit.
+        Xapian::Database::get_revision The revision is an unsigned integer
+        which increases with each commit.
 
         The database must have exactly one sub-database, which must be of type
         chert or glass. Otherwise an exception will be thrown.
@@ -9242,10 +9285,8 @@ class Database(object):
         Produce a compact version of this database.
 
         void Xapian::Database::compact(int fd, unsigned flags, int block_size,
-        Xapian::Compactor &compactor)
-
-        New 1.3.4. Various methods of the Compactor class were deprecated in
-        1.3.4.
+        Xapian::Compactor &compactor) Xapian::Database::compact New 1.3.4.
+        Various methods of the Compactor class were deprecated in 1.3.4.
 
         The compactor functor allows handling progress output and specifying
         how user metadata is merged.
@@ -9362,9 +9403,8 @@ class WritableDatabase(Database):
         Copying is allowed.
 
         Xapian::WritableDatabase::WritableDatabase(const WritableDatabase
-        &other)
-
-        The internals are reference counted, so copying is cheap.
+        &other) Xapian::WritableDatabase::WritableDatabase The internals are
+        reference counted, so copying is cheap.
 
         Parameters:
         -----------
@@ -9373,6 +9413,25 @@ class WritableDatabase(Database):
         """
         _xapian.WritableDatabase_swiginit(self, _xapian.new_WritableDatabase(*args))
 
+    def add_database(self, other):
+        """
+
+
+        Add shards from another WritableDatabase.
+
+        void Xapian::WritableDatabase::add_database(const WritableDatabase
+        &other) Xapian::WritableDatabase::add_database Any shards in other are
+        added to the list of shards in this object. The shards are reference
+        counted and also remain in other.
+
+        Parameters:
+        -----------
+
+        other:  Another WritableDatabase object to add shards from 
+        """
+        return _xapian.WritableDatabase_add_database(self, other)
+
+
     def commit(self):
         """
 
@@ -9380,11 +9439,11 @@ class WritableDatabase(Database):
         Commit any pending modifications made to the database.
 
         void Xapian::WritableDatabase::commit()
-
-        For efficiency reasons, when performing multiple updates to a database
-        it is best (indeed, almost essential) to make as many modifications as
-        memory will permit in a single pass through the database. To ensure
-        this, Xapian batches up modifications.
+        Xapian::WritableDatabase::commit For efficiency reasons, when
+        performing multiple updates to a database it is best (indeed, almost
+        essential) to make as many modifications as memory will permit in a
+        single pass through the database. To ensure this, Xapian batches up
+        modifications.
 
         This method may be called at any time to commit any pending
         modifications to the database.
@@ -9429,8 +9488,7 @@ class WritableDatabase(Database):
 
         Pre-1.1.0 name for commit().
 
-        void Xapian::WritableDatabase::flush()
-
+        void Xapian::WritableDatabase::flush() Xapian::WritableDatabase::flush
         Use commit() instead. 
         """
         return _xapian.WritableDatabase_flush(self)
@@ -9443,12 +9501,11 @@ class WritableDatabase(Database):
         Begin a transaction.
 
         void Xapian::WritableDatabase::begin_transaction(bool flushed=true)
-
-        In Xapian a transaction is a group of modifications to the database
-        which are linked such that either all will be applied simultaneously
-        or none will be applied at all. Even in the case of a power failure,
-        this characteristic should be preserved (as long as the filesystem
-        isn't corrupted, etc).
+        Xapian::WritableDatabase::begin_transaction In Xapian a transaction is
+        a group of modifications to the database which are linked such that
+        either all will be applied simultaneously or none will be applied at
+        all. Even in the case of a power failure, this characteristic should
+        be preserved (as long as the filesystem isn't corrupted, etc).
 
         A transaction is started with begin_transaction() and can either be
         committed by calling commit_transaction() or aborted by calling
@@ -9501,10 +9558,10 @@ class WritableDatabase(Database):
         Complete the transaction currently in progress.
 
         void Xapian::WritableDatabase::commit_transaction()
-
-        If this method completes successfully and this is a flushed
-        transaction, all the database modifications made during the
-        transaction will have been committed to the database.
+        Xapian::WritableDatabase::commit_transaction If this method completes
+        successfully and this is a flushed transaction, all the database
+        modifications made during the transaction will have been committed to
+        the database.
 
         If an error occurs, an exception will be thrown, and none of the
         modifications made to the database during the transaction will have
@@ -9538,9 +9595,9 @@ class WritableDatabase(Database):
         modifications made to the database.
 
         void Xapian::WritableDatabase::cancel_transaction()
-
-        If an error occurs in this method, an exception will be thrown, but
-        the transaction will be cancelled anyway.
+        Xapian::WritableDatabase::cancel_transaction If an error occurs in
+        this method, an exception will be thrown, but the transaction will be
+        cancelled anyway.
 
         Parameters:
         -----------
@@ -9567,8 +9624,7 @@ class WritableDatabase(Database):
         Add a new document to the database.
 
         Xapian::docid Xapian::WritableDatabase::add_document(const
-        Xapian::Document &document)
-
+        Xapian::Document &document) Xapian::WritableDatabase::add_document
         This method adds the specified document to the database, returning a
         newly allocated document ID. Automatically allocated document IDs come
         from a per-database monotonically increasing counter, so IDs from
@@ -9611,10 +9667,8 @@ class WritableDatabase(Database):
         Delete any documents indexed by a term from the database.
 
         void Xapian::WritableDatabase::delete_document(const std::string
-        &unique_term)
-
-        This method removes any documents indexed by the specified term from
-        the database.
+        &unique_term) Xapian::WritableDatabase::delete_document This method
+        removes any documents indexed by the specified term from the database.
 
         A major use is for convenience when UIDs from another system are
         mapped to terms in Xapian, although this method has other uses (for
@@ -9647,11 +9701,11 @@ class WritableDatabase(Database):
 
         Xapian::docid Xapian::WritableDatabase::replace_document(const
         std::string &unique_term, const Xapian::Document &document)
-
-        This method replaces any documents indexed by the specified term with
-        the specified document. If any documents are indexed by the term, the
-        lowest document ID will be used for the document, otherwise a new
-        document ID will be generated as for add_document.
+        Xapian::WritableDatabase::replace_document This method replaces any
+        documents indexed by the specified term with the specified document.
+        If any documents are indexed by the term, the lowest document ID will
+        be used for the document, otherwise a new document ID will be
+        generated as for add_document.
 
         One common use is to allow UIDs from another system to easily be
         mapped to terms in Xapian. Note that this method doesn't automatically
@@ -9696,8 +9750,8 @@ class WritableDatabase(Database):
 
         void Xapian::WritableDatabase::add_spelling(const std::string &word,
         Xapian::termcount freqinc=1) const
-
-        If the word is already present, its frequency is increased.
+        Xapian::WritableDatabase::add_spelling If the word is already present,
+        its frequency is increased.
 
         Parameters:
         -----------
@@ -9717,9 +9771,9 @@ class WritableDatabase(Database):
 
         void Xapian::WritableDatabase::remove_spelling(const std::string
         &word, Xapian::termcount freqdec=1) const
-
-        The word's frequency is decreased, and if would become zero or less
-        then the word is removed completely.
+        Xapian::WritableDatabase::remove_spelling The word's frequency is
+        decreased, and if would become zero or less then the word is removed
+        completely.
 
         Parameters:
         -----------
@@ -9739,6 +9793,7 @@ class WritableDatabase(Database):
 
         void Xapian::WritableDatabase::add_synonym(const std::string &term,
         const std::string &synonym) const
+        Xapian::WritableDatabase::add_synonym
 
         Parameters:
         -----------
@@ -9759,6 +9814,7 @@ class WritableDatabase(Database):
 
         void Xapian::WritableDatabase::remove_synonym(const std::string &term,
         const std::string &synonym) const
+        Xapian::WritableDatabase::remove_synonym
 
         Parameters:
         -----------
@@ -9778,7 +9834,7 @@ class WritableDatabase(Database):
         Remove all synonyms for a term.
 
         void Xapian::WritableDatabase::clear_synonyms(const std::string &term)
-        const
+        const Xapian::WritableDatabase::clear_synonyms
 
         Parameters:
         -----------
@@ -9796,8 +9852,7 @@ class WritableDatabase(Database):
         Set the user-specified metadata associated with a given key.
 
         void Xapian::WritableDatabase::set_metadata(const std::string &key,
-        const std::string &metadata)
-
+        const std::string &metadata) Xapian::WritableDatabase::set_metadata
         This method sets the metadata value associated with a given key. If
         there is already a metadata value stored in the database with the same
         key, the old value is replaced. If you want to delete an existing item
@@ -9846,6 +9901,7 @@ class WritableDatabase(Database):
         """
         return _xapian.WritableDatabase_set_metadata(self, key, metadata)
 
+WritableDatabase.add_database = _xapian.SWIG_PyInstanceMethod_New(_xapian.WritableDatabase_add_database)
 WritableDatabase.commit = _xapian.SWIG_PyInstanceMethod_New(_xapian.WritableDatabase_commit)
 WritableDatabase.flush = _xapian.SWIG_PyInstanceMethod_New(_xapian.WritableDatabase_flush)
 WritableDatabase.begin_transaction = _xapian.SWIG_PyInstanceMethod_New(_xapian.WritableDatabase_begin_transaction)
@@ -9872,8 +9928,7 @@ def remote_open(*args):
     accessed via a program.
 
     Database Xapian::Remote::open(const std::string &program, const
-    std::string &args, useconds_t timeout=10000)
-
+    std::string &args, useconds_t timeout=10000) Xapian::Remote::open
     Access to the remote database is done by running an external program
     and communicating with it on stdin/stdout.
 
@@ -9900,9 +9955,8 @@ def remote_open_writable(*args):
 
     WritableDatabase Xapian::Remote::open_writable(const std::string
     &program, const std::string &args, useconds_t timeout=0, int flags=0)
-
-    Access to the remote database is done by running an external program
-    and communicating with it on stdin/stdout.
+    Xapian::Remote::open_writable Access to the remote database is done by
+    running an external program and communicating with it on stdin/stdout.
 
     Parameters:
     -----------

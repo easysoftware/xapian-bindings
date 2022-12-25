@@ -2735,6 +2735,9 @@ class XapianPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("_XapianSharp", EntryPoint="CSharp_Xapian_new_WritableDatabase__SWIG_3")]
   public static extern global::System.IntPtr new_WritableDatabase__SWIG_3(string jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("_XapianSharp", EntryPoint="CSharp_Xapian_WritableDatabase_AddDatabase")]
+  public static extern void WritableDatabase_AddDatabase(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("_XapianSharp", EntryPoint="CSharp_Xapian_WritableDatabase_Commit")]
   public static extern void WritableDatabase_Commit(global::System.Runtime.InteropServices.HandleRef jarg1);
 

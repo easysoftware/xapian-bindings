@@ -58160,6 +58160,53 @@ XS(_wrap_new_WritableDatabase) {
 }
 
 
+XS(_wrap_WritableDatabase_add_database) {
+  {
+    Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
+    Xapian::WritableDatabase *arg2 = 0 ;
+    void *argp1 = 0 ;
+    int res1 = 0 ;
+    void *argp2 ;
+    int res2 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 2) || (items > 2)) {
+      SWIG_croak("Usage: WritableDatabase_add_database(self,other);");
+    }
+    res1 = SWIG_ConvertPtr(ST(0), &argp1,SWIGTYPE_p_Xapian__WritableDatabase, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WritableDatabase_add_database" "', argument " "1"" of type '" "Xapian::WritableDatabase *""'"); 
+    }
+    arg1 = reinterpret_cast< Xapian::WritableDatabase * >(argp1);
+    res2 = SWIG_ConvertPtr(ST(1), &argp2, SWIGTYPE_p_Xapian__WritableDatabase,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WritableDatabase_add_database" "', argument " "2"" of type '" "Xapian::WritableDatabase const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "WritableDatabase_add_database" "', argument " "2"" of type '" "Xapian::WritableDatabase const &""'"); 
+    }
+    arg2 = reinterpret_cast< Xapian::WritableDatabase * >(argp2);
+    {
+      try {
+        (arg1)->add_database((Xapian::WritableDatabase const &)*arg2);
+      } catch (...) {
+        Xapian::handle_exception();
+        SWIG_fail;
+      }
+    }
+    ST(argvi) = sv_newmortal();
+    
+    
+    XSRETURN(argvi);
+  fail:
+    
+    
+    SWIG_croak_null();
+  }
+}
+
+
 XS(_wrap_WritableDatabase_commit) {
   {
     Xapian::WritableDatabase *arg1 = (Xapian::WritableDatabase *) 0 ;
@@ -62098,6 +62145,7 @@ static swig_command_info swig_commands[] = {
 {"Xapianc::Database_compact", _wrap_Database_compact},
 {"Xapianc::delete_WritableDatabase", _wrap_delete_WritableDatabase},
 {"Xapianc::new_WritableDatabase", _wrap_new_WritableDatabase},
+{"Xapianc::WritableDatabase_add_database", _wrap_WritableDatabase_add_database},
 {"Xapianc::WritableDatabase_commit", _wrap_WritableDatabase_commit},
 {"Xapianc::WritableDatabase_flush", _wrap_WritableDatabase_flush},
 {"Xapianc::WritableDatabase_begin_transaction", _wrap_WritableDatabase_begin_transaction},
@@ -62411,212 +62459,222 @@ XS(SWIG_init) {
     SvREADONLY_on(sv);
   }
   
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_AND", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_AND)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_OR", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_OR)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_AND_NOT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_AND_NOT)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_XOR", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_XOR)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_AND_MAYBE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_AND_MAYBE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_FILTER", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_FILTER)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_NEAR", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_NEAR)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_PHRASE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_PHRASE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_VALUE_RANGE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_VALUE_RANGE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_SCALE_WEIGHT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_SCALE_WEIGHT)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_ELITE_SET", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_ELITE_SET)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_VALUE_GE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_VALUE_GE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_SYNONYM", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_SYNONYM)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_MAX", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_MAX)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_WILDCARD", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_WILDCARD)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_VALUE_LE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_VALUE_LE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "OP_INVALID", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_INVALID)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "ENQ_ASCENDING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Enquire::ASCENDING)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "ENQ_DESCENDING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Enquire::DESCENDING)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "ENQ_DONT_CARE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Enquire::DONT_CARE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+    SV *sv = get_sv((char*) SWIG_prefix "FLAG_ACCUMULATE", TRUE | 0x2 | GV_ADDMULTI);
+    sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_ACCUMULATE)));
+    SvREADONLY_on(sv);
+  } while(0) /*@SWIG@*/;
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_BOOLEAN", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_BOOLEAN)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+    SV *sv = get_sv((char*) SWIG_prefix "FLAG_NO_POSITIONS", TRUE | 0x2 | GV_ADDMULTI);
+    sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_NO_POSITIONS)));
+    SvREADONLY_on(sv);
+  } while(0) /*@SWIG@*/;
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_PHRASE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_PHRASE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_LOVEHATE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_LOVEHATE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_BOOLEAN_ANY_CASE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_BOOLEAN_ANY_CASE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_WILDCARD", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_WILDCARD)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_PURE_NOT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_PURE_NOT)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_PARTIAL", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_PARTIAL)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_SPELLING_CORRECTION", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_SPELLING_CORRECTION)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_SYNONYM", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_SYNONYM)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_AUTO_SYNONYMS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_AUTO_SYNONYMS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_AUTO_MULTIWORD_SYNONYMS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_AUTO_MULTIWORD_SYNONYMS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_CJK_NGRAM", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_CJK_NGRAM)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_DEFAULT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_DEFAULT)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "STEM_NONE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::STEM_NONE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "STEM_SOME", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::STEM_SOME)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "STEM_SOME_FULL_POS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::STEM_SOME_FULL_POS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "STEM_ALL", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::STEM_ALL)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "STEM_ALL_Z", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::STEM_ALL_Z)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "FLAG_SPELLING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::FLAG_SPELLING)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "WILDCARD_LIMIT_ERROR", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::WILDCARD_LIMIT_ERROR)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "WILDCARD_LIMIT_FIRST", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::WILDCARD_LIMIT_FIRST)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "WILDCARD_LIMIT_MOST_FREQUENT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::WILDCARD_LIMIT_MOST_FREQUENT)));
     SvREADONLY_on(sv);
@@ -62646,117 +62704,117 @@ XS(SWIG_init) {
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__WildcardError, (void*) "Xapian::WildcardError");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__DatabaseNotFoundError, (void*) "Xapian::DatabaseNotFoundError");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__DatabaseClosedError, (void*) "Xapian::DatabaseClosedError");
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "BAD_VALUENO", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_unsigned_SS_int  SWIG_PERL_CALL_ARGS_1(static_cast< unsigned int >(Xapian::BAD_VALUENO)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_CREATE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_CREATE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_CREATE_OR_OPEN", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_CREATE_OR_OPEN)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_CREATE_OR_OVERWRITE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_CREATE_OR_OVERWRITE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_OPEN", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_OPEN)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_NO_SYNC", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_NO_SYNC)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_FULL_SYNC", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_FULL_SYNC)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_DANGEROUS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_DANGEROUS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_NO_TERMLIST", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_NO_TERMLIST)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_BACKEND_CHERT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_BACKEND_CHERT)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_BACKEND_GLASS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_BACKEND_GLASS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_BACKEND_INMEMORY", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_BACKEND_INMEMORY)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_BACKEND_STUB", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_BACKEND_STUB)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DB_RETRY_LOCK", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DB_RETRY_LOCK)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DBCHECK_SHORT_TREE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DBCHECK_SHORT_TREE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DBCHECK_FULL_TREE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DBCHECK_FULL_TREE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DBCHECK_SHOW_FREELIST", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DBCHECK_SHOW_FREELIST)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DBCHECK_SHOW_STATS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DBCHECK_SHOW_STATS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DBCHECK_FIX", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DBCHECK_FIX)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DBCOMPACT_MULTIPASS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DBCOMPACT_MULTIPASS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DBCOMPACT_NO_RENUMBER", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DBCOMPACT_NO_RENUMBER)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DBCOMPACT_SINGLE_FILE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DBCOMPACT_SINGLE_FILE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "DOC_ASSUME_VALID", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::DOC_ASSUME_VALID)));
     SvREADONLY_on(sv);
@@ -62767,175 +62825,175 @@ XS(SWIG_init) {
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__ValueIterator, (void*) "Xapian::ValueIterator");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__Document, (void*) "Xapian::Document");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__Registry, (void*) "Xapian::Registry");
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_AND", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_AND)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_OR", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_OR)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_AND_NOT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_AND_NOT)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_XOR", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_XOR)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_AND_MAYBE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_AND_MAYBE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_FILTER", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_FILTER)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_NEAR", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_NEAR)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_PHRASE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_PHRASE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_VALUE_RANGE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_VALUE_RANGE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_SCALE_WEIGHT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_SCALE_WEIGHT)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_ELITE_SET", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_ELITE_SET)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_VALUE_GE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_VALUE_GE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_VALUE_LE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_VALUE_LE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_SYNONYM", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_SYNONYM)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_MAX", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_MAX)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_WILDCARD", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_WILDCARD)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_OP_INVALID", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::OP_INVALID)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_WILDCARD_LIMIT_ERROR", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::WILDCARD_LIMIT_ERROR)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_WILDCARD_LIMIT_FIRST", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::WILDCARD_LIMIT_FIRST)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Query_WILDCARD_LIMIT_MOST_FREQUENT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Query::WILDCARD_LIMIT_MOST_FREQUENT)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__Query, (void*) "Xapian::Query");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__Stem, (void*) "Xapian::Stem");
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "TermGenerator_FLAG_SPELLING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::FLAG_SPELLING)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "TermGenerator_FLAG_CJK_NGRAM", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::FLAG_CJK_NGRAM)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "TermGenerator_STEM_NONE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::STEM_NONE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "TermGenerator_STEM_SOME", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::STEM_SOME)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "TermGenerator_STEM_ALL", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::STEM_ALL)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "TermGenerator_STEM_ALL_Z", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::STEM_ALL_Z)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "TermGenerator_STEM_SOME_FULL_POS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::STEM_SOME_FULL_POS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "TermGenerator_STOP_NONE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::STOP_NONE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "TermGenerator_STOP_ALL", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::STOP_ALL)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "TermGenerator_STOP_STEMMED", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::TermGenerator::STOP_STEMMED)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__TermGenerator, (void*) "Xapian::TermGenerator");
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "MSet_SNIPPET_BACKGROUND_MODEL", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::MSet::SNIPPET_BACKGROUND_MODEL)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "MSet_SNIPPET_EXHAUSTIVE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::MSet::SNIPPET_EXHAUSTIVE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "MSet_SNIPPET_EMPTY_WITHOUT_MATCH", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::MSet::SNIPPET_EMPTY_WITHOUT_MATCH)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "MSet_SNIPPET_CJK_NGRAM", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::MSet::SNIPPET_CJK_NGRAM)));
     SvREADONLY_on(sv);
@@ -62946,27 +63004,27 @@ XS(SWIG_init) {
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__ESetIterator, (void*) "Xapian::ESetIterator");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__RSet, (void*) "Xapian::RSet");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__MatchDecider, (void*) "Xapian::MatchDecider");
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Enquire_ASCENDING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Enquire::ASCENDING)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Enquire_DESCENDING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Enquire::DESCENDING)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Enquire_DONT_CARE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Enquire::DONT_CARE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Enquire_INCLUDE_QUERY_TERMS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Enquire::INCLUDE_QUERY_TERMS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Enquire_USE_EXACT_TERMFREQ", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Enquire::USE_EXACT_TERMFREQ)));
     SvREADONLY_on(sv);
@@ -62977,17 +63035,17 @@ XS(SWIG_init) {
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__ExpandDeciderFilterPrefix, (void*) "Xapian::ExpandDeciderFilterPrefix");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__KeyMaker, (void*) "Xapian::KeyMaker");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__MultiValueKeyMaker, (void*) "Xapian::MultiValueKeyMaker");
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "RP_SUFFIX", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::RP_SUFFIX)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "RP_REPEATED", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::RP_REPEATED)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "RP_DATE_PREFER_MDY", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::RP_DATE_PREFER_MDY)));
     SvREADONLY_on(sv);
@@ -63002,124 +63060,129 @@ XS(SWIG_init) {
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__DateValueRangeProcessor, (void*) "Xapian::DateValueRangeProcessor");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__NumberValueRangeProcessor, (void*) "Xapian::NumberValueRangeProcessor");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__FieldProcessor, (void*) "Xapian::FieldProcessor");
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_BOOLEAN", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_BOOLEAN)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_PHRASE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_PHRASE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_LOVEHATE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_LOVEHATE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_BOOLEAN_ANY_CASE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_BOOLEAN_ANY_CASE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_WILDCARD", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_WILDCARD)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_PURE_NOT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_PURE_NOT)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_PARTIAL", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_PARTIAL)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_SPELLING_CORRECTION", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_SPELLING_CORRECTION)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_SYNONYM", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_SYNONYM)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_AUTO_SYNONYMS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_AUTO_SYNONYMS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_AUTO_MULTIWORD_SYNONYMS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_AUTO_MULTIWORD_SYNONYMS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_CJK_NGRAM", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_CJK_NGRAM)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_ACCUMULATE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_ACCUMULATE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+    SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_NO_POSITIONS", TRUE | 0x2 | GV_ADDMULTI);
+    sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_NO_POSITIONS)));
+    SvREADONLY_on(sv);
+  } while(0) /*@SWIG@*/;
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_FLAG_DEFAULT", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::FLAG_DEFAULT)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_STEM_NONE", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::STEM_NONE)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_STEM_SOME", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::STEM_SOME)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_STEM_ALL", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::STEM_ALL)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_STEM_ALL_Z", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::STEM_ALL_Z)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "QueryParser_STEM_SOME_FULL_POS", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::QueryParser::STEM_SOME_FULL_POS)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__QueryParser, (void*) "Xapian::QueryParser");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__ValueSetMatchDecider, (void*) "Xapian::ValueSetMatchDecider");
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Weight_TWO_STAGE_SMOOTHING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Weight::TWO_STAGE_SMOOTHING)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Weight_DIRICHLET_SMOOTHING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Weight::DIRICHLET_SMOOTHING)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Weight_ABSOLUTE_DISCOUNT_SMOOTHING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Weight::ABSOLUTE_DISCOUNT_SMOOTHING)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Weight_JELINEK_MERCER_SMOOTHING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Weight::JELINEK_MERCER_SMOOTHING)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Weight_DIRICHLET_PLUS_SMOOTHING", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Weight::DIRICHLET_PLUS_SMOOTHING)));
     SvREADONLY_on(sv);
@@ -63140,17 +63203,17 @@ XS(SWIG_init) {
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__DPHWeight, (void*) "Xapian::DPHWeight");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__LMWeight, (void*) "Xapian::LMWeight");
   SWIG_TypeClientData(SWIGTYPE_p_Xapian__CoordWeight, (void*) "Xapian::CoordWeight");
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Compactor_STANDARD", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Compactor::STANDARD)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Compactor_FULL", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Compactor::FULL)));
     SvREADONLY_on(sv);
   } while(0) /*@SWIG@*/;
-  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.FxO5PVAcmo/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
+  /*@SWIG:/home/olly/git/xapian-1.4/TMP.make_dist.BKnAUvMVtT/swig/Lib/perl5/perltypemaps.swg,65,%set_constant@*/ do {
     SV *sv = get_sv((char*) SWIG_prefix "Compactor_FULLER", TRUE | 0x2 | GV_ADDMULTI);
     sv_setsv(sv, SWIG_From_int  SWIG_PERL_CALL_ARGS_1(static_cast< int >(Xapian::Compactor::FULLER)));
     SvREADONLY_on(sv);
