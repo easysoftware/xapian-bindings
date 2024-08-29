@@ -2289,19 +2289,18 @@ namespace Swig {
 #define SWIGTYPE_p_feature_flag swig_types[73]
 #define SWIGTYPE_p_flags swig_types[74]
 #define SWIGTYPE_p_int swig_types[75]
-#define SWIGTYPE_p_long swig_types[76]
-#define SWIGTYPE_p_std__string swig_types[77]
-#define SWIGTYPE_p_stem_strategy swig_types[78]
-#define SWIGTYPE_p_stop_strategy swig_types[79]
-#define SWIGTYPE_p_swig__ConstIterator swig_types[80]
-#define SWIGTYPE_p_swig__GC_VALUE swig_types[81]
-#define SWIGTYPE_p_swig__Iterator swig_types[82]
-#define SWIGTYPE_p_type_smoothing swig_types[83]
-#define SWIGTYPE_p_unsigned_int swig_types[84]
-#define SWIGTYPE_p_unsigned_long swig_types[85]
-#define SWIGTYPE_p_void swig_types[86]
-static swig_type_info *swig_types[88];
-static swig_module_info swig_module = {swig_types, 87, 0, 0, 0, 0};
+#define SWIGTYPE_p_std__string swig_types[76]
+#define SWIGTYPE_p_stem_strategy swig_types[77]
+#define SWIGTYPE_p_stop_strategy swig_types[78]
+#define SWIGTYPE_p_swig__ConstIterator swig_types[79]
+#define SWIGTYPE_p_swig__GC_VALUE swig_types[80]
+#define SWIGTYPE_p_swig__Iterator swig_types[81]
+#define SWIGTYPE_p_type_smoothing swig_types[82]
+#define SWIGTYPE_p_unsigned_int swig_types[83]
+#define SWIGTYPE_p_unsigned_long swig_types[84]
+#define SWIGTYPE_p_void swig_types[85]
+static swig_type_info *swig_types[87];
+static swig_module_info swig_module = {swig_types, 86, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3478,6 +3477,22 @@ SWIG_From_unsigned_SS_int  (unsigned int value)
 }
 
 
+SWIGINTERN int
+SWIG_AsVal_unsigned_SS_int (VALUE obj, unsigned int *val)
+{
+  unsigned long v;
+  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v > UINT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = static_cast< unsigned int >(v);
+    }
+  }  
+  return res;
+}
+
+
 SWIGINTERNINLINE VALUE
 SWIG_From_std_string  (const std::string& s)
 {
@@ -3561,22 +3576,6 @@ SWIGINTERN void Xapian_TermIterator_next(Xapian::TermIterator *self){ ++(*self);
 SWIGINTERN bool Xapian_ValueIterator_equals(Xapian::ValueIterator const *self,Xapian::ValueIterator const &o){ return *self == o; }
 SWIGINTERN std::string Xapian_ValueIterator_get_value(Xapian::ValueIterator const *self){ return **self; }
 SWIGINTERN void Xapian_ValueIterator_next(Xapian::ValueIterator *self){ ++(*self); }
-
-SWIGINTERN int
-SWIG_AsVal_unsigned_SS_int (VALUE obj, unsigned int *val)
-{
-  unsigned long v;
-  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
-  if (SWIG_IsOK(res)) {
-    if ((v > UINT_MAX)) {
-      return SWIG_OverflowError;
-    } else {
-      if (val) *val = static_cast< unsigned int >(v);
-    }
-  }  
-  return res;
-}
-
 
 /*@SWIG:/Users/enot/Downloads/111/xapian/swig/Lib/ruby/rubyprimtypes.swg,19,%ruby_aux_method@*/
 SWIGINTERN VALUE SWIG_AUX_NUM2DBL(VALUE arg)
@@ -4052,8 +4051,8 @@ Xapian::doccount SwigDirector_PostingSource::get_termfreq_min() const {
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("get_termfreq_min"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::doccount""'");
   }
@@ -4067,8 +4066,8 @@ Xapian::doccount SwigDirector_PostingSource::get_termfreq_est() const {
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("get_termfreq_est"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::doccount""'");
   }
@@ -4082,8 +4081,8 @@ Xapian::doccount SwigDirector_PostingSource::get_termfreq_max() const {
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("get_termfreq_max"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::doccount""'");
   }
@@ -4112,8 +4111,8 @@ Xapian::docid SwigDirector_PostingSource::get_docid() const {
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("docid"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::docid""'");
   }
@@ -4136,7 +4135,7 @@ void SwigDirector_PostingSource::skip_to(Xapian::docid did,double min_wt) {
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
   
-  obj0 = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(did));
+  obj0 = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(did));
   obj1 = SWIG_From_double(static_cast< double >(min_wt));
   result = rb_funcall(swig_get_self(), rb_intern("skip_to"), 2,obj0,obj1);
 }
@@ -4148,7 +4147,7 @@ bool SwigDirector_PostingSource::check(Xapian::docid did,double min_wt) {
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
   
-  obj0 = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(did));
+  obj0 = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(did));
   obj1 = SWIG_From_double(static_cast< double >(min_wt));
   result = rb_funcall(swig_get_self(), rb_intern("check"), 2,obj0,obj1);
   bool swig_val;
@@ -4251,8 +4250,8 @@ Xapian::doccount SwigDirector_ValuePostingSource::get_termfreq_min() const {
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("get_termfreq_min"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::doccount""'");
   }
@@ -4266,8 +4265,8 @@ Xapian::doccount SwigDirector_ValuePostingSource::get_termfreq_est() const {
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("get_termfreq_est"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::doccount""'");
   }
@@ -4281,8 +4280,8 @@ Xapian::doccount SwigDirector_ValuePostingSource::get_termfreq_max() const {
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("get_termfreq_max"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::doccount""'");
   }
@@ -4311,8 +4310,8 @@ Xapian::docid SwigDirector_ValuePostingSource::get_docid() const {
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("docid"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::docid""'");
   }
@@ -4335,7 +4334,7 @@ void SwigDirector_ValuePostingSource::skip_to(Xapian::docid min_docid,double min
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
   
-  obj0 = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(min_docid));
+  obj0 = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(min_docid));
   obj1 = SWIG_From_double(static_cast< double >(min_wt));
   result = rb_funcall(swig_get_self(), rb_intern("skip_to"), 2,obj0,obj1);
 }
@@ -4347,7 +4346,7 @@ bool SwigDirector_ValuePostingSource::check(Xapian::docid min_docid,double min_w
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
   
-  obj0 = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(min_docid));
+  obj0 = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(min_docid));
   obj1 = SWIG_From_double(static_cast< double >(min_wt));
   result = rb_funcall(swig_get_self(), rb_intern("check"), 2,obj0,obj1);
   bool swig_val;
@@ -4450,8 +4449,8 @@ Xapian::doccount SwigDirector_ValueWeightPostingSource::get_termfreq_min() const
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("get_termfreq_min"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::doccount""'");
   }
@@ -4465,8 +4464,8 @@ Xapian::doccount SwigDirector_ValueWeightPostingSource::get_termfreq_est() const
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("get_termfreq_est"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::doccount""'");
   }
@@ -4480,8 +4479,8 @@ Xapian::doccount SwigDirector_ValueWeightPostingSource::get_termfreq_max() const
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("get_termfreq_max"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::doccount""'");
   }
@@ -4510,8 +4509,8 @@ Xapian::docid SwigDirector_ValueWeightPostingSource::get_docid() const {
   VALUE SWIGUNUSED result;
   
   result = rb_funcall(swig_get_self(), rb_intern("docid"), 0, Qnil);
-  unsigned long swig_val;
-  int swig_res = SWIG_AsVal_unsigned_SS_long(result, &swig_val);
+  unsigned int swig_val;
+  int swig_res = SWIG_AsVal_unsigned_SS_int(result, &swig_val);
   if (!SWIG_IsOK(swig_res)) {
     Swig::DirectorTypeMismatchException::raise(SWIG_ErrorType(SWIG_ArgError(swig_res)), "in output value of type '""Xapian::docid""'");
   }
@@ -4534,7 +4533,7 @@ void SwigDirector_ValueWeightPostingSource::skip_to(Xapian::docid min_docid,doub
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
   
-  obj0 = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(min_docid));
+  obj0 = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(min_docid));
   obj1 = SWIG_From_double(static_cast< double >(min_wt));
   result = rb_funcall(swig_get_self(), rb_intern("skip_to"), 2,obj0,obj1);
 }
@@ -4546,7 +4545,7 @@ bool SwigDirector_ValueWeightPostingSource::check(Xapian::docid min_docid,double
   VALUE obj1 = Qnil ;
   VALUE SWIGUNUSED result;
   
-  obj0 = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(min_docid));
+  obj0 = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(min_docid));
   obj1 = SWIG_From_double(static_cast< double >(min_wt));
   result = rb_funcall(swig_get_self(), rb_intern("check"), 2,obj0,obj1);
   bool swig_val;
@@ -6102,7 +6101,7 @@ _wrap_PositionIterator_skip_to(int argc, VALUE *argv, VALUE self) {
   Xapian::termpos arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -6113,7 +6112,7 @@ _wrap_PositionIterator_skip_to(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::PositionIterator *","skip_to", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::PositionIterator * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termpos","skip_to", 2, argv[0] ));
   } 
@@ -6233,7 +6232,7 @@ _wrap_PositionIterator_termpos(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -6392,7 +6391,7 @@ _wrap_PostingIterator_wdf(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -6424,7 +6423,7 @@ _wrap_PostingIterator_doclength(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -6456,7 +6455,7 @@ _wrap_PostingIterator_get_unique_terms(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -6525,7 +6524,7 @@ _wrap_PostingIterator_skip_to(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -6536,7 +6535,7 @@ _wrap_PostingIterator_skip_to(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::PostingIterator *","skip_to", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::PostingIterator * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","skip_to", 2, argv[0] ));
   } 
@@ -6656,7 +6655,7 @@ _wrap_PostingIterator_docid(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -6802,7 +6801,7 @@ _wrap_TermIterator_wdf(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -6834,7 +6833,7 @@ _wrap_TermIterator_termfreq(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -6866,7 +6865,7 @@ _wrap_TermIterator_positionlist_count(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -7219,7 +7218,7 @@ _wrap_ValueIterator_docid(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -7264,7 +7263,7 @@ _wrap_ValueIterator_skip_to(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -7275,7 +7274,7 @@ _wrap_ValueIterator_skip_to(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::ValueIterator *","skip_to", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::ValueIterator * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","skip_to", 2, argv[0] ));
   } 
@@ -7301,7 +7300,7 @@ _wrap_ValueIterator_check(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   bool result;
   VALUE vresult = Qnil;
@@ -7314,7 +7313,7 @@ _wrap_ValueIterator_check(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::ValueIterator *","check", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::ValueIterator * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","check", 2, argv[0] ));
   } 
@@ -7807,9 +7806,9 @@ _wrap_Document_add_posting__SWIG_0(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   
   if ((argc < 3) || (argc > 3)) {
@@ -7831,12 +7830,12 @@ _wrap_Document_add_posting__SWIG_0(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termpos","add_posting", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termpos >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","add_posting", 4, argv[2] ));
   } 
@@ -7866,7 +7865,7 @@ _wrap_Document_add_posting__SWIG_1(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   
   if ((argc < 2) || (argc > 2)) {
@@ -7888,7 +7887,7 @@ _wrap_Document_add_posting__SWIG_1(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termpos","add_posting", 3, argv[1] ));
   } 
@@ -7931,7 +7930,7 @@ SWIGINTERN VALUE _wrap_Document_add_posting(int nargs, VALUE *args, VALUE self) 
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -7950,12 +7949,12 @@ SWIGINTERN VALUE _wrap_Document_add_posting(int nargs, VALUE *args, VALUE self) 
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
           {
-            int res = SWIG_AsVal_unsigned_SS_long(argv[3], NULL);
+            int res = SWIG_AsVal_unsigned_SS_int(argv[3], NULL);
             _v = SWIG_CheckState(res);
           }
           if (_v) {
@@ -7983,7 +7982,7 @@ _wrap_Document_add_term__SWIG_0(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   
   if ((argc < 2) || (argc > 2)) {
@@ -8005,7 +8004,7 @@ _wrap_Document_add_term__SWIG_0(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","add_term", 3, argv[1] ));
   } 
@@ -8105,7 +8104,7 @@ SWIGINTERN VALUE _wrap_Document_add_term(int nargs, VALUE *args, VALUE self) {
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -8177,9 +8176,9 @@ _wrap_Document_remove_posting__SWIG_0(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   
   if ((argc < 3) || (argc > 3)) {
@@ -8201,12 +8200,12 @@ _wrap_Document_remove_posting__SWIG_0(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termpos","remove_posting", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termpos >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","remove_posting", 4, argv[2] ));
   } 
@@ -8236,7 +8235,7 @@ _wrap_Document_remove_posting__SWIG_1(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   
   if ((argc < 2) || (argc > 2)) {
@@ -8258,7 +8257,7 @@ _wrap_Document_remove_posting__SWIG_1(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termpos","remove_posting", 3, argv[1] ));
   } 
@@ -8301,7 +8300,7 @@ SWIGINTERN VALUE _wrap_Document_remove_posting(int nargs, VALUE *args, VALUE sel
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -8320,12 +8319,12 @@ SWIGINTERN VALUE _wrap_Document_remove_posting(int nargs, VALUE *args, VALUE sel
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
           {
-            int res = SWIG_AsVal_unsigned_SS_long(argv[3], NULL);
+            int res = SWIG_AsVal_unsigned_SS_int(argv[3], NULL);
             _v = SWIG_CheckState(res);
           }
           if (_v) {
@@ -8355,11 +8354,11 @@ _wrap_Document_remove_postings__SWIG_0(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
-  unsigned long val5 ;
+  unsigned int val5 ;
   int ecode5 = 0 ;
   Xapian::termpos result;
   VALUE vresult = Qnil;
@@ -8383,17 +8382,17 @@ _wrap_Document_remove_postings__SWIG_0(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termpos","remove_postings", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termpos >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termpos","remove_postings", 4, argv[2] ));
   } 
   arg4 = static_cast< Xapian::termpos >(val4);
-  ecode5 = SWIG_AsVal_unsigned_SS_long(argv[3], &val5);
+  ecode5 = SWIG_AsVal_unsigned_SS_int(argv[3], &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), Ruby_Format_TypeError( "", "Xapian::termcount","remove_postings", 5, argv[3] ));
   } 
@@ -8407,7 +8406,7 @@ _wrap_Document_remove_postings__SWIG_0(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -8425,9 +8424,9 @@ _wrap_Document_remove_postings__SWIG_1(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   Xapian::termpos result;
   VALUE vresult = Qnil;
@@ -8451,12 +8450,12 @@ _wrap_Document_remove_postings__SWIG_1(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termpos","remove_postings", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termpos >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termpos","remove_postings", 4, argv[2] ));
   } 
@@ -8470,7 +8469,7 @@ _wrap_Document_remove_postings__SWIG_1(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -8500,12 +8499,12 @@ SWIGINTERN VALUE _wrap_Document_remove_postings(int nargs, VALUE *args, VALUE se
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
           {
-            int res = SWIG_AsVal_unsigned_SS_long(argv[3], NULL);
+            int res = SWIG_AsVal_unsigned_SS_int(argv[3], NULL);
             _v = SWIG_CheckState(res);
           }
           if (_v) {
@@ -8525,17 +8524,17 @@ SWIGINTERN VALUE _wrap_Document_remove_postings(int nargs, VALUE *args, VALUE se
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
           {
-            int res = SWIG_AsVal_unsigned_SS_long(argv[3], NULL);
+            int res = SWIG_AsVal_unsigned_SS_int(argv[3], NULL);
             _v = SWIG_CheckState(res);
           }
           if (_v) {
             {
-              int res = SWIG_AsVal_unsigned_SS_long(argv[4], NULL);
+              int res = SWIG_AsVal_unsigned_SS_int(argv[4], NULL);
               _v = SWIG_CheckState(res);
             }
             if (_v) {
@@ -8654,7 +8653,7 @@ _wrap_Document_termlist_count(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -8742,7 +8741,7 @@ _wrap_Document_values_count(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -8830,7 +8829,7 @@ _wrap_Document_docid(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -9365,9 +9364,9 @@ _wrap_new_Query__SWIG_1(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg2 ;
   Xapian::termpos arg3 ;
   int res1 = SWIG_OLDOBJ ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   const char *classname SWIGUNUSED = "Xapian::Query";
   Xapian::Query *result = 0 ;
@@ -9386,12 +9385,12 @@ _wrap_new_Query__SWIG_1(int argc, VALUE *argv, VALUE self) {
     }
     arg1 = ptr;
   }
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[1], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","Query", 2, argv[1] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[2], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termpos","Query", 3, argv[2] ));
   } 
@@ -9419,7 +9418,7 @@ _wrap_new_Query__SWIG_2(int argc, VALUE *argv, VALUE self) {
   std::string *arg1 = 0 ;
   Xapian::termcount arg2 ;
   int res1 = SWIG_OLDOBJ ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   const char *classname SWIGUNUSED = "Xapian::Query";
   Xapian::Query *result = 0 ;
@@ -9438,7 +9437,7 @@ _wrap_new_Query__SWIG_2(int argc, VALUE *argv, VALUE self) {
     }
     arg1 = ptr;
   }
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[1], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","Query", 2, argv[1] ));
   } 
@@ -9877,7 +9876,7 @@ _wrap_new_Query__SWIG_11(int argc, VALUE *argv, VALUE self) {
   int val1 ;
   int ecode1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   int val4 ;
   int ecode4 = 0 ;
@@ -9905,7 +9904,7 @@ _wrap_new_Query__SWIG_11(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[2], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","Query", 3, argv[2] ));
   } 
@@ -9947,7 +9946,7 @@ _wrap_new_Query__SWIG_12(int argc, VALUE *argv, VALUE self) {
   int val1 ;
   int ecode1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   int val4 ;
   int ecode4 = 0 ;
@@ -9973,7 +9972,7 @@ _wrap_new_Query__SWIG_12(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[2], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","Query", 3, argv[2] ));
   } 
@@ -10009,7 +10008,7 @@ _wrap_new_Query__SWIG_13(int argc, VALUE *argv, VALUE self) {
   int val1 ;
   int ecode1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   const char *classname SWIGUNUSED = "Xapian::Query";
   Xapian::Query *result = 0 ;
@@ -10033,7 +10032,7 @@ _wrap_new_Query__SWIG_13(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[2], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","Query", 3, argv[2] ));
   } 
@@ -10111,7 +10110,7 @@ _wrap_new_Query__SWIG_17(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   int val1 ;
   int ecode1 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   const char *classname SWIGUNUSED = "Xapian::Query";
   Xapian::Query *result = 0 ;
@@ -10134,7 +10133,7 @@ _wrap_new_Query__SWIG_17(int argc, VALUE *argv, VALUE self) {
       (&arg3)->end(0);
     }
   }
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","Query", 4, argv[2] ));
   } 
@@ -10328,7 +10327,7 @@ _wrap_Query_length(int argc, VALUE *argv, VALUE self) {
   }
   arg1 = reinterpret_cast< Xapian::Query * >(argp1);
   result = (Xapian::termcount)((Xapian::Query const *)arg1)->get_length();
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -10797,7 +10796,7 @@ SWIGINTERN VALUE _wrap_new_Query(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -10877,7 +10876,7 @@ SWIGINTERN VALUE _wrap_new_Query(int nargs, VALUE *args, VALUE self) {
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -10924,7 +10923,7 @@ SWIGINTERN VALUE _wrap_new_Query(int nargs, VALUE *args, VALUE self) {
       }
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -10939,12 +10938,12 @@ SWIGINTERN VALUE _wrap_new_Query(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -10988,7 +10987,7 @@ SWIGINTERN VALUE _wrap_new_Query(int nargs, VALUE *args, VALUE self) {
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -11014,7 +11013,7 @@ SWIGINTERN VALUE _wrap_new_Query(int nargs, VALUE *args, VALUE self) {
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -12149,7 +12148,7 @@ _wrap_TermGenerator_index_text__SWIG_0(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   int res4 = SWIG_OLDOBJ ;
   
@@ -12172,7 +12171,7 @@ _wrap_TermGenerator_index_text__SWIG_0(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","index_text", 3, argv[1] ));
   } 
@@ -12215,7 +12214,7 @@ _wrap_TermGenerator_index_text__SWIG_1(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   
   if ((argc < 2) || (argc > 2)) {
@@ -12237,7 +12236,7 @@ _wrap_TermGenerator_index_text__SWIG_1(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","index_text", 3, argv[1] ));
   } 
@@ -12337,7 +12336,7 @@ SWIGINTERN VALUE _wrap_TermGenerator_index_text(int nargs, VALUE *args, VALUE se
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -12356,7 +12355,7 @@ SWIGINTERN VALUE _wrap_TermGenerator_index_text(int nargs, VALUE *args, VALUE se
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -12389,7 +12388,7 @@ _wrap_TermGenerator_index_text_without_positions__SWIG_0(int argc, VALUE *argv, 
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   int res4 = SWIG_OLDOBJ ;
   
@@ -12412,7 +12411,7 @@ _wrap_TermGenerator_index_text_without_positions__SWIG_0(int argc, VALUE *argv, 
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","index_text_without_positions", 3, argv[1] ));
   } 
@@ -12455,7 +12454,7 @@ _wrap_TermGenerator_index_text_without_positions__SWIG_1(int argc, VALUE *argv, 
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   
   if ((argc < 2) || (argc > 2)) {
@@ -12477,7 +12476,7 @@ _wrap_TermGenerator_index_text_without_positions__SWIG_1(int argc, VALUE *argv, 
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","index_text_without_positions", 3, argv[1] ));
   } 
@@ -12577,7 +12576,7 @@ SWIGINTERN VALUE _wrap_TermGenerator_index_text_without_positions(int nargs, VAL
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -12596,7 +12595,7 @@ SWIGINTERN VALUE _wrap_TermGenerator_index_text_without_positions(int nargs, VAL
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -12626,7 +12625,7 @@ _wrap_TermGenerator_increase_termpos__SWIG_0(int argc, VALUE *argv, VALUE self) 
   Xapian::termpos arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -12637,7 +12636,7 @@ _wrap_TermGenerator_increase_termpos__SWIG_0(int argc, VALUE *argv, VALUE self) 
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::TermGenerator *","increase_termpos", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::TermGenerator * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termpos","increase_termpos", 2, argv[0] ));
   } 
@@ -12713,7 +12712,7 @@ SWIGINTERN VALUE _wrap_TermGenerator_increase_termpos(int nargs, VALUE *args, VA
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -12756,7 +12755,7 @@ _wrap_TermGenerator_termpos(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -12769,7 +12768,7 @@ _wrap_TermGenerator_set_termpos(int argc, VALUE *argv, VALUE self) {
   Xapian::termpos arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -12780,7 +12779,7 @@ _wrap_TermGenerator_set_termpos(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::TermGenerator *","set_termpos", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::TermGenerator * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termpos","set_termpos", 2, argv[0] ));
   } 
@@ -13050,7 +13049,7 @@ _wrap_MSet_termfreq(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -13131,7 +13130,7 @@ _wrap_MSet_firstitem(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -13163,7 +13162,7 @@ _wrap_MSet_matches_lower_bound(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -13195,7 +13194,7 @@ _wrap_MSet_matches_estimated(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -13227,7 +13226,7 @@ _wrap_MSet_matches_upper_bound(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -13259,7 +13258,7 @@ _wrap_MSet_get_uncollapsed_matches_lower_bound(int argc, VALUE *argv, VALUE self
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -13291,7 +13290,7 @@ _wrap_MSet_get_uncollapsed_matches_estimated(int argc, VALUE *argv, VALUE self) 
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -13323,7 +13322,7 @@ _wrap_MSet_get_uncollapsed_matches_upper_bound(int argc, VALUE *argv, VALUE self
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -14391,7 +14390,7 @@ _wrap_MSet_size(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -14596,7 +14595,7 @@ _wrap_MSet_docid(int argc, VALUE *argv, VALUE self) {
   Xapian::doccount arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   Xapian::docid result;
   VALUE vresult = Qnil;
@@ -14609,7 +14608,7 @@ _wrap_MSet_docid(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::MSet const *","get_docid", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::MSet * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","get_docid", 2, argv[0] ));
   } 
@@ -14623,7 +14622,7 @@ _wrap_MSet_docid(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -14636,7 +14635,7 @@ _wrap_MSet_document(int argc, VALUE *argv, VALUE self) {
   Xapian::doccount arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   Xapian::Document result;
   VALUE vresult = Qnil;
@@ -14649,7 +14648,7 @@ _wrap_MSet_document(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::MSet const *","get_document", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::MSet * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","get_document", 2, argv[0] ));
   } 
@@ -14676,7 +14675,7 @@ _wrap_MSet_hit(int argc, VALUE *argv, VALUE self) {
   Xapian::doccount arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   Xapian::MSetIterator result;
   VALUE vresult = Qnil;
@@ -14689,7 +14688,7 @@ _wrap_MSet_hit(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::MSet const *","get_hit", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::MSet * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","get_hit", 2, argv[0] ));
   } 
@@ -14716,7 +14715,7 @@ _wrap_MSet_document_percentage(int argc, VALUE *argv, VALUE self) {
   Xapian::doccount arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   int result;
   VALUE vresult = Qnil;
@@ -14729,7 +14728,7 @@ _wrap_MSet_document_percentage(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::MSet const *","get_document_percentage", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::MSet * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","get_document_percentage", 2, argv[0] ));
   } 
@@ -14811,7 +14810,7 @@ _wrap_MSetIterator_off_from_end_set(int argc, VALUE *argv, VALUE self) {
   Xapian::MSet::size_type arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -14822,7 +14821,7 @@ _wrap_MSetIterator_off_from_end_set(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::MSetIterator *","off_from_end", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::MSetIterator * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::MSet::size_type","off_from_end", 2, argv[0] ));
   } 
@@ -14851,7 +14850,7 @@ _wrap_MSetIterator_off_from_end_get(int argc, VALUE *argv, VALUE self) {
   }
   arg1 = reinterpret_cast< Xapian::MSetIterator * >(argp1);
   result = (Xapian::MSet::size_type) ((arg1)->off_from_end);
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -14922,7 +14921,7 @@ _wrap_MSetIterator_rank(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -15050,7 +15049,7 @@ _wrap_MSetIterator_collapse_count(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -15221,7 +15220,7 @@ _wrap_MSetIterator_docid(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -15584,7 +15583,7 @@ SWIGINTERN VALUE
 _wrap___add____SWIG_0(int argc, VALUE *argv, VALUE self) {
   Xapian::MSetIterator::difference_type arg1 ;
   Xapian::MSetIterator *arg2 = 0 ;
-  long val1 ;
+  int val1 ;
   int ecode1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
@@ -15594,7 +15593,7 @@ _wrap___add____SWIG_0(int argc, VALUE *argv, VALUE self) {
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_long(argv[0], &val1);
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
     SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "Xapian::MSetIterator::difference_type","Xapian::operator +", 1, argv[0] ));
   } 
@@ -15703,7 +15702,7 @@ _wrap_ESet_size(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -15775,7 +15774,7 @@ _wrap_ESet_ebound(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -15995,7 +15994,7 @@ _wrap_ESetIterator_off_from_end_set(int argc, VALUE *argv, VALUE self) {
   Xapian::ESet::size_type arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -16006,7 +16005,7 @@ _wrap_ESetIterator_off_from_end_set(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::ESetIterator *","off_from_end", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::ESetIterator * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::ESet::size_type","off_from_end", 2, argv[0] ));
   } 
@@ -16035,7 +16034,7 @@ _wrap_ESetIterator_off_from_end_get(int argc, VALUE *argv, VALUE self) {
   }
   arg1 = reinterpret_cast< Xapian::ESetIterator * >(argp1);
   result = (Xapian::ESet::size_type) ((arg1)->off_from_end);
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -16876,7 +16875,7 @@ SWIGINTERN VALUE
 _wrap___add____SWIG_1(int argc, VALUE *argv, VALUE self) {
   Xapian::ESetIterator::difference_type arg1 ;
   Xapian::ESetIterator *arg2 = 0 ;
-  long val1 ;
+  int val1 ;
   int ecode1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
@@ -16886,7 +16885,7 @@ _wrap___add____SWIG_1(int argc, VALUE *argv, VALUE self) {
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_long(argv[0], &val1);
+  ecode1 = SWIG_AsVal_int(argv[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
     SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "Xapian::ESetIterator::difference_type","Xapian::operator +", 1, argv[0] ));
   } 
@@ -16928,7 +16927,7 @@ SWIGINTERN VALUE _wrap___add__(int nargs, VALUE *args, VALUE self) {
   if (argc == 2) {
     int _v = 0;
     {
-      int res = SWIG_AsVal_long(argv[0], NULL);
+      int res = SWIG_AsVal_int(argv[0], NULL);
       _v = SWIG_CheckState(res);
     }
     if (_v) {
@@ -16943,7 +16942,7 @@ SWIGINTERN VALUE _wrap___add__(int nargs, VALUE *args, VALUE self) {
   if (argc == 2) {
     int _v = 0;
     {
-      int res = SWIG_AsVal_long(argv[0], NULL);
+      int res = SWIG_AsVal_int(argv[0], NULL);
       _v = SWIG_CheckState(res);
     }
     if (_v) {
@@ -17045,7 +17044,7 @@ _wrap_RSet_size(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -17098,7 +17097,7 @@ _wrap_RSet_add_document__SWIG_0(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -17109,7 +17108,7 @@ _wrap_RSet_add_document__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::RSet *","add_document", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::RSet * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","add_document", 2, argv[0] ));
   } 
@@ -17201,7 +17200,7 @@ SWIGINTERN VALUE _wrap_RSet_add_document(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -17225,7 +17224,7 @@ _wrap_RSet_remove_document__SWIG_0(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -17236,7 +17235,7 @@ _wrap_RSet_remove_document__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::RSet *","remove_document", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::RSet * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","remove_document", 2, argv[0] ));
   } 
@@ -17328,7 +17327,7 @@ SWIGINTERN VALUE _wrap_RSet_remove_document(int nargs, VALUE *args, VALUE self) 
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -17352,7 +17351,7 @@ _wrap_RSet_contains__SWIG_0(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   bool result;
   VALUE vresult = Qnil;
@@ -17365,7 +17364,7 @@ _wrap_RSet_contains__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::RSet const *","contains", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::RSet * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","contains", 2, argv[0] ));
   } 
@@ -17461,7 +17460,7 @@ SWIGINTERN VALUE _wrap_RSet_contains(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -17715,7 +17714,7 @@ _wrap_Enquire_queryN___(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   
   if ((argc < 2) || (argc > 2)) {
@@ -17734,7 +17733,7 @@ _wrap_Enquire_queryN___(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "Xapian::Query const &","set_query", 2, argv[0])); 
   }
   arg2 = reinterpret_cast< Xapian::Query * >(argp2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","set_query", 3, argv[1] ));
   } 
@@ -18090,7 +18089,7 @@ _wrap_Enquire_collapse_keye_____SWIG_0(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   
   if ((argc < 2) || (argc > 2)) {
@@ -18106,7 +18105,7 @@ _wrap_Enquire_collapse_keye_____SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::valueno","set_collapse_key", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::valueno >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::doccount","set_collapse_key", 3, argv[1] ));
   } 
@@ -18201,7 +18200,7 @@ SWIGINTERN VALUE _wrap_Enquire_collapse_keye___(int nargs, VALUE *args, VALUE se
       }
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -18742,11 +18741,11 @@ _wrap_Enquire_mset__SWIG_0(int argc, VALUE *argv, VALUE self) {
   Xapian::MatchDecider *arg6 = (Xapian::MatchDecider *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   void *argp5 = 0 ;
   int res5 = 0 ;
@@ -18763,17 +18762,17 @@ _wrap_Enquire_mset__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_mset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::doccount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::doccount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 4, argv[2] ));
   } 
@@ -18813,11 +18812,11 @@ _wrap_Enquire_mset__SWIG_1(int argc, VALUE *argv, VALUE self) {
   Xapian::RSet *arg5 = (Xapian::RSet *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   void *argp5 = 0 ;
   int res5 = 0 ;
@@ -18832,17 +18831,17 @@ _wrap_Enquire_mset__SWIG_1(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_mset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::doccount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::doccount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 4, argv[2] ));
   } 
@@ -18876,11 +18875,11 @@ _wrap_Enquire_mset__SWIG_2(int argc, VALUE *argv, VALUE self) {
   Xapian::doccount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   Xapian::MSet result;
   VALUE vresult = Qnil;
@@ -18893,17 +18892,17 @@ _wrap_Enquire_mset__SWIG_2(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_mset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::doccount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::doccount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 4, argv[2] ));
   } 
@@ -18931,9 +18930,9 @@ _wrap_Enquire_mset__SWIG_3(int argc, VALUE *argv, VALUE self) {
   Xapian::doccount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   Xapian::MSet result;
   VALUE vresult = Qnil;
@@ -18946,12 +18945,12 @@ _wrap_Enquire_mset__SWIG_3(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_mset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::doccount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 3, argv[1] ));
   } 
@@ -18981,9 +18980,9 @@ _wrap_Enquire_mset__SWIG_4(int argc, VALUE *argv, VALUE self) {
   Xapian::MatchDecider *arg5 = (Xapian::MatchDecider *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
@@ -19000,12 +18999,12 @@ _wrap_Enquire_mset__SWIG_4(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_mset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::doccount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 3, argv[1] ));
   } 
@@ -19044,9 +19043,9 @@ _wrap_Enquire_mset__SWIG_5(int argc, VALUE *argv, VALUE self) {
   Xapian::RSet *arg4 = (Xapian::RSet *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
@@ -19061,12 +19060,12 @@ _wrap_Enquire_mset__SWIG_5(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_mset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::doccount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::doccount","get_mset", 3, argv[1] ));
   } 
@@ -19110,12 +19109,12 @@ SWIGINTERN VALUE _wrap_Enquire_mset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -19131,12 +19130,12 @@ SWIGINTERN VALUE _wrap_Enquire_mset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -19157,17 +19156,17 @@ SWIGINTERN VALUE _wrap_Enquire_mset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
           {
-            int res = SWIG_AsVal_unsigned_SS_long(argv[3], NULL);
+            int res = SWIG_AsVal_unsigned_SS_int(argv[3], NULL);
             _v = SWIG_CheckState(res);
           }
           if (_v) {
@@ -19184,12 +19183,12 @@ SWIGINTERN VALUE _wrap_Enquire_mset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -19215,17 +19214,17 @@ SWIGINTERN VALUE _wrap_Enquire_mset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
           {
-            int res = SWIG_AsVal_unsigned_SS_long(argv[3], NULL);
+            int res = SWIG_AsVal_unsigned_SS_int(argv[3], NULL);
             _v = SWIG_CheckState(res);
           }
           if (_v) {
@@ -19247,17 +19246,17 @@ SWIGINTERN VALUE _wrap_Enquire_mset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
           {
-            int res = SWIG_AsVal_unsigned_SS_long(argv[3], NULL);
+            int res = SWIG_AsVal_unsigned_SS_int(argv[3], NULL);
             _v = SWIG_CheckState(res);
           }
           if (_v) {
@@ -19301,7 +19300,7 @@ _wrap_Enquire_eset__SWIG_0(int argc, VALUE *argv, VALUE self) {
   double arg6 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
@@ -19322,7 +19321,7 @@ _wrap_Enquire_eset__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_eset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_eset", 2, argv[0] ));
   } 
@@ -19375,7 +19374,7 @@ _wrap_Enquire_eset__SWIG_1(int argc, VALUE *argv, VALUE self) {
   Xapian::ExpandDecider *arg5 = (Xapian::ExpandDecider *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
@@ -19394,7 +19393,7 @@ _wrap_Enquire_eset__SWIG_1(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_eset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_eset", 2, argv[0] ));
   } 
@@ -19441,7 +19440,7 @@ _wrap_Enquire_eset__SWIG_2(int argc, VALUE *argv, VALUE self) {
   int arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
@@ -19458,7 +19457,7 @@ _wrap_Enquire_eset__SWIG_2(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_eset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_eset", 2, argv[0] ));
   } 
@@ -19499,7 +19498,7 @@ _wrap_Enquire_eset__SWIG_3(int argc, VALUE *argv, VALUE self) {
   Xapian::RSet *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
@@ -19514,7 +19513,7 @@ _wrap_Enquire_eset__SWIG_3(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_eset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_eset", 2, argv[0] ));
   } 
@@ -19551,7 +19550,7 @@ _wrap_Enquire_eset__SWIG_4(int argc, VALUE *argv, VALUE self) {
   Xapian::ExpandDecider *arg4 = (Xapian::ExpandDecider *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
@@ -19568,7 +19567,7 @@ _wrap_Enquire_eset__SWIG_4(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_eset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_eset", 2, argv[0] ));
   } 
@@ -19613,7 +19612,7 @@ _wrap_Enquire_eset__SWIG_5(int argc, VALUE *argv, VALUE self) {
   double arg7 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
@@ -19636,7 +19635,7 @@ _wrap_Enquire_eset__SWIG_5(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_eset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_eset", 2, argv[0] ));
   } 
@@ -19695,7 +19694,7 @@ _wrap_Enquire_eset__SWIG_6(int argc, VALUE *argv, VALUE self) {
   Xapian::ExpandDecider *arg6 = (Xapian::ExpandDecider *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
@@ -19716,7 +19715,7 @@ _wrap_Enquire_eset__SWIG_6(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_eset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_eset", 2, argv[0] ));
   } 
@@ -19769,7 +19768,7 @@ _wrap_Enquire_eset__SWIG_7(int argc, VALUE *argv, VALUE self) {
   double arg5 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
@@ -19788,7 +19787,7 @@ _wrap_Enquire_eset__SWIG_7(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_eset", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_eset", 2, argv[0] ));
   } 
@@ -19845,7 +19844,7 @@ SWIGINTERN VALUE _wrap_Enquire_eset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -19865,7 +19864,7 @@ SWIGINTERN VALUE _wrap_Enquire_eset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -19890,7 +19889,7 @@ SWIGINTERN VALUE _wrap_Enquire_eset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -19916,7 +19915,7 @@ SWIGINTERN VALUE _wrap_Enquire_eset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -19947,7 +19946,7 @@ SWIGINTERN VALUE _wrap_Enquire_eset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -19979,7 +19978,7 @@ SWIGINTERN VALUE _wrap_Enquire_eset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -20016,7 +20015,7 @@ SWIGINTERN VALUE _wrap_Enquire_eset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -20053,7 +20052,7 @@ SWIGINTERN VALUE _wrap_Enquire_eset(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -20111,7 +20110,7 @@ _wrap_Enquire__dangerous_matching_terms_begin__SWIG_0(int argc, VALUE *argv, VAL
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   Xapian::TermIterator result;
   VALUE vresult = Qnil;
@@ -20124,7 +20123,7 @@ _wrap_Enquire__dangerous_matching_terms_begin__SWIG_0(int argc, VALUE *argv, VAL
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_matching_terms_begin", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","get_matching_terms_begin", 2, argv[0] ));
   } 
@@ -20151,7 +20150,7 @@ _wrap_Enquire__dangerous_matching_terms_end__SWIG_0(int argc, VALUE *argv, VALUE
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   Xapian::TermIterator result;
   VALUE vresult = Qnil;
@@ -20164,7 +20163,7 @@ _wrap_Enquire__dangerous_matching_terms_end__SWIG_0(int argc, VALUE *argv, VALUE
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Enquire const *","get_matching_terms_end", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Enquire * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","get_matching_terms_end", 2, argv[0] ));
   } 
@@ -20252,7 +20251,7 @@ SWIGINTERN VALUE _wrap_Enquire__dangerous_matching_terms_begin(int nargs, VALUE 
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -20337,7 +20336,7 @@ SWIGINTERN VALUE _wrap_Enquire__dangerous_matching_terms_end(int nargs, VALUE *a
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -24893,7 +24892,7 @@ _wrap_QueryParser_set_max_expansion__SWIG_0(int argc, VALUE *argv, VALUE self) {
   unsigned int arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   int val3 ;
   int ecode3 = 0 ;
@@ -24908,7 +24907,7 @@ _wrap_QueryParser_set_max_expansion__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::QueryParser *","set_max_expansion", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::QueryParser * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","set_max_expansion", 2, argv[0] ));
   } 
@@ -24945,7 +24944,7 @@ _wrap_QueryParser_set_max_expansion__SWIG_1(int argc, VALUE *argv, VALUE self) {
   int arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   int val3 ;
   int ecode3 = 0 ;
@@ -24958,7 +24957,7 @@ _wrap_QueryParser_set_max_expansion__SWIG_1(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::QueryParser *","set_max_expansion", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::QueryParser * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","set_max_expansion", 2, argv[0] ));
   } 
@@ -24989,7 +24988,7 @@ _wrap_QueryParser_set_max_expansion__SWIG_2(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -25000,7 +24999,7 @@ _wrap_QueryParser_set_max_expansion__SWIG_2(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::QueryParser *","set_max_expansion", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::QueryParser * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","set_max_expansion", 2, argv[0] ));
   } 
@@ -25038,7 +25037,7 @@ SWIGINTERN VALUE _wrap_QueryParser_set_max_expansion(int nargs, VALUE *args, VAL
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -25053,7 +25052,7 @@ SWIGINTERN VALUE _wrap_QueryParser_set_max_expansion(int nargs, VALUE *args, VAL
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -25074,7 +25073,7 @@ SWIGINTERN VALUE _wrap_QueryParser_set_max_expansion(int nargs, VALUE *args, VAL
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -25111,7 +25110,7 @@ _wrap_QueryParser_set_max_wildcard_expansion(int argc, VALUE *argv, VALUE self) 
   Xapian::termcount arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -25122,7 +25121,7 @@ _wrap_QueryParser_set_max_wildcard_expansion(int argc, VALUE *argv, VALUE self) 
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::QueryParser *","set_max_wildcard_expansion", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::QueryParser * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","set_max_wildcard_expansion", 2, argv[0] ));
   } 
@@ -26764,11 +26763,11 @@ _wrap_Weight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -26781,17 +26780,17 @@ _wrap_Weight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Weight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -26851,9 +26850,9 @@ _wrap_Weight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -26866,12 +26865,12 @@ _wrap_Weight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Weight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -27005,11 +27004,11 @@ _wrap_BoolWeight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -27022,17 +27021,17 @@ _wrap_BoolWeight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::BoolWeight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::BoolWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -27092,9 +27091,9 @@ _wrap_BoolWeight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -27107,12 +27106,12 @@ _wrap_BoolWeight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::BoolWeight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::BoolWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -27322,11 +27321,11 @@ _wrap_TfIdfWeight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -27339,17 +27338,17 @@ _wrap_TfIdfWeight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::TfIdfWeight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::TfIdfWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -27409,9 +27408,9 @@ _wrap_TfIdfWeight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -27424,12 +27423,12 @@ _wrap_TfIdfWeight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::TfIdfWeight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::TfIdfWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -27690,11 +27689,11 @@ _wrap_BM25Weight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -27707,17 +27706,17 @@ _wrap_BM25Weight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::BM25Weight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::BM25Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -27777,9 +27776,9 @@ _wrap_BM25Weight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -27792,12 +27791,12 @@ _wrap_BM25Weight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::BM25Weight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::BM25Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -28072,11 +28071,11 @@ _wrap_BM25PlusWeight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -28089,17 +28088,17 @@ _wrap_BM25PlusWeight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::BM25PlusWeight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::BM25PlusWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -28159,9 +28158,9 @@ _wrap_BM25PlusWeight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -28174,12 +28173,12 @@ _wrap_BM25PlusWeight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::BM25PlusWeight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::BM25PlusWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -28384,11 +28383,11 @@ _wrap_TradWeight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -28401,17 +28400,17 @@ _wrap_TradWeight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::TradWeight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::TradWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -28471,9 +28470,9 @@ _wrap_TradWeight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -28486,12 +28485,12 @@ _wrap_TradWeight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::TradWeight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::TradWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -28696,11 +28695,11 @@ _wrap_InL2Weight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -28713,17 +28712,17 @@ _wrap_InL2Weight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::InL2Weight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::InL2Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -28783,9 +28782,9 @@ _wrap_InL2Weight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -28798,12 +28797,12 @@ _wrap_InL2Weight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::InL2Weight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::InL2Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -29008,11 +29007,11 @@ _wrap_IfB2Weight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -29025,17 +29024,17 @@ _wrap_IfB2Weight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::IfB2Weight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::IfB2Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -29095,9 +29094,9 @@ _wrap_IfB2Weight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -29110,12 +29109,12 @@ _wrap_IfB2Weight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::IfB2Weight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::IfB2Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -29320,11 +29319,11 @@ _wrap_IneB2Weight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -29337,17 +29336,17 @@ _wrap_IneB2Weight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::IneB2Weight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::IneB2Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -29407,9 +29406,9 @@ _wrap_IneB2Weight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -29422,12 +29421,12 @@ _wrap_IneB2Weight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::IneB2Weight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::IneB2Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -29632,11 +29631,11 @@ _wrap_BB2Weight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -29649,17 +29648,17 @@ _wrap_BB2Weight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::BB2Weight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::BB2Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -29719,9 +29718,9 @@ _wrap_BB2Weight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -29734,12 +29733,12 @@ _wrap_BB2Weight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::BB2Weight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::BB2Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -29879,11 +29878,11 @@ _wrap_DLHWeight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -29896,17 +29895,17 @@ _wrap_DLHWeight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::DLHWeight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::DLHWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -29966,9 +29965,9 @@ _wrap_DLHWeight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -29981,12 +29980,12 @@ _wrap_DLHWeight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::DLHWeight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::DLHWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -30191,11 +30190,11 @@ _wrap_PL2Weight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -30208,17 +30207,17 @@ _wrap_PL2Weight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::PL2Weight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::PL2Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -30278,9 +30277,9 @@ _wrap_PL2Weight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -30293,12 +30292,12 @@ _wrap_PL2Weight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::PL2Weight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::PL2Weight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -30517,11 +30516,11 @@ _wrap_PL2PlusWeight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -30534,17 +30533,17 @@ _wrap_PL2PlusWeight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::PL2PlusWeight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::PL2PlusWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -30604,9 +30603,9 @@ _wrap_PL2PlusWeight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -30619,12 +30618,12 @@ _wrap_PL2PlusWeight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::PL2PlusWeight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::PL2PlusWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -30764,11 +30763,11 @@ _wrap_DPHWeight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -30781,17 +30780,17 @@ _wrap_DPHWeight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::DPHWeight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::DPHWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -30851,9 +30850,9 @@ _wrap_DPHWeight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -30866,12 +30865,12 @@ _wrap_DPHWeight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::DPHWeight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::DPHWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -31289,11 +31288,11 @@ _wrap_LMWeight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -31306,17 +31305,17 @@ _wrap_LMWeight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::LMWeight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::LMWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -31376,9 +31375,9 @@ _wrap_LMWeight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -31391,12 +31390,12 @@ _wrap_LMWeight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::LMWeight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::LMWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -31573,11 +31572,11 @@ _wrap_CoordWeight_sumpart(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
-  unsigned long val4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -31590,17 +31589,17 @@ _wrap_CoordWeight_sumpart(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::CoordWeight const *","get_sumpart", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::CoordWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 3, argv[1] ));
   } 
   arg3 = static_cast< Xapian::termcount >(val3);
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(argv[2], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumpart", 4, argv[2] ));
   } 
@@ -31660,9 +31659,9 @@ _wrap_CoordWeight_sumextra(int argc, VALUE *argv, VALUE self) {
   Xapian::termcount arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   double result;
   VALUE vresult = Qnil;
@@ -31675,12 +31674,12 @@ _wrap_CoordWeight_sumextra(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::CoordWeight const *","get_sumextra", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::CoordWeight * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 2, argv[0] ));
   } 
   arg2 = static_cast< Xapian::termcount >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","get_sumextra", 3, argv[1] ));
   } 
@@ -32318,7 +32317,7 @@ _wrap_PostingSource_get_termfreq_min(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -32363,7 +32362,7 @@ _wrap_PostingSource_get_termfreq_est(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -32408,7 +32407,7 @@ _wrap_PostingSource_get_termfreq_max(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -32559,7 +32558,7 @@ _wrap_PostingSource_docid(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -32623,7 +32622,7 @@ _wrap_PostingSource_skip_to(int argc, VALUE *argv, VALUE self) {
   double arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   double val3 ;
   int ecode3 = 0 ;
@@ -32638,7 +32637,7 @@ _wrap_PostingSource_skip_to(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::PostingSource *","skip_to", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::PostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","skip_to", 2, argv[0] ));
   } 
@@ -32681,7 +32680,7 @@ _wrap_PostingSource_check(int argc, VALUE *argv, VALUE self) {
   double arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   double val3 ;
   int ecode3 = 0 ;
@@ -32698,7 +32697,7 @@ _wrap_PostingSource_check(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::PostingSource *","check", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::PostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","check", 2, argv[0] ));
   } 
@@ -33081,7 +33080,7 @@ _wrap_ValuePostingSource_get_termfreq_min(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -33126,7 +33125,7 @@ _wrap_ValuePostingSource_get_termfreq_est(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -33171,7 +33170,7 @@ _wrap_ValuePostingSource_get_termfreq_max(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -33235,7 +33234,7 @@ _wrap_ValuePostingSource_skip_to(int argc, VALUE *argv, VALUE self) {
   double arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   double val3 ;
   int ecode3 = 0 ;
@@ -33250,7 +33249,7 @@ _wrap_ValuePostingSource_skip_to(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::ValuePostingSource *","skip_to", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::ValuePostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","skip_to", 2, argv[0] ));
   } 
@@ -33293,7 +33292,7 @@ _wrap_ValuePostingSource_check(int argc, VALUE *argv, VALUE self) {
   double arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   double val3 ;
   int ecode3 = 0 ;
@@ -33310,7 +33309,7 @@ _wrap_ValuePostingSource_check(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::ValuePostingSource *","check", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::ValuePostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","check", 2, argv[0] ));
   } 
@@ -33430,7 +33429,7 @@ _wrap_ValuePostingSource_docid(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -33653,7 +33652,7 @@ _wrap_ValuePostingSource_set_termfreq_min(int argc, VALUE *argv, VALUE self) {
   Xapian::doccount arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -33664,7 +33663,7 @@ _wrap_ValuePostingSource_set_termfreq_min(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::ValuePostingSource *","set_termfreq_min", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::ValuePostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","set_termfreq_min", 2, argv[0] ));
   } 
@@ -33690,7 +33689,7 @@ _wrap_ValuePostingSource_set_termfreq_est(int argc, VALUE *argv, VALUE self) {
   Xapian::doccount arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -33701,7 +33700,7 @@ _wrap_ValuePostingSource_set_termfreq_est(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::ValuePostingSource *","set_termfreq_est", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::ValuePostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","set_termfreq_est", 2, argv[0] ));
   } 
@@ -33727,7 +33726,7 @@ _wrap_ValuePostingSource_set_termfreq_max(int argc, VALUE *argv, VALUE self) {
   Xapian::doccount arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -33738,7 +33737,7 @@ _wrap_ValuePostingSource_set_termfreq_max(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::ValuePostingSource *","set_termfreq_max", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::ValuePostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::doccount","set_termfreq_max", 2, argv[0] ));
   } 
@@ -34074,9 +34073,9 @@ _wrap_new_DecreasingValueWeightPostingSource__SWIG_0(int argc, VALUE *argv, VALU
   Xapian::docid arg3 ;
   unsigned int val1 ;
   int ecode1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   const char *classname SWIGUNUSED = "Xapian::DecreasingValueWeightPostingSource";
   Xapian::DecreasingValueWeightPostingSource *result = 0 ;
@@ -34089,12 +34088,12 @@ _wrap_new_DecreasingValueWeightPostingSource__SWIG_0(int argc, VALUE *argv, VALU
     SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "Xapian::valueno","DecreasingValueWeightPostingSource", 1, argv[0] ));
   } 
   arg1 = static_cast< Xapian::valueno >(val1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[1], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","DecreasingValueWeightPostingSource", 2, argv[1] ));
   } 
   arg2 = static_cast< Xapian::docid >(val2);
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[2], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::docid","DecreasingValueWeightPostingSource", 3, argv[2] ));
   } 
@@ -34121,7 +34120,7 @@ _wrap_new_DecreasingValueWeightPostingSource__SWIG_1(int argc, VALUE *argv, VALU
   Xapian::docid arg2 ;
   unsigned int val1 ;
   int ecode1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   const char *classname SWIGUNUSED = "Xapian::DecreasingValueWeightPostingSource";
   Xapian::DecreasingValueWeightPostingSource *result = 0 ;
@@ -34134,7 +34133,7 @@ _wrap_new_DecreasingValueWeightPostingSource__SWIG_1(int argc, VALUE *argv, VALU
     SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "Xapian::valueno","DecreasingValueWeightPostingSource", 1, argv[0] ));
   } 
   arg1 = static_cast< Xapian::valueno >(val1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[1], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","DecreasingValueWeightPostingSource", 2, argv[1] ));
   } 
@@ -34230,7 +34229,7 @@ SWIGINTERN VALUE _wrap_new_DecreasingValueWeightPostingSource(int nargs, VALUE *
     }
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -34246,12 +34245,12 @@ SWIGINTERN VALUE _wrap_new_DecreasingValueWeightPostingSource(int nargs, VALUE *
     }
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -34419,7 +34418,7 @@ _wrap_DecreasingValueWeightPostingSource_skip_to(int argc, VALUE *argv, VALUE se
   double arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   double val3 ;
   int ecode3 = 0 ;
@@ -34432,7 +34431,7 @@ _wrap_DecreasingValueWeightPostingSource_skip_to(int argc, VALUE *argv, VALUE se
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::DecreasingValueWeightPostingSource *","skip_to", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::DecreasingValueWeightPostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","skip_to", 2, argv[0] ));
   } 
@@ -34464,7 +34463,7 @@ _wrap_DecreasingValueWeightPostingSource_check(int argc, VALUE *argv, VALUE self
   double arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   double val3 ;
   int ecode3 = 0 ;
@@ -34479,7 +34478,7 @@ _wrap_DecreasingValueWeightPostingSource_check(int argc, VALUE *argv, VALUE self
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::DecreasingValueWeightPostingSource *","check", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::DecreasingValueWeightPostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","check", 2, argv[0] ));
   } 
@@ -34926,7 +34925,7 @@ _wrap_FixedWeightPostingSource_get_termfreq_min(int argc, VALUE *argv, VALUE sel
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -34958,7 +34957,7 @@ _wrap_FixedWeightPostingSource_get_termfreq_est(int argc, VALUE *argv, VALUE sel
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -34990,7 +34989,7 @@ _wrap_FixedWeightPostingSource_get_termfreq_max(int argc, VALUE *argv, VALUE sel
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -35073,7 +35072,7 @@ _wrap_FixedWeightPostingSource_skip_to(int argc, VALUE *argv, VALUE self) {
   double arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   double val3 ;
   int ecode3 = 0 ;
@@ -35086,7 +35085,7 @@ _wrap_FixedWeightPostingSource_skip_to(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::FixedWeightPostingSource *","skip_to", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::FixedWeightPostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","skip_to", 2, argv[0] ));
   } 
@@ -35118,7 +35117,7 @@ _wrap_FixedWeightPostingSource_check(int argc, VALUE *argv, VALUE self) {
   double arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   double val3 ;
   int ecode3 = 0 ;
@@ -35133,7 +35132,7 @@ _wrap_FixedWeightPostingSource_check(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::FixedWeightPostingSource *","check", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::FixedWeightPostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","check", 2, argv[0] ));
   } 
@@ -35216,7 +35215,7 @@ _wrap_FixedWeightPostingSource_docid(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -38537,7 +38536,7 @@ _wrap_LatLongDistancePostingSource_skip_to(int argc, VALUE *argv, VALUE self) {
   double arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   double val3 ;
   int ecode3 = 0 ;
@@ -38550,7 +38549,7 @@ _wrap_LatLongDistancePostingSource_skip_to(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::LatLongDistancePostingSource *","skip_to", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::LatLongDistancePostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","skip_to", 2, argv[0] ));
   } 
@@ -38582,7 +38581,7 @@ _wrap_LatLongDistancePostingSource_check(int argc, VALUE *argv, VALUE self) {
   double arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   double val3 ;
   int ecode3 = 0 ;
@@ -38597,7 +38596,7 @@ _wrap_LatLongDistancePostingSource_check(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::LatLongDistancePostingSource *","check", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::LatLongDistancePostingSource * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","check", 2, argv[0] ));
   } 
@@ -39833,7 +39832,7 @@ _wrap_Database__dangerous_termlist_begin(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   Xapian::TermIterator result;
   VALUE vresult = Qnil;
@@ -39846,7 +39845,7 @@ _wrap_Database__dangerous_termlist_begin(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Database const *","termlist_begin", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Database * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","termlist_begin", 2, argv[0] ));
   } 
@@ -39873,7 +39872,7 @@ _wrap_Database__dangerous_termlist_end(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   Xapian::TermIterator result;
   VALUE vresult = Qnil;
@@ -39886,7 +39885,7 @@ _wrap_Database__dangerous_termlist_end(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Database const *","termlist_end", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Database * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","termlist_end", 2, argv[0] ));
   } 
@@ -39938,7 +39937,7 @@ _wrap_Database__dangerous_positionlist_begin(int argc, VALUE *argv, VALUE self) 
   std::string *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   Xapian::PositionIterator result;
@@ -39952,7 +39951,7 @@ _wrap_Database__dangerous_positionlist_begin(int argc, VALUE *argv, VALUE self) 
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Database const *","positionlist_begin", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Database * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","positionlist_begin", 2, argv[0] ));
   } 
@@ -39993,7 +39992,7 @@ _wrap_Database__dangerous_positionlist_end(int argc, VALUE *argv, VALUE self) {
   std::string *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   Xapian::PositionIterator result;
@@ -40007,7 +40006,7 @@ _wrap_Database__dangerous_positionlist_end(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Database const *","positionlist_end", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Database * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","positionlist_end", 2, argv[0] ));
   } 
@@ -40286,7 +40285,7 @@ _wrap_Database_doccount(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -40318,7 +40317,7 @@ _wrap_Database_lastdocid(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -40459,7 +40458,7 @@ _wrap_Database_termfreq(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -40553,7 +40552,7 @@ _wrap_Database_collection_freq(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -40595,7 +40594,7 @@ _wrap_Database_get_value_freq(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -40707,7 +40706,7 @@ _wrap_Database_get_doclength_lower_bound(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -40739,7 +40738,7 @@ _wrap_Database_get_doclength_upper_bound(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -40784,7 +40783,7 @@ _wrap_Database_get_wdf_upper_bound(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -40871,7 +40870,7 @@ _wrap_Database_doclength(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   Xapian::termcount result;
   VALUE vresult = Qnil;
@@ -40884,7 +40883,7 @@ _wrap_Database_doclength(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Database const *","get_doclength", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Database * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","get_doclength", 2, argv[0] ));
   } 
@@ -40898,7 +40897,7 @@ _wrap_Database_doclength(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -40911,7 +40910,7 @@ _wrap_Database_get_unique_terms(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   Xapian::termcount result;
   VALUE vresult = Qnil;
@@ -40924,7 +40923,7 @@ _wrap_Database_get_unique_terms(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Database const *","get_unique_terms", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Database * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","get_unique_terms", 2, argv[0] ));
   } 
@@ -40938,7 +40937,7 @@ _wrap_Database_get_unique_terms(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -40980,7 +40979,7 @@ _wrap_Database_document__SWIG_0(int argc, VALUE *argv, VALUE self) {
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   Xapian::Document result;
   VALUE vresult = Qnil;
@@ -40993,7 +40992,7 @@ _wrap_Database_document__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Database const *","get_document", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Database * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","get_document", 2, argv[0] ));
   } 
@@ -41021,7 +41020,7 @@ _wrap_Database_document__SWIG_1(int argc, VALUE *argv, VALUE self) {
   unsigned int arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   unsigned int val3 ;
   int ecode3 = 0 ;
@@ -41036,7 +41035,7 @@ _wrap_Database_document__SWIG_1(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::Database const *","get_document", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::Database * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","get_document", 2, argv[0] ));
   } 
@@ -41080,7 +41079,7 @@ SWIGINTERN VALUE _wrap_Database_document(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -41095,7 +41094,7 @@ SWIGINTERN VALUE _wrap_Database_document(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -43436,7 +43435,7 @@ _wrap_WritableDatabase_add_document(int argc, VALUE *argv, VALUE self) {
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return vresult;
 fail:
   return Qnil;
@@ -43449,7 +43448,7 @@ _wrap_WritableDatabase_delete_document__SWIG_0(int argc, VALUE *argv, VALUE self
   Xapian::docid arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
@@ -43460,7 +43459,7 @@ _wrap_WritableDatabase_delete_document__SWIG_0(int argc, VALUE *argv, VALUE self
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::WritableDatabase *","delete_document", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::WritableDatabase * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","delete_document", 2, argv[0] ));
   } 
@@ -43542,7 +43541,7 @@ SWIGINTERN VALUE _wrap_WritableDatabase_delete_document(int nargs, VALUE *args, 
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -43580,7 +43579,7 @@ _wrap_WritableDatabase_replace_document__SWIG_0(int argc, VALUE *argv, VALUE sel
   Xapian::Document *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val2 ;
+  unsigned int val2 ;
   int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
@@ -43593,7 +43592,7 @@ _wrap_WritableDatabase_replace_document__SWIG_0(int argc, VALUE *argv, VALUE sel
     SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Xapian::WritableDatabase *","replace_document", 1, self )); 
   }
   arg1 = reinterpret_cast< Xapian::WritableDatabase * >(argp1);
-  ecode2 = SWIG_AsVal_unsigned_SS_long(argv[0], &val2);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "Xapian::docid","replace_document", 2, argv[0] ));
   } 
@@ -43670,7 +43669,7 @@ _wrap_WritableDatabase_replace_document__SWIG_1(int argc, VALUE *argv, VALUE sel
       SWIG_exception(code, msg.c_str());
     }
   }
-  vresult = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  vresult = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -43697,7 +43696,7 @@ SWIGINTERN VALUE _wrap_WritableDatabase_replace_document(int nargs, VALUE *args,
     _v = SWIG_CheckState(res);
     if (_v) {
       {
-        int res = SWIG_AsVal_unsigned_SS_long(argv[1], NULL);
+        int res = SWIG_AsVal_unsigned_SS_int(argv[1], NULL);
         _v = SWIG_CheckState(res);
       }
       if (_v) {
@@ -43746,7 +43745,7 @@ _wrap_WritableDatabase_add_spelling__SWIG_0(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   
   if ((argc < 2) || (argc > 2)) {
@@ -43768,7 +43767,7 @@ _wrap_WritableDatabase_add_spelling__SWIG_0(int argc, VALUE *argv, VALUE self) {
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","add_spelling", 3, argv[1] ));
   } 
@@ -43868,7 +43867,7 @@ SWIGINTERN VALUE _wrap_WritableDatabase_add_spelling(int nargs, VALUE *args, VAL
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -43895,7 +43894,7 @@ _wrap_WritableDatabase_remove_spelling__SWIG_0(int argc, VALUE *argv, VALUE self
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  unsigned long val3 ;
+  unsigned int val3 ;
   int ecode3 = 0 ;
   
   if ((argc < 2) || (argc > 2)) {
@@ -43917,7 +43916,7 @@ _wrap_WritableDatabase_remove_spelling__SWIG_0(int argc, VALUE *argv, VALUE self
     }
     arg2 = ptr;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_long(argv[1], &val3);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), Ruby_Format_TypeError( "", "Xapian::termcount","remove_spelling", 3, argv[1] ));
   } 
@@ -44017,7 +44016,7 @@ SWIGINTERN VALUE _wrap_WritableDatabase_remove_spelling(int nargs, VALUE *args, 
       _v = SWIG_CheckState(res);
       if (_v) {
         {
-          int res = SWIG_AsVal_unsigned_SS_long(argv[2], NULL);
+          int res = SWIG_AsVal_unsigned_SS_int(argv[2], NULL);
           _v = SWIG_CheckState(res);
         }
         if (_v) {
@@ -45842,8 +45841,7 @@ static swig_type_info _swigt__p_docid_order = {"_p_docid_order", "docid_order *"
 static swig_type_info _swigt__p_double = {"_p_double", "Xapian::doclength *|Xapian::weight *|double *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_feature_flag = {"_p_feature_flag", "feature_flag *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_flags = {"_p_flags", "flags *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_int = {"_p_int", "Xapian::percent *|Xapian::valueno_diff *|int *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_long = {"_p_long", "Xapian::doccount_diff *|Xapian::termcount_diff *|Xapian::termpos_diff *|long *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_int = {"_p_int", "Xapian::doccount_diff *|Xapian::percent *|Xapian::termcount_diff *|Xapian::termpos_diff *|Xapian::valueno_diff *|int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_stem_strategy = {"_p_stem_strategy", "stem_strategy *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_stop_strategy = {"_p_stop_strategy", "stop_strategy *", 0, 0, (void*)0, 0};
@@ -45851,8 +45849,8 @@ static swig_type_info _swigt__p_swig__ConstIterator = {"_p_swig__ConstIterator",
 static swig_type_info _swigt__p_swig__GC_VALUE = {"_p_swig__GC_VALUE", "swig::GC_VALUE *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_swig__Iterator = {"_p_swig__Iterator", "swig::Iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_type_smoothing = {"_p_type_smoothing", "type_smoothing *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "Xapian::timeout *|Xapian::valueno *|unsigned int *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_unsigned_long = {"_p_unsigned_long", "Xapian::doccount *|Xapian::docid *|Xapian::rev *|Xapian::termcount *|Xapian::termpos *|Xapian::totallength *|unsigned long *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "Xapian::doccount *|Xapian::docid *|Xapian::termcount *|Xapian::termpos *|Xapian::timeout *|Xapian::valueno *|unsigned int *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_unsigned_long = {"_p_unsigned_long", "Xapian::rev *|Xapian::totallength *|unsigned long *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_void = {"_p_void", "VALUE|void *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
@@ -45932,7 +45930,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_feature_flag,
   &_swigt__p_flags,
   &_swigt__p_int,
-  &_swigt__p_long,
   &_swigt__p_std__string,
   &_swigt__p_stem_strategy,
   &_swigt__p_stop_strategy,
@@ -46021,7 +46018,6 @@ static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0
 static swig_cast_info _swigc__p_feature_flag[] = {  {&_swigt__p_feature_flag, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_flags[] = {  {&_swigt__p_flags, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_long[] = {  {&_swigt__p_long, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_stem_strategy[] = {  {&_swigt__p_stem_strategy, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_stop_strategy[] = {  {&_swigt__p_stop_strategy, 0, 0, 0},{0, 0, 0, 0}};
@@ -46110,7 +46106,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_feature_flag,
   _swigc__p_flags,
   _swigc__p_int,
-  _swigc__p_long,
   _swigc__p_std__string,
   _swigc__p_stem_strategy,
   _swigc__p_stop_strategy,
